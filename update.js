@@ -7,7 +7,7 @@ function fetchDoc(name) {
     var response = request('GET', 'http://package.elm-lang.org/packages/' + name + '/documentation.json');
     var body = JSON.parse(response.body);
     fs.mkdirsSync(process.cwd() + "/docs/" + name);
-    fs.writeFileSync(process.cwd() + "/docs/" + name + "/documentation.json", JSON.stringify(response.body));
+    fs.writeFileSync(process.cwd() + "/docs/" + name + "/documentation.json", JSON.stringify(body));
 }
 (function doStuff() {
     console.log("Fetching docs...");
@@ -22,7 +22,4 @@ function fetchDoc(name) {
     targets.forEach(x => {
         fetchDoc(x);
     });
-    console.log(targets);
-
-
 })()
