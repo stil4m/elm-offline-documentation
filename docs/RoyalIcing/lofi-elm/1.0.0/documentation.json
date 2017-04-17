@@ -1,0 +1,1 @@
+[{"name":"Lofi","comment":" A library for #lofi parsing\n\n# Parsing #lofi\n@docs parseElement\n\n","aliases":[],"types":[],"values":[{"name":"parseElement","comment":" Turn a #lofi string into a #lofi Element.\n","type":"String -> Parser.Types.Element"}],"generated-with-elm-version":"0.18.0"}]

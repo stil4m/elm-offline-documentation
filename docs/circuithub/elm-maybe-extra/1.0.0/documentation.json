@@ -1,0 +1,1 @@
+[{"name":"Maybe.Extra","comment":"Convenience functions for Maybe.\n\n@docs join","aliases":[],"types":[],"values":[{"name":"join","comment":"Flattens nested Maybes\n\n    join (Just (Just 1)) == Just 1\n    join (Just Nothing)  == Nothing\n    join Nothing         == Nothing","type":"Maybe (Maybe a) -> Maybe a"}],"generated-with-elm-version":"old"}]
