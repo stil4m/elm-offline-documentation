@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var request = require('sync-request');
 var _ = require('lodash');
 const fs = require('fs-extra');

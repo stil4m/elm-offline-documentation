@@ -5,7 +5,7 @@ d=`date '+%Y-%m-%d %H:%M'`
 
 git pull
 
-/usr/local/bin/node update.js
+./update.js
 
 git add -A
 git commit -m "AUTO: Changes for $d"
