@@ -5,6 +5,7 @@ d=`date '+%Y-%m-%d %H:%M'`
 
 git pull
 
+npm install
 ./update.js
 
 git add -A
