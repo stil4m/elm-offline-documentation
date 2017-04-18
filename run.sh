@@ -6,7 +6,7 @@ echo "$d"
 
 git pull
 
-npm install
+/Users/stil4m/.nvm/versions/node/v7.6.0/bin/npm install
 ./update.js
 
 git add -A
