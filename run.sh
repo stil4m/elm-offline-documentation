@@ -1,7 +1,8 @@
-#1/usr/bin/env bash
+#!/usr/bin/env bash
 
 command="update"
 d=`date '+%Y-%m-%d %H:%M'`
+echo "$d"
 
 git pull
 
