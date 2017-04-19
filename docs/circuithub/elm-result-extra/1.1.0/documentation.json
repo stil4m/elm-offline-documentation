@@ -1,1 +1,26 @@
-[{"name":"Result.Extra","comment":"Convenience functions for working with Result\n\n# Common Helpers\n@docs isOk, isErr, extract","aliases":[],"types":[],"values":[{"name":"extract","comment":"Turn a `Result e a` to an `a`, by applying the conversion\nfunction specified to the `e`.","type":"(e -> a) -> Result e a -> a"},{"name":"isErr","comment":"Check whether the result is `Err` without unwrapping it.","type":"Result e a -> Bool"},{"name":"isOk","comment":"Check whether the result is `Ok` without unwrapping it.","type":"Result e a -> Bool"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Result.Extra",
+    "comment": "Convenience functions for working with Result\n\n# Common Helpers\n@docs isOk, isErr, extract",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "extract",
+        "comment": "Turn a `Result e a` to an `a`, by applying the conversion\nfunction specified to the `e`.",
+        "type": "(e -> a) -> Result e a -> a"
+      },
+      {
+        "name": "isErr",
+        "comment": "Check whether the result is `Err` without unwrapping it.",
+        "type": "Result e a -> Bool"
+      },
+      {
+        "name": "isOk",
+        "comment": "Check whether the result is `Ok` without unwrapping it.",
+        "type": "Result e a -> Bool"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

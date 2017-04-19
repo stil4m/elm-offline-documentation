@@ -1,1 +1,38 @@
-[{"name":"NestedList","comment":" Module description\n\n## Definition\n\n@docs NestedList\n\n## JSON\n\n### Decoder\n\n### Encoder\n\n\n## Functions\n@docs flatten\n","aliases":[],"types":[{"name":"NestedList","comment":" Represents a tree (or nested list)\n","args":["a"],"cases":[["Element",["a"]],["Nested",["List (NestedList.NestedList a)"]]]}],"values":[{"name":"flatten","comment":" Flatten a NestedList to a normal List\n\n    >>> flatten (Nested [ Nested [ Element 1, Element 2, Nested [ Element 3 ] ], Element 4 ])\n    [1,2,3,4]\n","type":"NestedList.NestedList a -> List a"}],"generated-with-elm-version":"0.18.0"}]
+[
+  {
+    "name": "NestedList",
+    "comment": " Module description\n\n## Definition\n\n@docs NestedList\n\n## JSON\n\n### Decoder\n\n### Encoder\n\n\n## Functions\n@docs flatten\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "NestedList",
+        "comment": " Represents a tree (or nested list)\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Element",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Nested",
+            [
+              "List (NestedList.NestedList a)"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "flatten",
+        "comment": " Flatten a NestedList to a normal List\n\n    >>> flatten (Nested [ Nested [ Element 1, Element 2, Nested [ Element 3 ] ], Element 4 ])\n    [1,2,3,4]\n",
+        "type": "NestedList.NestedList a -> List a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

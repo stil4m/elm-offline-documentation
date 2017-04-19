@@ -1,1 +1,35 @@
-[{"name":"Random.Array","comment":"\n\n# Random Sampling of Arrays\n\nThese implementations are good enough for simple games, but should not be used\nwhen statisically sound randomness is required.\n\n@docs sample choose shuffle","aliases":[{"name":"ShuffleState","comment":"","args":["a"],"type":"( Random.Seed, List a, Array a )"}],"types":[],"values":[{"name":"choose","comment":"Sample without replacement: Produce a randomly selected element of the\narray, the array with that element omitted (shifting all later elements down),\nand the new seed.","type":"Array a -> Seed -> ( Maybe a, Array a, Seed )"},{"name":"sample","comment":"Sample with replacement: Produce a randomly selected element of the\narray and the new seed.","type":"Array a -> Seed -> ( Maybe a, Seed )"},{"name":"shuffle","comment":"Shuffle the array using the Fisher-Yates algorithm. Takes O(_n_ log _n_)\ntime and O(_n_) additional space.","type":"Random.Seed -> Array a -> ( Array a, Random.Seed )"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Random.Array",
+    "comment": "\n\n# Random Sampling of Arrays\n\nThese implementations are good enough for simple games, but should not be used\nwhen statisically sound randomness is required.\n\n@docs sample choose shuffle",
+    "aliases": [
+      {
+        "name": "ShuffleState",
+        "comment": "",
+        "args": [
+          "a"
+        ],
+        "type": "( Random.Seed, List a, Array a )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "choose",
+        "comment": "Sample without replacement: Produce a randomly selected element of the\narray, the array with that element omitted (shifting all later elements down),\nand the new seed.",
+        "type": "Array a -> Seed -> ( Maybe a, Array a, Seed )"
+      },
+      {
+        "name": "sample",
+        "comment": "Sample with replacement: Produce a randomly selected element of the\narray and the new seed.",
+        "type": "Array a -> Seed -> ( Maybe a, Seed )"
+      },
+      {
+        "name": "shuffle",
+        "comment": "Shuffle the array using the Fisher-Yates algorithm. Takes O(_n_ log _n_)\ntime and O(_n_) additional space.",
+        "type": "Random.Seed -> Array a -> ( Array a, Random.Seed )"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

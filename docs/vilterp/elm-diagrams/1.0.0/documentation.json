@@ -1,1 +1,301 @@
-[{"name":"Diagrams","comment":"Diagrams is a library built on top of Graphics.Collage which allows you to\nconstruct graphics by laying out elements relative to each other. You can also\n\"tag\" elements in the diagram, and, given coordinates (i.e. of the mouse) find\nwhich path in the hierarchy of tagged elements the coordinates are over. Lastly,\ngiven a tag path, you can find the coordinates at which that element was placed.\n\n# Basic Types\n@docs Diagram, TagPath, Point\n\n# Rendering and Debugging\n@docs render, showBBox, showOrigin, outlineBox\n\n# Properties and Querying\n@docs Direction, envelope, width, height, pick, getCoords\n\n# Positioning\n@docs beside, above, atop, hcat, vcat, zcat, moveX, moveY, move\n\n# Shortcuts\n@docs empty, vspace, hspace, vline, hline\n\n# Geometry Utilities\n@docs Transform, applyTrans, invertTrans, magnitude, lerp","aliases":[{"name":"TagPath","comment":"","args":["a"],"type":"List a"},{"name":"Point","comment":"","args":[],"type":"( Float, Float )"}],"types":[{"name":"Direction","comment":"","args":[],"cases":[["Up",[]],["Down",[]],["Left",[]],["Right",[]]]},{"name":"Transform","comment":"","args":[],"cases":[["Translate",["Float","Float"]],["Rotate",["Float"]],["Scale",["Float"]]]},{"name":"Diagram","comment":"","args":["a"],"cases":[["Circle",["Float","C.FillStyle"]],["Rect",["Float","Float","C.FillStyle"]],["Path",["List Point","C.LineStyle"]],["Text",["String","T.Style"]],["Spacer",["Float","Float"]],["TransformD",["Transform","Diagram a"]],["Group",["List (Diagram a)"]],["Tag",["a","Diagram a"]]]}],"values":[{"name":"above","comment":"","type":"Diagram a -> Diagram a -> Diagram a"},{"name":"applyTrans","comment":"","type":"Transform -> Point -> Point"},{"name":"atop","comment":"","type":"Diagram a -> Diagram a -> Diagram a"},{"name":"beside","comment":"","type":"Diagram a -> Diagram a -> Diagram a"},{"name":"defaultFill","comment":"","type":"C.FillStyle"},{"name":"empty","comment":"","type":"Diagram a"},{"name":"envelope","comment":"","type":"Diagram a -> Direction -> Float"},{"name":"firstJust","comment":"","type":"List (M.Maybe a) -> M.Maybe a"},{"name":"getCoords","comment":"","type":"Diagram a -> TagPath a -> M.Maybe Point"},{"name":"getCoords'","comment":"","type":"Diagram a -> TagPath a -> Point -> M.Maybe Point"},{"name":"hcat","comment":"","type":"List (Diagram a) -> Diagram a"},{"name":"height","comment":"","type":"Diagram a -> Float"},{"name":"hline","comment":"","type":"Float -> C.LineStyle -> Diagram a"},{"name":"hspace","comment":"","type":"Float -> Diagram a"},{"name":"invertTrans","comment":"","type":"Transform -> Transform"},{"name":"lerp","comment":"","type":"( Float, Float ) -> ( Float, Float ) -> Float -> Float"},{"name":"magnitude","comment":"","type":"Point -> Float"},{"name":"move","comment":"","type":"( Float, Float ) -> Diagram a -> Diagram a"},{"name":"moveX","comment":"","type":"Float -> Diagram a -> Diagram a"},{"name":"moveY","comment":"","type":"Float -> Diagram a -> Diagram a"},{"name":"outlineBox","comment":"","type":"C.LineStyle -> Diagram a -> Diagram a"},{"name":"pick","comment":"","type":"Diagram a -> Point -> M.Maybe (TagPath a)"},{"name":"render","comment":"","type":"Diagram a -> C.Form"},{"name":"showBBox","comment":"","type":"Diagram a -> Diagram a"},{"name":"showOrigin","comment":"","type":"Diagram a -> Diagram a"},{"name":"textElem","comment":"","type":"String -> T.Style -> E.Element"},{"name":"toPoint","comment":"","type":"( Int, Int ) -> Point"},{"name":"vcat","comment":"","type":"List (Diagram a) -> Diagram a"},{"name":"vline","comment":"","type":"Float -> C.LineStyle -> Diagram a"},{"name":"vspace","comment":"","type":"Float -> Diagram a"},{"name":"width","comment":"","type":"Diagram a -> Float"},{"name":"zcat","comment":"","type":"List (Diagram a) -> Diagram a"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Diagrams",
+    "comment": "Diagrams is a library built on top of Graphics.Collage which allows you to\nconstruct graphics by laying out elements relative to each other. You can also\n\"tag\" elements in the diagram, and, given coordinates (i.e. of the mouse) find\nwhich path in the hierarchy of tagged elements the coordinates are over. Lastly,\ngiven a tag path, you can find the coordinates at which that element was placed.\n\n# Basic Types\n@docs Diagram, TagPath, Point\n\n# Rendering and Debugging\n@docs render, showBBox, showOrigin, outlineBox\n\n# Properties and Querying\n@docs Direction, envelope, width, height, pick, getCoords\n\n# Positioning\n@docs beside, above, atop, hcat, vcat, zcat, moveX, moveY, move\n\n# Shortcuts\n@docs empty, vspace, hspace, vline, hline\n\n# Geometry Utilities\n@docs Transform, applyTrans, invertTrans, magnitude, lerp",
+    "aliases": [
+      {
+        "name": "TagPath",
+        "comment": "",
+        "args": [
+          "a"
+        ],
+        "type": "List a"
+      },
+      {
+        "name": "Point",
+        "comment": "",
+        "args": [],
+        "type": "( Float, Float )"
+      }
+    ],
+    "types": [
+      {
+        "name": "Direction",
+        "comment": "",
+        "args": [],
+        "cases": [
+          [
+            "Up",
+            []
+          ],
+          [
+            "Down",
+            []
+          ],
+          [
+            "Left",
+            []
+          ],
+          [
+            "Right",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Transform",
+        "comment": "",
+        "args": [],
+        "cases": [
+          [
+            "Translate",
+            [
+              "Float",
+              "Float"
+            ]
+          ],
+          [
+            "Rotate",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Scale",
+            [
+              "Float"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Diagram",
+        "comment": "",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Circle",
+            [
+              "Float",
+              "C.FillStyle"
+            ]
+          ],
+          [
+            "Rect",
+            [
+              "Float",
+              "Float",
+              "C.FillStyle"
+            ]
+          ],
+          [
+            "Path",
+            [
+              "List Point",
+              "C.LineStyle"
+            ]
+          ],
+          [
+            "Text",
+            [
+              "String",
+              "T.Style"
+            ]
+          ],
+          [
+            "Spacer",
+            [
+              "Float",
+              "Float"
+            ]
+          ],
+          [
+            "TransformD",
+            [
+              "Transform",
+              "Diagram a"
+            ]
+          ],
+          [
+            "Group",
+            [
+              "List (Diagram a)"
+            ]
+          ],
+          [
+            "Tag",
+            [
+              "a",
+              "Diagram a"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "above",
+        "comment": "",
+        "type": "Diagram a -> Diagram a -> Diagram a"
+      },
+      {
+        "name": "applyTrans",
+        "comment": "",
+        "type": "Transform -> Point -> Point"
+      },
+      {
+        "name": "atop",
+        "comment": "",
+        "type": "Diagram a -> Diagram a -> Diagram a"
+      },
+      {
+        "name": "beside",
+        "comment": "",
+        "type": "Diagram a -> Diagram a -> Diagram a"
+      },
+      {
+        "name": "defaultFill",
+        "comment": "",
+        "type": "C.FillStyle"
+      },
+      {
+        "name": "empty",
+        "comment": "",
+        "type": "Diagram a"
+      },
+      {
+        "name": "envelope",
+        "comment": "",
+        "type": "Diagram a -> Direction -> Float"
+      },
+      {
+        "name": "firstJust",
+        "comment": "",
+        "type": "List (M.Maybe a) -> M.Maybe a"
+      },
+      {
+        "name": "getCoords",
+        "comment": "",
+        "type": "Diagram a -> TagPath a -> M.Maybe Point"
+      },
+      {
+        "name": "getCoords'",
+        "comment": "",
+        "type": "Diagram a -> TagPath a -> Point -> M.Maybe Point"
+      },
+      {
+        "name": "hcat",
+        "comment": "",
+        "type": "List (Diagram a) -> Diagram a"
+      },
+      {
+        "name": "height",
+        "comment": "",
+        "type": "Diagram a -> Float"
+      },
+      {
+        "name": "hline",
+        "comment": "",
+        "type": "Float -> C.LineStyle -> Diagram a"
+      },
+      {
+        "name": "hspace",
+        "comment": "",
+        "type": "Float -> Diagram a"
+      },
+      {
+        "name": "invertTrans",
+        "comment": "",
+        "type": "Transform -> Transform"
+      },
+      {
+        "name": "lerp",
+        "comment": "",
+        "type": "( Float, Float ) -> ( Float, Float ) -> Float -> Float"
+      },
+      {
+        "name": "magnitude",
+        "comment": "",
+        "type": "Point -> Float"
+      },
+      {
+        "name": "move",
+        "comment": "",
+        "type": "( Float, Float ) -> Diagram a -> Diagram a"
+      },
+      {
+        "name": "moveX",
+        "comment": "",
+        "type": "Float -> Diagram a -> Diagram a"
+      },
+      {
+        "name": "moveY",
+        "comment": "",
+        "type": "Float -> Diagram a -> Diagram a"
+      },
+      {
+        "name": "outlineBox",
+        "comment": "",
+        "type": "C.LineStyle -> Diagram a -> Diagram a"
+      },
+      {
+        "name": "pick",
+        "comment": "",
+        "type": "Diagram a -> Point -> M.Maybe (TagPath a)"
+      },
+      {
+        "name": "render",
+        "comment": "",
+        "type": "Diagram a -> C.Form"
+      },
+      {
+        "name": "showBBox",
+        "comment": "",
+        "type": "Diagram a -> Diagram a"
+      },
+      {
+        "name": "showOrigin",
+        "comment": "",
+        "type": "Diagram a -> Diagram a"
+      },
+      {
+        "name": "textElem",
+        "comment": "",
+        "type": "String -> T.Style -> E.Element"
+      },
+      {
+        "name": "toPoint",
+        "comment": "",
+        "type": "( Int, Int ) -> Point"
+      },
+      {
+        "name": "vcat",
+        "comment": "",
+        "type": "List (Diagram a) -> Diagram a"
+      },
+      {
+        "name": "vline",
+        "comment": "",
+        "type": "Float -> C.LineStyle -> Diagram a"
+      },
+      {
+        "name": "vspace",
+        "comment": "",
+        "type": "Float -> Diagram a"
+      },
+      {
+        "name": "width",
+        "comment": "",
+        "type": "Diagram a -> Float"
+      },
+      {
+        "name": "zcat",
+        "comment": "",
+        "type": "List (Diagram a) -> Diagram a"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

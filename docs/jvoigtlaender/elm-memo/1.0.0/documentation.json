@@ -1,1 +1,31 @@
-[{"name":"Memo","comment":" Most basic memoization functionality.\n\n@docs Function, memo, apply\n","aliases":[],"types":[{"name":"Function","comment":"\n","args":["comparable","b"],"cases":[]}],"values":[{"name":"apply","comment":"\n","type":"Memo.Function comparable b -> comparable -> Maybe.Maybe b"},{"name":"memo","comment":"\n","type":"(comparable -> b) -> List comparable -> Memo.Function comparable b"}],"generated-with-elm-version":"0.16.0"}]
+[
+  {
+    "name": "Memo",
+    "comment": " Most basic memoization functionality.\n\n@docs Function, memo, apply\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Function",
+        "comment": "\n",
+        "args": [
+          "comparable",
+          "b"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "apply",
+        "comment": "\n",
+        "type": "Memo.Function comparable b -> comparable -> Maybe.Maybe b"
+      },
+      {
+        "name": "memo",
+        "comment": "\n",
+        "type": "(comparable -> b) -> List comparable -> Memo.Function comparable b"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

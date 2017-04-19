@@ -1,1 +1,16 @@
-[{"name":"String.Extra","comment":"Convenience functions for working with Strings\n\n# Formatting numbers\n@docs pluralize","aliases":[],"types":[],"values":[{"name":"pluralize","comment":"Given a number, a singular string, and a plural string, returns the number\nfollowed by a space, followed by either the singular string if the number was 1,\nor the plural string otherwise.\n\n  pluralize \"elf\" \"elves\" 2 == \"2 elves\"\n  pluralize \"elf\" \"elves\" 1 == \"1 elf\"\n  pluralize \"elf\" \"elves\" 0 == \"0 elves\"","type":"String -> String -> number -> String"}],"generated-with-elm-version":"0.15.1"}]
+[
+  {
+    "name": "String.Extra",
+    "comment": "Convenience functions for working with Strings\n\n# Formatting numbers\n@docs pluralize",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "pluralize",
+        "comment": "Given a number, a singular string, and a plural string, returns the number\nfollowed by a space, followed by either the singular string if the number was 1,\nor the plural string otherwise.\n\n  pluralize \"elf\" \"elves\" 2 == \"2 elves\"\n  pluralize \"elf\" \"elves\" 1 == \"1 elf\"\n  pluralize \"elf\" \"elves\" 0 == \"0 elves\"",
+        "type": "String -> String -> number -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

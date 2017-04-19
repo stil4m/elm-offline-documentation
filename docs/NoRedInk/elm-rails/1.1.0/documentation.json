@@ -1,1 +1,30 @@
-[{"name":"Rails","comment":"\n\n# Http\n@docs send","aliases":[],"types":[],"values":[{"name":"send","comment":"Utility for working with rails. Wraps Http.send passing an Authenticity Token\nalong with the type of request and a way to decode results.","type":"String -> Json.Decode.Decoder value -> String -> String -> Http.Body -> Task.Task Http.Error value"}],"generated-with-elm-version":"0.15.1"},{"name":"Rails.Decode","comment":"\n\n# Decoding\n@docs errors","aliases":[],"types":[],"values":[{"name":"errors","comment":"Function for creating a Decoder that decodes errors formatted by rails. It is\nexpecting JSON formatted as:\n\n`{ errors: {errorName: [\"Error String\"] } }`.\n\nTo create the decoder, pass a dict mapping your Strings to Fields that mimic\nthe expected nesting, eg.\n\n```\nmappings =\n    Dict.fromList\n        [ ( \"school\", School )\n        , ( \"school.name\", SchoolName )\n        , ( \"school.address\", SchoolAddress )\n        , ( \"school.city\", City )\n        , ( \"school.state\", State )\n        , ( \"school.zip\", Zip )\n        , ( \"school.country\", Country )\n        ]\n\nrailsErrorsDecoder =\n    Rails.Decode.errors mappings\n```","type":"Dict.Dict String field -> Json.Decode.Decoder (List ( field, String ))"}],"generated-with-elm-version":"0.15.1"}]
+[
+  {
+    "name": "Rails",
+    "comment": "\n\n# Http\n@docs send",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "send",
+        "comment": "Utility for working with rails. Wraps Http.send passing an Authenticity Token\nalong with the type of request and a way to decode results.",
+        "type": "String -> Json.Decode.Decoder value -> String -> String -> Http.Body -> Task.Task Http.Error value"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Rails.Decode",
+    "comment": "\n\n# Decoding\n@docs errors",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "errors",
+        "comment": "Function for creating a Decoder that decodes errors formatted by rails. It is\nexpecting JSON formatted as:\n\n`{ errors: {errorName: [\"Error String\"] } }`.\n\nTo create the decoder, pass a dict mapping your Strings to Fields that mimic\nthe expected nesting, eg.\n\n```\nmappings =\n    Dict.fromList\n        [ ( \"school\", School )\n        , ( \"school.name\", SchoolName )\n        , ( \"school.address\", SchoolAddress )\n        , ( \"school.city\", City )\n        , ( \"school.state\", State )\n        , ( \"school.zip\", Zip )\n        , ( \"school.country\", Country )\n        ]\n\nrailsErrorsDecoder =\n    Rails.Decode.errors mappings\n```",
+        "type": "Dict.Dict String field -> Json.Decode.Decoder (List ( field, String ))"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

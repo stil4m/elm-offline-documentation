@@ -1,1 +1,70 @@
-[{"name":"Html.Attributes.Extra","comment":"Additional attributes for html\n\n# Inputs\n@docs valueAsFloat, valueAsInt\n\n# Semantic web\n@docs role\n\n# Custom Attributes\n@docs floatProperty\n@docs intProperty","aliases":[],"types":[],"values":[{"name":"floatProperty","comment":"Create arbitrary floating-point *properties*.","type":"String -> Float -> Attribute"},{"name":"intProperty","comment":"Create arbitrary integer *properties*.","type":"String -> Int -> Attribute"},{"name":"role","comment":"Used to annotate markup languages with machine-extractable semantic information about the purpose of an element.\nSee the [official specs](http://www.w3.org/TR/role-attribute/).","type":"String -> Attribute"},{"name":"valueAsFloat","comment":"Uses `valueAsNumber` to update an input with a floating-point value.\nThis should only be used on &lt;input&gt; of type `number`, `range`, or `date`.\nIt differs from `value` in that a floating point value will not necessarily overwrite the contents on an input element.\n\n    valueAsFloat 2.5 -- e.g. will not change the displayed value for input showing \"2.5000\"\n    valueAsFloat 0.4 -- e.g. will not change the displayed value for input showing \".4\"","type":"Float -> Attribute"},{"name":"valueAsInt","comment":"Uses `valueAsNumber` to update an input with an integer value.\nThis should only be used on &lt;input&gt; of type `number`, `range`, or `date`.\nIt differs from `value` in that an integer value will not necessarily overwrite the contents on an input element.\n\n    valueAsInt 18 -- e.g. will not change the displayed value for input showing \"00018\"","type":"Int -> Attribute"}],"generated-with-elm-version":"old"},{"name":"Html.Events.Extra","comment":"Additional event handlers for html.\n\n# Typed event decoders\n@docs targetValueFloat, targetValueInt, targetValueMaybe, targetValueMaybeFloat, targetValueMaybeInt","aliases":[],"types":[],"values":[{"name":"targetValueFloat","comment":"Floating-point target value","type":"Json.Decoder Float"},{"name":"targetValueInt","comment":"Integer target value","type":"Json.Decoder Int"},{"name":"targetValueMaybe","comment":"String or empty target value","type":"Json.Decoder (Maybe String)"},{"name":"targetValueMaybeFloat","comment":"Floating-point or empty target value","type":"Json.Decoder (Maybe Float)"},{"name":"targetValueMaybeInt","comment":"Integer or empty target value","type":"Json.Decoder (Maybe Int)"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Html.Attributes.Extra",
+    "comment": "Additional attributes for html\n\n# Inputs\n@docs valueAsFloat, valueAsInt\n\n# Semantic web\n@docs role\n\n# Custom Attributes\n@docs floatProperty\n@docs intProperty",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "floatProperty",
+        "comment": "Create arbitrary floating-point *properties*.",
+        "type": "String -> Float -> Attribute"
+      },
+      {
+        "name": "intProperty",
+        "comment": "Create arbitrary integer *properties*.",
+        "type": "String -> Int -> Attribute"
+      },
+      {
+        "name": "role",
+        "comment": "Used to annotate markup languages with machine-extractable semantic information about the purpose of an element.\nSee the [official specs](http://www.w3.org/TR/role-attribute/).",
+        "type": "String -> Attribute"
+      },
+      {
+        "name": "valueAsFloat",
+        "comment": "Uses `valueAsNumber` to update an input with a floating-point value.\nThis should only be used on &lt;input&gt; of type `number`, `range`, or `date`.\nIt differs from `value` in that a floating point value will not necessarily overwrite the contents on an input element.\n\n    valueAsFloat 2.5 -- e.g. will not change the displayed value for input showing \"2.5000\"\n    valueAsFloat 0.4 -- e.g. will not change the displayed value for input showing \".4\"",
+        "type": "Float -> Attribute"
+      },
+      {
+        "name": "valueAsInt",
+        "comment": "Uses `valueAsNumber` to update an input with an integer value.\nThis should only be used on &lt;input&gt; of type `number`, `range`, or `date`.\nIt differs from `value` in that an integer value will not necessarily overwrite the contents on an input element.\n\n    valueAsInt 18 -- e.g. will not change the displayed value for input showing \"00018\"",
+        "type": "Int -> Attribute"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Html.Events.Extra",
+    "comment": "Additional event handlers for html.\n\n# Typed event decoders\n@docs targetValueFloat, targetValueInt, targetValueMaybe, targetValueMaybeFloat, targetValueMaybeInt",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "targetValueFloat",
+        "comment": "Floating-point target value",
+        "type": "Json.Decoder Float"
+      },
+      {
+        "name": "targetValueInt",
+        "comment": "Integer target value",
+        "type": "Json.Decoder Int"
+      },
+      {
+        "name": "targetValueMaybe",
+        "comment": "String or empty target value",
+        "type": "Json.Decoder (Maybe String)"
+      },
+      {
+        "name": "targetValueMaybeFloat",
+        "comment": "Floating-point or empty target value",
+        "type": "Json.Decoder (Maybe Float)"
+      },
+      {
+        "name": "targetValueMaybeInt",
+        "comment": "Integer or empty target value",
+        "type": "Json.Decoder (Maybe Int)"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

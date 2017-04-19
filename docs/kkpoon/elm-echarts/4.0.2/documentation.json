@@ -1,1 +1,58 @@
-[{"name":"ECharts","comment":" This is a [EChart](http://echarts.baidu.com/) chart option types\ncollection and a helper to use\n[EChart WebComponent](https://github.com/kkpoon/echarts-webcomponent).\n\n# Converter\n@docs toJsonString\n\n# Chart Types\n@docs ChartType\n\n# Chart Options\n@docs PieChartOption\n\n# Series\n@docs PieSeries\n\n# Option Attribute Types\n@docs Orientation\n","aliases":[{"name":"PieChartOption","comment":" describe the chart option of pie chart\n","args":[],"type":"{ title : Maybe.Maybe { show : Bool, text : String, subtext : String, left : String } , tooltip : Maybe.Maybe { show : Bool, formatter : String } , legend : Maybe.Maybe { show : Bool , orient : ECharts.Orientation , left : String , data : List String } , series : List ECharts.PieSeries }"},{"name":"PieSeries","comment":" describe the data series of pie chart\n","args":[],"type":"{ name : String , radius : ( String, String ) , center : ( String, String ) , data : List { value : Float, name : String } , itemStyle : { emphasis : { shadowBlur : Int , shadowOffsetX : Int , shadowColor : String } } }"}],"types":[{"name":"ChartType","comment":" the chart type\n","args":[],"cases":[["PieChart",["ECharts.PieChartOption"]]]},{"name":"Orientation","comment":" describe the orientation attribute\n","args":[],"cases":[["Horizontal",[]],["Vertical",[]]]}],"values":[{"name":"toJsonString","comment":" convert the chart option to a string of json, which could apply to the\n[echart-webcomponent](https://github.com/kkpoon/echarts-webcomponent) `option`\nattribute\n","type":"ECharts.ChartType -> String"}],"generated-with-elm-version":"0.18.0"}]
+[
+  {
+    "name": "ECharts",
+    "comment": " This is a [EChart](http://echarts.baidu.com/) chart option types\ncollection and a helper to use\n[EChart WebComponent](https://github.com/kkpoon/echarts-webcomponent).\n\n# Converter\n@docs toJsonString\n\n# Chart Types\n@docs ChartType\n\n# Chart Options\n@docs PieChartOption\n\n# Series\n@docs PieSeries\n\n# Option Attribute Types\n@docs Orientation\n",
+    "aliases": [
+      {
+        "name": "PieChartOption",
+        "comment": " describe the chart option of pie chart\n",
+        "args": [],
+        "type": "{ title : Maybe.Maybe { show : Bool, text : String, subtext : String, left : String } , tooltip : Maybe.Maybe { show : Bool, formatter : String } , legend : Maybe.Maybe { show : Bool , orient : ECharts.Orientation , left : String , data : List String } , series : List ECharts.PieSeries }"
+      },
+      {
+        "name": "PieSeries",
+        "comment": " describe the data series of pie chart\n",
+        "args": [],
+        "type": "{ name : String , radius : ( String, String ) , center : ( String, String ) , data : List { value : Float, name : String } , itemStyle : { emphasis : { shadowBlur : Int , shadowOffsetX : Int , shadowColor : String } } }"
+      }
+    ],
+    "types": [
+      {
+        "name": "ChartType",
+        "comment": " the chart type\n",
+        "args": [],
+        "cases": [
+          [
+            "PieChart",
+            [
+              "ECharts.PieChartOption"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Orientation",
+        "comment": " describe the orientation attribute\n",
+        "args": [],
+        "cases": [
+          [
+            "Horizontal",
+            []
+          ],
+          [
+            "Vertical",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "toJsonString",
+        "comment": " convert the chart option to a string of json, which could apply to the\n[echart-webcomponent](https://github.com/kkpoon/echarts-webcomponent) `option`\nattribute\n",
+        "type": "ECharts.ChartType -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

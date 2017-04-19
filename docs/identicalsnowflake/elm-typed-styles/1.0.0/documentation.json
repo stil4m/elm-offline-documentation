@@ -1,1 +1,416 @@
-[{"name":"TypedStyles","comment":"\n\n# Typed Styles for Elm\n\nAdds typed styles on top of elm-html. Example usage:\n\n```haskell\nimport Html(..)\nimport Html.Attributes(..)\nimport TypedStyles(..)\n\nmain : Html\nmain = div [\n    style [\n        fontSize 30 px\n      , backgroundColor blue\n      , textCenter\n      , padding 20 px\n      , color white]\n      ]\n    [text \"this is an example\" ]\n\n```\n\n* I will add more stuff as I have time; in particular I want to try to get\nanimation, transition, and transformation bindings.","aliases":[{"name":"CSSKey","comment":"","args":[],"type":"String"},{"name":"CSSValue","comment":"","args":[],"type":"String"}],"types":[{"name":"Length","comment":"","args":[],"cases":[["InEms",["Float"]],["InExs",["Float"]],["InChs",["Float"]],["InRems",["Float"]],["InVhs",["Float"]],["InVws",["Float"]],["InVmins",["Float"]],["InPixels",["Float"]],["InMillimeters",["Float"]],["InCentimeters",["Float"]],["InInchs",["Float"]],["InPoints",["Float"]],["InPicas",["Float"]],["InPercents",["Float"]]]}],"values":[{"name":"backgroundColor","comment":"backgroundColor - shorthand for providing colors to background-color.\n Example: backgroundColor blue","type":"Color -> ( CSSKey, CSSValue )"},{"name":"borderBottomColor","comment":"borderBottomColor - shorthand for providing colors to border-bottom-color.\n Example: borderBottomColor blue","type":"Color -> ( CSSKey, CSSValue )"},{"name":"borderBottomLeftRadius","comment":"borderBottomLeftRadius - shorthand for providing lengths to border-bottom-left-radius.\n Example: borderBottomLeftRadius 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"borderBottomRightRadius","comment":"borderBottomRightRadius - shorthand for providing lengths to border-bottom-right-radius.\n Example: borderBottomRightRadius 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"borderBottomWidth","comment":"borderBottomWidth - shorthand for providing lengths to border-bottom-width.\n Example: borderBottomWidth 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"borderColor","comment":"borderColor - shorthand for providing colors to border-color.\n Example: borderColor blue","type":"Color -> ( CSSKey, CSSValue )"},{"name":"borderLeftColor","comment":"borderLeftColor - shorthand for providing colors to border-left-color.\n Example: borderLeftColor blue","type":"Color -> ( CSSKey, CSSValue )"},{"name":"borderLeftWidth","comment":"borderLeftWidth - shorthand for providing lengths to border-left-width.\n Example: borderLeftWidth 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"borderRadius","comment":"borderRadius - shorthand for providing lengths to border-radius.\n Example: borderRadius 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"borderRightColor","comment":"borderRightColor - shorthand for providing colors to border-right-color.\n Example: borderRightColor blue","type":"Color -> ( CSSKey, CSSValue )"},{"name":"borderRightWidth","comment":"borderRightWidth - shorthand for providing lengths to border-right-width.\n Example: borderRightWidth 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"borderTopColor","comment":"borderTopColor - shorthand for providing colors to border-top-color.\n Example: borderTopColor blue","type":"Color -> ( CSSKey, CSSValue )"},{"name":"borderTopLeftRadius","comment":"borderTopLeftRadius - shorthand for providing lengths to border-top-left-radius.\n Example: borderTopLeftRadius 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"borderTopRightRadius","comment":"borderTopRightRadius - shorthand for providing lengths to border-top-right-radius.\n Example: borderTopRightRadius 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"borderTopWidth","comment":"borderTopWidth - shorthand for providing lengths to border-top-width.\n Example: borderTopWidth 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"bottom","comment":"bottom - shorthand for providing lengths to bottom.\n Example: bottom 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"ch","comment":"ch - shorthand constructor for type Ch.","type":"Float -> Length"},{"name":"cm","comment":"cm - shorthand constructor for type Centimeter.","type":"Float -> Length"},{"name":"color","comment":"color - shorthand for providing colors to color.\n Example: color blue","type":"Color -> ( CSSKey, CSSValue )"},{"name":"cssColor","comment":"cssColor - convert from a standard Elm color into a CSS color\n Example: cssColor blue","type":"Color -> CSSValue"},{"name":"em","comment":"em - shorthand constructor for type Em.","type":"Float -> Length"},{"name":"ex","comment":"ex - shorthand constructor for type Ex.","type":"Float -> Length"},{"name":"fontSize","comment":"fontSize - shorthand for providing lengths to font-size.\n Example: fontSize 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"height","comment":"height - shorthand for providing lengths to height.\n Example: height 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"inches","comment":"inches - shorthand constructor for type Inch.","type":"Float -> Length"},{"name":"left","comment":"left - shorthand for providing lengths to left.\n Example: left 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"letterSpacing","comment":"letterSpacing - shorthand for providing lengths to letter-spacing.\n Example: letterSpacing 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"margin","comment":"margin - shorthand for providing lengths to margin.\n Example: margin 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"marginBottom","comment":"marginBottom - shorthand for providing lengths to margin-bottom.\n Example: marginBottom 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"marginLeft","comment":"marginLeft - shorthand for providing lengths to margin-left.\n Example: marginLeft 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"marginRight","comment":"marginRight - shorthand for providing lengths to margin-right.\n Example: marginRight 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"marginTop","comment":"marginTop - shorthand for providing lengths to margin-top.\n Example: marginTop 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"maxHeight","comment":"maxHeight - shorthand for providing lengths to max-height.\n Example: maxHeight 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"minHeight","comment":"minHeight - shorthand for providing lengths to min-height.\n Example: minHeight 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"mm","comment":"mm - shorthand constructor for type Millimeter.","type":"Float -> Length"},{"name":"opacity","comment":"opacity - alpha from 0.0 to 1.0","type":"Float -> ( CSSKey, CSSValue )"},{"name":"outlineColor","comment":"outlineColor - shorthand for providing colors to outline-color.\n Example: outlineColor blue","type":"Color -> ( CSSKey, CSSValue )"},{"name":"padding","comment":"padding - shorthand for providing lengths to padding.\n Example: padding 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"paddingBottom","comment":"paddingBottom - shorthand for providing lengths to padding-bottom.\n Example: paddingBottom 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"paddingLeft","comment":"paddingLeft - shorthand for providing lengths to padding-left.\n Example: paddingLeft 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"paddingRight","comment":"paddingRight - shorthand for providing lengths to padding-right.\n Example: paddingRight 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"paddingTop","comment":"paddingTop - shorthand for providing lengths to padding-top.\n Example: paddingTop 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"pica","comment":"pica - shorthand constructor for type Pica.","type":"Float -> Length"},{"name":"prc","comment":"prc - shorthand constructor for type Percent.","type":"Float -> Length"},{"name":"pt","comment":"pt - shorthand constructor for type Point.","type":"Float -> Length"},{"name":"px","comment":"px - shorthand constructor for type Pixel.","type":"Float -> Length"},{"name":"rem","comment":"rem - shorthand constructor for type Rem.","type":"Float -> Length"},{"name":"right","comment":"right - shorthand for providing lengths to right.\n Example: right 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"serializeLength","comment":"serializeLength - transform to CSSValue","type":"Length -> CSSValue"},{"name":"textCenter","comment":"textCenter - center text","type":"( CSSKey, CSSValue )"},{"name":"textIndent","comment":"textIndent - shorthand for providing lengths to text-indent.\n Example: textIndent 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"textJustify","comment":"textJustify - justify text","type":"( CSSKey, CSSValue )"},{"name":"textLeft","comment":"textLeft - align text to the left","type":"( CSSKey, CSSValue )"},{"name":"textRight","comment":"textRight - align text to the right","type":"( CSSKey, CSSValue )"},{"name":"top","comment":"top - shorthand for providing lengths to top.\n Example: top 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"vh","comment":"vh - shorthand constructor for type Vh.","type":"Float -> Length"},{"name":"vmax","comment":"vmax - shorthand constructor for type Vmin.","type":"Float -> Length"},{"name":"vw","comment":"vw - shorthand constructor for type Vw.","type":"Float -> Length"},{"name":"width","comment":"width - shorthand for providing lengths to width.\n Example: width 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"},{"name":"wordSpacing","comment":"wordSpacing - shorthand for providing lengths to word-spacing.\n Example: wordSpacing 10 px","type":"Float -> (Float -> Length) -> ( CSSKey, CSSValue )"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "TypedStyles",
+    "comment": "\n\n# Typed Styles for Elm\n\nAdds typed styles on top of elm-html. Example usage:\n\n```haskell\nimport Html(..)\nimport Html.Attributes(..)\nimport TypedStyles(..)\n\nmain : Html\nmain = div [\n    style [\n        fontSize 30 px\n      , backgroundColor blue\n      , textCenter\n      , padding 20 px\n      , color white]\n      ]\n    [text \"this is an example\" ]\n\n```\n\n* I will add more stuff as I have time; in particular I want to try to get\nanimation, transition, and transformation bindings.",
+    "aliases": [
+      {
+        "name": "CSSKey",
+        "comment": "",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "CSSValue",
+        "comment": "",
+        "args": [],
+        "type": "String"
+      }
+    ],
+    "types": [
+      {
+        "name": "Length",
+        "comment": "",
+        "args": [],
+        "cases": [
+          [
+            "InEms",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InExs",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InChs",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InRems",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InVhs",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InVws",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InVmins",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InPixels",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InMillimeters",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InCentimeters",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InInchs",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InPoints",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InPicas",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "InPercents",
+            [
+              "Float"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "backgroundColor",
+        "comment": "backgroundColor - shorthand for providing colors to background-color.\n Example: backgroundColor blue",
+        "type": "Color -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderBottomColor",
+        "comment": "borderBottomColor - shorthand for providing colors to border-bottom-color.\n Example: borderBottomColor blue",
+        "type": "Color -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderBottomLeftRadius",
+        "comment": "borderBottomLeftRadius - shorthand for providing lengths to border-bottom-left-radius.\n Example: borderBottomLeftRadius 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderBottomRightRadius",
+        "comment": "borderBottomRightRadius - shorthand for providing lengths to border-bottom-right-radius.\n Example: borderBottomRightRadius 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderBottomWidth",
+        "comment": "borderBottomWidth - shorthand for providing lengths to border-bottom-width.\n Example: borderBottomWidth 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderColor",
+        "comment": "borderColor - shorthand for providing colors to border-color.\n Example: borderColor blue",
+        "type": "Color -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderLeftColor",
+        "comment": "borderLeftColor - shorthand for providing colors to border-left-color.\n Example: borderLeftColor blue",
+        "type": "Color -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderLeftWidth",
+        "comment": "borderLeftWidth - shorthand for providing lengths to border-left-width.\n Example: borderLeftWidth 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderRadius",
+        "comment": "borderRadius - shorthand for providing lengths to border-radius.\n Example: borderRadius 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderRightColor",
+        "comment": "borderRightColor - shorthand for providing colors to border-right-color.\n Example: borderRightColor blue",
+        "type": "Color -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderRightWidth",
+        "comment": "borderRightWidth - shorthand for providing lengths to border-right-width.\n Example: borderRightWidth 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderTopColor",
+        "comment": "borderTopColor - shorthand for providing colors to border-top-color.\n Example: borderTopColor blue",
+        "type": "Color -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderTopLeftRadius",
+        "comment": "borderTopLeftRadius - shorthand for providing lengths to border-top-left-radius.\n Example: borderTopLeftRadius 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderTopRightRadius",
+        "comment": "borderTopRightRadius - shorthand for providing lengths to border-top-right-radius.\n Example: borderTopRightRadius 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "borderTopWidth",
+        "comment": "borderTopWidth - shorthand for providing lengths to border-top-width.\n Example: borderTopWidth 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "bottom",
+        "comment": "bottom - shorthand for providing lengths to bottom.\n Example: bottom 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "ch",
+        "comment": "ch - shorthand constructor for type Ch.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "cm",
+        "comment": "cm - shorthand constructor for type Centimeter.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "color",
+        "comment": "color - shorthand for providing colors to color.\n Example: color blue",
+        "type": "Color -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "cssColor",
+        "comment": "cssColor - convert from a standard Elm color into a CSS color\n Example: cssColor blue",
+        "type": "Color -> CSSValue"
+      },
+      {
+        "name": "em",
+        "comment": "em - shorthand constructor for type Em.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "ex",
+        "comment": "ex - shorthand constructor for type Ex.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "fontSize",
+        "comment": "fontSize - shorthand for providing lengths to font-size.\n Example: fontSize 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "height",
+        "comment": "height - shorthand for providing lengths to height.\n Example: height 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "inches",
+        "comment": "inches - shorthand constructor for type Inch.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "left",
+        "comment": "left - shorthand for providing lengths to left.\n Example: left 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "letterSpacing",
+        "comment": "letterSpacing - shorthand for providing lengths to letter-spacing.\n Example: letterSpacing 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "margin",
+        "comment": "margin - shorthand for providing lengths to margin.\n Example: margin 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "marginBottom",
+        "comment": "marginBottom - shorthand for providing lengths to margin-bottom.\n Example: marginBottom 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "marginLeft",
+        "comment": "marginLeft - shorthand for providing lengths to margin-left.\n Example: marginLeft 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "marginRight",
+        "comment": "marginRight - shorthand for providing lengths to margin-right.\n Example: marginRight 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "marginTop",
+        "comment": "marginTop - shorthand for providing lengths to margin-top.\n Example: marginTop 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "maxHeight",
+        "comment": "maxHeight - shorthand for providing lengths to max-height.\n Example: maxHeight 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "minHeight",
+        "comment": "minHeight - shorthand for providing lengths to min-height.\n Example: minHeight 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "mm",
+        "comment": "mm - shorthand constructor for type Millimeter.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "opacity",
+        "comment": "opacity - alpha from 0.0 to 1.0",
+        "type": "Float -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "outlineColor",
+        "comment": "outlineColor - shorthand for providing colors to outline-color.\n Example: outlineColor blue",
+        "type": "Color -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "padding",
+        "comment": "padding - shorthand for providing lengths to padding.\n Example: padding 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "paddingBottom",
+        "comment": "paddingBottom - shorthand for providing lengths to padding-bottom.\n Example: paddingBottom 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "paddingLeft",
+        "comment": "paddingLeft - shorthand for providing lengths to padding-left.\n Example: paddingLeft 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "paddingRight",
+        "comment": "paddingRight - shorthand for providing lengths to padding-right.\n Example: paddingRight 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "paddingTop",
+        "comment": "paddingTop - shorthand for providing lengths to padding-top.\n Example: paddingTop 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "pica",
+        "comment": "pica - shorthand constructor for type Pica.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "prc",
+        "comment": "prc - shorthand constructor for type Percent.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "pt",
+        "comment": "pt - shorthand constructor for type Point.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "px",
+        "comment": "px - shorthand constructor for type Pixel.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "rem",
+        "comment": "rem - shorthand constructor for type Rem.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "right",
+        "comment": "right - shorthand for providing lengths to right.\n Example: right 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "serializeLength",
+        "comment": "serializeLength - transform to CSSValue",
+        "type": "Length -> CSSValue"
+      },
+      {
+        "name": "textCenter",
+        "comment": "textCenter - center text",
+        "type": "( CSSKey, CSSValue )"
+      },
+      {
+        "name": "textIndent",
+        "comment": "textIndent - shorthand for providing lengths to text-indent.\n Example: textIndent 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "textJustify",
+        "comment": "textJustify - justify text",
+        "type": "( CSSKey, CSSValue )"
+      },
+      {
+        "name": "textLeft",
+        "comment": "textLeft - align text to the left",
+        "type": "( CSSKey, CSSValue )"
+      },
+      {
+        "name": "textRight",
+        "comment": "textRight - align text to the right",
+        "type": "( CSSKey, CSSValue )"
+      },
+      {
+        "name": "top",
+        "comment": "top - shorthand for providing lengths to top.\n Example: top 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "vh",
+        "comment": "vh - shorthand constructor for type Vh.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "vmax",
+        "comment": "vmax - shorthand constructor for type Vmin.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "vw",
+        "comment": "vw - shorthand constructor for type Vw.",
+        "type": "Float -> Length"
+      },
+      {
+        "name": "width",
+        "comment": "width - shorthand for providing lengths to width.\n Example: width 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      },
+      {
+        "name": "wordSpacing",
+        "comment": "wordSpacing - shorthand for providing lengths to word-spacing.\n Example: wordSpacing 10 px",
+        "type": "Float -> (Float -> Length) -> ( CSSKey, CSSValue )"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

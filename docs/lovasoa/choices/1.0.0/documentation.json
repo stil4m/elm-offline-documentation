@@ -1,1 +1,73 @@
-[{"name":"Choices","comment":" This library allows you to draw an HTML GUI for choices  between different values\n\n# Model\n@docs Model, Answer, makeModel, getAllSelected, getSelected\n\n# Update\n@docs Msg, update\n\n# View\n@docs ViewType, view, genericView\n","aliases":[{"name":"Answer","comment":" A choice","args":["valueType"],"type":"{ value : valueType, selected : Bool, description : String }"},{"name":"Model","comment":" A list of answsers (or choices) ","args":["valueType"],"type":"List (Choices.Answer valueType)"}],"types":[{"name":"Msg","comment":" Indicate how to update the model","args":["valueType"],"cases":[]},{"name":"ViewType","comment":" What Html element to use in order to draw the GUI","args":[],"cases":[]}],"values":[{"name":"genericView","comment":" view\n","type":"Choices.ViewType -> Choices.Model valueType -> Html.Html (Choices.Msg valueType)"},{"name":"getAllSelected","comment":" get a list of all answers that have been selected ","type":"Choices.Model valueType -> List valueType"},{"name":"getSelected","comment":" get the first selected answer","type":"Choices.Model valueType -> Maybe.Maybe valueType"},{"name":"makeModel","comment":" Make a model from a list of values","type":"(a -> String) -> List a -> Choices.Model a"},{"name":"update","comment":" update the model ","type":"Choices.Msg valueType -> Choices.Model valueType -> Choices.Model valueType"},{"name":"view","comment":" = genericView (InputRadio) ","type":"Choices.Model valueType -> Html.Html (Choices.Msg valueType)"}],"generated-with-elm-version":"0.17.0"}]
+[
+  {
+    "name": "Choices",
+    "comment": " This library allows you to draw an HTML GUI for choices  between different values\n\n# Model\n@docs Model, Answer, makeModel, getAllSelected, getSelected\n\n# Update\n@docs Msg, update\n\n# View\n@docs ViewType, view, genericView\n",
+    "aliases": [
+      {
+        "name": "Answer",
+        "comment": " A choice",
+        "args": [
+          "valueType"
+        ],
+        "type": "{ value : valueType, selected : Bool, description : String }"
+      },
+      {
+        "name": "Model",
+        "comment": " A list of answsers (or choices) ",
+        "args": [
+          "valueType"
+        ],
+        "type": "List (Choices.Answer valueType)"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " Indicate how to update the model",
+        "args": [
+          "valueType"
+        ],
+        "cases": []
+      },
+      {
+        "name": "ViewType",
+        "comment": " What Html element to use in order to draw the GUI",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "genericView",
+        "comment": " view\n",
+        "type": "Choices.ViewType -> Choices.Model valueType -> Html.Html (Choices.Msg valueType)"
+      },
+      {
+        "name": "getAllSelected",
+        "comment": " get a list of all answers that have been selected ",
+        "type": "Choices.Model valueType -> List valueType"
+      },
+      {
+        "name": "getSelected",
+        "comment": " get the first selected answer",
+        "type": "Choices.Model valueType -> Maybe.Maybe valueType"
+      },
+      {
+        "name": "makeModel",
+        "comment": " Make a model from a list of values",
+        "type": "(a -> String) -> List a -> Choices.Model a"
+      },
+      {
+        "name": "update",
+        "comment": " update the model ",
+        "type": "Choices.Msg valueType -> Choices.Model valueType -> Choices.Model valueType"
+      },
+      {
+        "name": "view",
+        "comment": " = genericView (InputRadio) ",
+        "type": "Choices.Model valueType -> Html.Html (Choices.Msg valueType)"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

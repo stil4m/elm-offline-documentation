@@ -1,1 +1,16 @@
-[{"name":"President","comment":"\n\nPresident turns a `List (Signal Element)` into a presentation\nthat you can navigate with arrow keys. That's about it.\n\n@docs present","aliases":[],"types":[],"values":[{"name":"present","comment":"","type":"List (Signal Element) -> Signal Element"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "President",
+    "comment": "\n\nPresident turns a `List (Signal Element)` into a presentation\nthat you can navigate with arrow keys. That's about it.\n\n@docs present",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "present",
+        "comment": "",
+        "type": "List (Signal Element) -> Signal Element"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

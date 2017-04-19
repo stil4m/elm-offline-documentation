@@ -1,1 +1,64 @@
-[{"name":"Collision2D","comment":"Collision detection in two dimensions\n\n# Collision Detection\n@docs isInside, isOutside\n\n# Building a hull\n@docs fromVectors\n\n# Type\n@docs Hull","aliases":[],"types":[{"name":"Hull","comment":"A collection of sides that together represent a hull. This library\ninterprets the sides as forming the smallest possible convex polygon.","args":[],"cases":[]}],"values":[{"name":"fromVectors","comment":"Given the vertexes of a polygon, compute a hull. Vertexes must be ordered\ncounter-clockwise around the center of the shape. Only works for convex polygons.\n\nReturns an empty hull if given less than three vertexes.","type":"List Math.Vector2.Vec2 -> Collision2D.Hull"},{"name":"isInside","comment":"Returns `True` if the given position is on or in the given hull.\nDefaults to `False` if the hull has no sides.\n    \n    import Math.Vector2 exposing (vec2)\n\n    hull =\n      fromVertexes\n        [ vec2 0 1\n        , vec2 3 4\n        , vec2 1 0\n        ]\n\n    isInside hull (vec2 1 1) == True\n\n    isInside hull (vec2 -1 2) == False\n\n    isInside hull (vec2 0 0) == True","type":"Math.Vector2.Vec2 -> Collision2D.Hull -> Bool"},{"name":"isOutside","comment":"Returns `True` if the given position is outside the given hull.\nThe logical inverse of `isInside`.","type":"Math.Vector2.Vec2 -> Collision2D.Hull -> Bool"}],"generated-with-elm-version":"0.15.1"},{"name":"Collision3D","comment":"Collision detection in three dimensions\n\n# Building a Hull\n@docs fromTriangles\n\n# Collision Detection\n@docs isInside, isOutside\n\n# Type\n@docs Hull","aliases":[],"types":[{"name":"Hull","comment":"A collection of faces that together represent a shape. This library interprets\nthe sides as forming the smallest possible convex polyhedron.","args":[],"cases":[]}],"values":[{"name":"fromTriangles","comment":"Given a list of triangles, compute a hull. For a triangle of points (a,b,c),\nthe resulting normal will be the normalized cross product `(a to b) x (b to c)`. In\nother words, if the triangle vertexes are going counter-clockwise from your point\nof view, the normal will be pointing towards from you.\n\nThe triangles passed to this function should form a polyhedron that is\n* convex (no dents)\n* closed (no holes)","type":"List ( Math.Vector3.Vec3, Math.Vector3.Vec3, Math.Vector3.Vec3 ) -> Collision3D.Hull"},{"name":"isInside","comment":"Returns `True` if the given position is on or in the given hull.\nDefaults to `False` if the hull has no sides.\n\n    import Math.Vector3 exposing (vec3)\n\n    hull =\n      fromTriangles\n        [ (vec3 0 0 0, vec3 0 0 5, vec3 10 0 0)\n        , (vec3 0 0 0, vec3 0 5 0, vec3 0 0 5)\n        , (vec3 0 0 0, vec3 10 0 0, vec3 0 5 0)\n        , (vec3 10 0 0, vec3 0 0 5, vec3 0 5 0)\n        ]\n\n    isInside hull (Vec3.vec3 5 1 1) == True\n\n    isInside hull (Vec3.vec3 -1 2 -1) == False\n\n    isInside hull (Vec3.vec3 0 0 0) == True","type":"Math.Vector3.Vec3 -> Collision3D.Hull -> Bool"},{"name":"isOutside","comment":"Returns `True` if the given position is outside the given hull.\nThe logical inverse of `isInside`.","type":"Math.Vector3.Vec3 -> Collision3D.Hull -> Bool"}],"generated-with-elm-version":"0.15.1"}]
+[
+  {
+    "name": "Collision2D",
+    "comment": "Collision detection in two dimensions\n\n# Collision Detection\n@docs isInside, isOutside\n\n# Building a hull\n@docs fromVectors\n\n# Type\n@docs Hull",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Hull",
+        "comment": "A collection of sides that together represent a hull. This library\ninterprets the sides as forming the smallest possible convex polygon.",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "fromVectors",
+        "comment": "Given the vertexes of a polygon, compute a hull. Vertexes must be ordered\ncounter-clockwise around the center of the shape. Only works for convex polygons.\n\nReturns an empty hull if given less than three vertexes.",
+        "type": "List Math.Vector2.Vec2 -> Collision2D.Hull"
+      },
+      {
+        "name": "isInside",
+        "comment": "Returns `True` if the given position is on or in the given hull.\nDefaults to `False` if the hull has no sides.\n    \n    import Math.Vector2 exposing (vec2)\n\n    hull =\n      fromVertexes\n        [ vec2 0 1\n        , vec2 3 4\n        , vec2 1 0\n        ]\n\n    isInside hull (vec2 1 1) == True\n\n    isInside hull (vec2 -1 2) == False\n\n    isInside hull (vec2 0 0) == True",
+        "type": "Math.Vector2.Vec2 -> Collision2D.Hull -> Bool"
+      },
+      {
+        "name": "isOutside",
+        "comment": "Returns `True` if the given position is outside the given hull.\nThe logical inverse of `isInside`.",
+        "type": "Math.Vector2.Vec2 -> Collision2D.Hull -> Bool"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Collision3D",
+    "comment": "Collision detection in three dimensions\n\n# Building a Hull\n@docs fromTriangles\n\n# Collision Detection\n@docs isInside, isOutside\n\n# Type\n@docs Hull",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Hull",
+        "comment": "A collection of faces that together represent a shape. This library interprets\nthe sides as forming the smallest possible convex polyhedron.",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "fromTriangles",
+        "comment": "Given a list of triangles, compute a hull. For a triangle of points (a,b,c),\nthe resulting normal will be the normalized cross product `(a to b) x (b to c)`. In\nother words, if the triangle vertexes are going counter-clockwise from your point\nof view, the normal will be pointing towards from you.\n\nThe triangles passed to this function should form a polyhedron that is\n* convex (no dents)\n* closed (no holes)",
+        "type": "List ( Math.Vector3.Vec3, Math.Vector3.Vec3, Math.Vector3.Vec3 ) -> Collision3D.Hull"
+      },
+      {
+        "name": "isInside",
+        "comment": "Returns `True` if the given position is on or in the given hull.\nDefaults to `False` if the hull has no sides.\n\n    import Math.Vector3 exposing (vec3)\n\n    hull =\n      fromTriangles\n        [ (vec3 0 0 0, vec3 0 0 5, vec3 10 0 0)\n        , (vec3 0 0 0, vec3 0 5 0, vec3 0 0 5)\n        , (vec3 0 0 0, vec3 10 0 0, vec3 0 5 0)\n        , (vec3 10 0 0, vec3 0 0 5, vec3 0 5 0)\n        ]\n\n    isInside hull (Vec3.vec3 5 1 1) == True\n\n    isInside hull (Vec3.vec3 -1 2 -1) == False\n\n    isInside hull (Vec3.vec3 0 0 0) == True",
+        "type": "Math.Vector3.Vec3 -> Collision3D.Hull -> Bool"
+      },
+      {
+        "name": "isOutside",
+        "comment": "Returns `True` if the given position is outside the given hull.\nThe logical inverse of `isInside`.",
+        "type": "Math.Vector3.Vec3 -> Collision3D.Hull -> Bool"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

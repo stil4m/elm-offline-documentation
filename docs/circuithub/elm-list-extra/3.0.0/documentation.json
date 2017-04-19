@@ -1,1 +1,56 @@
-[{"name":"List.Extra","comment":"Convenience functions for working with List\n\n# Common Helpers\n@docs maximumBy, minimumBy, andMap, takeWhile, dropWhile\n\n# Zipping\n@docs zip, zip3, zip4, zip5","aliases":[],"types":[],"values":[{"name":"andMap","comment":"Map functions taking multiple arguments over multiple lists. Each list should be of the same length.\n\n    ( (\\a b c -> a + b * c)\n        `map` [1,2,3]\n        `andMap` [4,5,6]\n        `andMap` [2,1,1]\n    ) == [9,7,9]","type":"List (a -> b) -> List a -> List b"},{"name":"dropWhile","comment":"Drop elements in order as long as the predicate evaluates to `True`","type":"(a -> Bool) -> List a -> List a"},{"name":"maximumBy","comment":"Find the first maximum element in a list using a comparable transformation","type":"(a -> comparable) -> List a -> Maybe a"},{"name":"minimumBy","comment":"Find the first minimum element in a list using a comparable transformation","type":"(a -> comparable) -> List a -> Maybe a"},{"name":"takeWhile","comment":"Take elements in order as long as the predicate evaluates to `True`","type":"(a -> Bool) -> List a -> List a"},{"name":"zip","comment":"Take two lists and returns a list of corresponding pairs","type":"List a -> List b -> List ( a, b )"},{"name":"zip3","comment":"Take three lists and returns a list of triples","type":"List a -> List b -> List c -> List ( a, b, c )"},{"name":"zip4","comment":"Take four lists and returns a list of quadruples","type":"List a -> List b -> List c -> List d -> List ( a, b, c, d )"},{"name":"zip5","comment":"Take five lists and returns a list of quintuples","type":"List a -> List b -> List c -> List d -> List e -> List ( a, b, c, d, e )"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "List.Extra",
+    "comment": "Convenience functions for working with List\n\n# Common Helpers\n@docs maximumBy, minimumBy, andMap, takeWhile, dropWhile\n\n# Zipping\n@docs zip, zip3, zip4, zip5",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "andMap",
+        "comment": "Map functions taking multiple arguments over multiple lists. Each list should be of the same length.\n\n    ( (\\a b c -> a + b * c)\n        `map` [1,2,3]\n        `andMap` [4,5,6]\n        `andMap` [2,1,1]\n    ) == [9,7,9]",
+        "type": "List (a -> b) -> List a -> List b"
+      },
+      {
+        "name": "dropWhile",
+        "comment": "Drop elements in order as long as the predicate evaluates to `True`",
+        "type": "(a -> Bool) -> List a -> List a"
+      },
+      {
+        "name": "maximumBy",
+        "comment": "Find the first maximum element in a list using a comparable transformation",
+        "type": "(a -> comparable) -> List a -> Maybe a"
+      },
+      {
+        "name": "minimumBy",
+        "comment": "Find the first minimum element in a list using a comparable transformation",
+        "type": "(a -> comparable) -> List a -> Maybe a"
+      },
+      {
+        "name": "takeWhile",
+        "comment": "Take elements in order as long as the predicate evaluates to `True`",
+        "type": "(a -> Bool) -> List a -> List a"
+      },
+      {
+        "name": "zip",
+        "comment": "Take two lists and returns a list of corresponding pairs",
+        "type": "List a -> List b -> List ( a, b )"
+      },
+      {
+        "name": "zip3",
+        "comment": "Take three lists and returns a list of triples",
+        "type": "List a -> List b -> List c -> List ( a, b, c )"
+      },
+      {
+        "name": "zip4",
+        "comment": "Take four lists and returns a list of quadruples",
+        "type": "List a -> List b -> List c -> List d -> List ( a, b, c, d )"
+      },
+      {
+        "name": "zip5",
+        "comment": "Take five lists and returns a list of quintuples",
+        "type": "List a -> List b -> List c -> List d -> List e -> List ( a, b, c, d, e )"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

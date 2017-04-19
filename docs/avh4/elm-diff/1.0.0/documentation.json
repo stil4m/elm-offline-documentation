@@ -1,1 +1,54 @@
-[{"name":"Diff","comment":"Functions to compare strings to produce a list of changes.  This is an\nimplementation of the [Hunt-McIlroy](http://en.wikipedia.org/wiki/Hunt%E2%80%93McIlroy_algorithm)\ndiff algorithm.\n\n# Types and Constructors\n@docs Change\n\n# Diffing text\n@docs diffChars, diffLines","aliases":[],"types":[{"name":"Change","comment":"","args":[],"cases":[["NoChange",["String"]],["Changed",["String","String"]],["Added",["String"]],["Removed",["String"]]]}],"values":[{"name":"diffChars","comment":"Diffs two strings, comparing character by character.","type":"String -> String -> List Change"},{"name":"diffLines","comment":"Diffs two strings, comparing line by line.","type":"String -> String -> List Change"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Diff",
+    "comment": "Functions to compare strings to produce a list of changes.  This is an\nimplementation of the [Hunt-McIlroy](http://en.wikipedia.org/wiki/Hunt%E2%80%93McIlroy_algorithm)\ndiff algorithm.\n\n# Types and Constructors\n@docs Change\n\n# Diffing text\n@docs diffChars, diffLines",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Change",
+        "comment": "",
+        "args": [],
+        "cases": [
+          [
+            "NoChange",
+            [
+              "String"
+            ]
+          ],
+          [
+            "Changed",
+            [
+              "String",
+              "String"
+            ]
+          ],
+          [
+            "Added",
+            [
+              "String"
+            ]
+          ],
+          [
+            "Removed",
+            [
+              "String"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "diffChars",
+        "comment": "Diffs two strings, comparing character by character.",
+        "type": "String -> String -> List Change"
+      },
+      {
+        "name": "diffLines",
+        "comment": "Diffs two strings, comparing line by line.",
+        "type": "String -> String -> List Change"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

@@ -1,1 +1,53 @@
-[{"name":"Empty","comment":"Just a simple empty type.\n\n# Types\n@docs Empty\n\n# Elimination\n@docs elim, yeahRight","aliases":[],"types":[{"name":"BertrandRusselIsThePope","comment":"","args":[],"cases":[["BertrandRusselIsThePope",["BertrandRusselIsThePope"]]]},{"name":"Empty","comment":"","args":[],"cases":[["Empty",["Empty"]]]}],"values":[{"name":"elim","comment":"If `Empty` is inhabited then anything is.","type":"Empty -> a"},{"name":"thenBertrandRusselIsThePope","comment":"","type":"Empty -> BertrandRusselIsThePope"},{"name":"yeahRight","comment":"A synonym for `elim`.","type":"Empty -> a"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Empty",
+    "comment": "Just a simple empty type.\n\n# Types\n@docs Empty\n\n# Elimination\n@docs elim, yeahRight",
+    "aliases": [],
+    "types": [
+      {
+        "name": "BertrandRusselIsThePope",
+        "comment": "",
+        "args": [],
+        "cases": [
+          [
+            "BertrandRusselIsThePope",
+            [
+              "BertrandRusselIsThePope"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Empty",
+        "comment": "",
+        "args": [],
+        "cases": [
+          [
+            "Empty",
+            [
+              "Empty"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "elim",
+        "comment": "If `Empty` is inhabited then anything is.",
+        "type": "Empty -> a"
+      },
+      {
+        "name": "thenBertrandRusselIsThePope",
+        "comment": "",
+        "type": "Empty -> BertrandRusselIsThePope"
+      },
+      {
+        "name": "yeahRight",
+        "comment": "A synonym for `elim`.",
+        "type": "Empty -> a"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

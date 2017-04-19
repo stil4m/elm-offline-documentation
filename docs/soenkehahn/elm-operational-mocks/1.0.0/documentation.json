@@ -1,1 +1,16 @@
-[{"name":"Operational.Mocks","comment":" `Operational.Mocks` allows you to test side-effects of elm applications\nas long as they're written with the help of `elm-operational`.\n\n@docs runMocked\n","aliases":[],"types":[],"values":[{"name":"runMocked","comment":" `runMocked component expectedEffects finalState` tests the given elm\n`component`. It fails when one of the expected effects is not issues by the\napplication or if the final resulting state is not equal to `finalState`.\n","type":"{ program | init : ( model, List primitive ), update : msg -> model -> ( model, List primitive ) } -> List ( primitive, msg ) -> model -> Expect.Expectation"}],"generated-with-elm-version":"0.18.0"}]
+[
+  {
+    "name": "Operational.Mocks",
+    "comment": " `Operational.Mocks` allows you to test side-effects of elm applications\nas long as they're written with the help of `elm-operational`.\n\n@docs runMocked\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "runMocked",
+        "comment": " `runMocked component expectedEffects finalState` tests the given elm\n`component`. It fails when one of the expected effects is not issues by the\napplication or if the final resulting state is not equal to `finalState`.\n",
+        "type": "{ program | init : ( model, List primitive ), update : msg -> model -> ( model, List primitive ) } -> List ( primitive, msg ) -> model -> Expect.Expectation"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

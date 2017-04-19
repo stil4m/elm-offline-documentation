@@ -1,1 +1,213 @@
-[{"name":"Parser","comment":"A simple parser combinator library.\n\n#Running the parser\n@docs parse, parseString, parser\n\n#Core functions\n@docs map, or, and, andThen\n\n#Combinators\n@docs succeed, satisfy, empty, symbol, token, choice, optional, many, some, separatedBy, end\n\n#Writing recursive grammars\n@docs recursively\n\n#Core functions (infix operators)\n@docs (<*>), (<$>), (<|>), (<*), (*>), (<$)","aliases":[],"types":[],"values":[{"name":"*>","comment":"Variant of `<*>` that ignores the result of the parser at the left","type":"Parser input x -> Parser input result -> Parser input result","associativity":"left","precedence":4},{"name":"<$","comment":"Variant of `<$>` that ignores the result of the parser","type":"result -> Parser input x -> Parser input result","associativity":"left","precedence":4},{"name":"<$>","comment":"Map a function over the result of the parser","type":"(result -> result2) -> Parser input result -> Parser input result2","associativity":"left","precedence":4},{"name":"<*","comment":"Variant of `<*>` that ignores the result of the parser at the right","type":"Parser input result -> Parser input x -> Parser input result","associativity":"left","precedence":4},{"name":"<*>","comment":"Sequence two parsers\n\n-","type":"Parser input (result -> result2) -> Parser input result -> Parser input result2","associativity":"left","precedence":4},{"name":"<|>","comment":"Choice between two parsers","type":"Parser input result -> Parser input result -> Parser input result","associativity":"right","precedence":3},{"name":"and","comment":"Sequence two parsers\n\n    data Date = Date Int Int Int\n    date = Date `map` year `and` month `and` day","type":"Parser input (result -> result2) -> Parser input result -> Parser input result2","associativity":"left","precedence":4},{"name":"andThen","comment":"Sequence two parsers, but pass the result of the first parser to the second parser.\n    This is useful for creating context sensitive parsers like XML.","type":"Parser input result -> (result -> Parser input result2) -> Parser input result2"},{"name":"choice","comment":"Combine a list of parsers","type":"List (Parser input result) -> Parser input result"},{"name":"empty","comment":"Parser that always fails","type":"Parser input result"},{"name":"end","comment":"Succeeds when input is empty","type":"Parser input ()"},{"name":"many","comment":"Parses zero or more occurences of a parser","type":"Parser input result -> Parser input (List result)"},{"name":"map","comment":"Map a function over the result of the parser\n\n      count = length `map` many digit","type":"(result -> result2) -> Parser input result -> Parser input result2","associativity":"left","precedence":4},{"name":"optional","comment":"Parses an optional element","type":"Parser input result -> result -> Parser input result"},{"name":"or","comment":"Choice between two parsers\n\n      oneOrTwo = symbol '1' `or` symbol '2'","type":"Parser input result -> Parser input result -> Parser input result","associativity":"right","precedence":3},{"name":"parse","comment":"Parse a list using a parser, return list of results","type":"Parser input result -> List input -> Result String (List result)"},{"name":"parseString","comment":"Parse a `String` using a `Char` parser","type":"Parser Char result -> String -> Result String (List result)"},{"name":"parser","comment":"The parser record makes things look nicer when using command syntax","type":"{ andThen : Parser input result -> (result -> Parser input result2) -> Parser input result2 }"},{"name":"recursively","comment":"For realizing otherwise inexpressible recursive grammars. For\nexample, while\n\n    bbbba = (symbol 'a') `or` (symbol 'b' *> bbbba)\n\nwill fail at runtime with a non-termination issue, the replacement\n\n    bbbba = (symbol 'a') `or` (symbol 'b' *> recursively (\\() -> bbbba))\n\nis safe.","type":"(() -> Parser input result) -> Parser input result"},{"name":"satisfy","comment":"Parser that satisfies a given predicate","type":"(input -> Bool) -> Parser input input"},{"name":"separatedBy","comment":"Parses a sequence of the first parser, separated by the second parser","type":"Parser input result -> Parser input result2 -> Parser input (List result)"},{"name":"some","comment":"Parses one or more occurences of a parser","type":"Parser input result -> Parser input (List result)"},{"name":"succeed","comment":"Parser that always succeeds without consuming input","type":"result -> Parser input result"},{"name":"symbol","comment":"Parses a symbol","type":"input -> Parser input input"},{"name":"token","comment":"Parses a token of symbols","type":"List input -> Parser input (List input)"}],"generated-with-elm-version":"old"},{"name":"Parser.Char","comment":"Some parsers\n\n@docs digit, natural, integer, float, upper, lower, between, parenthesized, bracketed, braced","aliases":[],"types":[],"values":[{"name":"between","comment":"Parse a parser between two `Chars`","type":"Char -> Char -> Parser Char result -> Parser Char result"},{"name":"braced","comment":"Parses a parser between braces `{` and `}`","type":"Parser Char result -> Parser Char result"},{"name":"bracketed","comment":"Parses a parser between brackets `[` and `]`","type":"Parser Char result -> Parser Char result"},{"name":"digit","comment":"Parse a digit","type":"Parser Char Int"},{"name":"float","comment":"Parse a float with optional sign","type":"Parser Char Float"},{"name":"integer","comment":"Parse an integer with optional sign","type":"Parser Char Int"},{"name":"lower","comment":"Parse a lower case character","type":"Parser Char Char"},{"name":"natural","comment":"Parse a natural number","type":"Parser Char Int"},{"name":"parenthesized","comment":"Parse a parser between parentheses `(` and `)`","type":"Parser Char result -> Parser Char result"},{"name":"upper","comment":"Parse a upper case character","type":"Parser Char Char"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Parser",
+    "comment": "A simple parser combinator library.\n\n#Running the parser\n@docs parse, parseString, parser\n\n#Core functions\n@docs map, or, and, andThen\n\n#Combinators\n@docs succeed, satisfy, empty, symbol, token, choice, optional, many, some, separatedBy, end\n\n#Writing recursive grammars\n@docs recursively\n\n#Core functions (infix operators)\n@docs (<*>), (<$>), (<|>), (<*), (*>), (<$)",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "*>",
+        "comment": "Variant of `<*>` that ignores the result of the parser at the left",
+        "type": "Parser input x -> Parser input result -> Parser input result",
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "<$",
+        "comment": "Variant of `<$>` that ignores the result of the parser",
+        "type": "result -> Parser input x -> Parser input result",
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "<$>",
+        "comment": "Map a function over the result of the parser",
+        "type": "(result -> result2) -> Parser input result -> Parser input result2",
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "<*",
+        "comment": "Variant of `<*>` that ignores the result of the parser at the right",
+        "type": "Parser input result -> Parser input x -> Parser input result",
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "<*>",
+        "comment": "Sequence two parsers\n\n-",
+        "type": "Parser input (result -> result2) -> Parser input result -> Parser input result2",
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "<|>",
+        "comment": "Choice between two parsers",
+        "type": "Parser input result -> Parser input result -> Parser input result",
+        "associativity": "right",
+        "precedence": 3
+      },
+      {
+        "name": "and",
+        "comment": "Sequence two parsers\n\n    data Date = Date Int Int Int\n    date = Date `map` year `and` month `and` day",
+        "type": "Parser input (result -> result2) -> Parser input result -> Parser input result2",
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "andThen",
+        "comment": "Sequence two parsers, but pass the result of the first parser to the second parser.\n    This is useful for creating context sensitive parsers like XML.",
+        "type": "Parser input result -> (result -> Parser input result2) -> Parser input result2"
+      },
+      {
+        "name": "choice",
+        "comment": "Combine a list of parsers",
+        "type": "List (Parser input result) -> Parser input result"
+      },
+      {
+        "name": "empty",
+        "comment": "Parser that always fails",
+        "type": "Parser input result"
+      },
+      {
+        "name": "end",
+        "comment": "Succeeds when input is empty",
+        "type": "Parser input ()"
+      },
+      {
+        "name": "many",
+        "comment": "Parses zero or more occurences of a parser",
+        "type": "Parser input result -> Parser input (List result)"
+      },
+      {
+        "name": "map",
+        "comment": "Map a function over the result of the parser\n\n      count = length `map` many digit",
+        "type": "(result -> result2) -> Parser input result -> Parser input result2",
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "optional",
+        "comment": "Parses an optional element",
+        "type": "Parser input result -> result -> Parser input result"
+      },
+      {
+        "name": "or",
+        "comment": "Choice between two parsers\n\n      oneOrTwo = symbol '1' `or` symbol '2'",
+        "type": "Parser input result -> Parser input result -> Parser input result",
+        "associativity": "right",
+        "precedence": 3
+      },
+      {
+        "name": "parse",
+        "comment": "Parse a list using a parser, return list of results",
+        "type": "Parser input result -> List input -> Result String (List result)"
+      },
+      {
+        "name": "parseString",
+        "comment": "Parse a `String` using a `Char` parser",
+        "type": "Parser Char result -> String -> Result String (List result)"
+      },
+      {
+        "name": "parser",
+        "comment": "The parser record makes things look nicer when using command syntax",
+        "type": "{ andThen : Parser input result -> (result -> Parser input result2) -> Parser input result2 }"
+      },
+      {
+        "name": "recursively",
+        "comment": "For realizing otherwise inexpressible recursive grammars. For\nexample, while\n\n    bbbba = (symbol 'a') `or` (symbol 'b' *> bbbba)\n\nwill fail at runtime with a non-termination issue, the replacement\n\n    bbbba = (symbol 'a') `or` (symbol 'b' *> recursively (\\() -> bbbba))\n\nis safe.",
+        "type": "(() -> Parser input result) -> Parser input result"
+      },
+      {
+        "name": "satisfy",
+        "comment": "Parser that satisfies a given predicate",
+        "type": "(input -> Bool) -> Parser input input"
+      },
+      {
+        "name": "separatedBy",
+        "comment": "Parses a sequence of the first parser, separated by the second parser",
+        "type": "Parser input result -> Parser input result2 -> Parser input (List result)"
+      },
+      {
+        "name": "some",
+        "comment": "Parses one or more occurences of a parser",
+        "type": "Parser input result -> Parser input (List result)"
+      },
+      {
+        "name": "succeed",
+        "comment": "Parser that always succeeds without consuming input",
+        "type": "result -> Parser input result"
+      },
+      {
+        "name": "symbol",
+        "comment": "Parses a symbol",
+        "type": "input -> Parser input input"
+      },
+      {
+        "name": "token",
+        "comment": "Parses a token of symbols",
+        "type": "List input -> Parser input (List input)"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Parser.Char",
+    "comment": "Some parsers\n\n@docs digit, natural, integer, float, upper, lower, between, parenthesized, bracketed, braced",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "between",
+        "comment": "Parse a parser between two `Chars`",
+        "type": "Char -> Char -> Parser Char result -> Parser Char result"
+      },
+      {
+        "name": "braced",
+        "comment": "Parses a parser between braces `{` and `}`",
+        "type": "Parser Char result -> Parser Char result"
+      },
+      {
+        "name": "bracketed",
+        "comment": "Parses a parser between brackets `[` and `]`",
+        "type": "Parser Char result -> Parser Char result"
+      },
+      {
+        "name": "digit",
+        "comment": "Parse a digit",
+        "type": "Parser Char Int"
+      },
+      {
+        "name": "float",
+        "comment": "Parse a float with optional sign",
+        "type": "Parser Char Float"
+      },
+      {
+        "name": "integer",
+        "comment": "Parse an integer with optional sign",
+        "type": "Parser Char Int"
+      },
+      {
+        "name": "lower",
+        "comment": "Parse a lower case character",
+        "type": "Parser Char Char"
+      },
+      {
+        "name": "natural",
+        "comment": "Parse a natural number",
+        "type": "Parser Char Int"
+      },
+      {
+        "name": "parenthesized",
+        "comment": "Parse a parser between parentheses `(` and `)`",
+        "type": "Parser Char result -> Parser Char result"
+      },
+      {
+        "name": "upper",
+        "comment": "Parse a upper case character",
+        "type": "Parser Char Char"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

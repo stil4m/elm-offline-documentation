@@ -1,1 +1,61 @@
-[{"name":"RouteParser","comment":" A path parser for your web app routing, base on parser combinators.\n\n# Types\n@docs Url, Parsers\n\n# Path segment parsing\n@docs int, string\n\n# Full path parsing\n@docs static, dyn1, dyn2, dyn3\n\n# Matching a path on a list of parsers\n@docs match\n","aliases":[{"name":"Parsers","comment":" A list of parsers ","args":["route"],"type":"List (Combine.Parser route)"},{"name":"Url","comment":" A String path ","args":[],"type":"String"}],"types":[],"values":[{"name":"dyn1","comment":"  Parser for a path with one dynamic segment\n\n    type Route = Topic Int\n    routes = [ dyn1 Topic \"/topic/\" intParam \"/edit\" ]\n\n    match routes \"/topic/1/edit\" == Just (Topic 1)\n","type":"(a -> route) -> String -> Combine.Parser a -> String -> Combine.Parser route"},{"name":"dyn2","comment":"  Parser for a path with two dynamic segments\n\n    type Route = SubTopic Int Int\n    routes = [ dyn2 SubTopic \"/topic/\" intParam \"/\" intParam \"\" ]\n\n    match routes \"/topic/1/2\" == Just (SubTopic 1 2)\n","type":"(a -> b -> route) -> String -> Combine.Parser a -> String -> Combine.Parser b -> String -> Combine.Parser route"},{"name":"dyn3","comment":"  Parser for a path with three dynamic segments\n\n    type Route = Something String String String\n    routes = [ dyn3 Something \"/some/\" stringParam \"/thing/\" stringParam \"/here/\" stringParam \"\" ]\n\n    match routes \"/some/cool/thing/must-be/here/i-guess\" == Just (Something \"cool\" \"must-be\" \"i-guess\")\n","type":"(a -> b -> c -> route) -> String -> Combine.Parser a -> String -> Combine.Parser b -> String -> Combine.Parser c -> String -> Combine.Parser route"},{"name":"int","comment":" Extract an Int param ","type":"Combine.Parser Int"},{"name":"match","comment":" Given a list of parsers and a path, find the first parser matching the path\n","type":"RouteParser.Parsers route -> RouteParser.Url -> Maybe.Maybe route"},{"name":"static","comment":" Parser for a static path\n\n    type Route = About\n    routes = [ static About \"/about\" ]\n\n    match routes \"/about\" == Just About\n","type":"route -> String -> Combine.Parser route"},{"name":"string","comment":" Extract a String param ","type":"Combine.Parser String"}],"generated-with-elm-version":"0.16.0"}]
+[
+  {
+    "name": "RouteParser",
+    "comment": " A path parser for your web app routing, base on parser combinators.\n\n# Types\n@docs Url, Parsers\n\n# Path segment parsing\n@docs int, string\n\n# Full path parsing\n@docs static, dyn1, dyn2, dyn3\n\n# Matching a path on a list of parsers\n@docs match\n",
+    "aliases": [
+      {
+        "name": "Parsers",
+        "comment": " A list of parsers ",
+        "args": [
+          "route"
+        ],
+        "type": "List (Combine.Parser route)"
+      },
+      {
+        "name": "Url",
+        "comment": " A String path ",
+        "args": [],
+        "type": "String"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "dyn1",
+        "comment": "  Parser for a path with one dynamic segment\n\n    type Route = Topic Int\n    routes = [ dyn1 Topic \"/topic/\" intParam \"/edit\" ]\n\n    match routes \"/topic/1/edit\" == Just (Topic 1)\n",
+        "type": "(a -> route) -> String -> Combine.Parser a -> String -> Combine.Parser route"
+      },
+      {
+        "name": "dyn2",
+        "comment": "  Parser for a path with two dynamic segments\n\n    type Route = SubTopic Int Int\n    routes = [ dyn2 SubTopic \"/topic/\" intParam \"/\" intParam \"\" ]\n\n    match routes \"/topic/1/2\" == Just (SubTopic 1 2)\n",
+        "type": "(a -> b -> route) -> String -> Combine.Parser a -> String -> Combine.Parser b -> String -> Combine.Parser route"
+      },
+      {
+        "name": "dyn3",
+        "comment": "  Parser for a path with three dynamic segments\n\n    type Route = Something String String String\n    routes = [ dyn3 Something \"/some/\" stringParam \"/thing/\" stringParam \"/here/\" stringParam \"\" ]\n\n    match routes \"/some/cool/thing/must-be/here/i-guess\" == Just (Something \"cool\" \"must-be\" \"i-guess\")\n",
+        "type": "(a -> b -> c -> route) -> String -> Combine.Parser a -> String -> Combine.Parser b -> String -> Combine.Parser c -> String -> Combine.Parser route"
+      },
+      {
+        "name": "int",
+        "comment": " Extract an Int param ",
+        "type": "Combine.Parser Int"
+      },
+      {
+        "name": "match",
+        "comment": " Given a list of parsers and a path, find the first parser matching the path\n",
+        "type": "RouteParser.Parsers route -> RouteParser.Url -> Maybe.Maybe route"
+      },
+      {
+        "name": "static",
+        "comment": " Parser for a static path\n\n    type Route = About\n    routes = [ static About \"/about\" ]\n\n    match routes \"/about\" == Just About\n",
+        "type": "route -> String -> Combine.Parser route"
+      },
+      {
+        "name": "string",
+        "comment": " Extract a String param ",
+        "type": "Combine.Parser String"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

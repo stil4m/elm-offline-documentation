@@ -1,1 +1,21 @@
-[{"name":"Json.Decode.Extra","comment":"Convenience functions for working with Json\n\n# Date and Time\n@docs date\n\n# Incremental Decoding\n@docs andApply","aliases":[],"types":[],"values":[{"name":"andApply","comment":"Can be helpful when decoding large objects incrementally.\n\n    import Date (Date)\n\n    type alias User =\n      { id                : Int\n      , createdAt         : Date\n      , updatedAt         : Date\n      , deletedAt         : Maybe Date\n      , username          : Maybe String\n      , email             : Maybe String\n      , fullname          : Maybe String\n      , fullnamePrivate   : Bool\n      , stripeId          : Maybe String\n      , edaTools          : Maybe String\n      , avatar            : Maybe String\n      , isModerator       : Bool\n      , isOrganization    : Bool\n      , isAdmin           : Bool\n      }\n\n    metaDecoder : (Int -> Date -> Date -> Maybe Date -> b) -> Decoder b\n    metaDecoder f = f\n      `map`      (\"id\"        := int)\n      `andApply` (\"createdAt\" := date)\n      `andApply` (\"updatedAt\" := date)\n      `andApply` (\"deletedAt\" := maybe date)\n\n    userDecoder : Decoder User\n    userDecoder = metaDecoder User\n      `andApply` (\"username\"          := maybe string)\n      `andApply` (\"email\"             := maybe string)\n      `andApply` (\"fullname\"          := maybe string)\n      `andApply` (\"fullnamePrivate\"   := bool)\n      `andApply` (\"stripeId\"          := maybe string)\n      `andApply` (\"edaTools\"          := maybe string)\n      `andApply` (\"avatar\"            := maybe string)\n      `andApply` (\"isModerator\"       := bool)\n      `andApply` (\"isOrganization\"    := bool)\n      `andApply` (\"isAdmin\"           := bool)","type":"Decoder (a -> b) -> Decoder a -> Decoder b"},{"name":"date","comment":"Extract a date.\n\nNote that this function is not total, it will throw an exception given an incorrectly formatted date.\nSee 'Date.fromString' and 'Json.customDecoder'.","type":"Decoder Date.Date"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Json.Decode.Extra",
+    "comment": "Convenience functions for working with Json\n\n# Date and Time\n@docs date\n\n# Incremental Decoding\n@docs andApply",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "andApply",
+        "comment": "Can be helpful when decoding large objects incrementally.\n\n    import Date (Date)\n\n    type alias User =\n      { id                : Int\n      , createdAt         : Date\n      , updatedAt         : Date\n      , deletedAt         : Maybe Date\n      , username          : Maybe String\n      , email             : Maybe String\n      , fullname          : Maybe String\n      , fullnamePrivate   : Bool\n      , stripeId          : Maybe String\n      , edaTools          : Maybe String\n      , avatar            : Maybe String\n      , isModerator       : Bool\n      , isOrganization    : Bool\n      , isAdmin           : Bool\n      }\n\n    metaDecoder : (Int -> Date -> Date -> Maybe Date -> b) -> Decoder b\n    metaDecoder f = f\n      `map`      (\"id\"        := int)\n      `andApply` (\"createdAt\" := date)\n      `andApply` (\"updatedAt\" := date)\n      `andApply` (\"deletedAt\" := maybe date)\n\n    userDecoder : Decoder User\n    userDecoder = metaDecoder User\n      `andApply` (\"username\"          := maybe string)\n      `andApply` (\"email\"             := maybe string)\n      `andApply` (\"fullname\"          := maybe string)\n      `andApply` (\"fullnamePrivate\"   := bool)\n      `andApply` (\"stripeId\"          := maybe string)\n      `andApply` (\"edaTools\"          := maybe string)\n      `andApply` (\"avatar\"            := maybe string)\n      `andApply` (\"isModerator\"       := bool)\n      `andApply` (\"isOrganization\"    := bool)\n      `andApply` (\"isAdmin\"           := bool)",
+        "type": "Decoder (a -> b) -> Decoder a -> Decoder b"
+      },
+      {
+        "name": "date",
+        "comment": "Extract a date.\n\nNote that this function is not total, it will throw an exception given an incorrectly formatted date.\nSee 'Date.fromString' and 'Json.customDecoder'.",
+        "type": "Decoder Date.Date"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

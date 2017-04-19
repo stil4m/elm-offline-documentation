@@ -1,1 +1,75 @@
-[{"name":"Hop","comment":" A router for single page applications. See [readme](https://github.com/sporto/hop) for usage.\n\n# Types\n@docs Config, Router, Payload, Params, RouteDefinition, Action\n\n# Setup\n@docs new\n\n# Navigation\n@docs navigateTo, setQuery, clearQuery\n","aliases":[{"name":"Config","comment":" Configuration input for Hop.new\n","args":["partialAction"],"type":"Hop.Types.Config partialAction"},{"name":"Params","comment":" A Dict that holds parameters for the current route\n","args":[],"type":"Hop.Types.Params"},{"name":"Payload","comment":" Payload returned by the router when calling routing actions\n","args":[],"type":"Hop.Types.Payload"},{"name":"RouteDefinition","comment":" A route defintion\n","args":["action"],"type":"Hop.Types.RouteDefinition action"},{"name":"Router","comment":" Router record created by Hop.new\n","args":["action"],"type":"Hop.Types.Router action"}],"types":[{"name":"Action","comment":" Actions\n","args":[],"cases":[]}],"values":[{"name":"clearQuery","comment":" Clear all query string values\n\n    update action model =\n      case action of\n        ...\n        ClearQuery ->\n          (model, Effects.map HopAction (Hop.clearQuery model.routerPayload.url))\n","type":"Erl.Url -> Effects.Effects Hop.Action"},{"name":"navigateTo","comment":" Changes the location (hash and query)\n\n    update action model =\n      case action of\n        ...\n        NavigateTo path ->\n          (model, Effects.map HopAction (Hop.navigateTo path))\n","type":"String -> Effects.Effects Hop.Action"},{"name":"new","comment":" Create a Hop.Router\n\n    router =\n      Hop.new {\n        routes = routes,\n        notFoundAction = ShowNotFound\n      }\n","type":"Hop.Config (Hop.UserPartialAction action) -> Hop.Router action"},{"name":"setQuery","comment":" Set query string values\n\n    update action model =\n      case action of\n        ...\n        SetQuery query ->\n          (model, Effects.map HopAction (Hop.setQuery model.routerPayload.url query))\n\n  To remove a value set the value to \"\"\n","type":"Erl.Url -> Hop.Params -> Effects.Effects Hop.Action"}],"generated-with-elm-version":"0.16.0"}]
+[
+  {
+    "name": "Hop",
+    "comment": " A router for single page applications. See [readme](https://github.com/sporto/hop) for usage.\n\n# Types\n@docs Config, Router, Payload, Params, RouteDefinition, Action\n\n# Setup\n@docs new\n\n# Navigation\n@docs navigateTo, setQuery, clearQuery\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " Configuration input for Hop.new\n",
+        "args": [
+          "partialAction"
+        ],
+        "type": "Hop.Types.Config partialAction"
+      },
+      {
+        "name": "Params",
+        "comment": " A Dict that holds parameters for the current route\n",
+        "args": [],
+        "type": "Hop.Types.Params"
+      },
+      {
+        "name": "Payload",
+        "comment": " Payload returned by the router when calling routing actions\n",
+        "args": [],
+        "type": "Hop.Types.Payload"
+      },
+      {
+        "name": "RouteDefinition",
+        "comment": " A route defintion\n",
+        "args": [
+          "action"
+        ],
+        "type": "Hop.Types.RouteDefinition action"
+      },
+      {
+        "name": "Router",
+        "comment": " Router record created by Hop.new\n",
+        "args": [
+          "action"
+        ],
+        "type": "Hop.Types.Router action"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Actions\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "clearQuery",
+        "comment": " Clear all query string values\n\n    update action model =\n      case action of\n        ...\n        ClearQuery ->\n          (model, Effects.map HopAction (Hop.clearQuery model.routerPayload.url))\n",
+        "type": "Erl.Url -> Effects.Effects Hop.Action"
+      },
+      {
+        "name": "navigateTo",
+        "comment": " Changes the location (hash and query)\n\n    update action model =\n      case action of\n        ...\n        NavigateTo path ->\n          (model, Effects.map HopAction (Hop.navigateTo path))\n",
+        "type": "String -> Effects.Effects Hop.Action"
+      },
+      {
+        "name": "new",
+        "comment": " Create a Hop.Router\n\n    router =\n      Hop.new {\n        routes = routes,\n        notFoundAction = ShowNotFound\n      }\n",
+        "type": "Hop.Config (Hop.UserPartialAction action) -> Hop.Router action"
+      },
+      {
+        "name": "setQuery",
+        "comment": " Set query string values\n\n    update action model =\n      case action of\n        ...\n        SetQuery query ->\n          (model, Effects.map HopAction (Hop.setQuery model.routerPayload.url query))\n\n  To remove a value set the value to \"\"\n",
+        "type": "Erl.Url -> Hop.Params -> Effects.Effects Hop.Action"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

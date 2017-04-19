@@ -1,1 +1,71 @@
-[{"name":"Generate","comment":" Generate is a library for lazy list transformation.\n\n# Types\n@docs Generator\n\n## Converting to and from Generators\n@docs singleton, fromList, toList\n\n## Extracting values\n@docs next\n\n## Transforming Generators\n@docs map, filter, remove, reverse, take, drop\n\n","aliases":[],"types":[{"name":"Generator","comment":" Generators are lists whose map and filter operations are applied\nlazily as items are requested.  This means that operations like:\n\n    fromList [1,2,3]\n      |> map ((+) 1)\n      |> filter (\\x -> x % 2 == 0)\n      |> map toString\n      |> toList\n\nOnly iterate through the list once.\n\n","args":["a","b"],"cases":[]}],"values":[{"name":"drop","comment":" Drop the first `n` elements from a Generator.\n\n    > fromList [1, 2, 3] |> drop 1 |> toList\n    [2, 3] : List number\n\n","type":"Int -> Generate.Generator a b -> Generate.Generator a b"},{"name":"filter","comment":" Filter the elements of a Generator.\n\n    > fromList [1, 2, 3] |> filter (flip (>) 1) |> toList\n    [2, 3] : List number\n\n","type":"(b -> Bool) -> Generate.Generator a b -> Generate.Generator a b"},{"name":"fromList","comment":" Construct a Generator from a List.\n\n    > fromList [1, 2, 3]\n    Generator { items = [1,2,3], transform = <function> }\n      : Generate.Generator number number\n\n","type":"List a -> Generate.Generator a a"},{"name":"map","comment":" Transform the elements of a Generator.\n\n\n    > fromList [1, 2, 3] |> map ((+) 1) |> toList\n    [2, 3, 4] : List number\n\n","type":"(b -> c) -> Generate.Generator a b -> Generate.Generator a c"},{"name":"next","comment":" Get the next element in the generator after transforming it.\n\n    > fromList [1, 2, 3] |> filter ((/=) 1) |> next\n    (Just 2,Generator { items = [3], transform = <function> })\n      : ( Maybe.Maybe number, Generate.Generator number number )\n\n    > fromList [1, 2, 3] |> filter ((==) 5) |> next\n    (Nothing,Generator { items = [], transform = <function> })\n      : ( Maybe.Maybe number, Generate.Generator number number )\n\n","type":"Generate.Generator a b -> ( Maybe.Maybe b, Generate.Generator a b )"},{"name":"remove","comment":" Remove elements that match the given predicate from the Generator.\n\n    > fromList [1, 2, 3] |> remove (\\x -> x % 2 == 0) |> toList\n    [1, 3] : List number\n\n","type":"(b -> Bool) -> Generate.Generator a b -> Generate.Generator a b"},{"name":"reverse","comment":" Reverse a Generator's elements. ","type":"Generate.Generator a b -> Generate.Generator a b"},{"name":"singleton","comment":" Construct a Generator from a single value.\n\n    > singleton 1\n    Generator { items = [1], transform = <function> }\n      : Generate.Generator number number\n","type":"a -> Generate.Generator a a"},{"name":"take","comment":" Take the first `n` elements from a Generator.\n\n    > fromList [1, 2, 3] |> take 1 |> toList\n    [1] : List number\n\n","type":"Int -> Generate.Generator a b -> Generate.Generator a b"},{"name":"toList","comment":" Construct a List from a Generator.\n\n    > fromList [1, 2, 3] |> toList\n    [1, 2, 3] : List number\n\n","type":"Generate.Generator a b -> List b"}],"generated-with-elm-version":"0.16.0"}]
+[
+  {
+    "name": "Generate",
+    "comment": " Generate is a library for lazy list transformation.\n\n# Types\n@docs Generator\n\n## Converting to and from Generators\n@docs singleton, fromList, toList\n\n## Extracting values\n@docs next\n\n## Transforming Generators\n@docs map, filter, remove, reverse, take, drop\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Generator",
+        "comment": " Generators are lists whose map and filter operations are applied\nlazily as items are requested.  This means that operations like:\n\n    fromList [1,2,3]\n      |> map ((+) 1)\n      |> filter (\\x -> x % 2 == 0)\n      |> map toString\n      |> toList\n\nOnly iterate through the list once.\n\n",
+        "args": [
+          "a",
+          "b"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "drop",
+        "comment": " Drop the first `n` elements from a Generator.\n\n    > fromList [1, 2, 3] |> drop 1 |> toList\n    [2, 3] : List number\n\n",
+        "type": "Int -> Generate.Generator a b -> Generate.Generator a b"
+      },
+      {
+        "name": "filter",
+        "comment": " Filter the elements of a Generator.\n\n    > fromList [1, 2, 3] |> filter (flip (>) 1) |> toList\n    [2, 3] : List number\n\n",
+        "type": "(b -> Bool) -> Generate.Generator a b -> Generate.Generator a b"
+      },
+      {
+        "name": "fromList",
+        "comment": " Construct a Generator from a List.\n\n    > fromList [1, 2, 3]\n    Generator { items = [1,2,3], transform = <function> }\n      : Generate.Generator number number\n\n",
+        "type": "List a -> Generate.Generator a a"
+      },
+      {
+        "name": "map",
+        "comment": " Transform the elements of a Generator.\n\n\n    > fromList [1, 2, 3] |> map ((+) 1) |> toList\n    [2, 3, 4] : List number\n\n",
+        "type": "(b -> c) -> Generate.Generator a b -> Generate.Generator a c"
+      },
+      {
+        "name": "next",
+        "comment": " Get the next element in the generator after transforming it.\n\n    > fromList [1, 2, 3] |> filter ((/=) 1) |> next\n    (Just 2,Generator { items = [3], transform = <function> })\n      : ( Maybe.Maybe number, Generate.Generator number number )\n\n    > fromList [1, 2, 3] |> filter ((==) 5) |> next\n    (Nothing,Generator { items = [], transform = <function> })\n      : ( Maybe.Maybe number, Generate.Generator number number )\n\n",
+        "type": "Generate.Generator a b -> ( Maybe.Maybe b, Generate.Generator a b )"
+      },
+      {
+        "name": "remove",
+        "comment": " Remove elements that match the given predicate from the Generator.\n\n    > fromList [1, 2, 3] |> remove (\\x -> x % 2 == 0) |> toList\n    [1, 3] : List number\n\n",
+        "type": "(b -> Bool) -> Generate.Generator a b -> Generate.Generator a b"
+      },
+      {
+        "name": "reverse",
+        "comment": " Reverse a Generator's elements. ",
+        "type": "Generate.Generator a b -> Generate.Generator a b"
+      },
+      {
+        "name": "singleton",
+        "comment": " Construct a Generator from a single value.\n\n    > singleton 1\n    Generator { items = [1], transform = <function> }\n      : Generate.Generator number number\n",
+        "type": "a -> Generate.Generator a a"
+      },
+      {
+        "name": "take",
+        "comment": " Take the first `n` elements from a Generator.\n\n    > fromList [1, 2, 3] |> take 1 |> toList\n    [1] : List number\n\n",
+        "type": "Int -> Generate.Generator a b -> Generate.Generator a b"
+      },
+      {
+        "name": "toList",
+        "comment": " Construct a List from a Generator.\n\n    > fromList [1, 2, 3] |> toList\n    [1, 2, 3] : List number\n\n",
+        "type": "Generate.Generator a b -> List b"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

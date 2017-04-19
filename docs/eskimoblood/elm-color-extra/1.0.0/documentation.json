@@ -1,1 +1,70 @@
-[{"name":"Color.Extra","comment":" A library for creating and manipulating colors.\n\n\n# Color adjustment\n@docs darken, lighten, saturate, desaturate, rotateHue\n\n# Mixing colors\n@docs blend\n\n# Gradient\n@docs GradientStop, Gradient, Palette, gradient\n\n#Helper\n@docs toCssString\n","aliases":[{"name":"Gradient","comment":" ","args":[],"type":"List Color.Extra.GradientStop"},{"name":"GradientStop","comment":" A color and a stop value that indicates where the color appears in a gradient.\n The stop value must be between `0` and `1`.\n","args":[],"type":"( Float, Color.Color )"},{"name":"Palette","comment":" ","args":[],"type":"List Color.Color"}],"types":[],"values":[{"name":"blend","comment":" Linear interpolation of  two colors.\n","type":"Color.Color -> Color.Color -> Float -> Color.Color"},{"name":"darken","comment":" Decrease the lightning of a colosds\n","type":"Float -> Color.Color -> Color.Color"},{"name":"desaturate","comment":" Decrease the saturation of a color\n","type":"Float -> Color.Color -> Color.Color"},{"name":"gradient","comment":" Create a new `Palette` from a given `Gradient`, with a given size.\n","type":"Color.Extra.Gradient -> Int -> Color.Extra.Palette"},{"name":"lighten","comment":" Increase the lightning of a color\n","type":"Float -> Color.Color -> Color.Color"},{"name":"rotateHue","comment":" Change the hue of a color. The angle value must be in degrees\n","type":"Float -> Color.Color -> Color.Color"},{"name":"saturate","comment":" Increase the saturation of a color\n","type":"Float -> Color.Color -> Color.Color"},{"name":"toCssString","comment":" convert a color into an CSS rgba color string\n","type":"Color.Color -> String"}],"generated-with-elm-version":"0.16.0"}]
+[
+  {
+    "name": "Color.Extra",
+    "comment": " A library for creating and manipulating colors.\n\n\n# Color adjustment\n@docs darken, lighten, saturate, desaturate, rotateHue\n\n# Mixing colors\n@docs blend\n\n# Gradient\n@docs GradientStop, Gradient, Palette, gradient\n\n#Helper\n@docs toCssString\n",
+    "aliases": [
+      {
+        "name": "Gradient",
+        "comment": " ",
+        "args": [],
+        "type": "List Color.Extra.GradientStop"
+      },
+      {
+        "name": "GradientStop",
+        "comment": " A color and a stop value that indicates where the color appears in a gradient.\n The stop value must be between `0` and `1`.\n",
+        "args": [],
+        "type": "( Float, Color.Color )"
+      },
+      {
+        "name": "Palette",
+        "comment": " ",
+        "args": [],
+        "type": "List Color.Color"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "blend",
+        "comment": " Linear interpolation of  two colors.\n",
+        "type": "Color.Color -> Color.Color -> Float -> Color.Color"
+      },
+      {
+        "name": "darken",
+        "comment": " Decrease the lightning of a colosds\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "desaturate",
+        "comment": " Decrease the saturation of a color\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "gradient",
+        "comment": " Create a new `Palette` from a given `Gradient`, with a given size.\n",
+        "type": "Color.Extra.Gradient -> Int -> Color.Extra.Palette"
+      },
+      {
+        "name": "lighten",
+        "comment": " Increase the lightning of a color\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "rotateHue",
+        "comment": " Change the hue of a color. The angle value must be in degrees\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "saturate",
+        "comment": " Increase the saturation of a color\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "toCssString",
+        "comment": " convert a color into an CSS rgba color string\n",
+        "type": "Color.Color -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

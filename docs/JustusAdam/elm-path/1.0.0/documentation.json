@@ -1,1 +1,66 @@
-[{"name":"Path.Posix","comment":"\n  Specialized path manipulation functions for working with Posix paths.\n\n  Reexports all functions from the 'Path.Generic' module, specialized to Posix paths.\n\n  Since operator reexport does not seem to work, <.> and -<.> have to be imported from the Generic module directly.\n\n  @docs (</>)","aliases":[],"types":[],"values":[{"name":"</>","comment":"\n  Operator Version of 'combine'","type":{"tag":"lambda","in":{"tag":"type","name":"String"},"out":{"tag":"lambda","in":{"tag":"type","name":"String"},"out":{"tag":"type","name":"String"}}},"associativity":"right","precedence":5}]},{"name":"Path.Windows","comment":"\n  Specialized path manipulation functions for working with Windows paths.\n\n  This module is not very well tested. PLease make sure the functions you use work as expected.\n\n  Reexports all functions from the 'Path.Generic' module, specialized to Windows paths.\n\n  Since operator reexport does not seem to work, <.> and -<.> have to be imported from the Generic module directly.\n\n  @docs (</>)","aliases":[],"types":[],"values":[{"name":"</>","comment":"\n  Operator Version of 'combine'","type":{"tag":"lambda","in":{"tag":"type","name":"String"},"out":{"tag":"lambda","in":{"tag":"type","name":"String"},"out":{"tag":"type","name":"String"}}},"associativity":"right","precedence":5}]}]
+[
+  {
+    "name": "Path.Posix",
+    "comment": "\n  Specialized path manipulation functions for working with Posix paths.\n\n  Reexports all functions from the 'Path.Generic' module, specialized to Posix paths.\n\n  Since operator reexport does not seem to work, <.> and -<.> have to be imported from the Generic module directly.\n\n  @docs (</>)",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "</>",
+        "comment": "\n  Operator Version of 'combine'",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "type",
+            "name": "String"
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "type",
+              "name": "String"
+            },
+            "out": {
+              "tag": "type",
+              "name": "String"
+            }
+          }
+        },
+        "associativity": "right",
+        "precedence": 5
+      }
+    ]
+  },
+  {
+    "name": "Path.Windows",
+    "comment": "\n  Specialized path manipulation functions for working with Windows paths.\n\n  This module is not very well tested. PLease make sure the functions you use work as expected.\n\n  Reexports all functions from the 'Path.Generic' module, specialized to Windows paths.\n\n  Since operator reexport does not seem to work, <.> and -<.> have to be imported from the Generic module directly.\n\n  @docs (</>)",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "</>",
+        "comment": "\n  Operator Version of 'combine'",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "type",
+            "name": "String"
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "type",
+              "name": "String"
+            },
+            "out": {
+              "tag": "type",
+              "name": "String"
+            }
+          }
+        },
+        "associativity": "right",
+        "precedence": 5
+      }
+    ]
+  }
+]

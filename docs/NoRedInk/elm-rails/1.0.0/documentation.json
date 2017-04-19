@@ -1,1 +1,16 @@
-[{"name":"Rails","comment":"\n\n# Http\n@docs send","aliases":[],"types":[],"values":[{"name":"send","comment":"Utility for working with rails. Wraps Http.send passing an Authenticity Token\nalong with the type of request and a way to decode results.","type":"String -> Json.Decode.Decoder value -> String -> String -> Http.Body -> Task.Task Http.Error value"}],"generated-with-elm-version":"0.15.1"}]
+[
+  {
+    "name": "Rails",
+    "comment": "\n\n# Http\n@docs send",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "send",
+        "comment": "Utility for working with rails. Wraps Http.send passing an Authenticity Token\nalong with the type of request and a way to decode results.",
+        "type": "String -> Json.Decode.Decoder value -> String -> String -> Http.Body -> Task.Task Http.Error value"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

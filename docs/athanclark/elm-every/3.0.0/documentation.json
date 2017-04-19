@@ -1,1 +1,66 @@
-[{"name":"Every","comment":"\n\nThis component will continually issue / poll an action / message\nfor some given amount of time, determined by a function you provide\nthe system.\n\n\n## Polling State\n\n@docs Model, init\n\n\n## Polling Invocation\n\n@docs Msg, ModifyData, Modify\n\n\n## Polling Enactment\n\n@docs update\n\n","aliases":[{"name":"Model","comment":" The state of the poller\n","args":["b"],"type":"{ elapsed : Maybe.Maybe (Every.Elapsed b) }"},{"name":"Modify","comment":" We can modify the stored data, and also reset the accrued time so far. ","args":["b"],"type":"{ resetSoFar : Bool, modifyData : Maybe.Maybe (Every.ModifyData b) }"}],"types":[{"name":"ModifyData","comment":" Either adjust the potentially stored data, or just assign some. ","args":["b"],"cases":[]},{"name":"Msg","comment":" The type of messages you can send to the poller -\n    either initialization (or new input data for the action\n    to be dispatched), or a cease-and-desist call.\n","args":["b"],"cases":[["Start",["Every.Modify b"]],["Stop",[]]]}],"values":[{"name":"init","comment":" Initial state of the poller, where `b` is the type of message\n    to send on completion.\n","type":"Every.Model b"},{"name":"update","comment":" Given a method to compute the duration to wait until the next action is issued\n    (calculated from the total time elapsed `total -> delay`), and the main action to\n    issue, build an updating component.\n","type":"(Maybe.Maybe b -> Time.Time -> Time.Time) -> (Maybe.Maybe b -> Platform.Cmd.Cmd a) -> Every.Msg b -> Every.Model b -> ( Every.Model b , Platform.Cmd.Cmd (Result.Result a (Every.Msg b)) )"}],"generated-with-elm-version":"0.17.0"}]
+[
+  {
+    "name": "Every",
+    "comment": "\n\nThis component will continually issue / poll an action / message\nfor some given amount of time, determined by a function you provide\nthe system.\n\n\n## Polling State\n\n@docs Model, init\n\n\n## Polling Invocation\n\n@docs Msg, ModifyData, Modify\n\n\n## Polling Enactment\n\n@docs update\n\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " The state of the poller\n",
+        "args": [
+          "b"
+        ],
+        "type": "{ elapsed : Maybe.Maybe (Every.Elapsed b) }"
+      },
+      {
+        "name": "Modify",
+        "comment": " We can modify the stored data, and also reset the accrued time so far. ",
+        "args": [
+          "b"
+        ],
+        "type": "{ resetSoFar : Bool, modifyData : Maybe.Maybe (Every.ModifyData b) }"
+      }
+    ],
+    "types": [
+      {
+        "name": "ModifyData",
+        "comment": " Either adjust the potentially stored data, or just assign some. ",
+        "args": [
+          "b"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Msg",
+        "comment": " The type of messages you can send to the poller -\n    either initialization (or new input data for the action\n    to be dispatched), or a cease-and-desist call.\n",
+        "args": [
+          "b"
+        ],
+        "cases": [
+          [
+            "Start",
+            [
+              "Every.Modify b"
+            ]
+          ],
+          [
+            "Stop",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Initial state of the poller, where `b` is the type of message\n    to send on completion.\n",
+        "type": "Every.Model b"
+      },
+      {
+        "name": "update",
+        "comment": " Given a method to compute the duration to wait until the next action is issued\n    (calculated from the total time elapsed `total -> delay`), and the main action to\n    issue, build an updating component.\n",
+        "type": "(Maybe.Maybe b -> Time.Time -> Time.Time) -> (Maybe.Maybe b -> Platform.Cmd.Cmd a) -> Every.Msg b -> Every.Model b -> ( Every.Model b , Platform.Cmd.Cmd (Result.Result a (Every.Msg b)) )"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

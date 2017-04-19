@@ -1,1 +1,83 @@
-[{"name":"Layout","comment":"An experimental alternative to Graphics.Element and elm-html\n\nThe concept being explored by this rendering library is to have the core element\ntype be a function of `{x,y,w,h} -> rendering` instead of simply being a rendering.\nThis leads to some interesting properties with respect to creating dynamic layouts,\nand thus far appears to give a nice API for quickly creating and modifying layouts.\nIt also provides a mechanism for creating reusable layout logic.\n\n@docs Layout\n\n## Basic elements\n\n@docs placeholder, text, image, croppedImage, fill\n\n## Positioning\n\n@docs inset, top\n\n## Lists\n\n@docs flow, stack, list\n\n## Events\n\n@docs onClick\n\n## Integration\n\n@docs toHtml, toFullWindow","aliases":[],"types":[{"name":"Layout","comment":"A graphical element that will be rendered into a particular bounds at a later time.","args":[],"cases":[]}],"values":[{"name":"croppedImage","comment":"An image cropped to a specific region of the source image.\nThe cropped region will be scaled to fill the bounds that this element renders into.\n\n    Layout.croppedImage 50 70 \"tiles50x70.png\" 10 10 20 30","type":"Float -> Float -> Layout.Image -> Float -> Float -> Float -> Float -> Layout.Layout"},{"name":"fill","comment":"An element that fills its bounds with a color.\n\n    Layout.fill Color.red","type":"Color.Color -> Layout.Layout"},{"name":"flow","comment":"An element that renders a list of children into bounds of a given size and\nlays them out in a left-to-right flow that wraps at this element's bounds\n\n    Layout.flow (32,32) (List.map fill [Color.red, Color.blue])","type":"( Float, Float ) -> List Layout.Layout -> Layout.Layout"},{"name":"image","comment":"An element that renders an image.\n\n    Layout.image \"mario.png\"","type":"Layout.Image -> Layout.Layout"},{"name":"inset","comment":"A container element that inserts padding around its child\n\n    withBorder child = Layout.stack\n        [ Layout.fill Color.grey\n        , Layout.inset 2 child\n        ]","type":"Float -> Layout.Layout -> Layout.Layout"},{"name":"list","comment":"An element that renders a list of children in a vertical list with a given height.\n\nThe list will scroll vertically if there are enough children to exceed the vertical bounds of the list.\n\n    Layout.list 44 (List.map placeholder [\"Item 1\", \"Item 2\", \"Item 3\"])","type":"Float -> List Layout.Layout -> Layout.Layout"},{"name":"onClick","comment":"Adds a click listener to an element","type":"Signal.Message -> Layout.Layout -> Layout.Layout"},{"name":"placeholder","comment":"An element intended to be a placeholder for something that will be implemented at\na later time.  The placeholder will show the given text and will use the text to generate a\nunique color to fill the placeholder's bounds.\n\nThis element is intended to aid in quick prototyping where you want to reserve an area on the screen\nto implement at a later time.\n\n    view = Layout.top 50\n        (Layout.placeholder \"header\")\n        (Layout.placeholder \"content\")","type":"String -> Layout.Layout"},{"name":"stack","comment":"An element that renders a list of children on top of one another in the same bounds.\n\n    Layout.stack\n        [ Layout.image \"background.png\"\n        , Layout.text \"Welcome\"\n        ]","type":"List Layout.Layout -> Layout.Layout"},{"name":"text","comment":"An element that renders text with a given style.\n\n    Layout.text {size=32,color=Color.darkCharcoal} \"Welcome\"","type":"{ size : Int, color : Color.Color } -> String -> Layout.Layout"},{"name":"toFullWindow","comment":"Simplifies rendering an element to fill the window.\n\n    view = Layout.placeholder \"view\"\n    main = Layout.toFullWindow (Signal.constant view)","type":"Signal.Signal Layout.Layout -> Signal.Signal Html.Html"},{"name":"toHtml","comment":"Render a Layout to Html.\n\n    view = Layout.placeholder \"view\"\n    main = Layout.toHtml (800, 600) view","type":"( Int, Int ) -> Layout.Layout -> Html.Html"},{"name":"top","comment":"Position two elements vertically, with the first element taking a given height\n\n    Layout.top 50\n        (Layout.placeholder \"header\")\n        (Layout.placeholder \"content\")","type":"Float -> Layout.Layout -> Layout.Layout -> Layout.Layout"}],"generated-with-elm-version":"0.15.1"}]
+[
+  {
+    "name": "Layout",
+    "comment": "An experimental alternative to Graphics.Element and elm-html\n\nThe concept being explored by this rendering library is to have the core element\ntype be a function of `{x,y,w,h} -> rendering` instead of simply being a rendering.\nThis leads to some interesting properties with respect to creating dynamic layouts,\nand thus far appears to give a nice API for quickly creating and modifying layouts.\nIt also provides a mechanism for creating reusable layout logic.\n\n@docs Layout\n\n## Basic elements\n\n@docs placeholder, text, image, croppedImage, fill\n\n## Positioning\n\n@docs inset, top\n\n## Lists\n\n@docs flow, stack, list\n\n## Events\n\n@docs onClick\n\n## Integration\n\n@docs toHtml, toFullWindow",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Layout",
+        "comment": "A graphical element that will be rendered into a particular bounds at a later time.",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "croppedImage",
+        "comment": "An image cropped to a specific region of the source image.\nThe cropped region will be scaled to fill the bounds that this element renders into.\n\n    Layout.croppedImage 50 70 \"tiles50x70.png\" 10 10 20 30",
+        "type": "Float -> Float -> Layout.Image -> Float -> Float -> Float -> Float -> Layout.Layout"
+      },
+      {
+        "name": "fill",
+        "comment": "An element that fills its bounds with a color.\n\n    Layout.fill Color.red",
+        "type": "Color.Color -> Layout.Layout"
+      },
+      {
+        "name": "flow",
+        "comment": "An element that renders a list of children into bounds of a given size and\nlays them out in a left-to-right flow that wraps at this element's bounds\n\n    Layout.flow (32,32) (List.map fill [Color.red, Color.blue])",
+        "type": "( Float, Float ) -> List Layout.Layout -> Layout.Layout"
+      },
+      {
+        "name": "image",
+        "comment": "An element that renders an image.\n\n    Layout.image \"mario.png\"",
+        "type": "Layout.Image -> Layout.Layout"
+      },
+      {
+        "name": "inset",
+        "comment": "A container element that inserts padding around its child\n\n    withBorder child = Layout.stack\n        [ Layout.fill Color.grey\n        , Layout.inset 2 child\n        ]",
+        "type": "Float -> Layout.Layout -> Layout.Layout"
+      },
+      {
+        "name": "list",
+        "comment": "An element that renders a list of children in a vertical list with a given height.\n\nThe list will scroll vertically if there are enough children to exceed the vertical bounds of the list.\n\n    Layout.list 44 (List.map placeholder [\"Item 1\", \"Item 2\", \"Item 3\"])",
+        "type": "Float -> List Layout.Layout -> Layout.Layout"
+      },
+      {
+        "name": "onClick",
+        "comment": "Adds a click listener to an element",
+        "type": "Signal.Message -> Layout.Layout -> Layout.Layout"
+      },
+      {
+        "name": "placeholder",
+        "comment": "An element intended to be a placeholder for something that will be implemented at\na later time.  The placeholder will show the given text and will use the text to generate a\nunique color to fill the placeholder's bounds.\n\nThis element is intended to aid in quick prototyping where you want to reserve an area on the screen\nto implement at a later time.\n\n    view = Layout.top 50\n        (Layout.placeholder \"header\")\n        (Layout.placeholder \"content\")",
+        "type": "String -> Layout.Layout"
+      },
+      {
+        "name": "stack",
+        "comment": "An element that renders a list of children on top of one another in the same bounds.\n\n    Layout.stack\n        [ Layout.image \"background.png\"\n        , Layout.text \"Welcome\"\n        ]",
+        "type": "List Layout.Layout -> Layout.Layout"
+      },
+      {
+        "name": "text",
+        "comment": "An element that renders text with a given style.\n\n    Layout.text {size=32,color=Color.darkCharcoal} \"Welcome\"",
+        "type": "{ size : Int, color : Color.Color } -> String -> Layout.Layout"
+      },
+      {
+        "name": "toFullWindow",
+        "comment": "Simplifies rendering an element to fill the window.\n\n    view = Layout.placeholder \"view\"\n    main = Layout.toFullWindow (Signal.constant view)",
+        "type": "Signal.Signal Layout.Layout -> Signal.Signal Html.Html"
+      },
+      {
+        "name": "toHtml",
+        "comment": "Render a Layout to Html.\n\n    view = Layout.placeholder \"view\"\n    main = Layout.toHtml (800, 600) view",
+        "type": "( Int, Int ) -> Layout.Layout -> Html.Html"
+      },
+      {
+        "name": "top",
+        "comment": "Position two elements vertically, with the first element taking a given height\n\n    Layout.top 50\n        (Layout.placeholder \"header\")\n        (Layout.placeholder \"content\")",
+        "type": "Float -> Layout.Layout -> Layout.Layout -> Layout.Layout"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

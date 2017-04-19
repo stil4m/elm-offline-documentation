@@ -1,1 +1,1342 @@
-[{"name":"Parser","comment":"A simple parser combinator library.\n\n#Running the parser\n@docs parse, parseAll\n\n#Core functions\n@docs map, or, and, andThen\n\n#Combinators\n@docs succeed, satisfy, empty, symbol, token, choice, optional, many, some, separatedBy, end\n\n#Writing recursive grammars\n@docs recursively\n\n#Core functions (infix operators)\n@docs (<*>), (<$>), (<|>), (<*), (*>), (<$)","aliases":[],"types":[],"values":[{"name":"*>","comment":"Variant of `<*>` that ignores the result of the parser at the left","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"x"}]},"out":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},"associativity":"left","precedence":4},{"name":"<$","comment":"Variant of `<$>` that ignores the result of the parser","type":{"tag":"lambda","in":{"tag":"var","name":"result"},"out":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"x"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},"associativity":"left","precedence":4},{"name":"<$>","comment":"Map a function over the result of the parser","type":{"tag":"lambda","in":{"tag":"lambda","in":{"tag":"var","name":"result"},"out":{"tag":"var","name":"result2"}},"out":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result2"}]}}},"associativity":"left","precedence":4},{"name":"<*","comment":"Variant of `<*>` that ignores the result of the parser at the right","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"x"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},"associativity":"left","precedence":4},{"name":"<*>","comment":"Sequence two parsers","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"lambda","in":{"tag":"var","name":"result"},"out":{"tag":"var","name":"result2"}}]},"out":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result2"}]}}},"associativity":"left","precedence":4},{"name":"<|>","comment":"Choice between two parsers","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},"associativity":"right","precedence":3},{"name":"and","comment":"Sequence two parsers\n\n    type Date = Date Int Int Int\n    date = Date `map` year `and` month `and` day","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"lambda","in":{"tag":"var","name":"result"},"out":{"tag":"var","name":"result2"}}]},"out":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result2"}]}}},"associativity":"left","precedence":4},{"name":"andThen","comment":"Sequence two parsers, but pass the result of the first parser to the second parser.\n    This is useful for creating context sensitive parsers like XML.","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"lambda","in":{"tag":"lambda","in":{"tag":"var","name":"result"},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result2"}]}},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result2"}]}}}},{"name":"choice","comment":"Combine a list of parsers","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"List"},"args":[{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},{"name":"empty","comment":"Parser that always fails","type":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}},{"name":"end","comment":"Succeeds when input is empty","type":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"app","func":{"tag":"type","name":"_Tuple0"},"args":[]}]}},{"name":"many","comment":"Parses zero or more occurences of a parser","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"app","func":{"tag":"type","name":"List"},"args":[{"tag":"var","name":"result"}]}]}}},{"name":"map","comment":"Map a function over the result of the parser\n      -- Counts the amount of digits\n      count : Parser Int\n      count = length `map` many digit","type":{"tag":"lambda","in":{"tag":"lambda","in":{"tag":"var","name":"result"},"out":{"tag":"var","name":"result2"}},"out":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result2"}]}}},"associativity":"left","precedence":4},{"name":"optional","comment":"Parses an optional element","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"lambda","in":{"tag":"var","name":"result"},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}}},{"name":"or","comment":"Choice between two parsers\n\n      oneOrTwo = symbol '1' `or` symbol '2'","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},"associativity":"right","precedence":3},{"name":"parse","comment":"Parse a `String` using a parser, return first result","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"lambda","in":{"tag":"type","name":"String"},"out":{"tag":"app","func":{"tag":"type","name":"Result"},"args":[{"tag":"type","name":"String"},{"tag":"var","name":"result"}]}}}},{"name":"parseAll","comment":"Parse a `String` using a parser, return list of results","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"lambda","in":{"tag":"type","name":"String"},"out":{"tag":"app","func":{"tag":"type","name":"Result"},"args":[{"tag":"type","name":"String"},{"tag":"app","func":{"tag":"type","name":"List"},"args":[{"tag":"var","name":"result"}]}]}}}},{"name":"recursively","comment":"For realizing otherwise inexpressible recursive grammars. For\nexample, while\n\n    bbbba = (symbol 'a') `or` (symbol 'b' *> bbbba)\n\nwill fail at runtime with a non-termination issue, the replacement\n\n    bbbba = (symbol 'a') `or` (symbol 'b' *> recursively (\\() -> bbbba))\n\nis safe.","type":{"tag":"lambda","in":{"tag":"lambda","in":{"tag":"type","name":"_Tuple0"},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},{"name":"satisfy","comment":"Parser that satisfies a given predicate","type":{"tag":"lambda","in":{"tag":"lambda","in":{"tag":"type","name":"Char"},"out":{"tag":"type","name":"Bool"}},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"type","name":"Char"}]}}},{"name":"separatedBy","comment":"Parses a sequence of the first parser, separated by the second parser","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result2"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"app","func":{"tag":"type","name":"List"},"args":[{"tag":"var","name":"result"}]}]}}}},{"name":"some","comment":"Parses one or more occurences of a parser","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"app","func":{"tag":"type","name":"List"},"args":[{"tag":"var","name":"result"}]}]}}},{"name":"succeed","comment":"Parser that always succeeds without consuming input","type":{"tag":"lambda","in":{"tag":"var","name":"result"},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},{"name":"symbol","comment":"Parses a symbol","type":{"tag":"lambda","in":{"tag":"type","name":"Char"},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"type","name":"Char"}]}}},{"name":"token","comment":"Parses a token of symbols","type":{"tag":"lambda","in":{"tag":"type","name":"String"},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"type","name":"String"}]}}}]},{"name":"Parser.Char","comment":"Parsing characters\n\n@docs upper, lower, between, parenthesized, bracketed, braced, quoted","aliases":[],"types":[],"values":[{"name":"between","comment":"Parse a parser between two `Chars`","type":{"tag":"lambda","in":{"tag":"type","name":"Char"},"out":{"tag":"lambda","in":{"tag":"type","name":"Char"},"out":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}}}},{"name":"braced","comment":"Parses a parser between braces `{` and `}`","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},{"name":"bracketed","comment":"Parses a parser between brackets `[` and `]`","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},{"name":"lower","comment":"Parse a lower case character","type":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"type","name":"Char"}]}},{"name":"parenthesized","comment":"Parse a parser between parentheses `(` and `)`","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},{"name":"quoted","comment":"Parses a parser between quotes `\"` and `\"`","type":{"tag":"lambda","in":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]},"out":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"var","name":"result"}]}}},{"name":"upper","comment":"Parse a upper case character","type":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"type","name":"Char"}]}}]},{"name":"Parser.Number","comment":"Parsing numbers\n\n@docs digit, natural, integer, float, sign","aliases":[],"types":[],"values":[{"name":"digit","comment":"Parse a digit","type":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"type","name":"Int"}]}},{"name":"float","comment":"Parse a float with optional sign","type":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"type","name":"Float"}]}},{"name":"integer","comment":"Parse an integer with optional sign","type":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"type","name":"Int"}]}},{"name":"natural","comment":"Parse a natural number","type":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"type","name":"Int"}]}},{"name":"sign","comment":"Parse a optional sign, succeeds with a -1 if it matches a minus `Char`, otherwise it returns 1","type":{"tag":"app","func":{"tag":"type","name":"Parser"},"args":[{"tag":"type","name":"Int"}]}}]}]
+[
+  {
+    "name": "Parser",
+    "comment": "A simple parser combinator library.\n\n#Running the parser\n@docs parse, parseAll\n\n#Core functions\n@docs map, or, and, andThen\n\n#Combinators\n@docs succeed, satisfy, empty, symbol, token, choice, optional, many, some, separatedBy, end\n\n#Writing recursive grammars\n@docs recursively\n\n#Core functions (infix operators)\n@docs (<*>), (<$>), (<|>), (<*), (*>), (<$)",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "*>",
+        "comment": "Variant of `<*>` that ignores the result of the parser at the left",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "x"
+              }
+            ]
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            }
+          }
+        },
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "<$",
+        "comment": "Variant of `<$>` that ignores the result of the parser",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "var",
+            "name": "result"
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "x"
+                }
+              ]
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            }
+          }
+        },
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "<$>",
+        "comment": "Map a function over the result of the parser",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "lambda",
+            "in": {
+              "tag": "var",
+              "name": "result"
+            },
+            "out": {
+              "tag": "var",
+              "name": "result2"
+            }
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result2"
+                }
+              ]
+            }
+          }
+        },
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "<*",
+        "comment": "Variant of `<*>` that ignores the result of the parser at the right",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "x"
+                }
+              ]
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            }
+          }
+        },
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "<*>",
+        "comment": "Sequence two parsers",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "lambda",
+                "in": {
+                  "tag": "var",
+                  "name": "result"
+                },
+                "out": {
+                  "tag": "var",
+                  "name": "result2"
+                }
+              }
+            ]
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result2"
+                }
+              ]
+            }
+          }
+        },
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "<|>",
+        "comment": "Choice between two parsers",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            }
+          }
+        },
+        "associativity": "right",
+        "precedence": 3
+      },
+      {
+        "name": "and",
+        "comment": "Sequence two parsers\n\n    type Date = Date Int Int Int\n    date = Date `map` year `and` month `and` day",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "lambda",
+                "in": {
+                  "tag": "var",
+                  "name": "result"
+                },
+                "out": {
+                  "tag": "var",
+                  "name": "result2"
+                }
+              }
+            ]
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result2"
+                }
+              ]
+            }
+          }
+        },
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "andThen",
+        "comment": "Sequence two parsers, but pass the result of the first parser to the second parser.\n    This is useful for creating context sensitive parsers like XML.",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "lambda",
+              "in": {
+                "tag": "var",
+                "name": "result"
+              },
+              "out": {
+                "tag": "app",
+                "func": {
+                  "tag": "type",
+                  "name": "Parser"
+                },
+                "args": [
+                  {
+                    "tag": "var",
+                    "name": "result2"
+                  }
+                ]
+              }
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result2"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "choice",
+        "comment": "Combine a list of parsers",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "List"
+            },
+            "args": [
+              {
+                "tag": "app",
+                "func": {
+                  "tag": "type",
+                  "name": "Parser"
+                },
+                "args": [
+                  {
+                    "tag": "var",
+                    "name": "result"
+                  }
+                ]
+              }
+            ]
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "empty",
+        "comment": "Parser that always fails",
+        "type": {
+          "tag": "app",
+          "func": {
+            "tag": "type",
+            "name": "Parser"
+          },
+          "args": [
+            {
+              "tag": "var",
+              "name": "result"
+            }
+          ]
+        }
+      },
+      {
+        "name": "end",
+        "comment": "Succeeds when input is empty",
+        "type": {
+          "tag": "app",
+          "func": {
+            "tag": "type",
+            "name": "Parser"
+          },
+          "args": [
+            {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "_Tuple0"
+              },
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "many",
+        "comment": "Parses zero or more occurences of a parser",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "app",
+                "func": {
+                  "tag": "type",
+                  "name": "List"
+                },
+                "args": [
+                  {
+                    "tag": "var",
+                    "name": "result"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "map",
+        "comment": "Map a function over the result of the parser\n      -- Counts the amount of digits\n      count : Parser Int\n      count = length `map` many digit",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "lambda",
+            "in": {
+              "tag": "var",
+              "name": "result"
+            },
+            "out": {
+              "tag": "var",
+              "name": "result2"
+            }
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result2"
+                }
+              ]
+            }
+          }
+        },
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "optional",
+        "comment": "Parses an optional element",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "var",
+              "name": "result"
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "or",
+        "comment": "Choice between two parsers\n\n      oneOrTwo = symbol '1' `or` symbol '2'",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            }
+          }
+        },
+        "associativity": "right",
+        "precedence": 3
+      },
+      {
+        "name": "parse",
+        "comment": "Parse a `String` using a parser, return first result",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "type",
+              "name": "String"
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Result"
+              },
+              "args": [
+                {
+                  "tag": "type",
+                  "name": "String"
+                },
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "parseAll",
+        "comment": "Parse a `String` using a parser, return list of results",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "type",
+              "name": "String"
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Result"
+              },
+              "args": [
+                {
+                  "tag": "type",
+                  "name": "String"
+                },
+                {
+                  "tag": "app",
+                  "func": {
+                    "tag": "type",
+                    "name": "List"
+                  },
+                  "args": [
+                    {
+                      "tag": "var",
+                      "name": "result"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "recursively",
+        "comment": "For realizing otherwise inexpressible recursive grammars. For\nexample, while\n\n    bbbba = (symbol 'a') `or` (symbol 'b' *> bbbba)\n\nwill fail at runtime with a non-termination issue, the replacement\n\n    bbbba = (symbol 'a') `or` (symbol 'b' *> recursively (\\() -> bbbba))\n\nis safe.",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "lambda",
+            "in": {
+              "tag": "type",
+              "name": "_Tuple0"
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result"
+                }
+              ]
+            }
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "satisfy",
+        "comment": "Parser that satisfies a given predicate",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "lambda",
+            "in": {
+              "tag": "type",
+              "name": "Char"
+            },
+            "out": {
+              "tag": "type",
+              "name": "Bool"
+            }
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "type",
+                "name": "Char"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "separatedBy",
+        "comment": "Parses a sequence of the first parser, separated by the second parser",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "var",
+                  "name": "result2"
+                }
+              ]
+            },
+            "out": {
+              "tag": "app",
+              "func": {
+                "tag": "type",
+                "name": "Parser"
+              },
+              "args": [
+                {
+                  "tag": "app",
+                  "func": {
+                    "tag": "type",
+                    "name": "List"
+                  },
+                  "args": [
+                    {
+                      "tag": "var",
+                      "name": "result"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "some",
+        "comment": "Parses one or more occurences of a parser",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "app",
+                "func": {
+                  "tag": "type",
+                  "name": "List"
+                },
+                "args": [
+                  {
+                    "tag": "var",
+                    "name": "result"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "succeed",
+        "comment": "Parser that always succeeds without consuming input",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "var",
+            "name": "result"
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "symbol",
+        "comment": "Parses a symbol",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "type",
+            "name": "Char"
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "type",
+                "name": "Char"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "token",
+        "comment": "Parses a token of symbols",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "type",
+            "name": "String"
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "type",
+                "name": "String"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": "Parser.Char",
+    "comment": "Parsing characters\n\n@docs upper, lower, between, parenthesized, bracketed, braced, quoted",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "between",
+        "comment": "Parse a parser between two `Chars`",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "type",
+            "name": "Char"
+          },
+          "out": {
+            "tag": "lambda",
+            "in": {
+              "tag": "type",
+              "name": "Char"
+            },
+            "out": {
+              "tag": "lambda",
+              "in": {
+                "tag": "app",
+                "func": {
+                  "tag": "type",
+                  "name": "Parser"
+                },
+                "args": [
+                  {
+                    "tag": "var",
+                    "name": "result"
+                  }
+                ]
+              },
+              "out": {
+                "tag": "app",
+                "func": {
+                  "tag": "type",
+                  "name": "Parser"
+                },
+                "args": [
+                  {
+                    "tag": "var",
+                    "name": "result"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "braced",
+        "comment": "Parses a parser between braces `{` and `}`",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "bracketed",
+        "comment": "Parses a parser between brackets `[` and `]`",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "lower",
+        "comment": "Parse a lower case character",
+        "type": {
+          "tag": "app",
+          "func": {
+            "tag": "type",
+            "name": "Parser"
+          },
+          "args": [
+            {
+              "tag": "type",
+              "name": "Char"
+            }
+          ]
+        }
+      },
+      {
+        "name": "parenthesized",
+        "comment": "Parse a parser between parentheses `(` and `)`",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "quoted",
+        "comment": "Parses a parser between quotes `\"` and `\"`",
+        "type": {
+          "tag": "lambda",
+          "in": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          },
+          "out": {
+            "tag": "app",
+            "func": {
+              "tag": "type",
+              "name": "Parser"
+            },
+            "args": [
+              {
+                "tag": "var",
+                "name": "result"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "upper",
+        "comment": "Parse a upper case character",
+        "type": {
+          "tag": "app",
+          "func": {
+            "tag": "type",
+            "name": "Parser"
+          },
+          "args": [
+            {
+              "tag": "type",
+              "name": "Char"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Parser.Number",
+    "comment": "Parsing numbers\n\n@docs digit, natural, integer, float, sign",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "digit",
+        "comment": "Parse a digit",
+        "type": {
+          "tag": "app",
+          "func": {
+            "tag": "type",
+            "name": "Parser"
+          },
+          "args": [
+            {
+              "tag": "type",
+              "name": "Int"
+            }
+          ]
+        }
+      },
+      {
+        "name": "float",
+        "comment": "Parse a float with optional sign",
+        "type": {
+          "tag": "app",
+          "func": {
+            "tag": "type",
+            "name": "Parser"
+          },
+          "args": [
+            {
+              "tag": "type",
+              "name": "Float"
+            }
+          ]
+        }
+      },
+      {
+        "name": "integer",
+        "comment": "Parse an integer with optional sign",
+        "type": {
+          "tag": "app",
+          "func": {
+            "tag": "type",
+            "name": "Parser"
+          },
+          "args": [
+            {
+              "tag": "type",
+              "name": "Int"
+            }
+          ]
+        }
+      },
+      {
+        "name": "natural",
+        "comment": "Parse a natural number",
+        "type": {
+          "tag": "app",
+          "func": {
+            "tag": "type",
+            "name": "Parser"
+          },
+          "args": [
+            {
+              "tag": "type",
+              "name": "Int"
+            }
+          ]
+        }
+      },
+      {
+        "name": "sign",
+        "comment": "Parse a optional sign, succeeds with a -1 if it matches a minus `Char`, otherwise it returns 1",
+        "type": {
+          "tag": "app",
+          "func": {
+            "tag": "type",
+            "name": "Parser"
+          },
+          "args": [
+            {
+              "tag": "type",
+              "name": "Int"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

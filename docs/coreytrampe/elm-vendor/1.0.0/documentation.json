@@ -1,1 +1,40 @@
-[{"name":"Vendor","comment":"A tiny module that detects the browser vendor prefix\n\n# Definition\n@docs Prefix, prefix","aliases":[],"types":[{"name":"Prefix","comment":"A union of prefix tags\n\n    type Prefix = Moz | Webkit | MS | O","args":[],"cases":[["Moz",[]],["Webkit",[]],["MS",[]],["O",[]]]}],"values":[{"name":"prefix","comment":"The detected vendor\n\n    displayValue : String\n    displayValue =\n        if Vendor.prefix == Vendor.Webkit\n        then \"-webkit-flex\"\n        else \"flex\"","type":"Vendor.Prefix"}],"generated-with-elm-version":"0.15.1"}]
+[
+  {
+    "name": "Vendor",
+    "comment": "A tiny module that detects the browser vendor prefix\n\n# Definition\n@docs Prefix, prefix",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Prefix",
+        "comment": "A union of prefix tags\n\n    type Prefix = Moz | Webkit | MS | O",
+        "args": [],
+        "cases": [
+          [
+            "Moz",
+            []
+          ],
+          [
+            "Webkit",
+            []
+          ],
+          [
+            "MS",
+            []
+          ],
+          [
+            "O",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "prefix",
+        "comment": "The detected vendor\n\n    displayValue : String\n    displayValue =\n        if Vendor.prefix == Vendor.Webkit\n        then \"-webkit-flex\"\n        else \"flex\"",
+        "type": "Vendor.Prefix"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

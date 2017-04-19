@@ -1,1 +1,50 @@
-[{"name":"Equivalence","comment":"\nA module providing primitives for proving type equivalence.\n\n@docs Equiv, refl, symm, trans\n","aliases":[{"name":"Equiv","comment":"\nWe represent type equivalence by a type isomorphism.\n\nIf we want to say two types are equivalent,\nwe need to provide a way to convert between them.\n\nN.B. This is different from type equality in important ways.\nFor more information, see:\nParametricity, Type Equality and Higher-order Polymorphism (Vytiniotis, Weirich)\nhttp://repository.upenn.edu/cgi/viewcontent.cgi?article=1675&context=cis_papers\n","args":["a","b"],"type":"( a -> b, b -> a )"}],"types":[],"values":[{"name":"refl","comment":"\nType equivalences are reflexive.\n\nEvery type is equivalent to itself.\n\nThat is to say:\n`Int` is equivalent to `Int`,\n`Maybe a` is equivalent to `Maybe a`,\nand so on.\n","type":"Equivalence.Equiv a a"},{"name":"symm","comment":"\nType equivalences are symmetric.\n\nIf we know `a` is equivalent to `b`, then we also know `b` is equivalent to `a`.\n","type":"Equivalence.Equiv a b -> Equivalence.Equiv b a"},{"name":"trans","comment":"\nType equivalences are transitive.\n\nIf we know `a` is equivalent to `b`, and if we know `b` is equivalent to `c`,\nthen we also know `a` is equivalent to `c`.\n","type":"Equivalence.Equiv a b -> Equivalence.Equiv b c -> Equivalence.Equiv a c"}],"generated-with-elm-version":"0.17.1"},{"name":"Don't.Worry.I.Know.What.I'm.Doing","comment":"\n@docs believe_me\n","aliases":[],"types":[],"values":[{"name":"believe_me","comment":"\n","type":"String -> a"}],"generated-with-elm-version":"0.17.1"}]
+[
+  {
+    "name": "Equivalence",
+    "comment": "\nA module providing primitives for proving type equivalence.\n\n@docs Equiv, refl, symm, trans\n",
+    "aliases": [
+      {
+        "name": "Equiv",
+        "comment": "\nWe represent type equivalence by a type isomorphism.\n\nIf we want to say two types are equivalent,\nwe need to provide a way to convert between them.\n\nN.B. This is different from type equality in important ways.\nFor more information, see:\nParametricity, Type Equality and Higher-order Polymorphism (Vytiniotis, Weirich)\nhttp://repository.upenn.edu/cgi/viewcontent.cgi?article=1675&context=cis_papers\n",
+        "args": [
+          "a",
+          "b"
+        ],
+        "type": "( a -> b, b -> a )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "refl",
+        "comment": "\nType equivalences are reflexive.\n\nEvery type is equivalent to itself.\n\nThat is to say:\n`Int` is equivalent to `Int`,\n`Maybe a` is equivalent to `Maybe a`,\nand so on.\n",
+        "type": "Equivalence.Equiv a a"
+      },
+      {
+        "name": "symm",
+        "comment": "\nType equivalences are symmetric.\n\nIf we know `a` is equivalent to `b`, then we also know `b` is equivalent to `a`.\n",
+        "type": "Equivalence.Equiv a b -> Equivalence.Equiv b a"
+      },
+      {
+        "name": "trans",
+        "comment": "\nType equivalences are transitive.\n\nIf we know `a` is equivalent to `b`, and if we know `b` is equivalent to `c`,\nthen we also know `a` is equivalent to `c`.\n",
+        "type": "Equivalence.Equiv a b -> Equivalence.Equiv b c -> Equivalence.Equiv a c"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Don't.Worry.I.Know.What.I'm.Doing",
+    "comment": "\n@docs believe_me\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "believe_me",
+        "comment": "\n",
+        "type": "String -> a"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]

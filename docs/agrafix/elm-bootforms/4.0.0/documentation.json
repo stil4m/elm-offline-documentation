@@ -1,1 +1,131 @@
-[{"name":"Html.Form.Input","comment":" This module will help generating good looking forms using the twitter bootstrap framework\n\n# Default input element structure\n@docs FormValue, Element, FormElement\n\n# Popular form groups\n@docs textInput, passwordInput, intInput, floatInput, dateInput, TimeOfDay, timeInput, checkBox, SelectElement, selectBox, textArea\n\n# Helper functions\n@docs stringFormVal, mayStringFormVal\n\n# Custom input elements\n@docs InputElement, basicInput\n\n# Custom form groups\n@docs formGroup\n","aliases":[{"name":"Element","comment":" All inputs will be defined by this basic structure ","args":["v","e","a"],"type":"{ a | id : String, label : String, helpBlock : Maybe.Maybe String, value : Html.Form.Input.FormValue (Maybe.Maybe v), onValue : Html.Form.Input.FormValue (Result.Result e v) -> Signal.Message }"},{"name":"FormElement","comment":" An element with de and encoder ","args":["v","e","a"],"type":"Html.Form.Input.Element v e { a | decoder : String -> Result.Result e v, encoder : v -> String }"},{"name":"FormValue","comment":" The input string of the user and the parsed value ","args":["v"],"type":"{ userInput : String, value : v }"},{"name":"InputElement","comment":" Spec for an input with a type ","args":["v","e","a"],"type":"Html.Form.Input.FormElement v e { a | type' : String }"},{"name":"SelectElement","comment":" Spec for selectBox ","args":["v","e","a"],"type":"Html.Form.Input.FormElement v e { a | choices : List v, displayChoice : v -> String }"},{"name":"TimeOfDay","comment":" Time of day ","args":[],"type":"{ hour : Int, minute : Int }"}],"types":[],"values":[{"name":"basicInput","comment":" A simple text input ","type":"Html.Form.Input.InputElement v e a -> Html.Html"},{"name":"checkBox","comment":" A simple checkbox input ","type":"Html.Form.Input.Element Bool e {} -> Html.Html"},{"name":"dateInput","comment":" A simple date input ","type":"Html.Form.Input.InputElement Date.Date String {} -> Html.Html"},{"name":"floatInput","comment":" A simple float input ","type":"Html.Form.Input.InputElement Float String {} -> Html.Html"},{"name":"formGroup","comment":" Build your own input element ","type":"(Html.Form.Input.Element v e a -> Html.Html) -> Html.Form.Input.Element v e a -> Html.Html"},{"name":"intInput","comment":" A simple int input ","type":"Html.Form.Input.InputElement Int String {} -> Html.Html"},{"name":"mayStringFormVal","comment":" Generate a FormValue for textual input boxes w/o validation ","type":"Maybe.Maybe String -> Html.Form.Input.FormValue (Maybe.Maybe String)"},{"name":"passwordInput","comment":" A simple password input ","type":"Html.Form.Input.InputElement String e {} -> Html.Html"},{"name":"selectBox","comment":" A simple dropdown ","type":"Html.Form.Input.SelectElement v e {} -> Html.Html"},{"name":"stringFormVal","comment":" Generate a FormValue for textual input boxes w/o validation ","type":"String -> Html.Form.Input.FormValue (Maybe.Maybe String)"},{"name":"textArea","comment":" A textarea ","type":"Html.Form.Input.Element String e {} -> Html.Html"},{"name":"textInput","comment":" A simple text input ","type":"Html.Form.Input.InputElement String e {} -> Html.Html"},{"name":"timeInput","comment":" A simple time input ","type":"Html.Form.Input.InputElement Html.Form.Input.TimeOfDay String {} -> Html.Html"}],"generated-with-elm-version":"0.16.0"}]
+[
+  {
+    "name": "Html.Form.Input",
+    "comment": " This module will help generating good looking forms using the twitter bootstrap framework\n\n# Default input element structure\n@docs FormValue, Element, FormElement\n\n# Popular form groups\n@docs textInput, passwordInput, intInput, floatInput, dateInput, TimeOfDay, timeInput, checkBox, SelectElement, selectBox, textArea\n\n# Helper functions\n@docs stringFormVal, mayStringFormVal\n\n# Custom input elements\n@docs InputElement, basicInput\n\n# Custom form groups\n@docs formGroup\n",
+    "aliases": [
+      {
+        "name": "Element",
+        "comment": " All inputs will be defined by this basic structure ",
+        "args": [
+          "v",
+          "e",
+          "a"
+        ],
+        "type": "{ a | id : String, label : String, helpBlock : Maybe.Maybe String, value : Html.Form.Input.FormValue (Maybe.Maybe v), onValue : Html.Form.Input.FormValue (Result.Result e v) -> Signal.Message }"
+      },
+      {
+        "name": "FormElement",
+        "comment": " An element with de and encoder ",
+        "args": [
+          "v",
+          "e",
+          "a"
+        ],
+        "type": "Html.Form.Input.Element v e { a | decoder : String -> Result.Result e v, encoder : v -> String }"
+      },
+      {
+        "name": "FormValue",
+        "comment": " The input string of the user and the parsed value ",
+        "args": [
+          "v"
+        ],
+        "type": "{ userInput : String, value : v }"
+      },
+      {
+        "name": "InputElement",
+        "comment": " Spec for an input with a type ",
+        "args": [
+          "v",
+          "e",
+          "a"
+        ],
+        "type": "Html.Form.Input.FormElement v e { a | type' : String }"
+      },
+      {
+        "name": "SelectElement",
+        "comment": " Spec for selectBox ",
+        "args": [
+          "v",
+          "e",
+          "a"
+        ],
+        "type": "Html.Form.Input.FormElement v e { a | choices : List v, displayChoice : v -> String }"
+      },
+      {
+        "name": "TimeOfDay",
+        "comment": " Time of day ",
+        "args": [],
+        "type": "{ hour : Int, minute : Int }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "basicInput",
+        "comment": " A simple text input ",
+        "type": "Html.Form.Input.InputElement v e a -> Html.Html"
+      },
+      {
+        "name": "checkBox",
+        "comment": " A simple checkbox input ",
+        "type": "Html.Form.Input.Element Bool e {} -> Html.Html"
+      },
+      {
+        "name": "dateInput",
+        "comment": " A simple date input ",
+        "type": "Html.Form.Input.InputElement Date.Date String {} -> Html.Html"
+      },
+      {
+        "name": "floatInput",
+        "comment": " A simple float input ",
+        "type": "Html.Form.Input.InputElement Float String {} -> Html.Html"
+      },
+      {
+        "name": "formGroup",
+        "comment": " Build your own input element ",
+        "type": "(Html.Form.Input.Element v e a -> Html.Html) -> Html.Form.Input.Element v e a -> Html.Html"
+      },
+      {
+        "name": "intInput",
+        "comment": " A simple int input ",
+        "type": "Html.Form.Input.InputElement Int String {} -> Html.Html"
+      },
+      {
+        "name": "mayStringFormVal",
+        "comment": " Generate a FormValue for textual input boxes w/o validation ",
+        "type": "Maybe.Maybe String -> Html.Form.Input.FormValue (Maybe.Maybe String)"
+      },
+      {
+        "name": "passwordInput",
+        "comment": " A simple password input ",
+        "type": "Html.Form.Input.InputElement String e {} -> Html.Html"
+      },
+      {
+        "name": "selectBox",
+        "comment": " A simple dropdown ",
+        "type": "Html.Form.Input.SelectElement v e {} -> Html.Html"
+      },
+      {
+        "name": "stringFormVal",
+        "comment": " Generate a FormValue for textual input boxes w/o validation ",
+        "type": "String -> Html.Form.Input.FormValue (Maybe.Maybe String)"
+      },
+      {
+        "name": "textArea",
+        "comment": " A textarea ",
+        "type": "Html.Form.Input.Element String e {} -> Html.Html"
+      },
+      {
+        "name": "textInput",
+        "comment": " A simple text input ",
+        "type": "Html.Form.Input.InputElement String e {} -> Html.Html"
+      },
+      {
+        "name": "timeInput",
+        "comment": " A simple time input ",
+        "type": "Html.Form.Input.InputElement Html.Form.Input.TimeOfDay String {} -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

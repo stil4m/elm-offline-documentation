@@ -1,1 +1,41 @@
-[{"name":"Signal.Time","comment":"Time related functions for `Signal`s.\n\n# Re-exports\nSome functions from the `Time` module that fit in. \n@docs since, delay, timestamp\n\n# Easy does it\nControlling too frequently changing signals. \n@docs limitRate, dropWithin, settledAfter","aliases":[],"types":[],"values":[{"name":"delay","comment":"A re-export of [Time.since](http://package.elm-lang.org/packages/elm-lang/core/1.0.0/Time#delay). \n\nDelay a signal by a certain amount of time. So `(delay second\nMouse.clicks)` will update one second later than any mouse click.","type":"Time -> Signal a -> Signal a"},{"name":"dropWithin","comment":"Drops all but the first update of a flurry of updates (a stutter).\nThe stutter is defined as updates that happen with max. the given time\nin between. \n\nThe first update of the given signal is sent through. Then the given\ndelay is waited. If no other updates arrive during that time, then next\nupdate will be sent through. Any update that arrives within the given\ntime of the last update is dropped. \n\n    noDoubleClicks = dropWithin (300 * milliseconds) Mouse.clicks\n\nAlso known to some areas as a \"immediate\" `debounce` function.","type":"Time -> Signal a -> Signal a"},{"name":"limitRate","comment":"Drops non-initial updates within a time window of given duration.\n\nAfter an update of the given signal, the given time is waited (a\n\"window\"). All other updates within this window are dropped. The\noriginal update that started the window is kept, without delays. \n\n    throttledMouseClicks = limitRate 60 Mouse.clicks\n\nAlso known to some areas as a `throttle` function.","type":"Time -> Signal a -> Signal a"},{"name":"settledAfter","comment":"Gives the last update of a flurry of updates (a stutter) after has\nsettled* for the given time. The stutter is defined as updates that\nhappen within the given time. * Where settled the signal gets no further\nupdates for some time, it's **not** relating to the value changes of the\nsignal. \n\nAfter every update of the given signal, the given delay is waited. If no\nother updates arrived during that time, the update is sent through. If a\nnew update arrives within the given time, the previous update is dropped\nand the waiting is restarted. So `debounce`-ing a signal that keeps up\nthe flurry of updates all the time results in a signal that never\nupdates. \n\n    tooltip : Signal Bool\n    tooltip = merge (always False <~ Mouse.position) \n                    (always True  <~ \n                      settledAfter (500 * milliseconds) Mouse.position)\n\nAlso known to some areas as a `debounce` function.","type":"Time -> Signal a -> Signal a"},{"name":"since","comment":"A re-export of [Time.since](http://package.elm-lang.org/packages/elm-lang/core/1.0.0/Time#since). \n\nTakes a time `t` and any signal. The resulting boolean signal is true\nfor time `t` after every event on the input signal. So ``(second `since`\nMouse.clicks)`` would result in a signal that is true for one second\nafter each mouse click and false otherwise.","type":"Time -> Signal a -> Signal bool"},{"name":"timestamp","comment":"A re-export of [Time.timestamp](http://package.elm-lang.org/packages/elm-lang/core/1.0.0/Time#timestamp). \n\nAdd a timestamp to any signal. Timestamps increase monotonically. When\nyou create `(timestamp Mouse.x)`, an initial timestamp is produced. The\ntimestamp updates whenever `Mouse.x` updates.\n\nTimestamp updates are tied to individual events, so `(timestamp\nMouse.x)` and `(timestamp Mouse.y)` will always have the same timestamp\nbecause they rely on the same underlying event (`Mouse.position`).","type":"Signal a -> Signal ( Time, a )"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Signal.Time",
+    "comment": "Time related functions for `Signal`s.\n\n# Re-exports\nSome functions from the `Time` module that fit in. \n@docs since, delay, timestamp\n\n# Easy does it\nControlling too frequently changing signals. \n@docs limitRate, dropWithin, settledAfter",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "delay",
+        "comment": "A re-export of [Time.since](http://package.elm-lang.org/packages/elm-lang/core/1.0.0/Time#delay). \n\nDelay a signal by a certain amount of time. So `(delay second\nMouse.clicks)` will update one second later than any mouse click.",
+        "type": "Time -> Signal a -> Signal a"
+      },
+      {
+        "name": "dropWithin",
+        "comment": "Drops all but the first update of a flurry of updates (a stutter).\nThe stutter is defined as updates that happen with max. the given time\nin between. \n\nThe first update of the given signal is sent through. Then the given\ndelay is waited. If no other updates arrive during that time, then next\nupdate will be sent through. Any update that arrives within the given\ntime of the last update is dropped. \n\n    noDoubleClicks = dropWithin (300 * milliseconds) Mouse.clicks\n\nAlso known to some areas as a \"immediate\" `debounce` function.",
+        "type": "Time -> Signal a -> Signal a"
+      },
+      {
+        "name": "limitRate",
+        "comment": "Drops non-initial updates within a time window of given duration.\n\nAfter an update of the given signal, the given time is waited (a\n\"window\"). All other updates within this window are dropped. The\noriginal update that started the window is kept, without delays. \n\n    throttledMouseClicks = limitRate 60 Mouse.clicks\n\nAlso known to some areas as a `throttle` function.",
+        "type": "Time -> Signal a -> Signal a"
+      },
+      {
+        "name": "settledAfter",
+        "comment": "Gives the last update of a flurry of updates (a stutter) after has\nsettled* for the given time. The stutter is defined as updates that\nhappen within the given time. * Where settled the signal gets no further\nupdates for some time, it's **not** relating to the value changes of the\nsignal. \n\nAfter every update of the given signal, the given delay is waited. If no\nother updates arrived during that time, the update is sent through. If a\nnew update arrives within the given time, the previous update is dropped\nand the waiting is restarted. So `debounce`-ing a signal that keeps up\nthe flurry of updates all the time results in a signal that never\nupdates. \n\n    tooltip : Signal Bool\n    tooltip = merge (always False <~ Mouse.position) \n                    (always True  <~ \n                      settledAfter (500 * milliseconds) Mouse.position)\n\nAlso known to some areas as a `debounce` function.",
+        "type": "Time -> Signal a -> Signal a"
+      },
+      {
+        "name": "since",
+        "comment": "A re-export of [Time.since](http://package.elm-lang.org/packages/elm-lang/core/1.0.0/Time#since). \n\nTakes a time `t` and any signal. The resulting boolean signal is true\nfor time `t` after every event on the input signal. So ``(second `since`\nMouse.clicks)`` would result in a signal that is true for one second\nafter each mouse click and false otherwise.",
+        "type": "Time -> Signal a -> Signal bool"
+      },
+      {
+        "name": "timestamp",
+        "comment": "A re-export of [Time.timestamp](http://package.elm-lang.org/packages/elm-lang/core/1.0.0/Time#timestamp). \n\nAdd a timestamp to any signal. Timestamps increase monotonically. When\nyou create `(timestamp Mouse.x)`, an initial timestamp is produced. The\ntimestamp updates whenever `Mouse.x` updates.\n\nTimestamp updates are tied to individual events, so `(timestamp\nMouse.x)` and `(timestamp Mouse.y)` will always have the same timestamp\nbecause they rely on the same underlying event (`Mouse.position`).",
+        "type": "Signal a -> Signal ( Time, a )"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

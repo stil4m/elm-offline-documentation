@@ -1,1 +1,58 @@
-[{"name":"Codec.JsonTape.Encode","comment":" This module provides JSON encoder of a directory tree.\n\n@docs dirTree\n","aliases":[],"types":[],"values":[{"name":"dirTree","comment":" JSON encoder to json-tape format.\n","type":"Codec.JsonTape.DirTree -> Json.Encode.Value"}],"generated-with-elm-version":"0.17.1"},{"name":"Codec.JsonTape.Decode","comment":" This module provides JSON decoder of a directory tree.\n\n@docs dirTree\n","aliases":[],"types":[],"values":[{"name":"dirTree","comment":" JSON decoder of json-tape format.\n","type":"Json.Decode.Decoder Codec.JsonTape.DirTree"}],"generated-with-elm-version":"0.17.1"},{"name":"Codec.JsonTape","comment":" This module describes data structures representing files and directories.\n\n@docs DirTree\n","aliases":[],"types":[{"name":"DirTree","comment":" Data structure representing a directory tree.\n","args":[],"cases":[["Dir",["{ name : Codec.JsonTape.FileName , contents : List Codec.JsonTape.DirTree }"]],["File",["{ name : Codec.JsonTape.FileName, file : String }"]]]}],"values":[],"generated-with-elm-version":"0.17.1"}]
+[
+  {
+    "name": "Codec.JsonTape.Encode",
+    "comment": " This module provides JSON encoder of a directory tree.\n\n@docs dirTree\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "dirTree",
+        "comment": " JSON encoder to json-tape format.\n",
+        "type": "Codec.JsonTape.DirTree -> Json.Encode.Value"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Codec.JsonTape.Decode",
+    "comment": " This module provides JSON decoder of a directory tree.\n\n@docs dirTree\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "dirTree",
+        "comment": " JSON decoder of json-tape format.\n",
+        "type": "Json.Decode.Decoder Codec.JsonTape.DirTree"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Codec.JsonTape",
+    "comment": " This module describes data structures representing files and directories.\n\n@docs DirTree\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "DirTree",
+        "comment": " Data structure representing a directory tree.\n",
+        "args": [],
+        "cases": [
+          [
+            "Dir",
+            [
+              "{ name : Codec.JsonTape.FileName , contents : List Codec.JsonTape.DirTree }"
+            ]
+          ],
+          [
+            "File",
+            [
+              "{ name : Codec.JsonTape.FileName, file : String }"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.17.1"
+  }
+]

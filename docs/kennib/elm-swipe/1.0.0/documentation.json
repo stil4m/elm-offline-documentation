@@ -1,1 +1,47 @@
-[{"name":"Swipe","comment":" The Swipe package allows you to access swipe gestures from the browser\n\n# Swipes\n\n@docs Swipe, Direction\n\n@docs swipes\n\n# Swipe States\n\n@docs SwipeState, SwipeStart, Swipe\n\n@docs swipeStates\n","aliases":[{"name":"Swipe","comment":" Every `Swipe` has start and end `xy` coordinates. It also has an identifier `id` to distinguish one touch from another.\n\nA swipe also has a `Direction` which indicates the direction the user made contact, moved, and then stopped making contact.\n\nSwipes also have a start time (`t0`) and an end time (`t1`).\n","args":[],"type":"{ x0 : Int , y0 : Int , x1 : Int , y1 : Int , id : Int , direction : Swipe.Direction , t0 : Time.Time }"},{"name":"SwipeStart","comment":" A `SwipeStart` is the initial touch for a swipe when the direction and end-time of the swipe is unknown. ","args":[],"type":"{ x : Int, y : Int, id : Int, t0 : Time.Time }"}],"types":[{"name":"Direction","comment":" A swipe can go up, down, left or right. ","args":[],"cases":[]},{"name":"SwipeState","comment":" Swiping can be divided into threo states.\nThe initial touch of a swipe, currently swiping and end of the swipe. ","args":[],"cases":[]}],"values":[{"name":"swipeStates","comment":" A list of the current state of swipes. ","type":"Signal.Signal (List Swipe.SwipeState)"},{"name":"swipes","comment":" A list of completed swipes. ","type":"Signal.Signal (List Swipe.Swipe)"}],"generated-with-elm-version":"0.16.0"}]
+[
+  {
+    "name": "Swipe",
+    "comment": " The Swipe package allows you to access swipe gestures from the browser\n\n# Swipes\n\n@docs Swipe, Direction\n\n@docs swipes\n\n# Swipe States\n\n@docs SwipeState, SwipeStart, Swipe\n\n@docs swipeStates\n",
+    "aliases": [
+      {
+        "name": "Swipe",
+        "comment": " Every `Swipe` has start and end `xy` coordinates. It also has an identifier `id` to distinguish one touch from another.\n\nA swipe also has a `Direction` which indicates the direction the user made contact, moved, and then stopped making contact.\n\nSwipes also have a start time (`t0`) and an end time (`t1`).\n",
+        "args": [],
+        "type": "{ x0 : Int , y0 : Int , x1 : Int , y1 : Int , id : Int , direction : Swipe.Direction , t0 : Time.Time }"
+      },
+      {
+        "name": "SwipeStart",
+        "comment": " A `SwipeStart` is the initial touch for a swipe when the direction and end-time of the swipe is unknown. ",
+        "args": [],
+        "type": "{ x : Int, y : Int, id : Int, t0 : Time.Time }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Direction",
+        "comment": " A swipe can go up, down, left or right. ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "SwipeState",
+        "comment": " Swiping can be divided into threo states.\nThe initial touch of a swipe, currently swiping and end of the swipe. ",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "swipeStates",
+        "comment": " A list of the current state of swipes. ",
+        "type": "Signal.Signal (List Swipe.SwipeState)"
+      },
+      {
+        "name": "swipes",
+        "comment": " A list of completed swipes. ",
+        "type": "Signal.Signal (List Swipe.Swipe)"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

@@ -1,1 +1,393 @@
-[{"name":"Exts.Tuple","comment":"Extensions for tuples.\n\n@docs indexedPair","aliases":[],"types":[],"values":[{"name":"indexedPair","comment":"Turn a items into a key-value pair.\n\n  See also `Exts.Dict.indexBy` and `Exts.Dict.groupBy`.","type":"(a -> b) -> a -> ( b, a )"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Task","comment":"Extensions for Tasks.\n\n@docs asEffect","aliases":[],"types":[],"values":[{"name":"asEffect","comment":"Convert a task to an Effect which conveys success or failure.","type":"Task.Task a b -> Effects.Effects (Result.Result a b)"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.String","comment":"Extensions to the core String library.\n\n@docs removePrefix","aliases":[],"types":[],"values":[{"name":"removePrefix","comment":"Strip a leading string from a string.","type":"String -> String -> String"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Set","comment":"Extensions to the core Set library.\n\n@docs select, uniqueItems","aliases":[],"types":[],"values":[{"name":"select","comment":"Pull any items from a list where (f x) is in the given set.","type":"(a -> comparable) -> Set.Set comparable -> List a -> List a"},{"name":"uniqueItems","comment":"Dive into a List to get a set of values.\n\n  For example, pulling a Set of countries from a List of users.","type":"(a -> Maybe.Maybe comparable) -> List a -> Set.Set comparable"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Result","comment":"Extensions to the core Result library.\n\n@docs bimap, isOk, isErr, resultWithDefault, mappend","aliases":[],"types":[],"values":[{"name":"bimap","comment":"Treat Result as a bifunctor.","type":"(e -> f) -> (a -> b) -> Result.Result e a -> Result.Result f b"},{"name":"isErr","comment":"","type":"Result.Result a b -> Bool"},{"name":"isOk","comment":"Boolean checks for success/failure.","type":"Result.Result a b -> Bool"},{"name":"mappend","comment":"Monoidal append - join two Results together as though they were one.","type":"Result.Result e a -> Result.Result e b -> Result.Result e ( a, b )"},{"name":"resultWithDefault","comment":"Like Maybe.withDefault, for Results.","type":"b -> Result.Result a b -> b"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Maybe","comment":"Extensions to the core Maybe library.\n\n@docs isJust, isNothing, maybe, mappend, catMaybes","aliases":[],"types":[],"values":[{"name":"catMaybes","comment":"Extract all the `Just` values from a List of Maybes.","type":"List (Maybe.Maybe a) -> List a"},{"name":"isJust","comment":"Boolean checks.","type":"Maybe.Maybe a -> Bool"},{"name":"isNothing","comment":"","type":"Maybe.Maybe a -> Bool"},{"name":"mappend","comment":"Monoidal append - join two Maybes together as though they were one.","type":"Maybe.Maybe a -> Maybe.Maybe b -> Maybe.Maybe ( a, b )"},{"name":"maybe","comment":"Apply a function to a value, returning the default if the function returns Nothing.","type":"b -> (a -> b) -> Maybe.Maybe a -> b"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.List","comment":"Extensions to the core List library.\n\n@docs chunk,mergeBy, singleton","aliases":[],"types":[],"values":[{"name":"chunk","comment":"Split a list into chunks of length n.\n\n  Be aware that the last sub-list may be smaller than n-items long.\n\n  For example `chunk 3 [1..10] => [[1,2,3], [4,5,6], [7,8,9], [10]]`","type":"Int -> List a -> List (List a)"},{"name":"mergeBy","comment":"Merge two lists. The first argument is a function which returns\nthe unique ID of each element. Where an element appears more than\nonce, the last won wins.","type":"(a -> comparable) -> List a -> List a -> List a"},{"name":"singleton","comment":"Wrap a single item into a list.","type":"a -> List a"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.LatLng","comment":"Calculations between points on the earth.\n\n@docs distanceBetween, bearingTo","aliases":[],"types":[],"values":[{"name":"bearingTo","comment":"Calculate the heading you'd need to travel on to get from point a to point b.","type":"{ a | latitude : Float, longitude : Float } -> { b | latitude : Float, longitude : Float } -> Float"},{"name":"distanceBetween","comment":"Calculate the distance in kilometers between two points.\n\n  Note that this assumes the earth is spherical, which is not true, but may be true enough for your purposes.","type":"{ a | latitude : Float, longitude : Float } -> { b | latitude : Float, longitude : Float } -> Float"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Json.Encode","comment":"Extensions to the core Json Encode library.\n\n@docs set","aliases":[],"types":[],"values":[{"name":"set","comment":"Encode a set to a JSON array .","type":"(comparable -> Json.Encode.Value) -> Set.Set comparable -> Json.Encode.Value"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Html.Table","comment":"Helpers for simple data tables. Define how a list of items can be rendered as a table. The definition a list of (column-title, column-value-accessor) pairs.\n\n  I find this approach brakes down for all but simple tables, so be\n  ready to rewrite when this 80% case no longer suits.\n\n@docs CellDef, TableDef, simpleTable, simpleTableRow, titleGroup, valueGroup","aliases":[{"name":"CellDef","comment":"A table definition looks something like:\n\n  [(text \"Name\", .name >> text)\n  ,(text \"Name\", .age >> toString >> text)]","args":["a"],"type":"( Html.Html, a -> Html.Html )"},{"name":"TableDef","comment":"","args":["a"],"type":"List (Exts.Html.Table.CellDef a)"}],"types":[],"values":[{"name":"simpleTable","comment":"Given a table definition, render a list of elements as HTML.","type":"Exts.Html.Table.TableDef a -> List a -> Html.Html"},{"name":"simpleTableRow","comment":"Given a table definition, render an element to a <tr> tag. This is lower-level. Usually you will want `simpleTable` instead.","type":"Exts.Html.Table.TableDef a -> a -> Html.Html"},{"name":"titleGroup","comment":"titleGroup and valueGroup are used to create columns that stack multiple pairs. For example:\n\n  [(titleGroup [\"Latitude\", \"Longitude\"]\n   ,valueGroup [.location >> .lat >> toString >> text\n               ,.location >> .lng >> toString >> text])","type":"List String -> Html.Html"},{"name":"valueGroup","comment":"","type":"List (a -> Html.Html) -> a -> Html.Html"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Html.Events","comment":"Extensions to the Html.Events library.\n\n@docs onEnter","aliases":[],"types":[],"values":[{"name":"onEnter","comment":"Send a message when the user hits enter.","type":"Signal.Message -> Html.Attribute"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Html.Bootstrap","comment":"Base classes for Twitter Bootstrap 3 users.\n\n@docs container, containerFluid, row, empty, twoColumns, Ratio, video, glyphicon","aliases":[],"types":[{"name":"Ratio","comment":"Aspect ratios for responsive video embedding.","args":[],"cases":[["SixteenByNine",[]],["FourByThree",[]]]}],"values":[{"name":"container","comment":"Bootstrap grid container.","type":"List Html.Html -> Html.Html"},{"name":"containerFluid","comment":"Bootstrap grid fluid container.","type":"List Html.Html -> Html.Html"},{"name":"empty","comment":"The minimum markup - an empty span.","type":"Html.Html"},{"name":"glyphicon","comment":"Glyphicons. Supply the unprefixed glyph name (eg. 'zoom-in').","type":"String -> Html.Html"},{"name":"row","comment":"Bootstrap grid row.","type":"List Html.Html -> Html.Html"},{"name":"twoColumns","comment":"Two evenly-sized columns. Must be used within a row.","type":"List Html.Html -> List Html.Html -> Html.Html"},{"name":"video","comment":"Embed a responsive video.","type":"Exts.Html.Bootstrap.Ratio -> String -> Html.Html"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Float","comment":"Extensions to the core Float library.\n\n@docs roundTo","aliases":[],"types":[],"values":[{"name":"roundTo","comment":"Round a float to a given number of decimal places.","type":"Int -> Float -> Float"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Delta","comment":"A system for tracking players that enter and leave a stage, a-la D3.\n\nImplementation detail: This code is hampered by the lack of Elm's type classes. Note the following:\n1. Performance may degrade badly as the number of elements increases.\n2. It is up to you to ensure (a) implments Eq correctly.\n\n@docs Delta, empty, generation","aliases":[{"name":"Delta","comment":"A data-structure that maintains the difference list of entering, continuing and leaving players.","args":["a"],"type":"{ entering : List a, continuing : List a, leaving : List a }"}],"types":[],"values":[{"name":"empty","comment":"A default starting state for Deltas.","type":"Exts.Delta.Delta a"},{"name":"generation","comment":"Update the delta by inspecting a list of players.","type":"List a -> Exts.Delta.Delta a -> Exts.Delta.Delta a"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Effects","comment":"Extensions to the Effects library.\n\n@docs asEffect, noFx","aliases":[],"types":[],"values":[{"name":"asEffect","comment":"Turn a Task into a Result Effect.","type":"Task.Task e a -> Effects.Effects (Result.Result e a)"},{"name":"noFx","comment":"Wrap a plain model as a (model, no-effects) pair.\n\nThis is taken from the [Effects Documentation](http://package.elm-lang.org/packages/evancz/elm-effects/1.0.0/Effects),\nwhich rightly suggests it might be useful!","type":"m -> ( m, Effects.Effects a )"}],"generated-with-elm-version":"0.15.1"},{"name":"Exts.Dict","comment":"Extensions to the core Dict library.\n\n@docs indexBy, groupBy, frequency","aliases":[],"types":[],"values":[{"name":"frequency","comment":"Create a frequency-map from the given list.","type":"List comparable -> Dict.Dict comparable Int"},{"name":"groupBy","comment":"Group a list of items by a key.\n\n  Supply an indexing function (eg. `.id`) and a list of\n  items. `groupBy` returns a dictionary of group-key/list-of-items.\n\n  If the indexing function returns a unique key for every item, consider `indexBy` instead.","type":"(v -> comparable) -> List v -> Dict.Dict comparable (List v)"},{"name":"indexBy","comment":"Turn a list of items into an indexed dictionary.\n\n  Supply an indexing function (eg. `.id`) and a list of\n  items. `indexBy` returns a dictionary with each item stored under\n  its index.\n\n  This code assumes each index is unique. If that is not the case, you\n  should use `groupBy` instead.","type":"(v -> comparable) -> List v -> Dict.Dict comparable v"}],"generated-with-elm-version":"0.15.1"}]
+[
+  {
+    "name": "Exts.Tuple",
+    "comment": "Extensions for tuples.\n\n@docs indexedPair",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "indexedPair",
+        "comment": "Turn a items into a key-value pair.\n\n  See also `Exts.Dict.indexBy` and `Exts.Dict.groupBy`.",
+        "type": "(a -> b) -> a -> ( b, a )"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Task",
+    "comment": "Extensions for Tasks.\n\n@docs asEffect",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "asEffect",
+        "comment": "Convert a task to an Effect which conveys success or failure.",
+        "type": "Task.Task a b -> Effects.Effects (Result.Result a b)"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.String",
+    "comment": "Extensions to the core String library.\n\n@docs removePrefix",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "removePrefix",
+        "comment": "Strip a leading string from a string.",
+        "type": "String -> String -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Set",
+    "comment": "Extensions to the core Set library.\n\n@docs select, uniqueItems",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "select",
+        "comment": "Pull any items from a list where (f x) is in the given set.",
+        "type": "(a -> comparable) -> Set.Set comparable -> List a -> List a"
+      },
+      {
+        "name": "uniqueItems",
+        "comment": "Dive into a List to get a set of values.\n\n  For example, pulling a Set of countries from a List of users.",
+        "type": "(a -> Maybe.Maybe comparable) -> List a -> Set.Set comparable"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Result",
+    "comment": "Extensions to the core Result library.\n\n@docs bimap, isOk, isErr, resultWithDefault, mappend",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "bimap",
+        "comment": "Treat Result as a bifunctor.",
+        "type": "(e -> f) -> (a -> b) -> Result.Result e a -> Result.Result f b"
+      },
+      {
+        "name": "isErr",
+        "comment": "",
+        "type": "Result.Result a b -> Bool"
+      },
+      {
+        "name": "isOk",
+        "comment": "Boolean checks for success/failure.",
+        "type": "Result.Result a b -> Bool"
+      },
+      {
+        "name": "mappend",
+        "comment": "Monoidal append - join two Results together as though they were one.",
+        "type": "Result.Result e a -> Result.Result e b -> Result.Result e ( a, b )"
+      },
+      {
+        "name": "resultWithDefault",
+        "comment": "Like Maybe.withDefault, for Results.",
+        "type": "b -> Result.Result a b -> b"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Maybe",
+    "comment": "Extensions to the core Maybe library.\n\n@docs isJust, isNothing, maybe, mappend, catMaybes",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "catMaybes",
+        "comment": "Extract all the `Just` values from a List of Maybes.",
+        "type": "List (Maybe.Maybe a) -> List a"
+      },
+      {
+        "name": "isJust",
+        "comment": "Boolean checks.",
+        "type": "Maybe.Maybe a -> Bool"
+      },
+      {
+        "name": "isNothing",
+        "comment": "",
+        "type": "Maybe.Maybe a -> Bool"
+      },
+      {
+        "name": "mappend",
+        "comment": "Monoidal append - join two Maybes together as though they were one.",
+        "type": "Maybe.Maybe a -> Maybe.Maybe b -> Maybe.Maybe ( a, b )"
+      },
+      {
+        "name": "maybe",
+        "comment": "Apply a function to a value, returning the default if the function returns Nothing.",
+        "type": "b -> (a -> b) -> Maybe.Maybe a -> b"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.List",
+    "comment": "Extensions to the core List library.\n\n@docs chunk,mergeBy, singleton",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "chunk",
+        "comment": "Split a list into chunks of length n.\n\n  Be aware that the last sub-list may be smaller than n-items long.\n\n  For example `chunk 3 [1..10] => [[1,2,3], [4,5,6], [7,8,9], [10]]`",
+        "type": "Int -> List a -> List (List a)"
+      },
+      {
+        "name": "mergeBy",
+        "comment": "Merge two lists. The first argument is a function which returns\nthe unique ID of each element. Where an element appears more than\nonce, the last won wins.",
+        "type": "(a -> comparable) -> List a -> List a -> List a"
+      },
+      {
+        "name": "singleton",
+        "comment": "Wrap a single item into a list.",
+        "type": "a -> List a"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.LatLng",
+    "comment": "Calculations between points on the earth.\n\n@docs distanceBetween, bearingTo",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "bearingTo",
+        "comment": "Calculate the heading you'd need to travel on to get from point a to point b.",
+        "type": "{ a | latitude : Float, longitude : Float } -> { b | latitude : Float, longitude : Float } -> Float"
+      },
+      {
+        "name": "distanceBetween",
+        "comment": "Calculate the distance in kilometers between two points.\n\n  Note that this assumes the earth is spherical, which is not true, but may be true enough for your purposes.",
+        "type": "{ a | latitude : Float, longitude : Float } -> { b | latitude : Float, longitude : Float } -> Float"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Json.Encode",
+    "comment": "Extensions to the core Json Encode library.\n\n@docs set",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "set",
+        "comment": "Encode a set to a JSON array .",
+        "type": "(comparable -> Json.Encode.Value) -> Set.Set comparable -> Json.Encode.Value"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Html.Table",
+    "comment": "Helpers for simple data tables. Define how a list of items can be rendered as a table. The definition a list of (column-title, column-value-accessor) pairs.\n\n  I find this approach brakes down for all but simple tables, so be\n  ready to rewrite when this 80% case no longer suits.\n\n@docs CellDef, TableDef, simpleTable, simpleTableRow, titleGroup, valueGroup",
+    "aliases": [
+      {
+        "name": "CellDef",
+        "comment": "A table definition looks something like:\n\n  [(text \"Name\", .name >> text)\n  ,(text \"Name\", .age >> toString >> text)]",
+        "args": [
+          "a"
+        ],
+        "type": "( Html.Html, a -> Html.Html )"
+      },
+      {
+        "name": "TableDef",
+        "comment": "",
+        "args": [
+          "a"
+        ],
+        "type": "List (Exts.Html.Table.CellDef a)"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "simpleTable",
+        "comment": "Given a table definition, render a list of elements as HTML.",
+        "type": "Exts.Html.Table.TableDef a -> List a -> Html.Html"
+      },
+      {
+        "name": "simpleTableRow",
+        "comment": "Given a table definition, render an element to a <tr> tag. This is lower-level. Usually you will want `simpleTable` instead.",
+        "type": "Exts.Html.Table.TableDef a -> a -> Html.Html"
+      },
+      {
+        "name": "titleGroup",
+        "comment": "titleGroup and valueGroup are used to create columns that stack multiple pairs. For example:\n\n  [(titleGroup [\"Latitude\", \"Longitude\"]\n   ,valueGroup [.location >> .lat >> toString >> text\n               ,.location >> .lng >> toString >> text])",
+        "type": "List String -> Html.Html"
+      },
+      {
+        "name": "valueGroup",
+        "comment": "",
+        "type": "List (a -> Html.Html) -> a -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Html.Events",
+    "comment": "Extensions to the Html.Events library.\n\n@docs onEnter",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "onEnter",
+        "comment": "Send a message when the user hits enter.",
+        "type": "Signal.Message -> Html.Attribute"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Html.Bootstrap",
+    "comment": "Base classes for Twitter Bootstrap 3 users.\n\n@docs container, containerFluid, row, empty, twoColumns, Ratio, video, glyphicon",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Ratio",
+        "comment": "Aspect ratios for responsive video embedding.",
+        "args": [],
+        "cases": [
+          [
+            "SixteenByNine",
+            []
+          ],
+          [
+            "FourByThree",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "container",
+        "comment": "Bootstrap grid container.",
+        "type": "List Html.Html -> Html.Html"
+      },
+      {
+        "name": "containerFluid",
+        "comment": "Bootstrap grid fluid container.",
+        "type": "List Html.Html -> Html.Html"
+      },
+      {
+        "name": "empty",
+        "comment": "The minimum markup - an empty span.",
+        "type": "Html.Html"
+      },
+      {
+        "name": "glyphicon",
+        "comment": "Glyphicons. Supply the unprefixed glyph name (eg. 'zoom-in').",
+        "type": "String -> Html.Html"
+      },
+      {
+        "name": "row",
+        "comment": "Bootstrap grid row.",
+        "type": "List Html.Html -> Html.Html"
+      },
+      {
+        "name": "twoColumns",
+        "comment": "Two evenly-sized columns. Must be used within a row.",
+        "type": "List Html.Html -> List Html.Html -> Html.Html"
+      },
+      {
+        "name": "video",
+        "comment": "Embed a responsive video.",
+        "type": "Exts.Html.Bootstrap.Ratio -> String -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Float",
+    "comment": "Extensions to the core Float library.\n\n@docs roundTo",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "roundTo",
+        "comment": "Round a float to a given number of decimal places.",
+        "type": "Int -> Float -> Float"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Delta",
+    "comment": "A system for tracking players that enter and leave a stage, a-la D3.\n\nImplementation detail: This code is hampered by the lack of Elm's type classes. Note the following:\n1. Performance may degrade badly as the number of elements increases.\n2. It is up to you to ensure (a) implments Eq correctly.\n\n@docs Delta, empty, generation",
+    "aliases": [
+      {
+        "name": "Delta",
+        "comment": "A data-structure that maintains the difference list of entering, continuing and leaving players.",
+        "args": [
+          "a"
+        ],
+        "type": "{ entering : List a, continuing : List a, leaving : List a }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "empty",
+        "comment": "A default starting state for Deltas.",
+        "type": "Exts.Delta.Delta a"
+      },
+      {
+        "name": "generation",
+        "comment": "Update the delta by inspecting a list of players.",
+        "type": "List a -> Exts.Delta.Delta a -> Exts.Delta.Delta a"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Effects",
+    "comment": "Extensions to the Effects library.\n\n@docs asEffect, noFx",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "asEffect",
+        "comment": "Turn a Task into a Result Effect.",
+        "type": "Task.Task e a -> Effects.Effects (Result.Result e a)"
+      },
+      {
+        "name": "noFx",
+        "comment": "Wrap a plain model as a (model, no-effects) pair.\n\nThis is taken from the [Effects Documentation](http://package.elm-lang.org/packages/evancz/elm-effects/1.0.0/Effects),\nwhich rightly suggests it might be useful!",
+        "type": "m -> ( m, Effects.Effects a )"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Exts.Dict",
+    "comment": "Extensions to the core Dict library.\n\n@docs indexBy, groupBy, frequency",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "frequency",
+        "comment": "Create a frequency-map from the given list.",
+        "type": "List comparable -> Dict.Dict comparable Int"
+      },
+      {
+        "name": "groupBy",
+        "comment": "Group a list of items by a key.\n\n  Supply an indexing function (eg. `.id`) and a list of\n  items. `groupBy` returns a dictionary of group-key/list-of-items.\n\n  If the indexing function returns a unique key for every item, consider `indexBy` instead.",
+        "type": "(v -> comparable) -> List v -> Dict.Dict comparable (List v)"
+      },
+      {
+        "name": "indexBy",
+        "comment": "Turn a list of items into an indexed dictionary.\n\n  Supply an indexing function (eg. `.id`) and a list of\n  items. `indexBy` returns a dictionary with each item stored under\n  its index.\n\n  This code assumes each index is unique. If that is not the case, you\n  should use `groupBy` instead.",
+        "type": "(v -> comparable) -> List v -> Dict.Dict comparable v"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

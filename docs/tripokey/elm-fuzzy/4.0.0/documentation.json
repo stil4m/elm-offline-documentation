@@ -1,1 +1,16 @@
-[{"name":"Fuzzy","comment":"This is library for performing fuzzy string matching.\n\n# Matching\n@docs match","aliases":[],"types":[],"values":[{"name":"match","comment":"Perform fuzzy matching between a query String (needle) and a target String (hay).\nThe order of the arguments are significant. Lower score is better. Specifying some\nseparators will allow for partial matching within a sentence.\n\n    Fuzzy.match [] \"test\" \"test\" == 0\n    Fuzzy.match [] \"tst\" \"test\" == 1\n    Fuzzy.match [] \"test\" \"tste\" == 100\n    Fuzzy.match [] \"test\" \"tst\" == 1000\n    Fuzzy.match [\"/\"] \"/u/b/s\" \"/usr/local/bin/sh\" == 5\n    Fuzzy.match [] \"/u/b/s\" \"/usr/local/bin/sh\" == 211\n    List.sortBy (Fuzzy.match [] \"hrdevi\") [\"screen\", \"disk\", \"harddrive\", \"keyboard\", \"mouse\", \"computer\"] == [\"harddrive\",\"keyboard\",\"disk\",\"screen\",\"computer\",\"mouse\"]","type":"List String -> String -> String -> Int"}],"generated-with-elm-version":"0.15.1"}]
+[
+  {
+    "name": "Fuzzy",
+    "comment": "This is library for performing fuzzy string matching.\n\n# Matching\n@docs match",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "match",
+        "comment": "Perform fuzzy matching between a query String (needle) and a target String (hay).\nThe order of the arguments are significant. Lower score is better. Specifying some\nseparators will allow for partial matching within a sentence.\n\n    Fuzzy.match [] \"test\" \"test\" == 0\n    Fuzzy.match [] \"tst\" \"test\" == 1\n    Fuzzy.match [] \"test\" \"tste\" == 100\n    Fuzzy.match [] \"test\" \"tst\" == 1000\n    Fuzzy.match [\"/\"] \"/u/b/s\" \"/usr/local/bin/sh\" == 5\n    Fuzzy.match [] \"/u/b/s\" \"/usr/local/bin/sh\" == 211\n    List.sortBy (Fuzzy.match [] \"hrdevi\") [\"screen\", \"disk\", \"harddrive\", \"keyboard\", \"mouse\", \"computer\"] == [\"harddrive\",\"keyboard\",\"disk\",\"screen\",\"computer\",\"mouse\"]",
+        "type": "List String -> String -> String -> Int"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

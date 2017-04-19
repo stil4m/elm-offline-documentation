@@ -1,1 +1,351 @@
-[{"name":"Exts.Delta","comment":"A system for tracking players that enter and leave a stage, a-la D3.\n\nImplementation detail: This code is hampered by the lack of Elm's type classes. Note the following:\n1. Performance may degrade badly as the number of elements increases.\n2. It is up to you to ensure (a) implments Eq correctly.","aliases":[{"name":"Delta","comment":"","args":["a"],"type":"{ entering : List a, continuing : List a, leaving : List a }"}],"types":[],"values":[{"name":"diff","comment":"","type":"List a -> List a -> List a"},{"name":"empty","comment":"","type":"Delta a"},{"name":"filter","comment":"","type":"(a -> Bool) -> List a -> List a"},{"name":"generation","comment":"","type":"List a -> Delta a -> Delta a"},{"name":"intersect","comment":"","type":"List a -> List a -> List a"},{"name":"listContains","comment":"","type":"a -> List a -> Bool"},{"name":"remove","comment":"","type":"(a -> Bool) -> List a -> List a"},{"name":"union","comment":"","type":"List a -> List a -> List a"}],"generated-with-elm-version":"old"},{"name":"Exts.Http","comment":"Extensions to the core Http library. |","aliases":[],"types":[],"values":[{"name":"isSuccess","comment":"","type":"Response a -> Bool"},{"name":"isWaiting","comment":"","type":"Response a -> Bool"},{"name":"justResponse","comment":"","type":"Response a -> Maybe (Result String a)"},{"name":"justSuccess","comment":"","type":"Response a -> Maybe a"},{"name":"map","comment":"","type":"(a -> b) -> Response a -> Response b"}],"generated-with-elm-version":"old"},{"name":"Exts.List","comment":"Extensions to the core List library. |","aliases":[],"types":[],"values":[{"name":"chunk","comment":"","type":"Int -> List a -> List (List a)"}],"generated-with-elm-version":"old"},{"name":"Exts.Maybe","comment":"Extensions to the core Maybe library. |","aliases":[],"types":[],"values":[{"name":"isJust","comment":"","type":"Maybe a -> Bool"},{"name":"maybeNumber","comment":"","type":"Maybe num -> String"},{"name":"maybeString","comment":"","type":"Maybe String -> String"}],"generated-with-elm-version":"old"},{"name":"Exts.Tuple","comment":"Extensions for tuples. |","aliases":[],"types":[],"values":[{"name":"indexedPair","comment":"","type":"(a -> b) -> a -> ( b, a )"}],"generated-with-elm-version":"old"},{"name":"Exts.Html.Bootstrap","comment":"Bootstrap support. |","aliases":[],"types":[],"values":[{"name":"container","comment":"","type":"List Html -> Html"},{"name":"containerFluid","comment":"","type":"List Html -> Html"},{"name":"row","comment":"","type":"List Html -> Html"}],"generated-with-elm-version":"old"},{"name":"Exts.Html.Table","comment":"Helpers for simple data tables.\n    I find this approach brakes down for all but simple tables, so be\n    ready to rewrite when this 80% case no longer suits.\n|","aliases":[{"name":"TableDef","comment":"","args":["a"],"type":"List (CellDef a)"},{"name":"CellDef","comment":"","args":["a"],"type":"( Html, a -> Html )"}],"types":[],"values":[{"name":"simpleTable","comment":"","type":"TableDef a -> List a -> Html"},{"name":"simpleTableRow","comment":"","type":"TableDef a -> a -> Html"},{"name":"titleGroup","comment":"","type":"List String -> Html"},{"name":"valueGroup","comment":"","type":"List (a -> Html) -> a -> Html"}],"generated-with-elm-version":"old"},{"name":"Exts.RemoteData","comment":"A replacement to the Http type. It's chief addition is to model the notion of \"Not yet requested.\" |","aliases":[],"types":[{"name":"RemoteData","comment":"","args":["a"],"cases":[["NotAsked",[]],["Loading",[]],["Failed",["String"]],["Answer",["a"]]]}],"values":[{"name":"fromHttp","comment":"","type":"Maybe (Response a) -> RemoteData a"},{"name":"fromJsonHttp","comment":"","type":"Json.Decoder a -> Maybe (Response String) -> RemoteData a"},{"name":"map","comment":"","type":"(a -> b) -> RemoteData a -> RemoteData b"}],"generated-with-elm-version":"old"},{"name":"Exts.Result","comment":"Extensions to the core Maybe library. |","aliases":[],"types":[],"values":[{"name":"isOk","comment":"","type":"Result a b -> Bool"},{"name":"resultToMaybe","comment":"","type":"Result a b -> Maybe b"},{"name":"resultWithDefault","comment":"","type":"b -> Result a b -> b"}],"generated-with-elm-version":"old"},{"name":"Exts.SafeList","comment":"A safe version of the List library, following Haskell's Safe.","aliases":[],"types":[],"values":[{"name":"lookup","comment":"","type":"(a -> Bool) -> List a -> Maybe a"},{"name":"safeHead","comment":"","type":"List a -> Maybe a"},{"name":"tailMaybe","comment":"","type":"List a -> Maybe (List a)"}],"generated-with-elm-version":"old"},{"name":"Exts.Set","comment":"Extensions to the core Maybe library. |","aliases":[],"types":[],"values":[{"name":"select","comment":"","type":"(a -> comparable) -> Set comparable -> List a -> List a"},{"name":"uniqueItems","comment":"","type":"(a -> Maybe String) -> List a -> Set String"}],"generated-with-elm-version":"old"},{"name":"Exts.String","comment":"Extensions to the core String library. |","aliases":[],"types":[],"values":[{"name":"removePrefix","comment":"","type":"String -> String -> String"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Exts.Delta",
+    "comment": "A system for tracking players that enter and leave a stage, a-la D3.\n\nImplementation detail: This code is hampered by the lack of Elm's type classes. Note the following:\n1. Performance may degrade badly as the number of elements increases.\n2. It is up to you to ensure (a) implments Eq correctly.",
+    "aliases": [
+      {
+        "name": "Delta",
+        "comment": "",
+        "args": [
+          "a"
+        ],
+        "type": "{ entering : List a, continuing : List a, leaving : List a }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "diff",
+        "comment": "",
+        "type": "List a -> List a -> List a"
+      },
+      {
+        "name": "empty",
+        "comment": "",
+        "type": "Delta a"
+      },
+      {
+        "name": "filter",
+        "comment": "",
+        "type": "(a -> Bool) -> List a -> List a"
+      },
+      {
+        "name": "generation",
+        "comment": "",
+        "type": "List a -> Delta a -> Delta a"
+      },
+      {
+        "name": "intersect",
+        "comment": "",
+        "type": "List a -> List a -> List a"
+      },
+      {
+        "name": "listContains",
+        "comment": "",
+        "type": "a -> List a -> Bool"
+      },
+      {
+        "name": "remove",
+        "comment": "",
+        "type": "(a -> Bool) -> List a -> List a"
+      },
+      {
+        "name": "union",
+        "comment": "",
+        "type": "List a -> List a -> List a"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Exts.Http",
+    "comment": "Extensions to the core Http library. |",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "isSuccess",
+        "comment": "",
+        "type": "Response a -> Bool"
+      },
+      {
+        "name": "isWaiting",
+        "comment": "",
+        "type": "Response a -> Bool"
+      },
+      {
+        "name": "justResponse",
+        "comment": "",
+        "type": "Response a -> Maybe (Result String a)"
+      },
+      {
+        "name": "justSuccess",
+        "comment": "",
+        "type": "Response a -> Maybe a"
+      },
+      {
+        "name": "map",
+        "comment": "",
+        "type": "(a -> b) -> Response a -> Response b"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Exts.List",
+    "comment": "Extensions to the core List library. |",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "chunk",
+        "comment": "",
+        "type": "Int -> List a -> List (List a)"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Exts.Maybe",
+    "comment": "Extensions to the core Maybe library. |",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "isJust",
+        "comment": "",
+        "type": "Maybe a -> Bool"
+      },
+      {
+        "name": "maybeNumber",
+        "comment": "",
+        "type": "Maybe num -> String"
+      },
+      {
+        "name": "maybeString",
+        "comment": "",
+        "type": "Maybe String -> String"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Exts.Tuple",
+    "comment": "Extensions for tuples. |",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "indexedPair",
+        "comment": "",
+        "type": "(a -> b) -> a -> ( b, a )"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Exts.Html.Bootstrap",
+    "comment": "Bootstrap support. |",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "container",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "containerFluid",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "row",
+        "comment": "",
+        "type": "List Html -> Html"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Exts.Html.Table",
+    "comment": "Helpers for simple data tables.\n    I find this approach brakes down for all but simple tables, so be\n    ready to rewrite when this 80% case no longer suits.\n|",
+    "aliases": [
+      {
+        "name": "TableDef",
+        "comment": "",
+        "args": [
+          "a"
+        ],
+        "type": "List (CellDef a)"
+      },
+      {
+        "name": "CellDef",
+        "comment": "",
+        "args": [
+          "a"
+        ],
+        "type": "( Html, a -> Html )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "simpleTable",
+        "comment": "",
+        "type": "TableDef a -> List a -> Html"
+      },
+      {
+        "name": "simpleTableRow",
+        "comment": "",
+        "type": "TableDef a -> a -> Html"
+      },
+      {
+        "name": "titleGroup",
+        "comment": "",
+        "type": "List String -> Html"
+      },
+      {
+        "name": "valueGroup",
+        "comment": "",
+        "type": "List (a -> Html) -> a -> Html"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Exts.RemoteData",
+    "comment": "A replacement to the Http type. It's chief addition is to model the notion of \"Not yet requested.\" |",
+    "aliases": [],
+    "types": [
+      {
+        "name": "RemoteData",
+        "comment": "",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "NotAsked",
+            []
+          ],
+          [
+            "Loading",
+            []
+          ],
+          [
+            "Failed",
+            [
+              "String"
+            ]
+          ],
+          [
+            "Answer",
+            [
+              "a"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "fromHttp",
+        "comment": "",
+        "type": "Maybe (Response a) -> RemoteData a"
+      },
+      {
+        "name": "fromJsonHttp",
+        "comment": "",
+        "type": "Json.Decoder a -> Maybe (Response String) -> RemoteData a"
+      },
+      {
+        "name": "map",
+        "comment": "",
+        "type": "(a -> b) -> RemoteData a -> RemoteData b"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Exts.Result",
+    "comment": "Extensions to the core Maybe library. |",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "isOk",
+        "comment": "",
+        "type": "Result a b -> Bool"
+      },
+      {
+        "name": "resultToMaybe",
+        "comment": "",
+        "type": "Result a b -> Maybe b"
+      },
+      {
+        "name": "resultWithDefault",
+        "comment": "",
+        "type": "b -> Result a b -> b"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Exts.SafeList",
+    "comment": "A safe version of the List library, following Haskell's Safe.",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "lookup",
+        "comment": "",
+        "type": "(a -> Bool) -> List a -> Maybe a"
+      },
+      {
+        "name": "safeHead",
+        "comment": "",
+        "type": "List a -> Maybe a"
+      },
+      {
+        "name": "tailMaybe",
+        "comment": "",
+        "type": "List a -> Maybe (List a)"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Exts.Set",
+    "comment": "Extensions to the core Maybe library. |",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "select",
+        "comment": "",
+        "type": "(a -> comparable) -> Set comparable -> List a -> List a"
+      },
+      {
+        "name": "uniqueItems",
+        "comment": "",
+        "type": "(a -> Maybe String) -> List a -> Set String"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Exts.String",
+    "comment": "Extensions to the core String library. |",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "removePrefix",
+        "comment": "",
+        "type": "String -> String -> String"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

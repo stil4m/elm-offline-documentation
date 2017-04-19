@@ -1,1 +1,118 @@
-[{"name":"Color.Mixing","comment":"\n\n@docs Factor, lighten, darken, saturate, desaturate, fade, fadeIn, fadeOut,  mix, spin, tint, shade\n\n@docs average, difference, exclusion, hardlight, multiply, negation, overlay, screen, softlight\n\n\n","aliases":[{"name":"Factor","comment":" A Float that should be between 0.0 and 1.0\n\n","args":[],"type":"Float"}],"types":[],"values":[{"name":"average","comment":" ","type":"Color.Color -> Color.Color -> Color.Color"},{"name":"darken","comment":" ","type":"Color.Mixing.Factor -> Color.Color -> Color.Color"},{"name":"desaturate","comment":" Decrease the saturation of a color in the HSL color space by an absolute amount.\n\n","type":"Color.Mixing.Factor -> Color.Color -> Color.Color"},{"name":"difference","comment":" ","type":"Color.Color -> Color.Color -> Color.Color"},{"name":"exclusion","comment":" ","type":"Color.Color -> Color.Color -> Color.Color"},{"name":"fade","comment":" ","type":"Color.Mixing.Factor -> Color.Color -> Color.Color"},{"name":"fadeIn","comment":" ","type":"Color.Mixing.Factor -> Color.Color -> Color.Color"},{"name":"fadeOut","comment":" ","type":"Color.Mixing.Factor -> Color.Color -> Color.Color"},{"name":"hardlight","comment":" ","type":"Color.Color -> Color.Color -> Color.Color"},{"name":"lighten","comment":" ","type":"Color.Mixing.Factor -> Color.Color -> Color.Color"},{"name":"mix","comment":" ","type":"Color.Mixing.Factor -> Color.Color -> Color.Color -> Color.Color"},{"name":"multiply","comment":" ","type":"Color.Color -> Color.Color -> Color.Color"},{"name":"negation","comment":" ","type":"Color.Color -> Color.Color -> Color.Color"},{"name":"overlay","comment":" ","type":"Color.Color -> Color.Color -> Color.Color"},{"name":"saturate","comment":" Increase the saturation of a color in the HSL color space by an absolute amount.\n\n","type":"Color.Mixing.Factor -> Color.Color -> Color.Color"},{"name":"screen","comment":" ","type":"Color.Color -> Color.Color -> Color.Color"},{"name":"shade","comment":" ","type":"Color.Mixing.Factor -> Color.Color -> Color.Color"},{"name":"softlight","comment":" ","type":"Color.Color -> Color.Color -> Color.Color"},{"name":"spin","comment":" ","type":"Color.Mixing.Factor -> Color.Color -> Color.Color"},{"name":"tint","comment":" ","type":"Color.Mixing.Factor -> Color.Color -> Color.Color"}],"generated-with-elm-version":"0.16.0"}]
+[
+  {
+    "name": "Color.Mixing",
+    "comment": "\n\n@docs Factor, lighten, darken, saturate, desaturate, fade, fadeIn, fadeOut,  mix, spin, tint, shade\n\n@docs average, difference, exclusion, hardlight, multiply, negation, overlay, screen, softlight\n\n\n",
+    "aliases": [
+      {
+        "name": "Factor",
+        "comment": " A Float that should be between 0.0 and 1.0\n\n",
+        "args": [],
+        "type": "Float"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "average",
+        "comment": " ",
+        "type": "Color.Color -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "darken",
+        "comment": " ",
+        "type": "Color.Mixing.Factor -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "desaturate",
+        "comment": " Decrease the saturation of a color in the HSL color space by an absolute amount.\n\n",
+        "type": "Color.Mixing.Factor -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "difference",
+        "comment": " ",
+        "type": "Color.Color -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "exclusion",
+        "comment": " ",
+        "type": "Color.Color -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "fade",
+        "comment": " ",
+        "type": "Color.Mixing.Factor -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "fadeIn",
+        "comment": " ",
+        "type": "Color.Mixing.Factor -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "fadeOut",
+        "comment": " ",
+        "type": "Color.Mixing.Factor -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "hardlight",
+        "comment": " ",
+        "type": "Color.Color -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "lighten",
+        "comment": " ",
+        "type": "Color.Mixing.Factor -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "mix",
+        "comment": " ",
+        "type": "Color.Mixing.Factor -> Color.Color -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "multiply",
+        "comment": " ",
+        "type": "Color.Color -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "negation",
+        "comment": " ",
+        "type": "Color.Color -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "overlay",
+        "comment": " ",
+        "type": "Color.Color -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "saturate",
+        "comment": " Increase the saturation of a color in the HSL color space by an absolute amount.\n\n",
+        "type": "Color.Mixing.Factor -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "screen",
+        "comment": " ",
+        "type": "Color.Color -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "shade",
+        "comment": " ",
+        "type": "Color.Mixing.Factor -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "softlight",
+        "comment": " ",
+        "type": "Color.Color -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "spin",
+        "comment": " ",
+        "type": "Color.Mixing.Factor -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "tint",
+        "comment": " ",
+        "type": "Color.Mixing.Factor -> Color.Color -> Color.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

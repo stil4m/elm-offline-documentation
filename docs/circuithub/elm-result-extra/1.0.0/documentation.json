@@ -1,1 +1,21 @@
-[{"name":"Result.Extra","comment":"Convenience functions for working with Result\n\n# Common Helpers\n@docs isOk, isErr","aliases":[],"types":[],"values":[{"name":"isErr","comment":"","type":"Result a e -> Bool"},{"name":"isOk","comment":"","type":"Result a e -> Bool"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Result.Extra",
+    "comment": "Convenience functions for working with Result\n\n# Common Helpers\n@docs isOk, isErr",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "isErr",
+        "comment": "",
+        "type": "Result a e -> Bool"
+      },
+      {
+        "name": "isOk",
+        "comment": "",
+        "type": "Result a e -> Bool"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

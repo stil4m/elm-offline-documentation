@@ -1,1 +1,100 @@
-[{"name":"DragAndDrop","comment":"A low- and high-level interface to mouse drag and drop actions.\n\n# The high-level interface\n@docs Action, track, trackMany\n\n# The low-level interface\n@docs MouseEvent, mouseEvents\n\n# An automaton\n@docs Input, automaton","aliases":[],"types":[{"name":"Input","comment":"Input type for `automaton`.","args":["a"],"cases":[["Mouse",["MouseEvent"]],["Hover",["Maybe a"]]]},{"name":"Action","comment":"A type for actions performed on draggable items.","args":[],"cases":[["Lift",[]],["MoveBy",["( Int, Int )"]],["Release",[]]]},{"name":"MouseEvent","comment":"A type for individual events in a drag and drop sequence.","args":[],"cases":[["StartAt",["( Int, Int )"]],["MoveFromTo",["( Int, Int )","( Int, Int )"]],["EndAt",["( Int, Int )"]]]}],"values":[{"name":"automaton","comment":"An [Automaton](http://package.elm-lang.org/packages/evancz/automaton/latest)\nthat can be used in specific situations where `track`/`trackMany` are\nnot applicable. See\n[Example4.elm](https://github.com/jvoigtlaender/elm-drag-and-drop/blob/master/Example4.elm).\nThe automaton is also used internally in the `track` and `trackMany`\nfunctions.","type":"Maybe a -> Automaton (Input a) (Maybe ( a, Action ))"},{"name":"mouseEvents","comment":"A signal of drag and drop sequence events, fed by `Mouse.isDown`\nand `Mouse.position`. A possible history of this signal could be\n`StartAt (10,10)`, `MoveFromTo (10,10) (12,10)`, `MoveFromTo (12,10) (13,8)`,\n`EndAt (13,8)`, `StartAt (20,15)`, `MoveFromTo (20,15) (22,18)`,\n`EndAt (22,18)`, ...","type":"Signal MouseEvent"},{"name":"track","comment":"Track a single draggable item. The `Bool` and `Signal Bool`\narguments are the initial value and input signal which tell whether\nthe mouse is (currently) hovering over the draggable item. An example\nuse\n([Example1.elm](https://github.com/jvoigtlaender/elm-drag-and-drop/blob/master/Example1.elm)):\n\n    hover = Signal.channel False\n    \n    box = Graphics.Input.hoverable (Signal.send hover)\n                                   (putInBox (plainText \"drag-and-drop me\"))\n    \n    putInBox e =\n      let (sx,sy) = sizeOf e\n      in layers [e, collage sx sy [outlined (solid black) (rect (toFloat sx) (toFloat sy))]]\n    \n    moveBy (dx,dy) (x,y) = (x + toFloat dx, y - toFloat dy)\n    \n    main =\n      let update m =\n            case m of\n              Just (MoveBy (dx,dy)) -> moveBy (dx,dy)\n              _                     -> identity\n      in Signal.map (\\p -> collage 200 200 [Graphics.Collage.move p (toForm box)])\n                    (foldp update (0,0) (track False (Signal.subscribe hover)))","type":"Bool -> Signal Bool -> Signal (Maybe Action)"},{"name":"trackMany","comment":"Track several draggable items. The `Maybe a` and `Signal (Maybe\na)` arguments are the initial value and input signal which tell\nwhether the mouse is (currently) hovering over a draggable item, and\nover which one. An example use\n([Example2.elm](https://github.com/jvoigtlaender/elm-drag-and-drop/blob/master/Example2.elm),\nalso using `putInBox` and `moveBy` from above):\n\n    hover = Signal.channel Nothing\n    \n    box1 = Graphics.Input.hoverable (Signal.send hover << \\h -> if h then Just 1 else Nothing)\n                                    (putInBox (plainText \"drag-and-drop me\"))\n    \n    box2 = Graphics.Input.hoverable (Signal.send hover << \\h -> if h then Just 2 else Nothing)\n                                    (putInBox (plainText \"and me too\"))\n    \n    main =\n      let update m =\n            case m of\n              Just (1, MoveBy (dx,dy)) -> \\(p1,p2) -> (moveBy (dx,dy) p1, p2)\n              Just (2, MoveBy (dx,dy)) -> \\(p1,p2) -> (p1, moveBy (dx,dy) p2)\n              _                        -> identity\n      in Signal.map (\\(p1,p2) -> collage 200 200 [Graphics.Collage.move p1 (toForm box1),\n                                                  Graphics.Collage.move p2 (toForm box2)])\n                    (foldp update ((0,15), (0,-15)) (trackMany Nothing (Signal.subscribe hover)))\n\nA more dynamic example can be found in\n[Example3.elm](https://github.com/jvoigtlaender/elm-drag-and-drop/blob/master/Example3.elm).","type":"Maybe a -> Signal (Maybe a) -> Signal (Maybe ( a, Action ))"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "DragAndDrop",
+    "comment": "A low- and high-level interface to mouse drag and drop actions.\n\n# The high-level interface\n@docs Action, track, trackMany\n\n# The low-level interface\n@docs MouseEvent, mouseEvents\n\n# An automaton\n@docs Input, automaton",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Input",
+        "comment": "Input type for `automaton`.",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Mouse",
+            [
+              "MouseEvent"
+            ]
+          ],
+          [
+            "Hover",
+            [
+              "Maybe a"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Action",
+        "comment": "A type for actions performed on draggable items.",
+        "args": [],
+        "cases": [
+          [
+            "Lift",
+            []
+          ],
+          [
+            "MoveBy",
+            [
+              "( Int, Int )"
+            ]
+          ],
+          [
+            "Release",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "MouseEvent",
+        "comment": "A type for individual events in a drag and drop sequence.",
+        "args": [],
+        "cases": [
+          [
+            "StartAt",
+            [
+              "( Int, Int )"
+            ]
+          ],
+          [
+            "MoveFromTo",
+            [
+              "( Int, Int )",
+              "( Int, Int )"
+            ]
+          ],
+          [
+            "EndAt",
+            [
+              "( Int, Int )"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "automaton",
+        "comment": "An [Automaton](http://package.elm-lang.org/packages/evancz/automaton/latest)\nthat can be used in specific situations where `track`/`trackMany` are\nnot applicable. See\n[Example4.elm](https://github.com/jvoigtlaender/elm-drag-and-drop/blob/master/Example4.elm).\nThe automaton is also used internally in the `track` and `trackMany`\nfunctions.",
+        "type": "Maybe a -> Automaton (Input a) (Maybe ( a, Action ))"
+      },
+      {
+        "name": "mouseEvents",
+        "comment": "A signal of drag and drop sequence events, fed by `Mouse.isDown`\nand `Mouse.position`. A possible history of this signal could be\n`StartAt (10,10)`, `MoveFromTo (10,10) (12,10)`, `MoveFromTo (12,10) (13,8)`,\n`EndAt (13,8)`, `StartAt (20,15)`, `MoveFromTo (20,15) (22,18)`,\n`EndAt (22,18)`, ...",
+        "type": "Signal MouseEvent"
+      },
+      {
+        "name": "track",
+        "comment": "Track a single draggable item. The `Bool` and `Signal Bool`\narguments are the initial value and input signal which tell whether\nthe mouse is (currently) hovering over the draggable item. An example\nuse\n([Example1.elm](https://github.com/jvoigtlaender/elm-drag-and-drop/blob/master/Example1.elm)):\n\n    hover = Signal.channel False\n    \n    box = Graphics.Input.hoverable (Signal.send hover)\n                                   (putInBox (plainText \"drag-and-drop me\"))\n    \n    putInBox e =\n      let (sx,sy) = sizeOf e\n      in layers [e, collage sx sy [outlined (solid black) (rect (toFloat sx) (toFloat sy))]]\n    \n    moveBy (dx,dy) (x,y) = (x + toFloat dx, y - toFloat dy)\n    \n    main =\n      let update m =\n            case m of\n              Just (MoveBy (dx,dy)) -> moveBy (dx,dy)\n              _                     -> identity\n      in Signal.map (\\p -> collage 200 200 [Graphics.Collage.move p (toForm box)])\n                    (foldp update (0,0) (track False (Signal.subscribe hover)))",
+        "type": "Bool -> Signal Bool -> Signal (Maybe Action)"
+      },
+      {
+        "name": "trackMany",
+        "comment": "Track several draggable items. The `Maybe a` and `Signal (Maybe\na)` arguments are the initial value and input signal which tell\nwhether the mouse is (currently) hovering over a draggable item, and\nover which one. An example use\n([Example2.elm](https://github.com/jvoigtlaender/elm-drag-and-drop/blob/master/Example2.elm),\nalso using `putInBox` and `moveBy` from above):\n\n    hover = Signal.channel Nothing\n    \n    box1 = Graphics.Input.hoverable (Signal.send hover << \\h -> if h then Just 1 else Nothing)\n                                    (putInBox (plainText \"drag-and-drop me\"))\n    \n    box2 = Graphics.Input.hoverable (Signal.send hover << \\h -> if h then Just 2 else Nothing)\n                                    (putInBox (plainText \"and me too\"))\n    \n    main =\n      let update m =\n            case m of\n              Just (1, MoveBy (dx,dy)) -> \\(p1,p2) -> (moveBy (dx,dy) p1, p2)\n              Just (2, MoveBy (dx,dy)) -> \\(p1,p2) -> (p1, moveBy (dx,dy) p2)\n              _                        -> identity\n      in Signal.map (\\(p1,p2) -> collage 200 200 [Graphics.Collage.move p1 (toForm box1),\n                                                  Graphics.Collage.move p2 (toForm box2)])\n                    (foldp update ((0,15), (0,-15)) (trackMany Nothing (Signal.subscribe hover)))\n\nA more dynamic example can be found in\n[Example3.elm](https://github.com/jvoigtlaender/elm-drag-and-drop/blob/master/Example3.elm).",
+        "type": "Maybe a -> Signal (Maybe a) -> Signal (Maybe ( a, Action ))"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

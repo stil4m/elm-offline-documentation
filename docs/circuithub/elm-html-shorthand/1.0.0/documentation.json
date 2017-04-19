@@ -1,1 +1,921 @@
-[{"name":"Html.Shorthand","comment":"Shorthands for common Html elements\n\n# Conventions\nThe following conventions are used for shorthands. One example is provided for each.\n\n## Single argument form\nThe attributes argument of the node is elided, with only the list of children remaining.\nFor certain elements where a canonical form is highly desirable, these functions have been left\noff in order to encourage more uniform use. For example, an `img` tag will almost certainly benefit\nfrom `src` and `alt` attributes. Some structural elements such as `section`, `aside`, `article`\nand `figure` should quite likely list an `id` in order to help users target interesting portions of\nyour website via a URL. Other elements, such as `hr` are not included in this list simply because it\ndoes not make sense to provide them with *any* child elements. In this case the canonical form is\nalso appropriate.\n\n@docs div_\n\n## Canonical form\n\nThis form attempts to take a common sense list of arguments. This is a limited form which\nwill not satisfy every need, but takes care of the extremely common cases. Many of the elements\nexcluded from single argument form is included here in a special form.\n\n@docs img'\n\nNote that `main'` is provided by elm-html, not by this package which only provides `main_`.\n\n## Classy form\n\nAnother very common case is creating elements for mostly aesthetic reasons.\nFor this it is frequently convenient to specify only a `class` attribute and not much else.\nThese 'c'-postfixed shorthands are similar to the canonical form, but also take a class string\n(a space separated list of CSS classes).\n\n@docs divc","aliases":[{"name":"TextString","comment":"","args":[],"type":"String"},{"name":"UrlString","comment":"","args":[],"type":"String"},{"name":"ClassString","comment":"","args":[],"type":"String"},{"name":"IdString","comment":"","args":[],"type":"String"}],"types":[],"values":[{"name":"a'","comment":"[&lt;a&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) represents a hyperlink , linking to another resource.","type":"UrlString -> String -> TextString -> Html"},{"name":"abbr'","comment":"[&lt;abbr&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr) represents an abbreviation or an acronym ; the expansion of the\nabbreviation can be represented in the title attribute.","type":"TextString -> Html"},{"name":"abbrc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"ac","comment":"","type":"ClassString -> UrlString -> String -> TextString -> Html"},{"name":"address_","comment":"[&lt;address&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address) defines a section containing contact information.\n\nDo:\n* [place inside the &lt;footer&gt; where appropriate](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address#Summary)\n\nDon't:\n* [represent an arbitrary, unrelated address](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address#Summary)","type":"List Html -> Html"},{"name":"addressc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"article'","comment":"[&lt;article&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article) defines self-contained content that could exist independently of the rest\nof the content.\n\nDo:\n* [use &lt;article&gt; for self-contained components with informational content](http://html5doctor.com/the-article-element/)\n* [use &lt;article&gt; for blog entries, user-submitted comments, interactive educational gadgets](http://html5doctor.com/the-article-element/)\n\nDon't:\n* [confuse &lt;article&gt; with &lt;section&gt; which need not be self-contained](http://www.brucelawson.co.uk/2010/html5-articles-and-sections-whats-the-difference/)","type":"IdString -> List Html -> Html"},{"name":"articlec","comment":"","type":"ClassString -> IdString -> List Html -> Html"},{"name":"aside'","comment":"[&lt;aside&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside) defines some content loosely related to the page content. If it is removed,\nthe remaining content still makes sense.","type":"IdString -> List Html -> Html"},{"name":"asidec","comment":"","type":"ClassString -> IdString -> List Html -> Html"},{"name":"audio'","comment":"[&lt;audio&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio) represents a sound or audio stream.\n\nDoesn't allow for &lt;track&rt;s &lt;source&rt;s, please use `audio` for that.","type":"UrlString -> Html"},{"name":"audioc","comment":"","type":"ClassString -> UrlString -> Html"},{"name":"b'","comment":"","type":"TextString -> Html"},{"name":"b_","comment":"[&lt;b&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b) represents a text which to which attention is drawn for utilitarian\npurposes. It doesn't convey extra importance and doesn't imply an alternate\nvoice.","type":"List Html -> Html"},{"name":"bc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"bdi'","comment":"","type":"TextString -> Html"},{"name":"bdi_","comment":"[&lt;bdi&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi) represents text that must be isolated from its surrounding for\nbidirectional text formatting. It allows embedding a span of text with a\ndifferent, or unknown, directionality.","type":"List Html -> Html"},{"name":"bdic","comment":"","type":"ClassString -> TextString -> Html"},{"name":"blockquote'","comment":"","type":"UrlString -> List Html -> Html"},{"name":"blockquote_","comment":"[&lt;blockquote&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) represents a content that is quoted from another source.\n\nThe canonical form uses a cite url, but a single argument form is also provided\n\nDon't:\n* use blockquote for short, inline quotations, we have &lt;`q'`&gt; for that","type":"List Html -> Html"},{"name":"blockquotec","comment":"","type":"ClassString -> UrlString -> List Html -> Html"},{"name":"body_","comment":"[&lt;body&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body) represents the content of an HTML document. There is only one `body`\nelement in a document.","type":"List Html -> Html"},{"name":"bodyc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"br'","comment":"[&lt;br&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br) represents a line break.","type":"Html"},{"name":"button'","comment":"","type":"TextString -> Html"},{"name":"button_","comment":"[&lt;input&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) represents a typed data field allowing the user to edit the data.","type":"List Html -> Html"},{"name":"buttonc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"caption_","comment":"[&lt;caption&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption) represents the title of a table.","type":"List Html -> Html"},{"name":"captionc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"cite_","comment":"[&lt;cite&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite) represents the title of a work.\n\nDo:\n* [consider using an anchor inside of the cite to link to the origin](http://html5doctor.com/cite-and-blockquote-reloaded/)","type":"List Html -> Html"},{"name":"citec","comment":"","type":"ClassString -> List Html -> Html"},{"name":"class'","comment":"","type":"ClassString -> Attribute"},{"name":"code'","comment":"","type":"TextString -> Html"},{"name":"code_","comment":"[&lt;code&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code) represents computer code.\n\n`code` or `code_` can be used for code that includes color highlighting.\n`code'` and `codec` can be used for simple unhighlighted code fragments.","type":"List Html -> Html"},{"name":"codec","comment":"","type":"ClassString -> TextString -> Html"},{"name":"dd'","comment":"[&lt;dd&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) represents the definition of the terms immediately listed before it.","type":"TextString -> Html"},{"name":"ddc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"dfn'","comment":"[&lt;dfn&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn) represents a term whose definition is contained in its nearest ancestor\ncontent.","type":"IdString -> List Html -> Html"},{"name":"dfnc","comment":"","type":"ClassString -> IdString -> List Html -> Html"},{"name":"div_","comment":"[&lt;div&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div) represents a generic container with no special meaning.","type":"List Html -> Html"},{"name":"divc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"dl_","comment":"[&lt;dl&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) defines a definition list, that is, a list of terms and their associated\ndefinitions.","type":"List Html -> Html"},{"name":"dlc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"dt'","comment":"[&lt;dt&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt) represents a term defined by the next `dd`.","type":"IdString -> TextString -> Html"},{"name":"dtc","comment":"","type":"ClassString -> IdString -> TextString -> Html"},{"name":"em'","comment":"","type":"TextString -> Html"},{"name":"em_","comment":"[&lt;em&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em) represents emphasized text, like a stress accent.","type":"List Html -> Html"},{"name":"embed'","comment":"[&lt;embed&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed) represents a integration point for an external, often non-HTML,\napplication or interactive content.","type":"String -> UrlString -> Int -> Int -> Html"},{"name":"embedc","comment":"","type":"ClassString -> String -> UrlString -> Int -> Int -> Html"},{"name":"emc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"encodeClass","comment":"A simplistic way of encoding of `class` attributes into a [sane format](http://stackoverflow.com/a/72577).\nThis is used internally by all of the shorthands that take a `ClassString`.\n\n* Everything is turned into lowercase\n* Only alpha-numeric characters (a-z,A-Z,0-9), hyphens (-) and underscores (_) are passed through the filter.\n* If the first characters not a letter, 'x' will be prepended.\n* Empty strings are allowed","type":"ClassString -> ClassString"},{"name":"encodeId","comment":"A simplistic way of encoding `id` attributes into a [sane format](http://stackoverflow.com/a/72577).\nThis is used internally by all of the shorthands that take an `IdString`.\n\n* Everything is turned into lowercase\n* Only alpha-numeric characters (a-z,A-Z,0-9), hyphens (-) and underscores (_) are passed through the filter.\n* If the first characters not a letter, 'x' will be prepended.\n* Empty strings are allowed","type":"IdString -> IdString"},{"name":"fieldset_","comment":"[&lt;fieldset&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset) represents a set of controls.","type":"List Html -> Html"},{"name":"fieldsetc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"figcaption'","comment":"","type":"TextString -> Html"},{"name":"figcaption_","comment":"[&lt;figcaption&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) represents the legend of a figure.","type":"List Html -> Html"},{"name":"figcaptionc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"figure'","comment":"[&lt;figure&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) represents a figure illustrated as part of the document.\n\nDo:\n* [use figure for captioned content](http://html5doctor.com/the-figure-figcaption-elements/)\n* [use figure for things other than images: video, audio, a chart, a table etc](http://html5doctor.com/the-figure-figcaption-elements/)\n\nDon't:\n* [turn every image into a figure](http://html5doctor.com/avoiding-common-html5-mistakes/#figure)","type":"IdString -> List Html -> Html"},{"name":"figurec","comment":"","type":"ClassString -> IdString -> List Html -> Html"},{"name":"footer_","comment":"[&lt;footer&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) defines the footer for a page or section. It often contains a copyright\nnotice, some links to legal information, or addresses to give feedback.","type":"List Html -> Html"},{"name":"footerc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"form'","comment":"","type":"String -> String -> List Html -> Html"},{"name":"form_","comment":"[&lt;form&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) represents a form , consisting of controls, that can be submitted to a\nserver for processing.","type":"List Html -> Html"},{"name":"formc","comment":"","type":"ClassString -> String -> String -> List Html -> Html"},{"name":"h1'","comment":"[&lt;h*&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) provide titles for sections and subsections, describing the topic it introduces.\n\nDo:\n* [use headings to define a document outline](http://www.paciellogroup.com/blog/2013/10/html5-document-outline/)\n* [try to have only one first level heading on a page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)\n* [introduce &lt;section&gt;s with headings](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)\n\nDon't:\n* [skip heading levels if you can help it](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)\n* [style headings using html5 &lt;section&gt;s](http://www.stubbornella.org/content/2011/09/06/style-headings-using-html5-sections/)","type":"TextString -> Html"},{"name":"h1c","comment":"","type":"ClassString -> TextString -> Html"},{"name":"h2'","comment":"","type":"TextString -> Html"},{"name":"h2c","comment":"","type":"ClassString -> TextString -> Html"},{"name":"h3'","comment":"","type":"TextString -> Html"},{"name":"h3c","comment":"","type":"ClassString -> TextString -> Html"},{"name":"h4'","comment":"","type":"TextString -> Html"},{"name":"h4c","comment":"","type":"ClassString -> TextString -> Html"},{"name":"h5'","comment":"","type":"TextString -> Html"},{"name":"h5c","comment":"","type":"ClassString -> TextString -> Html"},{"name":"h6'","comment":"","type":"TextString -> Html"},{"name":"h6c","comment":"","type":"ClassString -> TextString -> Html"},{"name":"header_","comment":"[&lt;header&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header) defines the header of a page or section. It often contains a logo, the\ntitle of the web site, and a navigational table of content.\n\nDon't:\n* [overuse &lt;header&gt;](http://html5doctor.com/avoiding-common-html5-mistakes/#header-hgroup)","type":"List Html -> Html"},{"name":"headerc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"hr'","comment":"[&lt;hr&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr) represents a thematic break between paragraphs of a section or article or\nany longer content.\n\nNo class'y form is provided to prevent abuse.","type":"Html"},{"name":"i'","comment":"","type":"TextString -> Html"},{"name":"i_","comment":"[&lt;i&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i) represents some text in an alternate voice or mood, or at least of\ndifferent quality, such as a taxonomic designation, a technical term, an\nidiomatic phrase, a thought, or a ship name.","type":"List Html -> Html"},{"name":"ic","comment":"","type":"ClassString -> TextString -> Html"},{"name":"id'","comment":"","type":"IdString -> Attribute"},{"name":"iframe'","comment":"[&lt;iframe&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) embedded an HTML document.","type":"UrlString -> Int -> Int -> Html"},{"name":"iframec","comment":"","type":"ClassString -> UrlString -> Int -> Int -> Html"},{"name":"img'","comment":"[&lt;ins&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins) defines an addition to the document.","type":"UrlString -> Int -> Int -> String -> Html"},{"name":"imgc","comment":"","type":"ClassString -> UrlString -> Int -> Int -> String -> Html"},{"name":"kbd'","comment":"","type":"TextString -> Html"},{"name":"kbd_","comment":"[&lt;kbd&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd) represents user input, often from the keyboard, but not necessarily; it\nmay represent other input, like transcribed voice commands.\n\n    instructions : Html\n    instructions =\n        p_ \n        [ text \"Press \"\n        , kbd_ [ kbd' \"Ctrl\", text \"+\", kbd' \"S\" ]\n        , text \" to save this document.\"\n        ]","type":"List Html -> Html"},{"name":"kbdc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"label'","comment":"","type":"IdString -> TextString -> Html"},{"name":"label_","comment":"[&lt;label&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) represents the caption of a form control.","type":"List Html -> Html"},{"name":"labelc","comment":"","type":"ClassString -> IdString -> TextString -> Html"},{"name":"legend'","comment":"[&lt;legend&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend) represents the caption for a `fieldset`.","type":"TextString -> Html"},{"name":"legendc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"li'","comment":"","type":"TextString -> Html"},{"name":"li_","comment":"[&lt;li&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) defines a item of an enumeration list.","type":"List Html -> Html"},{"name":"lic","comment":"","type":"ClassString -> TextString -> Html"},{"name":"main_","comment":"[&lt;main&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main) defines the main or important content in the document. There is only one\n`main` element in the document.","type":"List Html -> Html"},{"name":"mainc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"mark'","comment":"","type":"TextString -> Html"},{"name":"mark_","comment":"[&lt;mark&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark) represents text highlighted for reference purposes, that is for its\nrelevance in another context.","type":"List Html -> Html"},{"name":"markc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"nav_","comment":"[&lt;nav&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav) defines a section that contains only navigation links.\n\nDo:\n* [use nav for major navigation](http://html5doctor.com/avoiding-common-html5-mistakes/#nav-external)\n\nDon't:\n* [wrap all lists of links in &lt;nav&gt;](http://html5doctor.com/avoiding-common-html5-mistakes/#nav-external)","type":"List Html -> Html"},{"name":"navc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"ol_","comment":"[&lt;ol&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol) defines an ordered list of items.","type":"List Html -> Html"},{"name":"olc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"p'","comment":"","type":"TextString -> Html"},{"name":"p_","comment":"[&lt;p&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) defines a portion that should be displayed as a paragraph of text.","type":"List Html -> Html"},{"name":"param'","comment":"[&lt;object&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object) represents an external resource , which is treated as an image, an HTML\nsub-document, or an external resource to be processed by a plug-in.","type":"String -> String -> Html"},{"name":"pc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"pre_","comment":"[&lt;pre&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre) indicates that its content is preformatted and that this format must be\npreserved.\n\nDo:\n* [use &lt;pre&gt; for blocks of whitespace sensitive text that must not wrap](http://stackoverflow.com/a/4611735)\n* use &lt;pre&gt; as a wrapper for blocks &lt;`code_`&gt;\n* use &lt;pre&gt; as a wrapper for blocks of &lt;`samp_`&gt; output from a computer program","type":"List Html -> Html"},{"name":"prec","comment":"","type":"ClassString -> List Html -> Html"},{"name":"q'","comment":"","type":"UrlString -> TextString -> Html"},{"name":"q_","comment":"[&lt;q&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q) represents an inline quotation.\n\nThe canonical form uses a cite url, but the single argument is also provided.","type":"List Html -> Html"},{"name":"qc","comment":"","type":"ClassString -> UrlString -> TextString -> Html"},{"name":"resetButton'","comment":"","type":"TextString -> Html"},{"name":"resetButton_","comment":"","type":"List Html -> Html"},{"name":"resetButtonc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"rp'","comment":"[&lt;rp&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp) represents parenthesis around a ruby annotation, used to display the\nannotation in an alternate way by browsers not supporting the standard display\nfor annotations.","type":"TextString -> Html"},{"name":"rpc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"rt'","comment":"[&lt;rt&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt) represents the text of a ruby annotation .","type":"TextString -> Html"},{"name":"rtc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"ruby_","comment":"[&lt;ruby&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) represents content to be marked with ruby annotations, short runs of text\npresented alongside the text. This is often used in conjunction with East Asian\nlanguage where the annotations act as a guide for pronunciation, like the\nJapanese furigana.","type":"List Html -> Html"},{"name":"rubyc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"s'","comment":"","type":"TextString -> Html"},{"name":"s_","comment":"[&lt;s&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s) represents content that is no longer accurate or relevant.\n\nDon't:\n* [use &lt;s&gt; for indicating document edits, use &lt;del&gt; or &lt;ins&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s#Summary)","type":"List Html -> Html"},{"name":"samp'","comment":"","type":"TextString -> Html"},{"name":"samp_","comment":"[&lt;samp&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp) represents the output of a program or a computer.","type":"List Html -> Html"},{"name":"sampc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"sc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"section'","comment":"[&lt;section&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section) defines a section in a document. Use sections to construct a document outline.\n\nDo:\n* [use &lt;section&gt;s to define document outlines](http://html5doctor.com/outlines/)\n* [...but use headings carefully](http://www.paciellogroup.com/blog/2013/10/html5-document-outline/)\n\nDon't:\n* [use section as a wrapper for styling](http://html5doctor.com/avoiding-common-html5-mistakes/#section-wrapper)","type":"IdString -> List Html -> Html"},{"name":"sectionc","comment":"","type":"ClassString -> IdString -> List Html -> Html"},{"name":"small'","comment":"","type":"TextString -> Html"},{"name":"small_","comment":"[&lt;small&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small) represents a side comment , that is, text like a disclaimer or a\ncopyright, which is not essential to the comprehension of the document.\n\nDon't:\n  * [use small for pure styling](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small#Summary)\n\nDo:\n  * [use small for side-comments and small print, including copyright and legal text](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small#Summary)","type":"List Html -> Html"},{"name":"smallc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"span_","comment":"[&lt;bdo&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo) represents the directionality of its children, in order to explicitly\noverride the Unicode bidirectional algorithm.","type":"List Html -> Html"},{"name":"spanc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"strong'","comment":"","type":"TextString -> Html"},{"name":"strong_","comment":"[&lt;strong&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong) represents especially important text.","type":"List Html -> Html"},{"name":"strongc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"sub'","comment":"","type":"TextString -> Html"},{"name":"sub_","comment":"[&lt;sub&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub) represent a subscript.","type":"List Html -> Html"},{"name":"subc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"submitButton'","comment":"","type":"TextString -> Html"},{"name":"submitButton_","comment":"","type":"List Html -> Html"},{"name":"submitButtonc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"sup'","comment":"","type":"TextString -> Html"},{"name":"sup_","comment":"[&lt;sup&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup) represent a superscript.","type":"List Html -> Html"},{"name":"supc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"table_","comment":"[&lt;source&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source) allows authors to specify alternative media resources for media elements\nlike `video` or `audio`.","type":"List Html -> Html"},{"name":"tablec","comment":"","type":"ClassString -> List Html -> Html"},{"name":"tbody_","comment":"[&lt;colgroup&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup) represents a set of one or more columns of a table.","type":"List Html -> Html"},{"name":"tbodyc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"td'","comment":"","type":"TextString -> Html"},{"name":"td_","comment":"[&lt;td&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) represents a data cell in a table.","type":"List Html -> Html"},{"name":"tdc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"tfoot_","comment":"[&lt;tfoot&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot) represents the block of rows that describes the column summaries of a table.","type":"List Html -> Html"},{"name":"tfootc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"th'","comment":"","type":"TextString -> Html"},{"name":"th_","comment":"[&lt;th&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) represents a header cell in a table.","type":"List Html -> Html"},{"name":"thc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"thead_","comment":"[&lt;thead&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead) represents the block of rows that describes the column labels of a table.","type":"List Html -> Html"},{"name":"theadc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"time_","comment":"[&lt;time&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) represents a date and time value; the machine-readable equivalent can be\nrepresented in the datetime attribute.","type":"List Html -> Html"},{"name":"tr_","comment":"[&lt;tr&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) represents a row of cells in a table.","type":"List Html -> Html"},{"name":"trc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"u'","comment":"","type":"TextString -> Html"},{"name":"u_","comment":"[&lt;u&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u) represents a non-textual annoatation for which the conventional\npresentation is underlining, such labeling the text as being misspelt or\nlabeling a proper name in Chinese text.","type":"List Html -> Html"},{"name":"uc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"ul_","comment":"[&lt;ul&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul) defines an unordered list of items.","type":"List Html -> Html"},{"name":"ulc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"var'","comment":"[&lt;var&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var) represents a variable. Specific cases where it should be used include an\nactual mathematical expression or programming context, an identifier\nrepresenting a constant, a symbol identifying a physical quantity, a function\nparameter, or a mere placeholder in prose.","type":"TextString -> Html"},{"name":"varc","comment":"","type":"ClassString -> TextString -> Html"},{"name":"video'","comment":"[&lt;video&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) represents a video, the associated audio and captions, and controls.\n\nDoesn't allow for &lt;track&rt;s &lt;source&rt;s, please use `video` for that.","type":"UrlString -> Html"},{"name":"videoc","comment":"","type":"ClassString -> UrlString -> Html"},{"name":"wbr'","comment":"[&lt;wbr&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr) represents a line break opportunity , that is a suggested point for\nwrapping text in order to improve readability of text split on several lines.","type":"Html"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Html.Shorthand",
+    "comment": "Shorthands for common Html elements\n\n# Conventions\nThe following conventions are used for shorthands. One example is provided for each.\n\n## Single argument form\nThe attributes argument of the node is elided, with only the list of children remaining.\nFor certain elements where a canonical form is highly desirable, these functions have been left\noff in order to encourage more uniform use. For example, an `img` tag will almost certainly benefit\nfrom `src` and `alt` attributes. Some structural elements such as `section`, `aside`, `article`\nand `figure` should quite likely list an `id` in order to help users target interesting portions of\nyour website via a URL. Other elements, such as `hr` are not included in this list simply because it\ndoes not make sense to provide them with *any* child elements. In this case the canonical form is\nalso appropriate.\n\n@docs div_\n\n## Canonical form\n\nThis form attempts to take a common sense list of arguments. This is a limited form which\nwill not satisfy every need, but takes care of the extremely common cases. Many of the elements\nexcluded from single argument form is included here in a special form.\n\n@docs img'\n\nNote that `main'` is provided by elm-html, not by this package which only provides `main_`.\n\n## Classy form\n\nAnother very common case is creating elements for mostly aesthetic reasons.\nFor this it is frequently convenient to specify only a `class` attribute and not much else.\nThese 'c'-postfixed shorthands are similar to the canonical form, but also take a class string\n(a space separated list of CSS classes).\n\n@docs divc",
+    "aliases": [
+      {
+        "name": "TextString",
+        "comment": "",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "UrlString",
+        "comment": "",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "ClassString",
+        "comment": "",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "IdString",
+        "comment": "",
+        "args": [],
+        "type": "String"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "a'",
+        "comment": "[&lt;a&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) represents a hyperlink , linking to another resource.",
+        "type": "UrlString -> String -> TextString -> Html"
+      },
+      {
+        "name": "abbr'",
+        "comment": "[&lt;abbr&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr) represents an abbreviation or an acronym ; the expansion of the\nabbreviation can be represented in the title attribute.",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "abbrc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "ac",
+        "comment": "",
+        "type": "ClassString -> UrlString -> String -> TextString -> Html"
+      },
+      {
+        "name": "address_",
+        "comment": "[&lt;address&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address) defines a section containing contact information.\n\nDo:\n* [place inside the &lt;footer&gt; where appropriate](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address#Summary)\n\nDon't:\n* [represent an arbitrary, unrelated address](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address#Summary)",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "addressc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "article'",
+        "comment": "[&lt;article&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article) defines self-contained content that could exist independently of the rest\nof the content.\n\nDo:\n* [use &lt;article&gt; for self-contained components with informational content](http://html5doctor.com/the-article-element/)\n* [use &lt;article&gt; for blog entries, user-submitted comments, interactive educational gadgets](http://html5doctor.com/the-article-element/)\n\nDon't:\n* [confuse &lt;article&gt; with &lt;section&gt; which need not be self-contained](http://www.brucelawson.co.uk/2010/html5-articles-and-sections-whats-the-difference/)",
+        "type": "IdString -> List Html -> Html"
+      },
+      {
+        "name": "articlec",
+        "comment": "",
+        "type": "ClassString -> IdString -> List Html -> Html"
+      },
+      {
+        "name": "aside'",
+        "comment": "[&lt;aside&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside) defines some content loosely related to the page content. If it is removed,\nthe remaining content still makes sense.",
+        "type": "IdString -> List Html -> Html"
+      },
+      {
+        "name": "asidec",
+        "comment": "",
+        "type": "ClassString -> IdString -> List Html -> Html"
+      },
+      {
+        "name": "audio'",
+        "comment": "[&lt;audio&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio) represents a sound or audio stream.\n\nDoesn't allow for &lt;track&rt;s &lt;source&rt;s, please use `audio` for that.",
+        "type": "UrlString -> Html"
+      },
+      {
+        "name": "audioc",
+        "comment": "",
+        "type": "ClassString -> UrlString -> Html"
+      },
+      {
+        "name": "b'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "b_",
+        "comment": "[&lt;b&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b) represents a text which to which attention is drawn for utilitarian\npurposes. It doesn't convey extra importance and doesn't imply an alternate\nvoice.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "bc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "bdi'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "bdi_",
+        "comment": "[&lt;bdi&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi) represents text that must be isolated from its surrounding for\nbidirectional text formatting. It allows embedding a span of text with a\ndifferent, or unknown, directionality.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "bdic",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "blockquote'",
+        "comment": "",
+        "type": "UrlString -> List Html -> Html"
+      },
+      {
+        "name": "blockquote_",
+        "comment": "[&lt;blockquote&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) represents a content that is quoted from another source.\n\nThe canonical form uses a cite url, but a single argument form is also provided\n\nDon't:\n* use blockquote for short, inline quotations, we have &lt;`q'`&gt; for that",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "blockquotec",
+        "comment": "",
+        "type": "ClassString -> UrlString -> List Html -> Html"
+      },
+      {
+        "name": "body_",
+        "comment": "[&lt;body&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body) represents the content of an HTML document. There is only one `body`\nelement in a document.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "bodyc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "br'",
+        "comment": "[&lt;br&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br) represents a line break.",
+        "type": "Html"
+      },
+      {
+        "name": "button'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "button_",
+        "comment": "[&lt;input&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) represents a typed data field allowing the user to edit the data.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "buttonc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "caption_",
+        "comment": "[&lt;caption&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption) represents the title of a table.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "captionc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "cite_",
+        "comment": "[&lt;cite&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite) represents the title of a work.\n\nDo:\n* [consider using an anchor inside of the cite to link to the origin](http://html5doctor.com/cite-and-blockquote-reloaded/)",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "citec",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "class'",
+        "comment": "",
+        "type": "ClassString -> Attribute"
+      },
+      {
+        "name": "code'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "code_",
+        "comment": "[&lt;code&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code) represents computer code.\n\n`code` or `code_` can be used for code that includes color highlighting.\n`code'` and `codec` can be used for simple unhighlighted code fragments.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "codec",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "dd'",
+        "comment": "[&lt;dd&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) represents the definition of the terms immediately listed before it.",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "ddc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "dfn'",
+        "comment": "[&lt;dfn&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn) represents a term whose definition is contained in its nearest ancestor\ncontent.",
+        "type": "IdString -> List Html -> Html"
+      },
+      {
+        "name": "dfnc",
+        "comment": "",
+        "type": "ClassString -> IdString -> List Html -> Html"
+      },
+      {
+        "name": "div_",
+        "comment": "[&lt;div&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div) represents a generic container with no special meaning.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "divc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "dl_",
+        "comment": "[&lt;dl&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) defines a definition list, that is, a list of terms and their associated\ndefinitions.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "dlc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "dt'",
+        "comment": "[&lt;dt&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt) represents a term defined by the next `dd`.",
+        "type": "IdString -> TextString -> Html"
+      },
+      {
+        "name": "dtc",
+        "comment": "",
+        "type": "ClassString -> IdString -> TextString -> Html"
+      },
+      {
+        "name": "em'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "em_",
+        "comment": "[&lt;em&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em) represents emphasized text, like a stress accent.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "embed'",
+        "comment": "[&lt;embed&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed) represents a integration point for an external, often non-HTML,\napplication or interactive content.",
+        "type": "String -> UrlString -> Int -> Int -> Html"
+      },
+      {
+        "name": "embedc",
+        "comment": "",
+        "type": "ClassString -> String -> UrlString -> Int -> Int -> Html"
+      },
+      {
+        "name": "emc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "encodeClass",
+        "comment": "A simplistic way of encoding of `class` attributes into a [sane format](http://stackoverflow.com/a/72577).\nThis is used internally by all of the shorthands that take a `ClassString`.\n\n* Everything is turned into lowercase\n* Only alpha-numeric characters (a-z,A-Z,0-9), hyphens (-) and underscores (_) are passed through the filter.\n* If the first characters not a letter, 'x' will be prepended.\n* Empty strings are allowed",
+        "type": "ClassString -> ClassString"
+      },
+      {
+        "name": "encodeId",
+        "comment": "A simplistic way of encoding `id` attributes into a [sane format](http://stackoverflow.com/a/72577).\nThis is used internally by all of the shorthands that take an `IdString`.\n\n* Everything is turned into lowercase\n* Only alpha-numeric characters (a-z,A-Z,0-9), hyphens (-) and underscores (_) are passed through the filter.\n* If the first characters not a letter, 'x' will be prepended.\n* Empty strings are allowed",
+        "type": "IdString -> IdString"
+      },
+      {
+        "name": "fieldset_",
+        "comment": "[&lt;fieldset&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset) represents a set of controls.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "fieldsetc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "figcaption'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "figcaption_",
+        "comment": "[&lt;figcaption&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) represents the legend of a figure.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "figcaptionc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "figure'",
+        "comment": "[&lt;figure&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) represents a figure illustrated as part of the document.\n\nDo:\n* [use figure for captioned content](http://html5doctor.com/the-figure-figcaption-elements/)\n* [use figure for things other than images: video, audio, a chart, a table etc](http://html5doctor.com/the-figure-figcaption-elements/)\n\nDon't:\n* [turn every image into a figure](http://html5doctor.com/avoiding-common-html5-mistakes/#figure)",
+        "type": "IdString -> List Html -> Html"
+      },
+      {
+        "name": "figurec",
+        "comment": "",
+        "type": "ClassString -> IdString -> List Html -> Html"
+      },
+      {
+        "name": "footer_",
+        "comment": "[&lt;footer&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) defines the footer for a page or section. It often contains a copyright\nnotice, some links to legal information, or addresses to give feedback.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "footerc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "form'",
+        "comment": "",
+        "type": "String -> String -> List Html -> Html"
+      },
+      {
+        "name": "form_",
+        "comment": "[&lt;form&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) represents a form , consisting of controls, that can be submitted to a\nserver for processing.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "formc",
+        "comment": "",
+        "type": "ClassString -> String -> String -> List Html -> Html"
+      },
+      {
+        "name": "h1'",
+        "comment": "[&lt;h*&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) provide titles for sections and subsections, describing the topic it introduces.\n\nDo:\n* [use headings to define a document outline](http://www.paciellogroup.com/blog/2013/10/html5-document-outline/)\n* [try to have only one first level heading on a page](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)\n* [introduce &lt;section&gt;s with headings](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)\n\nDon't:\n* [skip heading levels if you can help it](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)\n* [style headings using html5 &lt;section&gt;s](http://www.stubbornella.org/content/2011/09/06/style-headings-using-html5-sections/)",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "h1c",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "h2'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "h2c",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "h3'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "h3c",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "h4'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "h4c",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "h5'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "h5c",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "h6'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "h6c",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "header_",
+        "comment": "[&lt;header&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header) defines the header of a page or section. It often contains a logo, the\ntitle of the web site, and a navigational table of content.\n\nDon't:\n* [overuse &lt;header&gt;](http://html5doctor.com/avoiding-common-html5-mistakes/#header-hgroup)",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "headerc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "hr'",
+        "comment": "[&lt;hr&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr) represents a thematic break between paragraphs of a section or article or\nany longer content.\n\nNo class'y form is provided to prevent abuse.",
+        "type": "Html"
+      },
+      {
+        "name": "i'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "i_",
+        "comment": "[&lt;i&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i) represents some text in an alternate voice or mood, or at least of\ndifferent quality, such as a taxonomic designation, a technical term, an\nidiomatic phrase, a thought, or a ship name.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "ic",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "id'",
+        "comment": "",
+        "type": "IdString -> Attribute"
+      },
+      {
+        "name": "iframe'",
+        "comment": "[&lt;iframe&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) embedded an HTML document.",
+        "type": "UrlString -> Int -> Int -> Html"
+      },
+      {
+        "name": "iframec",
+        "comment": "",
+        "type": "ClassString -> UrlString -> Int -> Int -> Html"
+      },
+      {
+        "name": "img'",
+        "comment": "[&lt;ins&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins) defines an addition to the document.",
+        "type": "UrlString -> Int -> Int -> String -> Html"
+      },
+      {
+        "name": "imgc",
+        "comment": "",
+        "type": "ClassString -> UrlString -> Int -> Int -> String -> Html"
+      },
+      {
+        "name": "kbd'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "kbd_",
+        "comment": "[&lt;kbd&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd) represents user input, often from the keyboard, but not necessarily; it\nmay represent other input, like transcribed voice commands.\n\n    instructions : Html\n    instructions =\n        p_ \n        [ text \"Press \"\n        , kbd_ [ kbd' \"Ctrl\", text \"+\", kbd' \"S\" ]\n        , text \" to save this document.\"\n        ]",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "kbdc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "label'",
+        "comment": "",
+        "type": "IdString -> TextString -> Html"
+      },
+      {
+        "name": "label_",
+        "comment": "[&lt;label&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) represents the caption of a form control.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "labelc",
+        "comment": "",
+        "type": "ClassString -> IdString -> TextString -> Html"
+      },
+      {
+        "name": "legend'",
+        "comment": "[&lt;legend&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend) represents the caption for a `fieldset`.",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "legendc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "li'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "li_",
+        "comment": "[&lt;li&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) defines a item of an enumeration list.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "lic",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "main_",
+        "comment": "[&lt;main&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main) defines the main or important content in the document. There is only one\n`main` element in the document.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "mainc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "mark'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "mark_",
+        "comment": "[&lt;mark&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark) represents text highlighted for reference purposes, that is for its\nrelevance in another context.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "markc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "nav_",
+        "comment": "[&lt;nav&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav) defines a section that contains only navigation links.\n\nDo:\n* [use nav for major navigation](http://html5doctor.com/avoiding-common-html5-mistakes/#nav-external)\n\nDon't:\n* [wrap all lists of links in &lt;nav&gt;](http://html5doctor.com/avoiding-common-html5-mistakes/#nav-external)",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "navc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "ol_",
+        "comment": "[&lt;ol&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol) defines an ordered list of items.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "olc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "p'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "p_",
+        "comment": "[&lt;p&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) defines a portion that should be displayed as a paragraph of text.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "param'",
+        "comment": "[&lt;object&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object) represents an external resource , which is treated as an image, an HTML\nsub-document, or an external resource to be processed by a plug-in.",
+        "type": "String -> String -> Html"
+      },
+      {
+        "name": "pc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "pre_",
+        "comment": "[&lt;pre&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre) indicates that its content is preformatted and that this format must be\npreserved.\n\nDo:\n* [use &lt;pre&gt; for blocks of whitespace sensitive text that must not wrap](http://stackoverflow.com/a/4611735)\n* use &lt;pre&gt; as a wrapper for blocks &lt;`code_`&gt;\n* use &lt;pre&gt; as a wrapper for blocks of &lt;`samp_`&gt; output from a computer program",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "prec",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "q'",
+        "comment": "",
+        "type": "UrlString -> TextString -> Html"
+      },
+      {
+        "name": "q_",
+        "comment": "[&lt;q&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q) represents an inline quotation.\n\nThe canonical form uses a cite url, but the single argument is also provided.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "qc",
+        "comment": "",
+        "type": "ClassString -> UrlString -> TextString -> Html"
+      },
+      {
+        "name": "resetButton'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "resetButton_",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "resetButtonc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "rp'",
+        "comment": "[&lt;rp&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp) represents parenthesis around a ruby annotation, used to display the\nannotation in an alternate way by browsers not supporting the standard display\nfor annotations.",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "rpc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "rt'",
+        "comment": "[&lt;rt&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt) represents the text of a ruby annotation .",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "rtc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "ruby_",
+        "comment": "[&lt;ruby&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) represents content to be marked with ruby annotations, short runs of text\npresented alongside the text. This is often used in conjunction with East Asian\nlanguage where the annotations act as a guide for pronunciation, like the\nJapanese furigana.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "rubyc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "s'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "s_",
+        "comment": "[&lt;s&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s) represents content that is no longer accurate or relevant.\n\nDon't:\n* [use &lt;s&gt; for indicating document edits, use &lt;del&gt; or &lt;ins&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s#Summary)",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "samp'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "samp_",
+        "comment": "[&lt;samp&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp) represents the output of a program or a computer.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "sampc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "sc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "section'",
+        "comment": "[&lt;section&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section) defines a section in a document. Use sections to construct a document outline.\n\nDo:\n* [use &lt;section&gt;s to define document outlines](http://html5doctor.com/outlines/)\n* [...but use headings carefully](http://www.paciellogroup.com/blog/2013/10/html5-document-outline/)\n\nDon't:\n* [use section as a wrapper for styling](http://html5doctor.com/avoiding-common-html5-mistakes/#section-wrapper)",
+        "type": "IdString -> List Html -> Html"
+      },
+      {
+        "name": "sectionc",
+        "comment": "",
+        "type": "ClassString -> IdString -> List Html -> Html"
+      },
+      {
+        "name": "small'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "small_",
+        "comment": "[&lt;small&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small) represents a side comment , that is, text like a disclaimer or a\ncopyright, which is not essential to the comprehension of the document.\n\nDon't:\n  * [use small for pure styling](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small#Summary)\n\nDo:\n  * [use small for side-comments and small print, including copyright and legal text](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small#Summary)",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "smallc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "span_",
+        "comment": "[&lt;bdo&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo) represents the directionality of its children, in order to explicitly\noverride the Unicode bidirectional algorithm.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "spanc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "strong'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "strong_",
+        "comment": "[&lt;strong&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong) represents especially important text.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "strongc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "sub'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "sub_",
+        "comment": "[&lt;sub&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub) represent a subscript.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "subc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "submitButton'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "submitButton_",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "submitButtonc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "sup'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "sup_",
+        "comment": "[&lt;sup&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup) represent a superscript.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "supc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "table_",
+        "comment": "[&lt;source&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source) allows authors to specify alternative media resources for media elements\nlike `video` or `audio`.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "tablec",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "tbody_",
+        "comment": "[&lt;colgroup&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup) represents a set of one or more columns of a table.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "tbodyc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "td'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "td_",
+        "comment": "[&lt;td&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) represents a data cell in a table.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "tdc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "tfoot_",
+        "comment": "[&lt;tfoot&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot) represents the block of rows that describes the column summaries of a table.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "tfootc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "th'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "th_",
+        "comment": "[&lt;th&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) represents a header cell in a table.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "thc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "thead_",
+        "comment": "[&lt;thead&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead) represents the block of rows that describes the column labels of a table.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "theadc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "time_",
+        "comment": "[&lt;time&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) represents a date and time value; the machine-readable equivalent can be\nrepresented in the datetime attribute.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "tr_",
+        "comment": "[&lt;tr&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) represents a row of cells in a table.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "trc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "u'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "u_",
+        "comment": "[&lt;u&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u) represents a non-textual annoatation for which the conventional\npresentation is underlining, such labeling the text as being misspelt or\nlabeling a proper name in Chinese text.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "uc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "ul_",
+        "comment": "[&lt;ul&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul) defines an unordered list of items.",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "ulc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "var'",
+        "comment": "[&lt;var&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var) represents a variable. Specific cases where it should be used include an\nactual mathematical expression or programming context, an identifier\nrepresenting a constant, a symbol identifying a physical quantity, a function\nparameter, or a mere placeholder in prose.",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "varc",
+        "comment": "",
+        "type": "ClassString -> TextString -> Html"
+      },
+      {
+        "name": "video'",
+        "comment": "[&lt;video&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) represents a video, the associated audio and captions, and controls.\n\nDoesn't allow for &lt;track&rt;s &lt;source&rt;s, please use `video` for that.",
+        "type": "UrlString -> Html"
+      },
+      {
+        "name": "videoc",
+        "comment": "",
+        "type": "ClassString -> UrlString -> Html"
+      },
+      {
+        "name": "wbr'",
+        "comment": "[&lt;wbr&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr) represents a line break opportunity , that is a suggested point for\nwrapping text in order to improve readability of text split on several lines.",
+        "type": "Html"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

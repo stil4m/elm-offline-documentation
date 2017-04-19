@@ -1,1 +1,1571 @@
-[{"name":"Scaffold.Machine","comment":" This module builds a more usable state machine snapshot with the Elm Architecture in mind on\ntop of the Gigan App.\n\n# Definition\n@docs Machine\n\n# Constructor\n@docs machine\n\n# Get and Set the Model\n@docs getModel, replaceModel\n\n# Using Machines\n@docs dispatching, dispatchingAs, presenting, presentingAs, staging, stagingAs, updating, integrate\n\n# Get and Set the Model of Maybe Machines\n@docs maybeGetModel, maybeReplaceModel\n\n# Optional Machines Using Maybe\n@docs maybeDispatching, maybeDispatchingAs, maybePresenting, maybePresentingAs, maybeStaging, maybeStagingAs, maybeUpdating, maybeIntegrate\n\n# Resource Dependant Machines\n@docs machineResource, resourceGetModel, resourceReplaceModel, resourceDispatching, resourceDispatchingAs, resourceIntegrate, resourceUpdating, resourceStaging, resourceStagingAs, resourcePresenting, resourcePresentingAs\n\n","aliases":[{"name":"Machine","comment":" A Machine is an instantaneous description of some model associated with an ProgramInput (see App)\nthat specifies how it should be updated, staged and presented. ","args":["a","b","c","bad"],"type":"{ input : Scaffold.App.ProgramInput a b c bad , state : Scaffold.App.ProgramSnapshot a b bad }"}],"types":[],"values":[{"name":"dispatching","comment":" Get the currently waiting dispatchment. ","type":"Scaffold.Machine.Machine a b c bad -> Scaffold.App.TaskDispatchment bad a"},{"name":"dispatchingAs","comment":" Get the currently waiting task dispatchment, but apply some action type transformation. ","type":"(List a -> List a') -> Scaffold.Machine.Machine a b c bad -> Scaffold.App.TaskDispatchment bad a'"},{"name":"getModel","comment":" Get the model of a machine. ","type":"Scaffold.Machine.Machine a b c bad -> b"},{"name":"integrate","comment":" Remove the currently waiting task dispatchment. This should be done only after retrieving any\npossibly waiting dispatchment. ","type":"Scaffold.Machine.Machine a b c bad -> Scaffold.Machine.Machine a b c bad"},{"name":"machine","comment":" Create a machine from an ProgramInput ","type":"Scaffold.App.ProgramInput a b c bad -> Scaffold.Machine.Machine a b c bad"},{"name":"machineResource","comment":" Create a machine resource from a model resource given a partial program definition (without the\nmodel). ","type":"(b -> Scaffold.App.ProgramInput a b c bad) -> Scaffold.Resource.Resource euser b -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"},{"name":"maybeDispatching","comment":" ","type":"Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Scaffold.App.TaskDispatchment bad a"},{"name":"maybeDispatchingAs","comment":" ","type":"(List a -> List a') -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Scaffold.App.TaskDispatchment bad a'"},{"name":"maybeGetModel","comment":" ","type":"Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe b"},{"name":"maybeIntegrate","comment":" ","type":"Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad)"},{"name":"maybePresenting","comment":" ","type":"Signal.Address (List a) -> Time.Time -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.App.ViewOutput a c bad)"},{"name":"maybePresentingAs","comment":" ","type":"(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.App.ViewOutput a' c bad)"},{"name":"maybeReplaceModel","comment":" ","type":"b -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad)"},{"name":"maybeStaging","comment":" ","type":"Signal.Address (List a) -> Time.Time -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad)"},{"name":"maybeStagingAs","comment":" ","type":"(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad)"},{"name":"maybeUpdating","comment":" ","type":"List a -> Time.Time -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad)"},{"name":"presenting","comment":" Run the present function from the configured ProgramInput of the Machine on the Machine's current model to produce a ViewOutput, which includes the an element of the Machine's view type, and a TaskDispatchment for any desired asynchronous tasks.\nThis takes an address for actions to be sent to, the current time, and the Machine. ","type":"Signal.Address (List a) -> Time.Time -> Scaffold.Machine.Machine a b c bad -> Scaffold.App.ViewOutput a c bad"},{"name":"presentingAs","comment":" Same as presenting, but with a transformation to apply to action lists before they are sent to the address. ","type":"(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Scaffold.Machine.Machine a b c bad -> Scaffold.App.ViewOutput a' c bad"},{"name":"replaceModel","comment":" Create a machine with a different model from a replacement model and an original machine. ","type":"b -> Scaffold.Machine.Machine a b c bad -> Scaffold.Machine.Machine a b c bad"},{"name":"resourceDispatching","comment":" ","type":"Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.App.TaskDispatchment bad a"},{"name":"resourceDispatchingAs","comment":" ","type":"(List a -> List a') -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.App.TaskDispatchment bad a'"},{"name":"resourceGetModel","comment":" ","type":"Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser b"},{"name":"resourceIntegrate","comment":" ","type":"Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"},{"name":"resourcePresenting","comment":" ","type":"Signal.Address (List a) -> Time.Time -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.App.ViewOutput a c bad)"},{"name":"resourcePresentingAs","comment":" ","type":"(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.App.ViewOutput a' c bad)"},{"name":"resourceReplaceModel","comment":" ","type":"b -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"},{"name":"resourceStaging","comment":" ","type":"Signal.Address (List a) -> Time.Time -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"},{"name":"resourceStagingAs","comment":" ","type":"(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"},{"name":"resourceUpdating","comment":" ","type":"List a -> Time.Time -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"},{"name":"staging","comment":" Run the update function from the configured ProgramInput of the Machine on the Machine's current model to produce a new model and dispatch any asynchronous tasks desired.\nThis takes an address for actions to be sent to, the current time, and the Machine. ","type":"Signal.Address (List a) -> Time.Time -> Scaffold.Machine.Machine a b c bad -> Scaffold.Machine.Machine a b c bad"},{"name":"stagingAs","comment":" Same as staging, but with a transformation to apply to action lists before they are sent to the address. ","type":"(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Scaffold.Machine.Machine a b c bad -> Scaffold.Machine.Machine a b c bad"},{"name":"updating","comment":" Run the update function from the configured ProgramInput of the Machine on the Machine's current model to produce a new model and dispatch any asynchronous tasks desired.\nThis takes a list of actions, the current time, and the Machine. ","type":"List a -> Time.Time -> Scaffold.Machine.Machine a b c bad -> Scaffold.Machine.Machine a b c bad"}],"generated-with-elm-version":"0.16.0"},{"name":"Scaffold.Resource","comment":" This module contains the \"Resource Base\" symachine, which is in essence a unique compromise between data binding\nand explicit fetching and writing.\n\nA Resource is datum whose state is concretely fuzzy because it must be retrieved from\nor synchronized with one or more remote services. The bulk of these functions are intended to be used together as a DSL\nthat provides very concise reductions and conditionally executed contingencies for bad data, as well as very\nsuccinct mapping from fuzzy resource states on to concrete views.\n\nIt is also possble to compose transformations and mapping\non to pending remote operation results, so that longer running asynchronous transformations (including fetching and manipulation)\ncan be composed as deeply as desired. The documentation is underway.\n\n# Definitions\n@docs Resource, ResourceBase, ResourceRecord, ResourceRecordStub, ResourceBaseDelta\n\n# Aliases for Resource of a ResourceBase or a ResourceRecord\n@docs BaseResource, RecordResource\n\n# Remote Synchronization\n@docs Remote, RemoteMap, RemoteConfig, RemoteMapConfig, QueryTask\n\n# Resource constructors\n@docs defResource, forbiddenResource, pendingResource, undecidedResource, unknownResource, voidResource, resourceDo\n\n# Resource from Existing non-determinant Types\n@docs maybeOr, resultOr\n\n# Transforming Resources\n@docs assumeIf, assumeIfNot, assumeIfNow, assumeInCase, assumeInCaseNow, decideBy, doOperation, maybeKnownNow, reduceNotKnownNowTo, therefore, otherwise\n\n# Nesting Resource Structures\n@docs within, withinBaseDo, withinRecordDo\n\n# Conditionally Dispatch Operations on Resource\n@docs dispatchIf, dispatchIfNot, dispatchInCase, dispatchInCaseNow\n\n# Basic Resource Predicates\n@docs isUnknown, isNotUnknown, isPending, isNotPending, isUndecided, isNotUndecided, isForbidden, isNotForbidden, isVoid, isNotVoid, isNil, isNotNil, isKnown, isNotKnown, isOperation, isNotOperation\n\n# Integrate Resource\n@docs resourceIntegrate, resourceQuery, resourceUpdate\n\n# Transforming Resource Base Deltas\n@docs baseDeltaMap, baseDeltaTherefore\n\n# Resource Base Operations\n@docs base, baseAt, baseDo, baseErrorHandler, baseIntegrate, baseMember, baseQuery, baseUpdate\n\n# Resource Record Operations\n@docs record, recordSet, recordAt, recordAtKey, recordBinding, recordContent, recordDo, recordErrorHandler, recordField, recordIntegrate, recordQuery, recordUpdate\n\n# Configuration\n@docs remoteConfig, remoteErrorConfig\n\n# Controls\n@docs toProgram\n\n","aliases":[{"name":"BaseResource","comment":" Resource of a ResourceBase. This adds basic support for nesting ResourceBase and ResourceBase\noperations using `within`, which approximates the active record pattern as well as I can in Elm so\nfar. ","args":["euser'","euser","comparable","v"],"type":"Scaffold.Resource.Resource euser' (Scaffold.Resource.ResourceBase euser comparable v)"},{"name":"QueryTask","comment":" QueryTask is an opaque task that executes a Remote or a RemoteMap and sends the resulting deltas\nto the configured address for the Resource, ResourceBase, or ResourceRecord. ","args":["never"],"type":"Task.Task never ()"},{"name":"RecordResource","comment":" Resource of a ResourceRecord. This adds support for nesting ResourceRecord and ResourceRecord\noperations using `within`, which approximates the active record pattern as well as I can in Elm so\nfar. ","args":["euser'","euser","userrecord","comparable","v"],"type":"Scaffold.Resource.Resource euser' (Scaffold.Resource.ResourceRecord euser userrecord comparable v)"},{"name":"Remote","comment":" This is a Task which represents some kind of synchronization with remote data. It can also easily\nbe used for long running arbitrary computations, too. It produces a Gigan Error or a Resource. ","args":["euser","v"],"type":"Task.Task (Scaffold.Error.Error euser) (Scaffold.Resource.Resource euser v)"},{"name":"RemoteConfig","comment":" Configures address to send remote results to, and an error handler for promoting Errors in to\nResource. The default error handler simply promotes errors to Undecided. ","args":["euser","v"],"type":"{ address : Signal.Address (Scaffold.Resource.Resource euser v) , errorHandler : Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v }"},{"name":"RemoteMap","comment":" This is a dictionary which represents a collection of Remote tasks which will be executed against\na ResourceBase or a ResourceRecord. ","args":["euser","comparable","v"],"type":"Dict.Dict comparable (Scaffold.Resource.Remote euser v)"},{"name":"RemoteMapConfig","comment":" Configures an address per key to send remote results to, and an error handler per key for\npromoting Errors in to Resource. The default error handler simply promotes errors to Undecided.\nThe default configuration proxies a single address which accepts a ResourceBaseDelta. ","args":["euser","comparable","v"],"type":"{ addressOf : comparable -> Signal.Address (Scaffold.Resource.Resource euser v) , errorHandlerOf : comparable -> Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v }"},{"name":"ResourceBase","comment":" A resource base has a dictionary of Resource. Use this to represent arbitrary collections of\nremote data with a uniform schema. You can support schemaless data with JSON, but that should really\nonly be done if you absolutely must, since it adds quite a bit of encoder/decoder overhead. ","args":["euser","comparable","v"],"type":"{ base : Scaffold.Resource.BaseImpl euser comparable v , deltas : Scaffold.Resource.BaseImpl euser comparable v , deltaSink : Signal.Address (Scaffold.Resource.BaseDeltaImpl euser comparable v) , config : Scaffold.Resource.RemoteMapConfig euser comparable v }"},{"name":"ResourceBaseDelta","comment":" This represents a change in Resource, a ResourceBase, or a ResourceRecord. ","args":["euser","comparable","v"],"type":"Scaffold.Resource.BaseDeltaImpl euser comparable v"},{"name":"ResourceRecord","comment":" This is a wrapper for resource bases that are finite in size, and have a collection of\ndifferently typed fields. It is best for records which may only be partially known. A concrete\nexample of this would be a user's personal information, where everything they have hidden should\ncome back as `forbiddenResource`. ","args":["euser","userrecord","comparable","v"],"type":"{ kbase : Scaffold.Resource.ResourceBase euser comparable v , writes : Dict.Dict comparable (Scaffold.Resource.Resource euser v -> userrecord -> userrecord) , reads : Dict.Dict comparable (userrecord -> Scaffold.Resource.Resource euser v) , record : userrecord }"},{"name":"ResourceRecordStub","comment":" A resource record stub represents how to manage a resource record, with the record itself\nomitted. This type is outputted by the `record` function. Setting this for the first time using\n`recordSet` will result in a proper ResourceRecord.  ","args":["euser","userrecord","comparable","v"],"type":"{ kbase : Scaffold.Resource.ResourceBase euser comparable v , writes : Dict.Dict comparable (Scaffold.Resource.Resource euser v -> userrecord -> userrecord) , reads : Dict.Dict comparable (userrecord -> Scaffold.Resource.Resource euser v) }"}],"types":[{"name":"Resource","comment":" A resource item. ","args":["euser","v"],"cases":[]}],"values":[{"name":"assumeIf","comment":" If some predicate `satisfies` is satisfied by the resource `kb`, then we make the following\nassumption. If this resource is an operation, then the assumption will be applied to\nthe result of that operation. ","type":"(Scaffold.Resource.Resource euser v -> Bool) -> v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"},{"name":"assumeIfNot","comment":" Negation of assumeIf. ","type":"(Scaffold.Resource.Resource euser v -> Bool) -> v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"},{"name":"assumeIfNow","comment":" If the predicate is satisfied, replace the resource with some known value. ","type":"(Scaffold.Resource.Resource euser v' -> Bool) -> v' -> Scaffold.Resource.Resource euser v' -> Scaffold.Resource.Resource euser v'"},{"name":"assumeInCase","comment":" If `possibleAssumption` yields some value `value'` when a Resource is applied, then\nthat value is used to overwrite the resource with an assumption `Known value'`, otherwise the\nResource is unaffected. If this resource is an operation, then the assumption will be applied\nconditionally to the result of that operation. ","type":"(Scaffold.Resource.Resource euser v -> Maybe.Maybe v) -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"},{"name":"assumeInCaseNow","comment":" This is the counterpart to assumeInCase which does _not_ abstract away whether or not this is\nsome pending remote operation. Concretely, we want this in the case that we are doing model to view\nreductions because a pending operation should still have some concrete visible representation, such\nas an ajax loader symbol. Of course, one should still correctly call *Integrate so that an operation\nis always a `pendingResource` by the time it gets past the `stage` step. ","type":"(Scaffold.Resource.Resource euser v' -> Maybe.Maybe v') -> Scaffold.Resource.Resource euser v' -> Scaffold.Resource.Resource euser v'"},{"name":"base","comment":" Create a new resource base. This takes an address which accepts resource base deltas in sequence.\nCurrently, you are responsible for dropping irrelevant deltas. ","type":"Signal.Address (Scaffold.Resource.ResourceBaseDelta euser comparable v) -> Scaffold.Resource.ResourceBase euser comparable v"},{"name":"baseAt","comment":" Get the resource at a given key from the resource base. ","type":"comparable -> Scaffold.Resource.ResourceBase euser comparable v -> Scaffold.Resource.Resource euser v"},{"name":"baseDeltaMap","comment":" Transform a resource base delta using any resource primitive that does not change the resource\ntype. This is the meat and potatoes of ResourceBase. This can be used for operations and any of the\nreductions. ","type":"(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> Scaffold.Resource.ResourceBaseDelta euser comparable v -> Scaffold.Resource.ResourceBaseDelta euser comparable v"},{"name":"baseDeltaTherefore","comment":" Transform a resource base delta using `therefore`. This is very useful for mapping a signal of\ndeltas on to multiple resource types, then maintaining several synchronized resource bases very\nefficiently. ","type":"(v -> v') -> Scaffold.Resource.ResourceBaseDelta euser comparable v -> Scaffold.Resource.ResourceBaseDelta euser comparable v'"},{"name":"baseDo","comment":" Use one of the many resource manipulation primitives on the resource at a particular location in a resource base. ","type":"(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.ResourceBase euser comparable v -> Scaffold.Resource.ResourceBase euser comparable v"},{"name":"baseErrorHandler","comment":" Add an error handler to a resource base to replace the default error handler. The default error\nhandler simply promotes errors to undecidedResource. You may way to give a definition in your own\nerror handler that distinguishes between undecidedResource and forbiddenResource. No promotion to\nforbiddenResource is given by default because there is not sane default behavior that covers\nthe general case. ","type":"(Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v) -> Scaffold.Resource.ResourceBase euser comparable v -> Scaffold.Resource.ResourceBase euser comparable v"},{"name":"baseIntegrate","comment":" Transform all new operations in to `pendingResource` across the resource base. Note that this\nwill only traverse the resource which has changed since the last call to `baseIntegrate`, so this\nscales quite well to large resource bases. ","type":"Scaffold.Resource.ResourceBase euser comparable v -> Scaffold.Resource.ResourceBase euser comparable v"},{"name":"baseMember","comment":" Determine if there is some resource at a given key that is not unknown. ","type":"comparable -> Scaffold.Resource.ResourceBase euser comparable v -> Bool"},{"name":"baseQuery","comment":" For every new operation in the resource base, get and aggregate the remote tasks, producing\nJust an opaque query task or Nothing in the case that no operations need to be done. Note that this\nwill only traverse the resource which has changed since the last call to `baseIntegrate`, so this\nscales quite well to large resource bases. ","type":"Scaffold.Resource.ResourceBase euser comparable v -> Maybe.Maybe (Scaffold.Resource.QueryTask never)"},{"name":"baseUpdate","comment":" Apply a resource base delta to the resource base. You are responsible for determining the order\nof the updates. ","type":"Scaffold.Resource.ResourceBaseDelta euser comparable v -> Scaffold.Resource.ResourceBase euser comparable v -> Scaffold.Resource.ResourceBase euser comparable v"},{"name":"decideBy","comment":" Offer a decision on some `undecidedResource kb`. Undecided resource is the result of some\nproblem which may or may not be in control of the client. Such resource may be the result of\nanything that can result in an error in your application. If this resource is an operation, then\nthe assumption will be applied to the result of that operation.\n","type":"(Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v) -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"},{"name":"defResource","comment":" A known thing. Carries a value of type `v` for `Resource euser v`. `defResource` anything can be\ninterpreted using `therefore` contingent upon it being a concrete `defResource` something. As described\nelsewhere, `therefore` has no effect on resource that satisfies `isNotKnown`. ","type":"v -> Scaffold.Resource.Resource euser v"},{"name":"dispatchIf","comment":" If some predicate `satisfies` is satisfied by the resource `kb`, then we make the following\nremote operation. ","type":"(Scaffold.Resource.Resource euser v -> Bool) -> Scaffold.Resource.Remote euser v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"},{"name":"dispatchIfNot","comment":" Negation of dispatchIf ","type":"(Scaffold.Resource.Resource euser v -> Bool) -> Scaffold.Resource.Remote euser v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"},{"name":"dispatchInCase","comment":" If `possibleOperation` yields some Remote task `remote` when a Resource is applied, then\nthe resource is replaced by the resource `doOperation remote`, otherwise the resource is\nunaffected. If this resource is an operation, then the result of that operation will be used as\nthe input to the provided function. In this way, operations can be chained arbitrarily deep,\nbut in a manner that helpfully abstracts away whether we are still waiting or already have the\nresult in the composition. ","type":"(Scaffold.Resource.Resource euser v -> Maybe.Maybe (Scaffold.Resource.Remote euser v)) -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"},{"name":"dispatchInCaseNow","comment":" This is the counterpart to dispatchInCase which does _not_ abstract away whether or not this is\nsome pending remote operation. This is useful in the case that we don't care what's going on right\nnow. We'd rather issue some operation, regardless. ","type":"(Scaffold.Resource.Resource euser v -> Maybe.Maybe (Scaffold.Resource.Remote euser v)) -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"},{"name":"doOperation","comment":" Define resource contingent on the future completion of some arbitrary operation. This is how\nwe hook up resource bases to sources of content. ","type":"Scaffold.Resource.Remote euser v -> Scaffold.Resource.Resource euser v"},{"name":"forbiddenResource","comment":" The resource could not be obtained because the user of your program should not be allowed to\naccess it. This carries an error. To resolve `undecidedResource`, one should use assumptions and or\noperations to map it back in to sensible resource. ","type":"Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v"},{"name":"isForbidden","comment":" True if the resource is forbiddenResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isKnown","comment":" True if the resource is known. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isNil","comment":" True if the resource is unknownResource or voidResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isNotForbidden","comment":" False if the resource is forbiddenResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isNotKnown","comment":" False if the resource is known. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isNotNil","comment":" False if the resource is unknownResource or voidResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isNotOperation","comment":" False if the resource is a pending operation. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isNotPending","comment":" False if the resource is pendingResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isNotUndecided","comment":" False if the resource is undecidedResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isNotUnknown","comment":" False if the resource is unknownResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isNotVoid","comment":" False if the resource is voidResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isOperation","comment":" True if the resource is a pending operation. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isPending","comment":" True if the resource is pendingResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isUndecided","comment":" True if the resource is undecidedResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isUnknown","comment":" True if the resource is unknownResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"isVoid","comment":" True if the resource is voidResource. ","type":"Scaffold.Resource.Resource euser v -> Bool"},{"name":"maybeKnownNow","comment":" If a resource is known, then give Just it's value, otherwise Nothing. ","type":"Scaffold.Resource.Resource euser v' -> Maybe.Maybe v'"},{"name":"maybeOr","comment":" Map Maybe in to Resource. Since Maybe doesn't carry errors, semantically Nothing means\n\"definitely nothing\". For this reason, you may want to use it something like this:\n\n    maybeOr voidResource myPossibleThing\n\nIf you implement an operation that uses some existing code that returns a Maybe, that would be a\ngood place to use this. Just be mindful that this _does not give you the power to handle errors_.\nResult should always be preferred in the case that there is any chance of things going wrong, and\n`resultOr` should definitely see a lot more mileage in a production app that deals with lots of\nunpredictable data.\n","type":"Scaffold.Resource.Resource euser v -> Maybe.Maybe v -> Scaffold.Resource.Resource euser v"},{"name":"otherwise","comment":" Preferred shorthand for `reduceNotKnownNowTo`. ","type":"v' -> Scaffold.Resource.Resource euser v' -> v'"},{"name":"pendingResource","comment":" Something on which resource is still pending. The most conforming way to use this is to not\nuse it directly. Calling *Integrate should be done after every update sequence during staging, which\nresults in all operations in a resource base being replaced with pendingResource. If you stick to\nthis, the presence of pendingResource is a guarantee you'll be getting a delta back about it\nassuming your wiring's not broken. ","type":"Scaffold.Resource.Resource euser v"},{"name":"record","comment":" Create a resource record stub. The content of the resource base will be bound to the content\nof the record according to the `recordField` definitions you give. A resource record stub is not\nyet completed with a concrete userrecord. Use this in your definitions. Create instances of your\nresource record type by using `recordSet` on the result of `record`. ","type":"Signal.Address (Scaffold.Resource.ResourceBaseDelta euser comparable v) -> Scaffold.Resource.ResourceRecordStub euser userrecord comparable v"},{"name":"recordAt","comment":" Retrieve a resource from the resource record using some getter. Avoiding stringly-typed nonsense that you can't protect from\nruntime errors is generally a good idea. Since records have an enumerable set of contant field names, it makes more sense to use\nthis method to get from records. This won't compile if it's wrong. For example:\n\n    recordAt .myFieldThatWillNotCompileIfItDoesntExist myRecord\n\n","type":"(userrecord -> Scaffold.Resource.Resource euser v) -> Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.Resource euser v"},{"name":"recordAtKey","comment":" Retrieve a resource at the given key. If you do this, you may as well be using resource base.\nHowever, you will get the benefit of console debug messages in the case that you try to access a\nfield that doesn't exist. ","type":"comparable -> Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.Resource euser v"},{"name":"recordBinding","comment":" Get the underlying resource base of a resource record. ","type":"Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.ResourceBase euser comparable v"},{"name":"recordContent","comment":" Get the current userrecord content of a resource record. ","type":"Scaffold.Resource.ResourceRecord euser userrecord comparable v -> userrecord"},{"name":"recordDo","comment":" This is the resource record equivalent to baseDo for resource bases, using the same\nsemantics. ","type":"(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.ResourceRecord euser userrecord comparable v"},{"name":"recordErrorHandler","comment":" Add an error handler to a `ResourceRecord` or a `ResourceRecordStub`. Refer to\n`baseErrorHandler` for a more detailed description of how adding error handlers works. ","type":"(Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v) -> { k | kbase : Scaffold.Resource.ResourceBase euser comparable v } -> { k | kbase : Scaffold.Resource.ResourceBase euser comparable v }"},{"name":"recordField","comment":" Map a record field to a key in the resource base. The types in the record can be any odd combination\ngiven that the userrecord type can be anything. However, all fields in the record must have a mapping to\nand from some resource type which can represent any of the fields. This is not as tricky as one might\ninitially surmise. Your userrecord type should have a corresponding tag union type with a tag for each\nrecord field. To make this clean, you should have a bijection between the record fields and the tags. Here's\nan example:\n\n    type Fields = FooField Int | BarField String\n\n    type alias MyRecord =\n      { foo : Int\n      , bar : String\n      }\n\n    myRecordFields =\n      recordField (\\k r -> { r | foo = k }) (.foo >> FooField) \"foo\"\n      >> recordField (\\k r -> { r | bar = k }) (.bar >> BarField) \"bar\"\n\n    .....\n\n    myResourceRecord =\n      record address\n      |> recordSet { foo = 42, bar = \"answer\" }\n      |> myRecordFields\n\n","type":"(Scaffold.Resource.Resource euser v -> userrecord -> userrecord) -> (userrecord -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.ResourceRecord euser userrecord comparable v"},{"name":"recordIntegrate","comment":" This is the resource record equivalent to baseIntegrate for resource bases, using the same\nsemantics. ","type":"Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.ResourceRecord euser userrecord comparable v"},{"name":"recordQuery","comment":" This is the resource record equivalent to baseQuery for resource bases, using the same\nsemantics. ","type":"Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Maybe.Maybe (Scaffold.Resource.QueryTask never)"},{"name":"recordSet","comment":" Completely replace the userrecord instance contained in a resource record or fill out a\nresource record stub for the first time. The second usage is likely to be more common. ","type":"userrecord -> { k | kbase : Scaffold.Resource.ResourceBase euser comparable v, writes : Dict.Dict comparable (Scaffold.Resource.Resource euser v -> userrecord -> userrecord), reads : Dict.Dict comparable (userrecord -> Scaffold.Resource.Resource euser v) } -> Scaffold.Resource.ResourceRecord euser userrecord comparable v"},{"name":"recordUpdate","comment":" This is the resource record equivalent to baseUpdate for resource bases, using the same\nsemantics. ","type":"Scaffold.Resource.ResourceBaseDelta euser comparable v -> Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.ResourceRecord euser userrecord comparable v"},{"name":"reduceNotKnownNowTo","comment":" This is the special reduction we use to collapse away the Resource type, determining a final\nvalue to work with. While more pedantically named, I find it leaves something to be desired\naesthetically, so I use `otherwise` for the same task. ","type":"v' -> Scaffold.Resource.Resource euser v' -> v'"},{"name":"remoteConfig","comment":" Specifies a RemoteConfig with which to close off a remote operation by sending it's results or an\nerror describing it's failure to the given address. ","type":"Signal.Address (Scaffold.Resource.Resource euser v) -> Scaffold.Resource.RemoteConfig euser v"},{"name":"remoteErrorConfig","comment":" Adds an optional special error handler for resolving totally unexpected errors. A final error\nhandler should be provided such that any errors not trapped by a decideBy application still\ngracefully recover. By default, a valid resource is produced from any error by promoting that\nError to Undecided. ","type":"(Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v) -> Scaffold.Resource.RemoteConfig euser v -> Scaffold.Resource.RemoteConfig euser v"},{"name":"resourceDo","comment":" Do something to a resource. There is an ignored comparable argument here. This merely exists so\nthat the form of `resourceDo` is isomorphic to the form of `baseDo` and `recordDo`. ","type":"(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"},{"name":"resourceIntegrate","comment":" Given some configuration and a resource, produce a pendingResource in the case that the\nresource is an operation, otherwise give the same resource. ","type":"Scaffold.Resource.RemoteConfig euser v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"},{"name":"resourceQuery","comment":" Given some configuration and a resource, produce Just an opaque query task or Nothing\nwhen the resource is an operation or the resource is not an operation respectively. ","type":"Scaffold.Resource.RemoteConfig euser v -> Scaffold.Resource.Resource euser v -> Maybe.Maybe (Scaffold.Resource.QueryTask never)"},{"name":"resourceUpdate","comment":" Update resource with an incoming delta. Again, we ignore the comparable component of the\nresource base delta, but accept it to simplify the types. ","type":"Scaffold.Resource.ResourceBaseDelta euser comparable v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"},{"name":"resultOr","comment":" Map Result in to Resource. You'll need this if you want to roll your own resource base remotes,\nwhich is quite easy to do due to the pluggability of the resource module. The function specifies how\nto interpret errors. This is important in the case that you have to deal with permissions symachines.\nSome of your errors might be due to access denial, others might be due to unintentional errors. Use\nforbiddenResource and undecidedResource respectively for these cases. ","type":"(Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v) -> Result.Result (Scaffold.Error.Error euser) v -> Scaffold.Resource.Resource euser v"},{"name":"therefore","comment":" transform the value itself, if known, producing a resource of some new value type value'.\ntherefores are composed on to the results of remote operations if they represent known resource or\nfurther operations to attempt. This allows us to compose async processing stages before resource\nis finally reduced to a displayed or usable result as deeply and interchangably as we want to,\nprovided that we always use \"therefore\" _first_ to lift the resource type out before listing\na sequence of simple or contingent reductions. ","type":"(v -> v') -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v'"},{"name":"toProgram","comment":" This utility function produces a program input resource from a resource of it's model, given a partial program definition (with the model omitted).\n    It is redundant, but helps make the use case more concrete.\n\n    -- Example:\n\n    myProgramInputResource = Resource.toProgram (App.defProgram' present stage update) myModelResource\n\n\n    ","type":"(b -> Scaffold.App.ProgramInput a b c bad) -> Scaffold.Resource.Resource euser b -> Scaffold.Resource.Resource euser (Scaffold.App.ProgramInput a b c bad)"},{"name":"undecidedResource","comment":" The resource could not be obtained because something went wrong. This carries an error. To\nresolve `undecidedResource`, one should use assumptions and or operations to map it back in to\nsensible resource. ","type":"Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v"},{"name":"unknownResource","comment":" Somthing that's totally unknown. This is the default result of retrieving an element that has\nno representation in a resource base, but also has obvious other uses as a placeholder that is\ntypely more powerful than Result or Maybe for production data management. ","type":"Scaffold.Resource.Resource euser v"},{"name":"voidResource","comment":" Something that is _known not to exist_. This is not the same as unknownResource or\nundecidedResource. Void resource should arise from a remote operation which verified that there\nis definitely nothing there, so it is not an assumption. ","type":"Scaffold.Resource.Resource euser v"},{"name":"within","comment":" This is for nesting operations on resource bases. For example:\n\n    -- this'll write something at the patch foo.bar if \"bar\" is void.\n    baseDo (within <| baseDo (inquireIf isVoid myBarWriter) \"bar\") \"foo\" myBase\n\nThis code will work on a resource base of base knowledges, so that's a nested record. The active\nrecord pattern can be approximated like this, and I've found it extremely handy.\n\n","type":"(sub -> sub) -> Scaffold.Resource.Resource euser sub -> Scaffold.Resource.Resource euser sub"},{"name":"withinBaseDo","comment":" Shorthand for nesting resource bases. ","type":"(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.BaseResource euser' euser comparable v -> Scaffold.Resource.BaseResource euser' euser comparable v"},{"name":"withinRecordDo","comment":" Shorthand for nesting resource records. ","type":"(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.RecordResource euser' euser userrecord comparable v -> Scaffold.Resource.RecordResource euser' euser userrecord comparable v"}],"generated-with-elm-version":"0.16.0"},{"name":"Scaffold.Error","comment":" This module contains the internal error type for Gigan and some helper functions for\nconstructing errors.\n\n# Definitions\n@docs DecodingFailure, Error, ErrorType\n\n# Constructors\n@docs reportError, reportErrorAndLog, unknownError, unknownErrorAndLog, decoderError, decoderErrorAndLog, userError, userErrorAndLog, decodingFailure\n\n","aliases":[{"name":"DecodingFailure","comment":" Represents a decoding task which failed. ","args":[],"type":"{ source : String, reason : String }"},{"name":"Error","comment":" Error record. ","args":["euser"],"type":"{ error : Scaffold.Error.ErrorType euser, desc : String }"}],"types":[{"name":"ErrorType","comment":" Type of error that occurred in Scaffold. ","args":["euser"],"cases":[["UnknownError",[]],["DecoderError",["Scaffold.Error.DecodingFailure"]],["UserError",["euser"]]]}],"values":[{"name":"decoderError","comment":" Report a problem decoding something. ","type":"String -> Scaffold.Error.DecodingFailure -> Scaffold.Error.Error euser"},{"name":"decoderErrorAndLog","comment":" decoderError and log to console. ","type":"String -> Scaffold.Error.DecodingFailure -> Scaffold.Error.Error euser"},{"name":"decodingFailure","comment":" Given the source string on which decoding was attempted and the reason for the failure,\ngive a DecodingFailure ","type":"String -> String -> Scaffold.Error.DecodingFailure"},{"name":"reportError","comment":" Report an error. Given an ErrorType and a String describing what went wrong humanly, create\nan error record.  ","type":"String -> Scaffold.Error.ErrorType euser -> Scaffold.Error.Error euser"},{"name":"reportErrorAndLog","comment":" reportError and log to console.  ","type":"String -> Scaffold.Error.ErrorType euser -> Scaffold.Error.Error euser"},{"name":"unknownError","comment":" Report an error, the nature of which is not known. ","type":"String -> Scaffold.Error.Error euser"},{"name":"unknownErrorAndLog","comment":" unknownError and log to console. ","type":"String -> Scaffold.Error.Error euser"},{"name":"userError","comment":" Report a user defined error. ","type":"String -> euser -> Scaffold.Error.Error euser"},{"name":"userErrorAndLog","comment":" userError and log to console. ","type":"String -> euser -> Scaffold.Error.Error euser"}],"generated-with-elm-version":"0.16.0"},{"name":"Scaffold.App","comment":" The main application scaffolding. You can write a really pretty top level like this:\n\n    myProgramOutput : ProgramOutput MyAction MyModel Layout.Item Error\n    myProgramOutput =\n      myProgram\n        `withSequenceInputs`\n          [ someVeryImportantBrowserEnvironmentInput\n          , someOtherOutsideSignal\n          ]\n        `runWithWork`\n          (computeTask doMyComplicatedStartupWork withThisData)\n      |> (it'sErrorConnector myErrorHandler)\n      |> itself\n\n\n    main : Signal Graphics.Element.Element\n    main = Layout.fromItem <~ myProgramOutput.view'\n\n\n    port sink : Signal (Task z ())\n    port sink = sink myProgramOutput\n\n\n# Definitions\n@docs AgentStatus, ComputedResult, ComputedSuccess, ProgramInput, ProgramOutput, ProgramSnapshot, ProgramConnector, ProgramTask, TaskDispatchment, UpdatedModel, ViewOutput\n\n# Define Program Programs\n@docs defProgram, defProgram'\n\n# Run Program Programs\n@docs run, runAnd, runWithWork, withInputs, defLazySequenceInputs, defSequenceInputs, withLazySequenceInputs, withSequenceInputs, sink\n\n# UpdatedModel and ViewOutput Manipulation\n@docs updated, presented, withTasks, withDispatchment, withChildren, viewOutputTask\n\n# Dispatch Actions and Errors\n@docs actionTask, actionTaskAsync, errorTask, computeTask, computedSuccess, computedSuccessAsync, noActions, nilTask\n\n# Program Output Routing and Management\n@docs itself, itselfAsync, it'sErrorConnector, thisAddress, thisAddressAsync, thisForwardAddress, thisForwardAddressAsync, thisErrorConnector, thisForwardConnector, thisConnector, outputView\n\n# Handling Tasks and TaskDispatchment\n@docs combineDispatchments, collapseTasks, dispatchTasks, dispatchmentHasWork, dispatchmentTask, promoteDispatchment\n\n# Manipulate Program Snapshots\n@docs programSnapshot, programSnapshotAddDispatchment, programSnapshotDispatch, programSnapshotPresent, programSnapshotStage, programSnapshotUpdate, performCycle\n\n# Program Task Agents\n@docs programAgentSuccess, programAgentFailure, programAgent, programSuccessAgent, programFailureAgent, programBinaryAgent, programBlindAgent, programNilAgent, programResultAgent, ignoreError\n\n","aliases":[{"name":"ComputedResult","comment":" A ComputedResult is a Result which may be a ComputedSuccess or some error type on failure. This\nis used as the output type of the function passed to a `computeTask`. ","args":["bad","a"],"type":"Result.Result bad (Scaffold.App.ComputedSuccess a)"},{"name":"ComputedSuccess","comment":" This is the success type of an ProgramTask. It consists of a sequence of actions to execute, and\na tag saying whether we want the actions executed all at once, or spread out asynchronously. This\nshould be treated as opaque; use the constructors `computedSuccess` and `computedSuccessAsync`. ","args":["a"],"type":"{ sequence : List a, method : Scaffold.App.FeedbackMethod }"},{"name":"ProgramConnector","comment":" ProgramConnector is an alias for functions that transform ProgramTasks by routing their actions to\nan address. You will probably not need to directly provide an ProgramConnector function, as the built in\nfamily of taps should be sufficient for just about any application. ","args":["bad","a"],"type":"Signal.Address (List a) -> Scaffold.App.ProgramTask bad a -> Scaffold.App.ProgramTask bad a"},{"name":"ProgramInput","comment":" This is the input type for Program. It can be seen as roughly analogous to StartApp's Config\ntype, but carries the full configuration and input in one. This should be considered opaque. ","args":["a","b","c","bad"],"type":"{ inputs : Lazy.List.LazyList (Signal.Signal (Lazy.List.LazyList a)) , model0 : b , present : Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.ViewOutput a c bad , stage : Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad , update : a -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad }"},{"name":"ProgramOutput","comment":" This is the output of an Program program. This is not intended to be opaque. Any part of the\noutput structure is up for grabs. I do not reccomend usage of the lazyAddress externally.\n\n    view'     Signal with the current view.\n    model'    Signal with the current model.\n    now       Signal with the most recent execution time.\n    actions   Signal with the most recently atomically executed action list.\n    tasks     Signal with the most recent ProgramTask output.\n    address   The address of the Program program's Mailbox.\n\n","args":["a","b","c","bad"],"type":"{ view' : Signal.Signal c , model' : Signal.Signal b , now : Signal.Signal Time.Time , actions : Signal.Signal (List a) , tasks : Signal.Signal (Scaffold.App.ProgramTask bad a) , address : Signal.Address (List a) , lazyAddress : Signal.Address (Lazy.List.LazyList a) }"},{"name":"ProgramSnapshot","comment":" This represents an instantaneous description of an Program program. It consists of the current\nmodel and a possible TaskDispatchment. This should be treated as opaque. ","args":["a","b","bad"],"type":"{ model' : b, dispatchment : Scaffold.App.TaskDispatchment bad a }"},{"name":"ProgramTask","comment":" A task with a ComputedSuccess result. These are used as the output task type of the Program. ","args":["bad","a"],"type":"Task.Task bad (Scaffold.App.ComputedSuccess a)"},{"name":"TaskDispatchment","comment":" This is an opaque type representing an ordered list of tasks to execute. This is quite similar\nto Effects batching. ","args":["bad","a"],"type":"{ taskExec : Lazy.List.LazyList (Scaffold.App.ProgramTask bad a) }"},{"name":"UpdatedModel","comment":" Represents the output of the `update` and `stage` functions configured in the ProgramInput.\nThis type exists so that TaskDispatchments and ProgramTasks can be cleanly included in the output\nof `stage` and `update` without the need to return an ugly pair or embed anything in the model. ","args":["a","b","bad"],"type":"{ dispatchment : Scaffold.App.TaskDispatchment bad a, model' : b }"},{"name":"ViewOutput","comment":" Represents the output of the `present` function configured in the ProgramInput.\nThis type exists so that TaskDispatchments and ProgramTasks can be cleanly included in the output\nof `present` without the need to return an ugly pair or embed anything in the model. ","args":["a","c","bad"],"type":"{ dispatchment : Scaffold.App.TaskDispatchment bad a, view' : c }"}],"types":[{"name":"AgentStatus","comment":" Represents the status of a given ProgramAgent. Program agents are a way of transforming the\nresults of arbitrary tasks in to actions and errors for the program to consume. ","args":["bad","a"],"cases":[]}],"values":[{"name":"actionTask","comment":" An ProgramTask that carries a list of actions to execute atomically.\n\nNote that a tap which is explicitly from the `*Async` family of taps will override this behavior,\ninstead producing the same behavior as actionTaskAsync. For that reason, asynchronous taps should\nmainly be used for one-way data flows that are not dependent on ordering. ","type":"List a -> Scaffold.App.ProgramTask bad a"},{"name":"actionTaskAsync","comment":" An ProgramTask that carries a list of actions to execute asynchronously, meaning they may be\ninterspersed with other feedback and inputs. ","type":"List a -> Scaffold.App.ProgramTask bad a"},{"name":"collapseTasks","comment":" Collapse two action tasks by executing them sequentially and appending their resulting action\noutputs. ","type":"Scaffold.App.ProgramTask bad a -> Scaffold.App.ProgramTask bad a -> Scaffold.App.ProgramTask bad a"},{"name":"combineDispatchments","comment":" Combine two TaskDispatchment instances. This appends the task list of the second to the task\nlist of the first. ","type":"Scaffold.App.TaskDispatchment bad a -> Scaffold.App.TaskDispatchment bad a -> Scaffold.App.TaskDispatchment bad a"},{"name":"computeTask","comment":" An ProgramTask that obtains some ComputedResult from user provided data and a user provided\nfunction, which is invoked during execution of the task. This just gives us basic support for\ndeferred computations. ","type":"(data -> Scaffold.App.ComputedResult bad a) -> data -> Scaffold.App.ProgramTask bad a"},{"name":"computedSuccess","comment":" Produce a normal ComputedSuccess from a list of actions. These actions will be sent all at once,\nand thus will be executed atomically. ","type":"List a -> Scaffold.App.ComputedSuccess a"},{"name":"computedSuccessAsync","comment":" Produce an asynchronous ComputedSuccess from a list of actions. These actions will be sent\none by one from sequential tasks, and thus their execution will be spread out with no guarantee that\nthe sequence of actions will be executed atomically.\n\nIf you need to run a list of a few thousand actions,\nand it is safe for those actions to be interspersed with other actions, you may be looking at a very\ngood use case for this function. Note also that this will never preempt an action list that is sent\nat once using `computeSuccess`, which is a product of how the Elm runtime works. ","type":"List a -> Scaffold.App.ComputedSuccess a"},{"name":"defLazySequenceInputs","comment":" Forward applicative alternative to withLazySequenceInputs. ","type":"List (Signal.Signal (Lazy.List.LazyList a)) -> Scaffold.App.ProgramInput a b c bad -> Scaffold.App.ProgramInput a b c bad"},{"name":"defProgram","comment":" defProgram is the old declaration form for defining ProgramInput. It is simpler, and does not\nsupport the `stage` function. Internally this uses the new form, but it has been left in for\ntwo reasons. One is of course backwards compatibility, but sometimes you just don't need that\nextra firepower, in which case it is mere clutter. ","type":"(Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.ViewOutput a c bad) -> (a -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad) -> b -> Scaffold.App.ProgramInput a b c bad"},{"name":"defProgram'","comment":" defProgram' is the complete way to define an ProgramInput. ProgramInput is configured with\nthree functions. `update` and `present` should be familiar to users of StartApp, except for the\nfact that they always have the current time. `stage` is a special addition which allows one to\nuse the program Mailbox address from a context in which the model can be updated.\n\nThe use case for `stage` which inspired it's existence is as follows: suppose you have a really\nbig model with a really, really big view. There is enough data that keen algorithms and data\nstructures, as well as avoiding redundant computations during presentation becomes a neccessity.\n\nYou can then structure your application as follows. Represent all these components as instances of\nMachine. From inside `stage`, you can present _only the ones that will or should actually be seen_,\nand cache the results in the model. Since you can create an updated model from here, you can save\nanything that may be later needed during presentation.\n\n`stage` is called only once after an entire list of actions is executed. If you get a list of 1000\nactions, you can still guarantee the work in stage will be done only once, before presentation.\n_The primary reason stage has access to the address is because it enables you to call present on\nany sub components ahead of time for caching purposes._ ","type":"(Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.ViewOutput a c bad) -> (Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad) -> (a -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad) -> b -> Scaffold.App.ProgramInput a b c bad"},{"name":"defSequenceInputs","comment":" Forward applicative alternative to withSequenceInputs. ","type":"List (Signal.Signal (List a)) -> Scaffold.App.ProgramInput a b c bad -> Scaffold.App.ProgramInput a b c bad"},{"name":"dispatchTasks","comment":" Turn a list of ProgramTasks in to a TaskDispatchment. ","type":"List (Scaffold.App.ProgramTask bad a) -> Scaffold.App.TaskDispatchment bad a"},{"name":"dispatchmentHasWork","comment":" True iff the TaskDispatchment has at least one ProgramTask. ","type":"Scaffold.App.TaskDispatchment bad a -> Bool"},{"name":"dispatchmentTask","comment":" Turn a TaskDispatchment in to an ProgramTask. Doing this will make things a lot more opaque,\nso ask yourself if it is absolutely neccessary first. Mainly this is included for completeness. ","type":"Scaffold.App.TaskDispatchment bad a -> Scaffold.App.ProgramTask bad a"},{"name":"errorTask","comment":" An ProgramTask that carries an error. ","type":"bad -> Scaffold.App.ProgramTask bad a"},{"name":"ignoreError","comment":" This makes any error in to noActions. ","type":"bad -> List a"},{"name":"it'sErrorConnector","comment":" Same semantics as `itself`, but for errors. Error taps do not have an asynchronous alternative. ","type":"(bad -> List a) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"itself","comment":" This is the most essential tap for almost any application. It routes the actions resulting from your TaskDispatchment output back to the program's main address. ","type":"Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"itselfAsync","comment":" Same as itself, but execute action lists asynchronously, such that they may be interspersed with other action lists. ","type":"Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"nilTask","comment":" An ProgramTask that does nothing and produces noActions. ","type":"Scaffold.App.ProgramTask bad a"},{"name":"noActions","comment":" A list of no actions. ","type":"List a"},{"name":"outputView","comment":" Get the program view output. ","type":"Scaffold.App.ProgramOutput a b c bad -> Signal.Signal c"},{"name":"performCycle","comment":" Perform a full cycle on an ProgramSnapshot. This looks like:\n\n      state\n      |> programSnapshotUpdate input actions now\n      |> programSnapshotStage input address now\n      |> programSnapshotDispatch\n\ninternally. The point of performCycle is to be used in foldp, which it is inside runWithWork\nand run (which really just calls runWithWork with nilTask).\n","type":"Scaffold.App.ProgramInput a b c bad -> Signal.Address (List a) -> ( Time.Time, List a ) -> ( Scaffold.App.ProgramSnapshot a b bad , Scaffold.App.TaskDispatchment bad a ) -> ( Scaffold.App.ProgramSnapshot a b bad , Scaffold.App.TaskDispatchment bad a )"},{"name":"presented","comment":" Give a ViewOutput from your view type, carrying an empty TaskDispatchment. ","type":"c -> Scaffold.App.ViewOutput a c bad"},{"name":"programAgent","comment":" The basic program agent. Takes two functions, one of which transforms a successful result in to\nan AgentStatus, and one which does the same for task failure results. This transforms an arbitrary\ntask in to an ProgramTask. Notice that we can easily succeed anyway even if the task failed, or vice\nversa, because we get an AgentStatus which may be successful or failing either way. This means you\ncan skip error handling altogether if you already know what to do with the failure from the scope\nyou're in; you can simply map the failure on to some actions that perform an appropriate\ncontingency. ","type":"(x -> Scaffold.App.AgentStatus bad a) -> (y -> Scaffold.App.AgentStatus bad a) -> Task.Task y x -> Scaffold.App.ProgramTask bad a"},{"name":"programAgentFailure","comment":" Failed ProgramAgent output. ","type":"bad -> Scaffold.App.AgentStatus bad a"},{"name":"programAgentSuccess","comment":" Successful ProgramAgent output. ","type":"List a -> Scaffold.App.AgentStatus bad a"},{"name":"programBinaryAgent","comment":" A binary program agent. This does not process any of the results, but simply always gives the\nsuccesful AgentStatus (the first one) on task success, otherwise it gives the failed AgentStatus. ","type":"Scaffold.App.AgentStatus bad a -> Scaffold.App.AgentStatus bad a -> Task.Task y x -> Scaffold.App.ProgramTask bad a"},{"name":"programBlindAgent","comment":" If we don't care about the outcome of a task because it can't fail or produce a meaningful\nresult, we can just queue up something to do after it's done. This is perfect for using delay tasks. ","type":"Scaffold.App.AgentStatus bad a -> Task.Task y x -> Scaffold.App.ProgramTask bad a"},{"name":"programFailureAgent","comment":" This is a combination of programAgent and programBinary agent which gives the successful agent\nstatus in the case of success, and processes failed results to get an AgentStatus otherwise . ","type":"Scaffold.App.AgentStatus bad a -> (y -> Scaffold.App.AgentStatus bad a) -> Task.Task y x -> Scaffold.App.ProgramTask bad a"},{"name":"programNilAgent","comment":" No matter what, do nothing. This will get your task to run, but no kind of action or error\nfeedback will be produced. ","type":"Task.Task y x -> Scaffold.App.ProgramTask bad a"},{"name":"programResultAgent","comment":" The other program agents defined so far are less succinct because they take two arguments, one\nwhich applies to the success case and one which applies to the failure case. This one takes a single\nfunction which processes the task's outcome as a Result, and so is generally a bit shorter to write. ","type":"(Result.Result y x -> Scaffold.App.AgentStatus bad a) -> Task.Task y x -> Scaffold.App.ProgramTask bad a"},{"name":"programSnapshot","comment":" Constructor for an ProgramSnapshot. I reccomend using the Machine module instead of these functions. ","type":"b -> Scaffold.App.TaskDispatchment bad a -> Scaffold.App.ProgramSnapshot a b bad"},{"name":"programSnapshotAddDispatchment","comment":" Add a dispatchment to an ProgramSnapshot. ","type":"Scaffold.App.TaskDispatchment bad a -> Scaffold.App.ProgramSnapshot a b bad -> Scaffold.App.ProgramSnapshot a b bad"},{"name":"programSnapshotDispatch","comment":" Get the pending TaskDispatchment out of an ProgramSnapshot and clear it from the snapshot in\none go. This gives an _ugly pair_. See the newer interface for this in Machine, and also see the way\nResource works. It seems much better to separate this in to two stages. It leaves room for a mistake,\nwhich I was trying to avoid, but it's so much cleaner than way that it's worth it and actually\nleads to fewer mistakes as a result. ","type":"Scaffold.App.ProgramSnapshot a b bad -> ( Scaffold.App.ProgramSnapshot a b bad , Scaffold.App.TaskDispatchment bad a )"},{"name":"programSnapshotPresent","comment":" Run the `present` phase on an ProgramSnapshot, yielding a ViewOutput. ","type":"{ k | present : Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.ViewOutput a c bad } -> Signal.Address (List a) -> Time.Time -> Scaffold.App.ProgramSnapshot a b bad -> Scaffold.App.ViewOutput a c bad"},{"name":"programSnapshotStage","comment":" Run the `stage` phase on an ProgramSnapshot. ","type":"{ k | stage : Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad } -> Signal.Address (List a) -> Time.Time -> Scaffold.App.ProgramSnapshot a b bad -> Scaffold.App.ProgramSnapshot a b bad"},{"name":"programSnapshotUpdate","comment":" Run the `update` phase on an ProgramSnapshot. ","type":"{ k | update : a -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad } -> List a -> Time.Time -> Scaffold.App.ProgramSnapshot a b bad -> Scaffold.App.ProgramSnapshot a b bad"},{"name":"programSuccessAgent","comment":" This is a combination of programAgent and programBinary agent which processes successful results\nto get an AgentStatus, otherwise giving the failed agent status. ","type":"(x -> Scaffold.App.AgentStatus bad a) -> Scaffold.App.AgentStatus bad a -> Task.Task y x -> Scaffold.App.ProgramTask bad a"},{"name":"promoteDispatchment","comment":" Using some transformation function, create a TaskDispatchment with a different action type. ","type":"(List a -> List a') -> Scaffold.App.TaskDispatchment bad a -> Scaffold.App.TaskDispatchment bad a'"},{"name":"run","comment":" Run an program without any startup task.\n\n    run (myProgram `withSequenceInputs` [myInput, myInput2])\n\n","type":"Scaffold.App.ProgramInput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"runAnd","comment":" Run an program with a startup task\n","type":"Scaffold.App.ProgramTask bad a -> Scaffold.App.ProgramInput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"runWithWork","comment":" This is the workhorse of Scaffold.App. Given an ProgramInput and some starting ProgramTask,\nrun the Program program described by the input to give an ProgramOutput. ","type":"Scaffold.App.ProgramInput a b c bad -> Scaffold.App.ProgramTask bad a -> Scaffold.App.ProgramOutput a b c bad"},{"name":"sink","comment":" The sink is the final stop for ProgramOutput. This should be attached at a port to get your\ntasks running. ","type":"Scaffold.App.ProgramOutput a b c bad -> Signal.Signal (Task.Task z ())"},{"name":"thisAddress","comment":" Route the resulting actions from your TaskDispatchments to some action list address. ","type":"Signal.Address (List a) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"thisAddressAsync","comment":" Same as thisAddress, but asynchronously as described above. ","type":"Signal.Address (List a) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"thisConnector","comment":" A tap defined using an ProgramConnector and some address. The ProgramTasks that pass through this tap will be\nrouted to the given address. This is a bit lower level than is needed in most cases. ","type":"Scaffold.App.ProgramConnector bad a -> Signal.Address (List a) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"thisErrorConnector","comment":" Transform any errors in to lists of actions, then route them to the address. ","type":"Signal.Address (List a) -> (bad -> List a) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"thisForwardAddress","comment":" Same as thisAddress, but with forwarding. ","type":"Signal.Address target -> (List a -> target) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"thisForwardAddressAsync","comment":" Same as thisForwardAddress, but asynchronously as described above. ","type":"Signal.Address target -> (List a -> target) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"thisForwardConnector","comment":" Same as thisConnector but uses Address forwarding to transform action lists in to some other target type\nfor your address. ","type":"Scaffold.App.ProgramConnector bad a -> Signal.Address target -> (List a -> target) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"},{"name":"updated","comment":" Give an UpdatedModel from a model, carrying an empty TaskDispatchment. ","type":"b -> Scaffold.App.UpdatedModel a b bad"},{"name":"viewOutputTask","comment":" Get an ProgramTask from a ViewOutput. This is DEPRECIATED. Use TaskDispatchment wherever\npossible. ","type":"Scaffold.App.ViewOutput a c bad -> Scaffold.App.ProgramTask bad a"},{"name":"withChildren","comment":" This takes a list of UpdatedModel or ViewOutput instances, and appends each one to the\nTaskDispatchment of the current output. This is preferred when doing model composition with Machine.\nFor example:\n\n    staged { collectionModel | memberViews = memberOutputs } `withChildren` memberOutputs\n\nwhere memberOutputs is a list of machinePresent or machinePresentAs outputs in the example.\n","type":"List { anything | dispatchment : Scaffold.App.TaskDispatchment bad a } -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a } -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a }"},{"name":"withDispatchment","comment":" This is the same as `withTasks`, but it takes an already existing TaskDispatchment. ","type":"Scaffold.App.TaskDispatchment bad a -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a } -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a }"},{"name":"withInputs","comment":" withInputs is the oldest way in Gigan of using action inputs, from before we started using\nlists of actions. Lists of actions are much more powerful because not only can they be used to\nmake sure sequences of actions run atomically, but it also gives us an obvious and tagless way to\nrepresent noop. Here's how it looked:\n\n    defProgram myPresent myUpdate myModel0 `withInputs` [actionSignal0, actionSignal1]\n\nThis is DEPRECIATED.\n","type":"Scaffold.App.ProgramInput a b c bad -> List (Signal.Signal a) -> Scaffold.App.ProgramInput a b c bad"},{"name":"withLazySequenceInputs","comment":" Since action lists are internally combined using lazy lists, one may want to just hand over their\nLazyList without converting it to a list. This may sometimes be appropriate, but beware of unbounded\nlaziness. Profiling is your friend here. ","type":"Scaffold.App.ProgramInput a b c bad -> List (Signal.Signal (Lazy.List.LazyList a)) -> Scaffold.App.ProgramInput a b c bad"},{"name":"withSequenceInputs","comment":" withSequenceInputs is the preferred way of piping outside sources of actions in to an program\nprogram. You'll notice from the way this is used that ProgramInput definitions made by defProgram'\nor defProgram refrain from including any inputs right away. The reason for this is that a program\nand the _source_ of it's input are two distinctly separate concerns, though the _content_ of it's\ninput is not. In Machine, the inputs of an ProgramInput are not used. This way, ProgramInput is also\nusable for defining Machine state machines as well as Program programs.\n\n    defProgram' myPresent myStage myUpdate myModel0 `withSequenceInputs` [actionListSignal0, actionListSignal1]\n\n","type":"Scaffold.App.ProgramInput a b c bad -> List (Signal.Signal (List a)) -> Scaffold.App.ProgramInput a b c bad"},{"name":"withTasks","comment":" Add some tasks to the output of any of the three Program functions.\n\n    updated model `withTasks` [actionTask [Jump, Run]]\n    presented viewstuff `withTasks` [errorTask [reportError \"You done goofed.\"]]\n\nThis is definitely the most elegant way to build a TaskDispatchment as well, especially in the\ncontext of declaring causality.\n","type":"List (Scaffold.App.ProgramTask bad a) -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a } -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a }"}],"generated-with-elm-version":"0.16.0"},{"name":"Scaffold.Layout","comment":" A very nice ruler snapping symachine for layouts. Actual documentation underway.\n\n# Definitions\n@docs Axis, Bounds, Group, Item, Rule\n\n# Ruler Guide Manipulation\n@docs adjustedRule, horizontalRule, horizontalRuleBetween, horizontalRuleCentered, itemHorizontalRule, itemRule, itemVerticalRule, ruleBetween, ruleCenter, snapToRule, towardsRule, towardsRuleRelative, verticalRule, verticalRuleBetween, verticalRuleCentered\n\n# Grouping and Group Operations\n@docs appendGroup, group, groupAt, groupAtBefore, groupElements, groupFromArray, groupFromDict, groupSize, prependGroup, computed, butBefore, butBeforeAt, butBeforeSlice, thenDo, thenDoAt, thenDoSlice, flatten, flattenOutTo, flattenTo, flattenWithin, flattenWithinOutTo\n\n# Group Spacing and Distribution.\n@docs spacedBetween, spacedBy, regularly, vertically, horizontally\n\n# Bounds Definitions\n@docs defBounds, autoBounds, boundsHeight, boundsLower, boundsSize, boundsUpper, boundsWidth, clampedBounds, clampedInnerBounds, clampedOuterBounds\n\n# Item Grabs\n@docs grabItem, grabItemRelative, grabItemRelativeX, grabItemRelativeY, grabItemX, grabItemY\n\n# Item Metrics\n@docs itemBounds, itemWidth, itemHeight, itemSize\n\n# Item Placement\n@docs lerpOf, move, moveX, moveY, place, placeX, placeY\n\n# Create and Display Items\n@docs emptyItem, toItem, fromItem\n\n","aliases":[{"name":"Item","comment":" An item, which represents an Elm Element with a position and a handle. ","args":[],"type":"{ elem : Graphics.Element.Element , x : Int , u : Int , y : Int , v : Int }"}],"types":[{"name":"Axis","comment":" An axis along which to evenly distribute by spacing or handle position. ","args":[],"cases":[]},{"name":"Bounds","comment":" A bounding box, given as a minimum and a maximum. ","args":[],"cases":[]},{"name":"Group","comment":" Group is an opaque type that represents a grouped set of items with a pending set of transformations. ","args":[],"cases":[]},{"name":"Rule","comment":" A guide ruler defined as either a vertical or a horizontal axis aligned line. ","args":[],"cases":[]}],"values":[{"name":"adjustedRule","comment":" Adjust a horizontal or vertical ruler. ","type":"(Int -> Scaffold.Layout.Rule) -> Int -> Scaffold.Layout.Rule -> Scaffold.Layout.Rule"},{"name":"appendGroup","comment":" Append two groups, resulting a group containing the elements from `grp` first and the\nelements of `grp'` second. ","type":"Scaffold.Layout.Group -> Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"autoBounds","comment":" Automatic bounds. ","type":"Scaffold.Layout.Bounds"},{"name":"boundsHeight","comment":" Get the width of a bounding box, defined as boundsSize >> snd ","type":"Scaffold.Layout.Bounds -> Int"},{"name":"boundsLower","comment":" Get the minimum bound if a minimum bound is defined. ","type":"Scaffold.Layout.Bounds -> Maybe.Maybe ( Int, Int )"},{"name":"boundsSize","comment":" Get the size of a bounding box if both maximum and minimum bounds are defined, otherwise (0, 0). ","type":"Scaffold.Layout.Bounds -> ( Int, Int )"},{"name":"boundsUpper","comment":" Get the maximum bound if a maximum bound is defined. ","type":"Scaffold.Layout.Bounds -> Maybe.Maybe ( Int, Int )"},{"name":"boundsWidth","comment":" Get the width of a bounding box, defined as boundsSize >> fst ","type":"Scaffold.Layout.Bounds -> Int"},{"name":"butBefore","comment":" Apply some transformation to every item in the group before the pending transformations. ","type":"(Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"butBeforeAt","comment":" Apply some transformation to the item at a particular index in the group before the pending transformations. ","type":"Int -> (Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"butBeforeSlice","comment":" Apply some transformation to the items in a particular slice of the group before the pending transformations. ","type":"Int -> Int -> (Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"clampedBounds","comment":" Clamp a bounding box to some inner bounding box and some outer bounding box. Either the inner\nor the outer bounding box may be autoBounds, so this may also only clamp an inner or an outer limit,\nor neither. ","type":"Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds"},{"name":"clampedInnerBounds","comment":" clampedInnerBounds myBounds = clampedBounds myBounds autoBounds ","type":"Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds"},{"name":"clampedOuterBounds","comment":" clampedOuterBounds myBounds = clampedBounds autoBounds myBounds ","type":"Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds"},{"name":"computed","comment":" Run any pending transformations on all group items. For the most part, this can be avoided, but it should be\ndone if you are planning to get a lot of items back from the group transformed, or else the work of applying the\npending group transforms will be done at least twice, once when you retrieve the item using groupAt and once when\nyou flatten the group to produce an item. ","type":"Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"defBounds","comment":" Define a definite bounding box. ","type":"Int -> Int -> Int -> Int -> Scaffold.Layout.Bounds"},{"name":"emptyItem","comment":" An empty layout item. ","type":"Scaffold.Layout.Item"},{"name":"flatten","comment":" Flatten a group using automatic bounds for the inner and outer bounds. This will produce the\ntightest bounding box possible around the target, and place the handle at (0, 0) relative to the resulting\nbounding box. This can result in the handle being placed outside of the group, but this can be desirable for\npositioning. For example, I may want to grab something at (-5, -5), so I can position it's top left\ncorner relative to some outer box with (5, 5) padding. ","type":"Scaffold.Layout.Group -> Scaffold.Layout.Item"},{"name":"flattenOutTo","comment":" Flatten a group using only an inner bound, which is equivalent to\n\n    flattenWithinOutTo outer autoBounds\n","type":"Scaffold.Layout.Bounds -> Scaffold.Layout.Group -> Scaffold.Layout.Item"},{"name":"flattenTo","comment":" Flatten a group using an exact bound. If this is specified to be autoBounds, then the following\nequivalency holds:\n\n    flattenTo autoBounds group == flatten group\n\nOtherwise, the items in the group are positioned in the resulting item relative to the top left corner of the bounds and\nthe resulting item shall have the exact size of the given bounds. ","type":"Scaffold.Layout.Bounds -> Scaffold.Layout.Group -> Scaffold.Layout.Item"},{"name":"flattenWithin","comment":" Flatten a group using only an outer bound, which is equivalent to\n\n    flattenWithinOutTo autoBounds outer\n","type":"Scaffold.Layout.Bounds -> Scaffold.Layout.Group -> Scaffold.Layout.Item"},{"name":"flattenWithinOutTo","comment":" Flatten a group using an inner and an outer bound to clamp the size of the resulting item.\n","type":"Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds -> Scaffold.Layout.Group -> Scaffold.Layout.Item"},{"name":"fromItem","comment":" Get the Graphics Element from an Item. Note that this will get the original Element back,\nunaffected by any positioning done using placement and group operations. To produce Graphics\nElements with finished layouts, refer to the flatten functions. ","type":"Scaffold.Layout.Item -> Graphics.Element.Element"},{"name":"grabItem","comment":" Grab an item, producing a handle. This defines a point on the item called the \"handle\" that is\nplaced exactly at item's coordinates. If I say\n\n  grabItem 0 0\n\nthen that would grab the top left corner. u and v and given as window coordinates relative to the\ntop left corner of the item. ","type":"Int -> Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"grabItemRelative","comment":" Grab an item in normalized coordinates relative to it's size. This means that (1, 1) is the\nbottom right corner, and (0, 0) is the top left corner. ","type":"Float -> Float -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"grabItemRelativeX","comment":" Grab an item by it's x coordinate relative to the item's size. ","type":"Float -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"grabItemRelativeY","comment":" Grab an item by it's y coordinate relative to the item's size. ","type":"Float -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"grabItemX","comment":" Grab an item by it's x coordinate. ","type":"Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"grabItemY","comment":" Grab an item by it's y coordinate. ","type":"Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"group","comment":" Create an item group from a list. ","type":"List Scaffold.Layout.Item -> Scaffold.Layout.Group"},{"name":"groupAt","comment":" Retrieve the item at a given index in the group, or Nothing if the index is out of bounds. If\nthere are waiting transformations, a copy of the item with those transformations applied will be\ngiven. ","type":"Int -> Scaffold.Layout.Group -> Maybe.Maybe Scaffold.Layout.Item"},{"name":"groupAtBefore","comment":" Retrieve the item at a given index in the group, or Nothing if the index is out of bounds. The\nitem will be retrieved in it's original state without any pending group transformations applied. ","type":"Int -> Scaffold.Layout.Group -> Maybe.Maybe Scaffold.Layout.Item"},{"name":"groupElements","comment":" This is a shortcut for grouping graphics elements, which is very useful for compositing graphics\nelements such as images directly for layering effects. ","type":"List Graphics.Element.Element -> Scaffold.Layout.Group"},{"name":"groupFromArray","comment":" Create an item group from an array. ","type":"Array.Array Scaffold.Layout.Item -> Scaffold.Layout.Group"},{"name":"groupFromDict","comment":" Create an item group from a dictionary. ","type":"Dict.Dict comparable Scaffold.Layout.Item -> Scaffold.Layout.Group"},{"name":"groupSize","comment":" Get the size of the group. ","type":"Scaffold.Layout.Group -> Int"},{"name":"horizontalRule","comment":" Create a new horizontal ruler at the given y coordinate. ","type":"Int -> Scaffold.Layout.Rule"},{"name":"horizontalRuleBetween","comment":" Shorthand for ruleBetween horizontalRule ","type":"Int -> Int -> Float -> Scaffold.Layout.Rule"},{"name":"horizontalRuleCentered","comment":" Shorthand for ruleCenter horizontalRule ","type":"Int -> Int -> Scaffold.Layout.Rule"},{"name":"horizontally","comment":" Do a distribution horizontally. ","type":"Scaffold.Layout.Axis"},{"name":"itemBounds","comment":" Get the resultant bounding box of an item, given it's placement and handle. ","type":"Scaffold.Layout.Item -> Scaffold.Layout.Bounds"},{"name":"itemHeight","comment":" Get the height of an item. ","type":"Scaffold.Layout.Item -> Int"},{"name":"itemHorizontalRule","comment":" Create a horizontal ruler aligned with an item. ","type":"Scaffold.Layout.Item -> Scaffold.Layout.Rule"},{"name":"itemRule","comment":" Create a vertical or a horizontal ruler aligned with an item. ","type":"(Int -> Scaffold.Layout.Rule) -> Scaffold.Layout.Item -> Scaffold.Layout.Rule"},{"name":"itemSize","comment":" Get the size of an Item. ","type":"Scaffold.Layout.Item -> ( Int, Int )"},{"name":"itemVerticalRule","comment":" Create a vertical ruler aligned with an item. ","type":"Scaffold.Layout.Item -> Scaffold.Layout.Rule"},{"name":"itemWidth","comment":" Get the width of an item. ","type":"Scaffold.Layout.Item -> Int"},{"name":"lerpOf","comment":" Modify any of the item manipulation primitives by linearly interpolating the handle and coordinates\nbetween the current and output values. This provides the basic building block for transitional animations.\nEasing functions could quite easily be implemented on top of this. ","type":"(Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Float -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"move","comment":" Move an item. ","type":"Int -> Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"moveX","comment":" Move an item horizontally. ","type":"Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"moveY","comment":" Move an item vertically. ","type":"Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"place","comment":" Place the handle of an item at these coordinates. ","type":"Int -> Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"placeX","comment":" Place the handle of an item at this x coordinate. ","type":"Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"placeY","comment":" Place the handle of an item at this y coordinate. ","type":"Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"prependGroup","comment":" Prepend a group before another, resulting a group containing the elements from `grp` second and\nthe elements of `grp'` first. ","type":"Scaffold.Layout.Group -> Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"regularly","comment":" Distribute the items in the group along some Axis given a starting coordinate and an ending\ncoordinate, such that the handles of the items are evenly distributed between the starting and the\nending coordinates. The height or width of this vertical or horizontal distribution is dependent on\nthe positioning of the handles on the items, and the coordinate not effected by the distribution is\nleft in place. ","type":"Scaffold.Layout.Axis -> Int -> Int -> Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"ruleBetween","comment":" Given a ruler direction (verticalRule or horizontalRule), a lower and an upper bound, and some\nfloat t between 0 and 1, linearly interpolate between the lower and upper bound by t. ","type":"(Int -> Scaffold.Layout.Rule) -> Int -> Int -> Float -> Scaffold.Layout.Rule"},{"name":"ruleCenter","comment":" Given a ruler direction (verticalRule or horizontalRule), a lower bound, and an upper bound,\ncenter a ruler between the lower and the upper bound. The following equivalencies hold:\n\n    ruleCenter verticalRule x0 x1 == ruleBetween verticalRule x0 x1 0.5\n    ruleCenter horizontalRule y0 y1 == ruleBetween horizontalRule y0 y1 0.5\n\n","type":"(Int -> Scaffold.Layout.Rule) -> Int -> Int -> Scaffold.Layout.Rule"},{"name":"snapToRule","comment":" Snap an item's handle to a vertical or horizontal ruler. ","type":"Scaffold.Layout.Rule -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"spacedBetween","comment":" Distribute the items in the group along some Axis given a starting coordinate and an ending\ncoordinate, such that the spaces between all of the items are even, resulting in a justified layout.\nVertical distribution is done top to bottom, horizontal distribution is done left to right.\n\nThe height or width of this vertical or horizontal distribution is\n\n    to - from\n\nand the coordinate not effected by the distribution is left in place.\n","type":"Scaffold.Layout.Axis -> Int -> Int -> Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"spacedBy","comment":" Distribute the items in the group along some Axis given a starting coordinate and spacing given\nin window coordinates, resulting in an evenly spaced horizontal or vertical distribution. Vertical\ndistribution is done top to bottom, horizontal distribution is done left to right.\n\nThe height or width of this vertical or horizontal distribution is\n\n    from + siz * (n - 1) + (sum itemHeight items)\n\nand the coordinate not effected by the distribution is left in place.\n\n","type":"Scaffold.Layout.Axis -> Int -> Int -> Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"thenDo","comment":" Apply some transformation to every item in the group after the pending transformations. ","type":"(Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"thenDoAt","comment":" Apply some transformation to the item at a particular index in the group after the pending transformations. ","type":"Int -> (Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"thenDoSlice","comment":" Apply some transformation to the items in a particular slice of the group after the pending transformations. ","type":"Int -> Int -> (Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"},{"name":"toItem","comment":" Convert a Graphics Element to an Item ","type":"Graphics.Element.Element -> Scaffold.Layout.Item"},{"name":"towardsRule","comment":" Move an item's handle toward a vertical or horizontal ruler by some constant amount. ","type":"Scaffold.Layout.Rule -> Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"towardsRuleRelative","comment":" Move an item's handle toward a vertical or horizontal ruler by some factor t  ","type":"Scaffold.Layout.Rule -> Float -> Scaffold.Layout.Item -> Scaffold.Layout.Item"},{"name":"verticalRule","comment":" Create a new vertical ruler at the given x coordinate. ","type":"Int -> Scaffold.Layout.Rule"},{"name":"verticalRuleBetween","comment":" Shorthand for ruleBetween verticalRule ","type":"Int -> Int -> Float -> Scaffold.Layout.Rule"},{"name":"verticalRuleCentered","comment":" Shorthand for ruleCenter verticalRule ","type":"Int -> Int -> Scaffold.Layout.Rule"},{"name":"vertically","comment":" Do a distribution vertically. ","type":"Scaffold.Layout.Axis"}],"generated-with-elm-version":"0.16.0"}]
+[
+  {
+    "name": "Scaffold.Machine",
+    "comment": " This module builds a more usable state machine snapshot with the Elm Architecture in mind on\ntop of the Gigan App.\n\n# Definition\n@docs Machine\n\n# Constructor\n@docs machine\n\n# Get and Set the Model\n@docs getModel, replaceModel\n\n# Using Machines\n@docs dispatching, dispatchingAs, presenting, presentingAs, staging, stagingAs, updating, integrate\n\n# Get and Set the Model of Maybe Machines\n@docs maybeGetModel, maybeReplaceModel\n\n# Optional Machines Using Maybe\n@docs maybeDispatching, maybeDispatchingAs, maybePresenting, maybePresentingAs, maybeStaging, maybeStagingAs, maybeUpdating, maybeIntegrate\n\n# Resource Dependant Machines\n@docs machineResource, resourceGetModel, resourceReplaceModel, resourceDispatching, resourceDispatchingAs, resourceIntegrate, resourceUpdating, resourceStaging, resourceStagingAs, resourcePresenting, resourcePresentingAs\n\n",
+    "aliases": [
+      {
+        "name": "Machine",
+        "comment": " A Machine is an instantaneous description of some model associated with an ProgramInput (see App)\nthat specifies how it should be updated, staged and presented. ",
+        "args": [
+          "a",
+          "b",
+          "c",
+          "bad"
+        ],
+        "type": "{ input : Scaffold.App.ProgramInput a b c bad , state : Scaffold.App.ProgramSnapshot a b bad }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "dispatching",
+        "comment": " Get the currently waiting dispatchment. ",
+        "type": "Scaffold.Machine.Machine a b c bad -> Scaffold.App.TaskDispatchment bad a"
+      },
+      {
+        "name": "dispatchingAs",
+        "comment": " Get the currently waiting task dispatchment, but apply some action type transformation. ",
+        "type": "(List a -> List a') -> Scaffold.Machine.Machine a b c bad -> Scaffold.App.TaskDispatchment bad a'"
+      },
+      {
+        "name": "getModel",
+        "comment": " Get the model of a machine. ",
+        "type": "Scaffold.Machine.Machine a b c bad -> b"
+      },
+      {
+        "name": "integrate",
+        "comment": " Remove the currently waiting task dispatchment. This should be done only after retrieving any\npossibly waiting dispatchment. ",
+        "type": "Scaffold.Machine.Machine a b c bad -> Scaffold.Machine.Machine a b c bad"
+      },
+      {
+        "name": "machine",
+        "comment": " Create a machine from an ProgramInput ",
+        "type": "Scaffold.App.ProgramInput a b c bad -> Scaffold.Machine.Machine a b c bad"
+      },
+      {
+        "name": "machineResource",
+        "comment": " Create a machine resource from a model resource given a partial program definition (without the\nmodel). ",
+        "type": "(b -> Scaffold.App.ProgramInput a b c bad) -> Scaffold.Resource.Resource euser b -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"
+      },
+      {
+        "name": "maybeDispatching",
+        "comment": " ",
+        "type": "Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Scaffold.App.TaskDispatchment bad a"
+      },
+      {
+        "name": "maybeDispatchingAs",
+        "comment": " ",
+        "type": "(List a -> List a') -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Scaffold.App.TaskDispatchment bad a'"
+      },
+      {
+        "name": "maybeGetModel",
+        "comment": " ",
+        "type": "Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe b"
+      },
+      {
+        "name": "maybeIntegrate",
+        "comment": " ",
+        "type": "Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad)"
+      },
+      {
+        "name": "maybePresenting",
+        "comment": " ",
+        "type": "Signal.Address (List a) -> Time.Time -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.App.ViewOutput a c bad)"
+      },
+      {
+        "name": "maybePresentingAs",
+        "comment": " ",
+        "type": "(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.App.ViewOutput a' c bad)"
+      },
+      {
+        "name": "maybeReplaceModel",
+        "comment": " ",
+        "type": "b -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad)"
+      },
+      {
+        "name": "maybeStaging",
+        "comment": " ",
+        "type": "Signal.Address (List a) -> Time.Time -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad)"
+      },
+      {
+        "name": "maybeStagingAs",
+        "comment": " ",
+        "type": "(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad)"
+      },
+      {
+        "name": "maybeUpdating",
+        "comment": " ",
+        "type": "List a -> Time.Time -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad) -> Maybe.Maybe (Scaffold.Machine.Machine a b c bad)"
+      },
+      {
+        "name": "presenting",
+        "comment": " Run the present function from the configured ProgramInput of the Machine on the Machine's current model to produce a ViewOutput, which includes the an element of the Machine's view type, and a TaskDispatchment for any desired asynchronous tasks.\nThis takes an address for actions to be sent to, the current time, and the Machine. ",
+        "type": "Signal.Address (List a) -> Time.Time -> Scaffold.Machine.Machine a b c bad -> Scaffold.App.ViewOutput a c bad"
+      },
+      {
+        "name": "presentingAs",
+        "comment": " Same as presenting, but with a transformation to apply to action lists before they are sent to the address. ",
+        "type": "(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Scaffold.Machine.Machine a b c bad -> Scaffold.App.ViewOutput a' c bad"
+      },
+      {
+        "name": "replaceModel",
+        "comment": " Create a machine with a different model from a replacement model and an original machine. ",
+        "type": "b -> Scaffold.Machine.Machine a b c bad -> Scaffold.Machine.Machine a b c bad"
+      },
+      {
+        "name": "resourceDispatching",
+        "comment": " ",
+        "type": "Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.App.TaskDispatchment bad a"
+      },
+      {
+        "name": "resourceDispatchingAs",
+        "comment": " ",
+        "type": "(List a -> List a') -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.App.TaskDispatchment bad a'"
+      },
+      {
+        "name": "resourceGetModel",
+        "comment": " ",
+        "type": "Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser b"
+      },
+      {
+        "name": "resourceIntegrate",
+        "comment": " ",
+        "type": "Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"
+      },
+      {
+        "name": "resourcePresenting",
+        "comment": " ",
+        "type": "Signal.Address (List a) -> Time.Time -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.App.ViewOutput a c bad)"
+      },
+      {
+        "name": "resourcePresentingAs",
+        "comment": " ",
+        "type": "(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.App.ViewOutput a' c bad)"
+      },
+      {
+        "name": "resourceReplaceModel",
+        "comment": " ",
+        "type": "b -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"
+      },
+      {
+        "name": "resourceStaging",
+        "comment": " ",
+        "type": "Signal.Address (List a) -> Time.Time -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"
+      },
+      {
+        "name": "resourceStagingAs",
+        "comment": " ",
+        "type": "(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"
+      },
+      {
+        "name": "resourceUpdating",
+        "comment": " ",
+        "type": "List a -> Time.Time -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad) -> Scaffold.Resource.Resource euser (Scaffold.Machine.Machine a b c bad)"
+      },
+      {
+        "name": "staging",
+        "comment": " Run the update function from the configured ProgramInput of the Machine on the Machine's current model to produce a new model and dispatch any asynchronous tasks desired.\nThis takes an address for actions to be sent to, the current time, and the Machine. ",
+        "type": "Signal.Address (List a) -> Time.Time -> Scaffold.Machine.Machine a b c bad -> Scaffold.Machine.Machine a b c bad"
+      },
+      {
+        "name": "stagingAs",
+        "comment": " Same as staging, but with a transformation to apply to action lists before they are sent to the address. ",
+        "type": "(List a -> List a') -> Signal.Address (List a') -> Time.Time -> Scaffold.Machine.Machine a b c bad -> Scaffold.Machine.Machine a b c bad"
+      },
+      {
+        "name": "updating",
+        "comment": " Run the update function from the configured ProgramInput of the Machine on the Machine's current model to produce a new model and dispatch any asynchronous tasks desired.\nThis takes a list of actions, the current time, and the Machine. ",
+        "type": "List a -> Time.Time -> Scaffold.Machine.Machine a b c bad -> Scaffold.Machine.Machine a b c bad"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Scaffold.Resource",
+    "comment": " This module contains the \"Resource Base\" symachine, which is in essence a unique compromise between data binding\nand explicit fetching and writing.\n\nA Resource is datum whose state is concretely fuzzy because it must be retrieved from\nor synchronized with one or more remote services. The bulk of these functions are intended to be used together as a DSL\nthat provides very concise reductions and conditionally executed contingencies for bad data, as well as very\nsuccinct mapping from fuzzy resource states on to concrete views.\n\nIt is also possble to compose transformations and mapping\non to pending remote operation results, so that longer running asynchronous transformations (including fetching and manipulation)\ncan be composed as deeply as desired. The documentation is underway.\n\n# Definitions\n@docs Resource, ResourceBase, ResourceRecord, ResourceRecordStub, ResourceBaseDelta\n\n# Aliases for Resource of a ResourceBase or a ResourceRecord\n@docs BaseResource, RecordResource\n\n# Remote Synchronization\n@docs Remote, RemoteMap, RemoteConfig, RemoteMapConfig, QueryTask\n\n# Resource constructors\n@docs defResource, forbiddenResource, pendingResource, undecidedResource, unknownResource, voidResource, resourceDo\n\n# Resource from Existing non-determinant Types\n@docs maybeOr, resultOr\n\n# Transforming Resources\n@docs assumeIf, assumeIfNot, assumeIfNow, assumeInCase, assumeInCaseNow, decideBy, doOperation, maybeKnownNow, reduceNotKnownNowTo, therefore, otherwise\n\n# Nesting Resource Structures\n@docs within, withinBaseDo, withinRecordDo\n\n# Conditionally Dispatch Operations on Resource\n@docs dispatchIf, dispatchIfNot, dispatchInCase, dispatchInCaseNow\n\n# Basic Resource Predicates\n@docs isUnknown, isNotUnknown, isPending, isNotPending, isUndecided, isNotUndecided, isForbidden, isNotForbidden, isVoid, isNotVoid, isNil, isNotNil, isKnown, isNotKnown, isOperation, isNotOperation\n\n# Integrate Resource\n@docs resourceIntegrate, resourceQuery, resourceUpdate\n\n# Transforming Resource Base Deltas\n@docs baseDeltaMap, baseDeltaTherefore\n\n# Resource Base Operations\n@docs base, baseAt, baseDo, baseErrorHandler, baseIntegrate, baseMember, baseQuery, baseUpdate\n\n# Resource Record Operations\n@docs record, recordSet, recordAt, recordAtKey, recordBinding, recordContent, recordDo, recordErrorHandler, recordField, recordIntegrate, recordQuery, recordUpdate\n\n# Configuration\n@docs remoteConfig, remoteErrorConfig\n\n# Controls\n@docs toProgram\n\n",
+    "aliases": [
+      {
+        "name": "BaseResource",
+        "comment": " Resource of a ResourceBase. This adds basic support for nesting ResourceBase and ResourceBase\noperations using `within`, which approximates the active record pattern as well as I can in Elm so\nfar. ",
+        "args": [
+          "euser'",
+          "euser",
+          "comparable",
+          "v"
+        ],
+        "type": "Scaffold.Resource.Resource euser' (Scaffold.Resource.ResourceBase euser comparable v)"
+      },
+      {
+        "name": "QueryTask",
+        "comment": " QueryTask is an opaque task that executes a Remote or a RemoteMap and sends the resulting deltas\nto the configured address for the Resource, ResourceBase, or ResourceRecord. ",
+        "args": [
+          "never"
+        ],
+        "type": "Task.Task never ()"
+      },
+      {
+        "name": "RecordResource",
+        "comment": " Resource of a ResourceRecord. This adds support for nesting ResourceRecord and ResourceRecord\noperations using `within`, which approximates the active record pattern as well as I can in Elm so\nfar. ",
+        "args": [
+          "euser'",
+          "euser",
+          "userrecord",
+          "comparable",
+          "v"
+        ],
+        "type": "Scaffold.Resource.Resource euser' (Scaffold.Resource.ResourceRecord euser userrecord comparable v)"
+      },
+      {
+        "name": "Remote",
+        "comment": " This is a Task which represents some kind of synchronization with remote data. It can also easily\nbe used for long running arbitrary computations, too. It produces a Gigan Error or a Resource. ",
+        "args": [
+          "euser",
+          "v"
+        ],
+        "type": "Task.Task (Scaffold.Error.Error euser) (Scaffold.Resource.Resource euser v)"
+      },
+      {
+        "name": "RemoteConfig",
+        "comment": " Configures address to send remote results to, and an error handler for promoting Errors in to\nResource. The default error handler simply promotes errors to Undecided. ",
+        "args": [
+          "euser",
+          "v"
+        ],
+        "type": "{ address : Signal.Address (Scaffold.Resource.Resource euser v) , errorHandler : Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v }"
+      },
+      {
+        "name": "RemoteMap",
+        "comment": " This is a dictionary which represents a collection of Remote tasks which will be executed against\na ResourceBase or a ResourceRecord. ",
+        "args": [
+          "euser",
+          "comparable",
+          "v"
+        ],
+        "type": "Dict.Dict comparable (Scaffold.Resource.Remote euser v)"
+      },
+      {
+        "name": "RemoteMapConfig",
+        "comment": " Configures an address per key to send remote results to, and an error handler per key for\npromoting Errors in to Resource. The default error handler simply promotes errors to Undecided.\nThe default configuration proxies a single address which accepts a ResourceBaseDelta. ",
+        "args": [
+          "euser",
+          "comparable",
+          "v"
+        ],
+        "type": "{ addressOf : comparable -> Signal.Address (Scaffold.Resource.Resource euser v) , errorHandlerOf : comparable -> Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v }"
+      },
+      {
+        "name": "ResourceBase",
+        "comment": " A resource base has a dictionary of Resource. Use this to represent arbitrary collections of\nremote data with a uniform schema. You can support schemaless data with JSON, but that should really\nonly be done if you absolutely must, since it adds quite a bit of encoder/decoder overhead. ",
+        "args": [
+          "euser",
+          "comparable",
+          "v"
+        ],
+        "type": "{ base : Scaffold.Resource.BaseImpl euser comparable v , deltas : Scaffold.Resource.BaseImpl euser comparable v , deltaSink : Signal.Address (Scaffold.Resource.BaseDeltaImpl euser comparable v) , config : Scaffold.Resource.RemoteMapConfig euser comparable v }"
+      },
+      {
+        "name": "ResourceBaseDelta",
+        "comment": " This represents a change in Resource, a ResourceBase, or a ResourceRecord. ",
+        "args": [
+          "euser",
+          "comparable",
+          "v"
+        ],
+        "type": "Scaffold.Resource.BaseDeltaImpl euser comparable v"
+      },
+      {
+        "name": "ResourceRecord",
+        "comment": " This is a wrapper for resource bases that are finite in size, and have a collection of\ndifferently typed fields. It is best for records which may only be partially known. A concrete\nexample of this would be a user's personal information, where everything they have hidden should\ncome back as `forbiddenResource`. ",
+        "args": [
+          "euser",
+          "userrecord",
+          "comparable",
+          "v"
+        ],
+        "type": "{ kbase : Scaffold.Resource.ResourceBase euser comparable v , writes : Dict.Dict comparable (Scaffold.Resource.Resource euser v -> userrecord -> userrecord) , reads : Dict.Dict comparable (userrecord -> Scaffold.Resource.Resource euser v) , record : userrecord }"
+      },
+      {
+        "name": "ResourceRecordStub",
+        "comment": " A resource record stub represents how to manage a resource record, with the record itself\nomitted. This type is outputted by the `record` function. Setting this for the first time using\n`recordSet` will result in a proper ResourceRecord.  ",
+        "args": [
+          "euser",
+          "userrecord",
+          "comparable",
+          "v"
+        ],
+        "type": "{ kbase : Scaffold.Resource.ResourceBase euser comparable v , writes : Dict.Dict comparable (Scaffold.Resource.Resource euser v -> userrecord -> userrecord) , reads : Dict.Dict comparable (userrecord -> Scaffold.Resource.Resource euser v) }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Resource",
+        "comment": " A resource item. ",
+        "args": [
+          "euser",
+          "v"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "assumeIf",
+        "comment": " If some predicate `satisfies` is satisfied by the resource `kb`, then we make the following\nassumption. If this resource is an operation, then the assumption will be applied to\nthe result of that operation. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Bool) -> v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "assumeIfNot",
+        "comment": " Negation of assumeIf. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Bool) -> v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "assumeIfNow",
+        "comment": " If the predicate is satisfied, replace the resource with some known value. ",
+        "type": "(Scaffold.Resource.Resource euser v' -> Bool) -> v' -> Scaffold.Resource.Resource euser v' -> Scaffold.Resource.Resource euser v'"
+      },
+      {
+        "name": "assumeInCase",
+        "comment": " If `possibleAssumption` yields some value `value'` when a Resource is applied, then\nthat value is used to overwrite the resource with an assumption `Known value'`, otherwise the\nResource is unaffected. If this resource is an operation, then the assumption will be applied\nconditionally to the result of that operation. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Maybe.Maybe v) -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "assumeInCaseNow",
+        "comment": " This is the counterpart to assumeInCase which does _not_ abstract away whether or not this is\nsome pending remote operation. Concretely, we want this in the case that we are doing model to view\nreductions because a pending operation should still have some concrete visible representation, such\nas an ajax loader symbol. Of course, one should still correctly call *Integrate so that an operation\nis always a `pendingResource` by the time it gets past the `stage` step. ",
+        "type": "(Scaffold.Resource.Resource euser v' -> Maybe.Maybe v') -> Scaffold.Resource.Resource euser v' -> Scaffold.Resource.Resource euser v'"
+      },
+      {
+        "name": "base",
+        "comment": " Create a new resource base. This takes an address which accepts resource base deltas in sequence.\nCurrently, you are responsible for dropping irrelevant deltas. ",
+        "type": "Signal.Address (Scaffold.Resource.ResourceBaseDelta euser comparable v) -> Scaffold.Resource.ResourceBase euser comparable v"
+      },
+      {
+        "name": "baseAt",
+        "comment": " Get the resource at a given key from the resource base. ",
+        "type": "comparable -> Scaffold.Resource.ResourceBase euser comparable v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "baseDeltaMap",
+        "comment": " Transform a resource base delta using any resource primitive that does not change the resource\ntype. This is the meat and potatoes of ResourceBase. This can be used for operations and any of the\nreductions. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> Scaffold.Resource.ResourceBaseDelta euser comparable v -> Scaffold.Resource.ResourceBaseDelta euser comparable v"
+      },
+      {
+        "name": "baseDeltaTherefore",
+        "comment": " Transform a resource base delta using `therefore`. This is very useful for mapping a signal of\ndeltas on to multiple resource types, then maintaining several synchronized resource bases very\nefficiently. ",
+        "type": "(v -> v') -> Scaffold.Resource.ResourceBaseDelta euser comparable v -> Scaffold.Resource.ResourceBaseDelta euser comparable v'"
+      },
+      {
+        "name": "baseDo",
+        "comment": " Use one of the many resource manipulation primitives on the resource at a particular location in a resource base. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.ResourceBase euser comparable v -> Scaffold.Resource.ResourceBase euser comparable v"
+      },
+      {
+        "name": "baseErrorHandler",
+        "comment": " Add an error handler to a resource base to replace the default error handler. The default error\nhandler simply promotes errors to undecidedResource. You may way to give a definition in your own\nerror handler that distinguishes between undecidedResource and forbiddenResource. No promotion to\nforbiddenResource is given by default because there is not sane default behavior that covers\nthe general case. ",
+        "type": "(Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v) -> Scaffold.Resource.ResourceBase euser comparable v -> Scaffold.Resource.ResourceBase euser comparable v"
+      },
+      {
+        "name": "baseIntegrate",
+        "comment": " Transform all new operations in to `pendingResource` across the resource base. Note that this\nwill only traverse the resource which has changed since the last call to `baseIntegrate`, so this\nscales quite well to large resource bases. ",
+        "type": "Scaffold.Resource.ResourceBase euser comparable v -> Scaffold.Resource.ResourceBase euser comparable v"
+      },
+      {
+        "name": "baseMember",
+        "comment": " Determine if there is some resource at a given key that is not unknown. ",
+        "type": "comparable -> Scaffold.Resource.ResourceBase euser comparable v -> Bool"
+      },
+      {
+        "name": "baseQuery",
+        "comment": " For every new operation in the resource base, get and aggregate the remote tasks, producing\nJust an opaque query task or Nothing in the case that no operations need to be done. Note that this\nwill only traverse the resource which has changed since the last call to `baseIntegrate`, so this\nscales quite well to large resource bases. ",
+        "type": "Scaffold.Resource.ResourceBase euser comparable v -> Maybe.Maybe (Scaffold.Resource.QueryTask never)"
+      },
+      {
+        "name": "baseUpdate",
+        "comment": " Apply a resource base delta to the resource base. You are responsible for determining the order\nof the updates. ",
+        "type": "Scaffold.Resource.ResourceBaseDelta euser comparable v -> Scaffold.Resource.ResourceBase euser comparable v -> Scaffold.Resource.ResourceBase euser comparable v"
+      },
+      {
+        "name": "decideBy",
+        "comment": " Offer a decision on some `undecidedResource kb`. Undecided resource is the result of some\nproblem which may or may not be in control of the client. Such resource may be the result of\nanything that can result in an error in your application. If this resource is an operation, then\nthe assumption will be applied to the result of that operation.\n",
+        "type": "(Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v) -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "defResource",
+        "comment": " A known thing. Carries a value of type `v` for `Resource euser v`. `defResource` anything can be\ninterpreted using `therefore` contingent upon it being a concrete `defResource` something. As described\nelsewhere, `therefore` has no effect on resource that satisfies `isNotKnown`. ",
+        "type": "v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "dispatchIf",
+        "comment": " If some predicate `satisfies` is satisfied by the resource `kb`, then we make the following\nremote operation. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Bool) -> Scaffold.Resource.Remote euser v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "dispatchIfNot",
+        "comment": " Negation of dispatchIf ",
+        "type": "(Scaffold.Resource.Resource euser v -> Bool) -> Scaffold.Resource.Remote euser v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "dispatchInCase",
+        "comment": " If `possibleOperation` yields some Remote task `remote` when a Resource is applied, then\nthe resource is replaced by the resource `doOperation remote`, otherwise the resource is\nunaffected. If this resource is an operation, then the result of that operation will be used as\nthe input to the provided function. In this way, operations can be chained arbitrarily deep,\nbut in a manner that helpfully abstracts away whether we are still waiting or already have the\nresult in the composition. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Maybe.Maybe (Scaffold.Resource.Remote euser v)) -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "dispatchInCaseNow",
+        "comment": " This is the counterpart to dispatchInCase which does _not_ abstract away whether or not this is\nsome pending remote operation. This is useful in the case that we don't care what's going on right\nnow. We'd rather issue some operation, regardless. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Maybe.Maybe (Scaffold.Resource.Remote euser v)) -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "doOperation",
+        "comment": " Define resource contingent on the future completion of some arbitrary operation. This is how\nwe hook up resource bases to sources of content. ",
+        "type": "Scaffold.Resource.Remote euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "forbiddenResource",
+        "comment": " The resource could not be obtained because the user of your program should not be allowed to\naccess it. This carries an error. To resolve `undecidedResource`, one should use assumptions and or\noperations to map it back in to sensible resource. ",
+        "type": "Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "isForbidden",
+        "comment": " True if the resource is forbiddenResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isKnown",
+        "comment": " True if the resource is known. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isNil",
+        "comment": " True if the resource is unknownResource or voidResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isNotForbidden",
+        "comment": " False if the resource is forbiddenResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isNotKnown",
+        "comment": " False if the resource is known. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isNotNil",
+        "comment": " False if the resource is unknownResource or voidResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isNotOperation",
+        "comment": " False if the resource is a pending operation. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isNotPending",
+        "comment": " False if the resource is pendingResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isNotUndecided",
+        "comment": " False if the resource is undecidedResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isNotUnknown",
+        "comment": " False if the resource is unknownResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isNotVoid",
+        "comment": " False if the resource is voidResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isOperation",
+        "comment": " True if the resource is a pending operation. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isPending",
+        "comment": " True if the resource is pendingResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isUndecided",
+        "comment": " True if the resource is undecidedResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isUnknown",
+        "comment": " True if the resource is unknownResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "isVoid",
+        "comment": " True if the resource is voidResource. ",
+        "type": "Scaffold.Resource.Resource euser v -> Bool"
+      },
+      {
+        "name": "maybeKnownNow",
+        "comment": " If a resource is known, then give Just it's value, otherwise Nothing. ",
+        "type": "Scaffold.Resource.Resource euser v' -> Maybe.Maybe v'"
+      },
+      {
+        "name": "maybeOr",
+        "comment": " Map Maybe in to Resource. Since Maybe doesn't carry errors, semantically Nothing means\n\"definitely nothing\". For this reason, you may want to use it something like this:\n\n    maybeOr voidResource myPossibleThing\n\nIf you implement an operation that uses some existing code that returns a Maybe, that would be a\ngood place to use this. Just be mindful that this _does not give you the power to handle errors_.\nResult should always be preferred in the case that there is any chance of things going wrong, and\n`resultOr` should definitely see a lot more mileage in a production app that deals with lots of\nunpredictable data.\n",
+        "type": "Scaffold.Resource.Resource euser v -> Maybe.Maybe v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "otherwise",
+        "comment": " Preferred shorthand for `reduceNotKnownNowTo`. ",
+        "type": "v' -> Scaffold.Resource.Resource euser v' -> v'"
+      },
+      {
+        "name": "pendingResource",
+        "comment": " Something on which resource is still pending. The most conforming way to use this is to not\nuse it directly. Calling *Integrate should be done after every update sequence during staging, which\nresults in all operations in a resource base being replaced with pendingResource. If you stick to\nthis, the presence of pendingResource is a guarantee you'll be getting a delta back about it\nassuming your wiring's not broken. ",
+        "type": "Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "record",
+        "comment": " Create a resource record stub. The content of the resource base will be bound to the content\nof the record according to the `recordField` definitions you give. A resource record stub is not\nyet completed with a concrete userrecord. Use this in your definitions. Create instances of your\nresource record type by using `recordSet` on the result of `record`. ",
+        "type": "Signal.Address (Scaffold.Resource.ResourceBaseDelta euser comparable v) -> Scaffold.Resource.ResourceRecordStub euser userrecord comparable v"
+      },
+      {
+        "name": "recordAt",
+        "comment": " Retrieve a resource from the resource record using some getter. Avoiding stringly-typed nonsense that you can't protect from\nruntime errors is generally a good idea. Since records have an enumerable set of contant field names, it makes more sense to use\nthis method to get from records. This won't compile if it's wrong. For example:\n\n    recordAt .myFieldThatWillNotCompileIfItDoesntExist myRecord\n\n",
+        "type": "(userrecord -> Scaffold.Resource.Resource euser v) -> Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "recordAtKey",
+        "comment": " Retrieve a resource at the given key. If you do this, you may as well be using resource base.\nHowever, you will get the benefit of console debug messages in the case that you try to access a\nfield that doesn't exist. ",
+        "type": "comparable -> Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "recordBinding",
+        "comment": " Get the underlying resource base of a resource record. ",
+        "type": "Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.ResourceBase euser comparable v"
+      },
+      {
+        "name": "recordContent",
+        "comment": " Get the current userrecord content of a resource record. ",
+        "type": "Scaffold.Resource.ResourceRecord euser userrecord comparable v -> userrecord"
+      },
+      {
+        "name": "recordDo",
+        "comment": " This is the resource record equivalent to baseDo for resource bases, using the same\nsemantics. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.ResourceRecord euser userrecord comparable v"
+      },
+      {
+        "name": "recordErrorHandler",
+        "comment": " Add an error handler to a `ResourceRecord` or a `ResourceRecordStub`. Refer to\n`baseErrorHandler` for a more detailed description of how adding error handlers works. ",
+        "type": "(Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v) -> { k | kbase : Scaffold.Resource.ResourceBase euser comparable v } -> { k | kbase : Scaffold.Resource.ResourceBase euser comparable v }"
+      },
+      {
+        "name": "recordField",
+        "comment": " Map a record field to a key in the resource base. The types in the record can be any odd combination\ngiven that the userrecord type can be anything. However, all fields in the record must have a mapping to\nand from some resource type which can represent any of the fields. This is not as tricky as one might\ninitially surmise. Your userrecord type should have a corresponding tag union type with a tag for each\nrecord field. To make this clean, you should have a bijection between the record fields and the tags. Here's\nan example:\n\n    type Fields = FooField Int | BarField String\n\n    type alias MyRecord =\n      { foo : Int\n      , bar : String\n      }\n\n    myRecordFields =\n      recordField (\\k r -> { r | foo = k }) (.foo >> FooField) \"foo\"\n      >> recordField (\\k r -> { r | bar = k }) (.bar >> BarField) \"bar\"\n\n    .....\n\n    myResourceRecord =\n      record address\n      |> recordSet { foo = 42, bar = \"answer\" }\n      |> myRecordFields\n\n",
+        "type": "(Scaffold.Resource.Resource euser v -> userrecord -> userrecord) -> (userrecord -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.ResourceRecord euser userrecord comparable v"
+      },
+      {
+        "name": "recordIntegrate",
+        "comment": " This is the resource record equivalent to baseIntegrate for resource bases, using the same\nsemantics. ",
+        "type": "Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.ResourceRecord euser userrecord comparable v"
+      },
+      {
+        "name": "recordQuery",
+        "comment": " This is the resource record equivalent to baseQuery for resource bases, using the same\nsemantics. ",
+        "type": "Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Maybe.Maybe (Scaffold.Resource.QueryTask never)"
+      },
+      {
+        "name": "recordSet",
+        "comment": " Completely replace the userrecord instance contained in a resource record or fill out a\nresource record stub for the first time. The second usage is likely to be more common. ",
+        "type": "userrecord -> { k | kbase : Scaffold.Resource.ResourceBase euser comparable v, writes : Dict.Dict comparable (Scaffold.Resource.Resource euser v -> userrecord -> userrecord), reads : Dict.Dict comparable (userrecord -> Scaffold.Resource.Resource euser v) } -> Scaffold.Resource.ResourceRecord euser userrecord comparable v"
+      },
+      {
+        "name": "recordUpdate",
+        "comment": " This is the resource record equivalent to baseUpdate for resource bases, using the same\nsemantics. ",
+        "type": "Scaffold.Resource.ResourceBaseDelta euser comparable v -> Scaffold.Resource.ResourceRecord euser userrecord comparable v -> Scaffold.Resource.ResourceRecord euser userrecord comparable v"
+      },
+      {
+        "name": "reduceNotKnownNowTo",
+        "comment": " This is the special reduction we use to collapse away the Resource type, determining a final\nvalue to work with. While more pedantically named, I find it leaves something to be desired\naesthetically, so I use `otherwise` for the same task. ",
+        "type": "v' -> Scaffold.Resource.Resource euser v' -> v'"
+      },
+      {
+        "name": "remoteConfig",
+        "comment": " Specifies a RemoteConfig with which to close off a remote operation by sending it's results or an\nerror describing it's failure to the given address. ",
+        "type": "Signal.Address (Scaffold.Resource.Resource euser v) -> Scaffold.Resource.RemoteConfig euser v"
+      },
+      {
+        "name": "remoteErrorConfig",
+        "comment": " Adds an optional special error handler for resolving totally unexpected errors. A final error\nhandler should be provided such that any errors not trapped by a decideBy application still\ngracefully recover. By default, a valid resource is produced from any error by promoting that\nError to Undecided. ",
+        "type": "(Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v) -> Scaffold.Resource.RemoteConfig euser v -> Scaffold.Resource.RemoteConfig euser v"
+      },
+      {
+        "name": "resourceDo",
+        "comment": " Do something to a resource. There is an ignored comparable argument here. This merely exists so\nthat the form of `resourceDo` is isomorphic to the form of `baseDo` and `recordDo`. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "resourceIntegrate",
+        "comment": " Given some configuration and a resource, produce a pendingResource in the case that the\nresource is an operation, otherwise give the same resource. ",
+        "type": "Scaffold.Resource.RemoteConfig euser v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "resourceQuery",
+        "comment": " Given some configuration and a resource, produce Just an opaque query task or Nothing\nwhen the resource is an operation or the resource is not an operation respectively. ",
+        "type": "Scaffold.Resource.RemoteConfig euser v -> Scaffold.Resource.Resource euser v -> Maybe.Maybe (Scaffold.Resource.QueryTask never)"
+      },
+      {
+        "name": "resourceUpdate",
+        "comment": " Update resource with an incoming delta. Again, we ignore the comparable component of the\nresource base delta, but accept it to simplify the types. ",
+        "type": "Scaffold.Resource.ResourceBaseDelta euser comparable v -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "resultOr",
+        "comment": " Map Result in to Resource. You'll need this if you want to roll your own resource base remotes,\nwhich is quite easy to do due to the pluggability of the resource module. The function specifies how\nto interpret errors. This is important in the case that you have to deal with permissions symachines.\nSome of your errors might be due to access denial, others might be due to unintentional errors. Use\nforbiddenResource and undecidedResource respectively for these cases. ",
+        "type": "(Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v) -> Result.Result (Scaffold.Error.Error euser) v -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "therefore",
+        "comment": " transform the value itself, if known, producing a resource of some new value type value'.\ntherefores are composed on to the results of remote operations if they represent known resource or\nfurther operations to attempt. This allows us to compose async processing stages before resource\nis finally reduced to a displayed or usable result as deeply and interchangably as we want to,\nprovided that we always use \"therefore\" _first_ to lift the resource type out before listing\na sequence of simple or contingent reductions. ",
+        "type": "(v -> v') -> Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v'"
+      },
+      {
+        "name": "toProgram",
+        "comment": " This utility function produces a program input resource from a resource of it's model, given a partial program definition (with the model omitted).\n    It is redundant, but helps make the use case more concrete.\n\n    -- Example:\n\n    myProgramInputResource = Resource.toProgram (App.defProgram' present stage update) myModelResource\n\n\n    ",
+        "type": "(b -> Scaffold.App.ProgramInput a b c bad) -> Scaffold.Resource.Resource euser b -> Scaffold.Resource.Resource euser (Scaffold.App.ProgramInput a b c bad)"
+      },
+      {
+        "name": "undecidedResource",
+        "comment": " The resource could not be obtained because something went wrong. This carries an error. To\nresolve `undecidedResource`, one should use assumptions and or operations to map it back in to\nsensible resource. ",
+        "type": "Scaffold.Error.Error euser -> Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "unknownResource",
+        "comment": " Somthing that's totally unknown. This is the default result of retrieving an element that has\nno representation in a resource base, but also has obvious other uses as a placeholder that is\ntypely more powerful than Result or Maybe for production data management. ",
+        "type": "Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "voidResource",
+        "comment": " Something that is _known not to exist_. This is not the same as unknownResource or\nundecidedResource. Void resource should arise from a remote operation which verified that there\nis definitely nothing there, so it is not an assumption. ",
+        "type": "Scaffold.Resource.Resource euser v"
+      },
+      {
+        "name": "within",
+        "comment": " This is for nesting operations on resource bases. For example:\n\n    -- this'll write something at the patch foo.bar if \"bar\" is void.\n    baseDo (within <| baseDo (inquireIf isVoid myBarWriter) \"bar\") \"foo\" myBase\n\nThis code will work on a resource base of base knowledges, so that's a nested record. The active\nrecord pattern can be approximated like this, and I've found it extremely handy.\n\n",
+        "type": "(sub -> sub) -> Scaffold.Resource.Resource euser sub -> Scaffold.Resource.Resource euser sub"
+      },
+      {
+        "name": "withinBaseDo",
+        "comment": " Shorthand for nesting resource bases. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.BaseResource euser' euser comparable v -> Scaffold.Resource.BaseResource euser' euser comparable v"
+      },
+      {
+        "name": "withinRecordDo",
+        "comment": " Shorthand for nesting resource records. ",
+        "type": "(Scaffold.Resource.Resource euser v -> Scaffold.Resource.Resource euser v) -> comparable -> Scaffold.Resource.RecordResource euser' euser userrecord comparable v -> Scaffold.Resource.RecordResource euser' euser userrecord comparable v"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Scaffold.Error",
+    "comment": " This module contains the internal error type for Gigan and some helper functions for\nconstructing errors.\n\n# Definitions\n@docs DecodingFailure, Error, ErrorType\n\n# Constructors\n@docs reportError, reportErrorAndLog, unknownError, unknownErrorAndLog, decoderError, decoderErrorAndLog, userError, userErrorAndLog, decodingFailure\n\n",
+    "aliases": [
+      {
+        "name": "DecodingFailure",
+        "comment": " Represents a decoding task which failed. ",
+        "args": [],
+        "type": "{ source : String, reason : String }"
+      },
+      {
+        "name": "Error",
+        "comment": " Error record. ",
+        "args": [
+          "euser"
+        ],
+        "type": "{ error : Scaffold.Error.ErrorType euser, desc : String }"
+      }
+    ],
+    "types": [
+      {
+        "name": "ErrorType",
+        "comment": " Type of error that occurred in Scaffold. ",
+        "args": [
+          "euser"
+        ],
+        "cases": [
+          [
+            "UnknownError",
+            []
+          ],
+          [
+            "DecoderError",
+            [
+              "Scaffold.Error.DecodingFailure"
+            ]
+          ],
+          [
+            "UserError",
+            [
+              "euser"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "decoderError",
+        "comment": " Report a problem decoding something. ",
+        "type": "String -> Scaffold.Error.DecodingFailure -> Scaffold.Error.Error euser"
+      },
+      {
+        "name": "decoderErrorAndLog",
+        "comment": " decoderError and log to console. ",
+        "type": "String -> Scaffold.Error.DecodingFailure -> Scaffold.Error.Error euser"
+      },
+      {
+        "name": "decodingFailure",
+        "comment": " Given the source string on which decoding was attempted and the reason for the failure,\ngive a DecodingFailure ",
+        "type": "String -> String -> Scaffold.Error.DecodingFailure"
+      },
+      {
+        "name": "reportError",
+        "comment": " Report an error. Given an ErrorType and a String describing what went wrong humanly, create\nan error record.  ",
+        "type": "String -> Scaffold.Error.ErrorType euser -> Scaffold.Error.Error euser"
+      },
+      {
+        "name": "reportErrorAndLog",
+        "comment": " reportError and log to console.  ",
+        "type": "String -> Scaffold.Error.ErrorType euser -> Scaffold.Error.Error euser"
+      },
+      {
+        "name": "unknownError",
+        "comment": " Report an error, the nature of which is not known. ",
+        "type": "String -> Scaffold.Error.Error euser"
+      },
+      {
+        "name": "unknownErrorAndLog",
+        "comment": " unknownError and log to console. ",
+        "type": "String -> Scaffold.Error.Error euser"
+      },
+      {
+        "name": "userError",
+        "comment": " Report a user defined error. ",
+        "type": "String -> euser -> Scaffold.Error.Error euser"
+      },
+      {
+        "name": "userErrorAndLog",
+        "comment": " userError and log to console. ",
+        "type": "String -> euser -> Scaffold.Error.Error euser"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Scaffold.App",
+    "comment": " The main application scaffolding. You can write a really pretty top level like this:\n\n    myProgramOutput : ProgramOutput MyAction MyModel Layout.Item Error\n    myProgramOutput =\n      myProgram\n        `withSequenceInputs`\n          [ someVeryImportantBrowserEnvironmentInput\n          , someOtherOutsideSignal\n          ]\n        `runWithWork`\n          (computeTask doMyComplicatedStartupWork withThisData)\n      |> (it'sErrorConnector myErrorHandler)\n      |> itself\n\n\n    main : Signal Graphics.Element.Element\n    main = Layout.fromItem <~ myProgramOutput.view'\n\n\n    port sink : Signal (Task z ())\n    port sink = sink myProgramOutput\n\n\n# Definitions\n@docs AgentStatus, ComputedResult, ComputedSuccess, ProgramInput, ProgramOutput, ProgramSnapshot, ProgramConnector, ProgramTask, TaskDispatchment, UpdatedModel, ViewOutput\n\n# Define Program Programs\n@docs defProgram, defProgram'\n\n# Run Program Programs\n@docs run, runAnd, runWithWork, withInputs, defLazySequenceInputs, defSequenceInputs, withLazySequenceInputs, withSequenceInputs, sink\n\n# UpdatedModel and ViewOutput Manipulation\n@docs updated, presented, withTasks, withDispatchment, withChildren, viewOutputTask\n\n# Dispatch Actions and Errors\n@docs actionTask, actionTaskAsync, errorTask, computeTask, computedSuccess, computedSuccessAsync, noActions, nilTask\n\n# Program Output Routing and Management\n@docs itself, itselfAsync, it'sErrorConnector, thisAddress, thisAddressAsync, thisForwardAddress, thisForwardAddressAsync, thisErrorConnector, thisForwardConnector, thisConnector, outputView\n\n# Handling Tasks and TaskDispatchment\n@docs combineDispatchments, collapseTasks, dispatchTasks, dispatchmentHasWork, dispatchmentTask, promoteDispatchment\n\n# Manipulate Program Snapshots\n@docs programSnapshot, programSnapshotAddDispatchment, programSnapshotDispatch, programSnapshotPresent, programSnapshotStage, programSnapshotUpdate, performCycle\n\n# Program Task Agents\n@docs programAgentSuccess, programAgentFailure, programAgent, programSuccessAgent, programFailureAgent, programBinaryAgent, programBlindAgent, programNilAgent, programResultAgent, ignoreError\n\n",
+    "aliases": [
+      {
+        "name": "ComputedResult",
+        "comment": " A ComputedResult is a Result which may be a ComputedSuccess or some error type on failure. This\nis used as the output type of the function passed to a `computeTask`. ",
+        "args": [
+          "bad",
+          "a"
+        ],
+        "type": "Result.Result bad (Scaffold.App.ComputedSuccess a)"
+      },
+      {
+        "name": "ComputedSuccess",
+        "comment": " This is the success type of an ProgramTask. It consists of a sequence of actions to execute, and\na tag saying whether we want the actions executed all at once, or spread out asynchronously. This\nshould be treated as opaque; use the constructors `computedSuccess` and `computedSuccessAsync`. ",
+        "args": [
+          "a"
+        ],
+        "type": "{ sequence : List a, method : Scaffold.App.FeedbackMethod }"
+      },
+      {
+        "name": "ProgramConnector",
+        "comment": " ProgramConnector is an alias for functions that transform ProgramTasks by routing their actions to\nan address. You will probably not need to directly provide an ProgramConnector function, as the built in\nfamily of taps should be sufficient for just about any application. ",
+        "args": [
+          "bad",
+          "a"
+        ],
+        "type": "Signal.Address (List a) -> Scaffold.App.ProgramTask bad a -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "ProgramInput",
+        "comment": " This is the input type for Program. It can be seen as roughly analogous to StartApp's Config\ntype, but carries the full configuration and input in one. This should be considered opaque. ",
+        "args": [
+          "a",
+          "b",
+          "c",
+          "bad"
+        ],
+        "type": "{ inputs : Lazy.List.LazyList (Signal.Signal (Lazy.List.LazyList a)) , model0 : b , present : Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.ViewOutput a c bad , stage : Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad , update : a -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad }"
+      },
+      {
+        "name": "ProgramOutput",
+        "comment": " This is the output of an Program program. This is not intended to be opaque. Any part of the\noutput structure is up for grabs. I do not reccomend usage of the lazyAddress externally.\n\n    view'     Signal with the current view.\n    model'    Signal with the current model.\n    now       Signal with the most recent execution time.\n    actions   Signal with the most recently atomically executed action list.\n    tasks     Signal with the most recent ProgramTask output.\n    address   The address of the Program program's Mailbox.\n\n",
+        "args": [
+          "a",
+          "b",
+          "c",
+          "bad"
+        ],
+        "type": "{ view' : Signal.Signal c , model' : Signal.Signal b , now : Signal.Signal Time.Time , actions : Signal.Signal (List a) , tasks : Signal.Signal (Scaffold.App.ProgramTask bad a) , address : Signal.Address (List a) , lazyAddress : Signal.Address (Lazy.List.LazyList a) }"
+      },
+      {
+        "name": "ProgramSnapshot",
+        "comment": " This represents an instantaneous description of an Program program. It consists of the current\nmodel and a possible TaskDispatchment. This should be treated as opaque. ",
+        "args": [
+          "a",
+          "b",
+          "bad"
+        ],
+        "type": "{ model' : b, dispatchment : Scaffold.App.TaskDispatchment bad a }"
+      },
+      {
+        "name": "ProgramTask",
+        "comment": " A task with a ComputedSuccess result. These are used as the output task type of the Program. ",
+        "args": [
+          "bad",
+          "a"
+        ],
+        "type": "Task.Task bad (Scaffold.App.ComputedSuccess a)"
+      },
+      {
+        "name": "TaskDispatchment",
+        "comment": " This is an opaque type representing an ordered list of tasks to execute. This is quite similar\nto Effects batching. ",
+        "args": [
+          "bad",
+          "a"
+        ],
+        "type": "{ taskExec : Lazy.List.LazyList (Scaffold.App.ProgramTask bad a) }"
+      },
+      {
+        "name": "UpdatedModel",
+        "comment": " Represents the output of the `update` and `stage` functions configured in the ProgramInput.\nThis type exists so that TaskDispatchments and ProgramTasks can be cleanly included in the output\nof `stage` and `update` without the need to return an ugly pair or embed anything in the model. ",
+        "args": [
+          "a",
+          "b",
+          "bad"
+        ],
+        "type": "{ dispatchment : Scaffold.App.TaskDispatchment bad a, model' : b }"
+      },
+      {
+        "name": "ViewOutput",
+        "comment": " Represents the output of the `present` function configured in the ProgramInput.\nThis type exists so that TaskDispatchments and ProgramTasks can be cleanly included in the output\nof `present` without the need to return an ugly pair or embed anything in the model. ",
+        "args": [
+          "a",
+          "c",
+          "bad"
+        ],
+        "type": "{ dispatchment : Scaffold.App.TaskDispatchment bad a, view' : c }"
+      }
+    ],
+    "types": [
+      {
+        "name": "AgentStatus",
+        "comment": " Represents the status of a given ProgramAgent. Program agents are a way of transforming the\nresults of arbitrary tasks in to actions and errors for the program to consume. ",
+        "args": [
+          "bad",
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "actionTask",
+        "comment": " An ProgramTask that carries a list of actions to execute atomically.\n\nNote that a tap which is explicitly from the `*Async` family of taps will override this behavior,\ninstead producing the same behavior as actionTaskAsync. For that reason, asynchronous taps should\nmainly be used for one-way data flows that are not dependent on ordering. ",
+        "type": "List a -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "actionTaskAsync",
+        "comment": " An ProgramTask that carries a list of actions to execute asynchronously, meaning they may be\ninterspersed with other feedback and inputs. ",
+        "type": "List a -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "collapseTasks",
+        "comment": " Collapse two action tasks by executing them sequentially and appending their resulting action\noutputs. ",
+        "type": "Scaffold.App.ProgramTask bad a -> Scaffold.App.ProgramTask bad a -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "combineDispatchments",
+        "comment": " Combine two TaskDispatchment instances. This appends the task list of the second to the task\nlist of the first. ",
+        "type": "Scaffold.App.TaskDispatchment bad a -> Scaffold.App.TaskDispatchment bad a -> Scaffold.App.TaskDispatchment bad a"
+      },
+      {
+        "name": "computeTask",
+        "comment": " An ProgramTask that obtains some ComputedResult from user provided data and a user provided\nfunction, which is invoked during execution of the task. This just gives us basic support for\ndeferred computations. ",
+        "type": "(data -> Scaffold.App.ComputedResult bad a) -> data -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "computedSuccess",
+        "comment": " Produce a normal ComputedSuccess from a list of actions. These actions will be sent all at once,\nand thus will be executed atomically. ",
+        "type": "List a -> Scaffold.App.ComputedSuccess a"
+      },
+      {
+        "name": "computedSuccessAsync",
+        "comment": " Produce an asynchronous ComputedSuccess from a list of actions. These actions will be sent\none by one from sequential tasks, and thus their execution will be spread out with no guarantee that\nthe sequence of actions will be executed atomically.\n\nIf you need to run a list of a few thousand actions,\nand it is safe for those actions to be interspersed with other actions, you may be looking at a very\ngood use case for this function. Note also that this will never preempt an action list that is sent\nat once using `computeSuccess`, which is a product of how the Elm runtime works. ",
+        "type": "List a -> Scaffold.App.ComputedSuccess a"
+      },
+      {
+        "name": "defLazySequenceInputs",
+        "comment": " Forward applicative alternative to withLazySequenceInputs. ",
+        "type": "List (Signal.Signal (Lazy.List.LazyList a)) -> Scaffold.App.ProgramInput a b c bad -> Scaffold.App.ProgramInput a b c bad"
+      },
+      {
+        "name": "defProgram",
+        "comment": " defProgram is the old declaration form for defining ProgramInput. It is simpler, and does not\nsupport the `stage` function. Internally this uses the new form, but it has been left in for\ntwo reasons. One is of course backwards compatibility, but sometimes you just don't need that\nextra firepower, in which case it is mere clutter. ",
+        "type": "(Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.ViewOutput a c bad) -> (a -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad) -> b -> Scaffold.App.ProgramInput a b c bad"
+      },
+      {
+        "name": "defProgram'",
+        "comment": " defProgram' is the complete way to define an ProgramInput. ProgramInput is configured with\nthree functions. `update` and `present` should be familiar to users of StartApp, except for the\nfact that they always have the current time. `stage` is a special addition which allows one to\nuse the program Mailbox address from a context in which the model can be updated.\n\nThe use case for `stage` which inspired it's existence is as follows: suppose you have a really\nbig model with a really, really big view. There is enough data that keen algorithms and data\nstructures, as well as avoiding redundant computations during presentation becomes a neccessity.\n\nYou can then structure your application as follows. Represent all these components as instances of\nMachine. From inside `stage`, you can present _only the ones that will or should actually be seen_,\nand cache the results in the model. Since you can create an updated model from here, you can save\nanything that may be later needed during presentation.\n\n`stage` is called only once after an entire list of actions is executed. If you get a list of 1000\nactions, you can still guarantee the work in stage will be done only once, before presentation.\n_The primary reason stage has access to the address is because it enables you to call present on\nany sub components ahead of time for caching purposes._ ",
+        "type": "(Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.ViewOutput a c bad) -> (Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad) -> (a -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad) -> b -> Scaffold.App.ProgramInput a b c bad"
+      },
+      {
+        "name": "defSequenceInputs",
+        "comment": " Forward applicative alternative to withSequenceInputs. ",
+        "type": "List (Signal.Signal (List a)) -> Scaffold.App.ProgramInput a b c bad -> Scaffold.App.ProgramInput a b c bad"
+      },
+      {
+        "name": "dispatchTasks",
+        "comment": " Turn a list of ProgramTasks in to a TaskDispatchment. ",
+        "type": "List (Scaffold.App.ProgramTask bad a) -> Scaffold.App.TaskDispatchment bad a"
+      },
+      {
+        "name": "dispatchmentHasWork",
+        "comment": " True iff the TaskDispatchment has at least one ProgramTask. ",
+        "type": "Scaffold.App.TaskDispatchment bad a -> Bool"
+      },
+      {
+        "name": "dispatchmentTask",
+        "comment": " Turn a TaskDispatchment in to an ProgramTask. Doing this will make things a lot more opaque,\nso ask yourself if it is absolutely neccessary first. Mainly this is included for completeness. ",
+        "type": "Scaffold.App.TaskDispatchment bad a -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "errorTask",
+        "comment": " An ProgramTask that carries an error. ",
+        "type": "bad -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "ignoreError",
+        "comment": " This makes any error in to noActions. ",
+        "type": "bad -> List a"
+      },
+      {
+        "name": "it'sErrorConnector",
+        "comment": " Same semantics as `itself`, but for errors. Error taps do not have an asynchronous alternative. ",
+        "type": "(bad -> List a) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "itself",
+        "comment": " This is the most essential tap for almost any application. It routes the actions resulting from your TaskDispatchment output back to the program's main address. ",
+        "type": "Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "itselfAsync",
+        "comment": " Same as itself, but execute action lists asynchronously, such that they may be interspersed with other action lists. ",
+        "type": "Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "nilTask",
+        "comment": " An ProgramTask that does nothing and produces noActions. ",
+        "type": "Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "noActions",
+        "comment": " A list of no actions. ",
+        "type": "List a"
+      },
+      {
+        "name": "outputView",
+        "comment": " Get the program view output. ",
+        "type": "Scaffold.App.ProgramOutput a b c bad -> Signal.Signal c"
+      },
+      {
+        "name": "performCycle",
+        "comment": " Perform a full cycle on an ProgramSnapshot. This looks like:\n\n      state\n      |> programSnapshotUpdate input actions now\n      |> programSnapshotStage input address now\n      |> programSnapshotDispatch\n\ninternally. The point of performCycle is to be used in foldp, which it is inside runWithWork\nand run (which really just calls runWithWork with nilTask).\n",
+        "type": "Scaffold.App.ProgramInput a b c bad -> Signal.Address (List a) -> ( Time.Time, List a ) -> ( Scaffold.App.ProgramSnapshot a b bad , Scaffold.App.TaskDispatchment bad a ) -> ( Scaffold.App.ProgramSnapshot a b bad , Scaffold.App.TaskDispatchment bad a )"
+      },
+      {
+        "name": "presented",
+        "comment": " Give a ViewOutput from your view type, carrying an empty TaskDispatchment. ",
+        "type": "c -> Scaffold.App.ViewOutput a c bad"
+      },
+      {
+        "name": "programAgent",
+        "comment": " The basic program agent. Takes two functions, one of which transforms a successful result in to\nan AgentStatus, and one which does the same for task failure results. This transforms an arbitrary\ntask in to an ProgramTask. Notice that we can easily succeed anyway even if the task failed, or vice\nversa, because we get an AgentStatus which may be successful or failing either way. This means you\ncan skip error handling altogether if you already know what to do with the failure from the scope\nyou're in; you can simply map the failure on to some actions that perform an appropriate\ncontingency. ",
+        "type": "(x -> Scaffold.App.AgentStatus bad a) -> (y -> Scaffold.App.AgentStatus bad a) -> Task.Task y x -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "programAgentFailure",
+        "comment": " Failed ProgramAgent output. ",
+        "type": "bad -> Scaffold.App.AgentStatus bad a"
+      },
+      {
+        "name": "programAgentSuccess",
+        "comment": " Successful ProgramAgent output. ",
+        "type": "List a -> Scaffold.App.AgentStatus bad a"
+      },
+      {
+        "name": "programBinaryAgent",
+        "comment": " A binary program agent. This does not process any of the results, but simply always gives the\nsuccesful AgentStatus (the first one) on task success, otherwise it gives the failed AgentStatus. ",
+        "type": "Scaffold.App.AgentStatus bad a -> Scaffold.App.AgentStatus bad a -> Task.Task y x -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "programBlindAgent",
+        "comment": " If we don't care about the outcome of a task because it can't fail or produce a meaningful\nresult, we can just queue up something to do after it's done. This is perfect for using delay tasks. ",
+        "type": "Scaffold.App.AgentStatus bad a -> Task.Task y x -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "programFailureAgent",
+        "comment": " This is a combination of programAgent and programBinary agent which gives the successful agent\nstatus in the case of success, and processes failed results to get an AgentStatus otherwise . ",
+        "type": "Scaffold.App.AgentStatus bad a -> (y -> Scaffold.App.AgentStatus bad a) -> Task.Task y x -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "programNilAgent",
+        "comment": " No matter what, do nothing. This will get your task to run, but no kind of action or error\nfeedback will be produced. ",
+        "type": "Task.Task y x -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "programResultAgent",
+        "comment": " The other program agents defined so far are less succinct because they take two arguments, one\nwhich applies to the success case and one which applies to the failure case. This one takes a single\nfunction which processes the task's outcome as a Result, and so is generally a bit shorter to write. ",
+        "type": "(Result.Result y x -> Scaffold.App.AgentStatus bad a) -> Task.Task y x -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "programSnapshot",
+        "comment": " Constructor for an ProgramSnapshot. I reccomend using the Machine module instead of these functions. ",
+        "type": "b -> Scaffold.App.TaskDispatchment bad a -> Scaffold.App.ProgramSnapshot a b bad"
+      },
+      {
+        "name": "programSnapshotAddDispatchment",
+        "comment": " Add a dispatchment to an ProgramSnapshot. ",
+        "type": "Scaffold.App.TaskDispatchment bad a -> Scaffold.App.ProgramSnapshot a b bad -> Scaffold.App.ProgramSnapshot a b bad"
+      },
+      {
+        "name": "programSnapshotDispatch",
+        "comment": " Get the pending TaskDispatchment out of an ProgramSnapshot and clear it from the snapshot in\none go. This gives an _ugly pair_. See the newer interface for this in Machine, and also see the way\nResource works. It seems much better to separate this in to two stages. It leaves room for a mistake,\nwhich I was trying to avoid, but it's so much cleaner than way that it's worth it and actually\nleads to fewer mistakes as a result. ",
+        "type": "Scaffold.App.ProgramSnapshot a b bad -> ( Scaffold.App.ProgramSnapshot a b bad , Scaffold.App.TaskDispatchment bad a )"
+      },
+      {
+        "name": "programSnapshotPresent",
+        "comment": " Run the `present` phase on an ProgramSnapshot, yielding a ViewOutput. ",
+        "type": "{ k | present : Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.ViewOutput a c bad } -> Signal.Address (List a) -> Time.Time -> Scaffold.App.ProgramSnapshot a b bad -> Scaffold.App.ViewOutput a c bad"
+      },
+      {
+        "name": "programSnapshotStage",
+        "comment": " Run the `stage` phase on an ProgramSnapshot. ",
+        "type": "{ k | stage : Signal.Address (List a) -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad } -> Signal.Address (List a) -> Time.Time -> Scaffold.App.ProgramSnapshot a b bad -> Scaffold.App.ProgramSnapshot a b bad"
+      },
+      {
+        "name": "programSnapshotUpdate",
+        "comment": " Run the `update` phase on an ProgramSnapshot. ",
+        "type": "{ k | update : a -> Time.Time -> b -> Scaffold.App.UpdatedModel a b bad } -> List a -> Time.Time -> Scaffold.App.ProgramSnapshot a b bad -> Scaffold.App.ProgramSnapshot a b bad"
+      },
+      {
+        "name": "programSuccessAgent",
+        "comment": " This is a combination of programAgent and programBinary agent which processes successful results\nto get an AgentStatus, otherwise giving the failed agent status. ",
+        "type": "(x -> Scaffold.App.AgentStatus bad a) -> Scaffold.App.AgentStatus bad a -> Task.Task y x -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "promoteDispatchment",
+        "comment": " Using some transformation function, create a TaskDispatchment with a different action type. ",
+        "type": "(List a -> List a') -> Scaffold.App.TaskDispatchment bad a -> Scaffold.App.TaskDispatchment bad a'"
+      },
+      {
+        "name": "run",
+        "comment": " Run an program without any startup task.\n\n    run (myProgram `withSequenceInputs` [myInput, myInput2])\n\n",
+        "type": "Scaffold.App.ProgramInput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "runAnd",
+        "comment": " Run an program with a startup task\n",
+        "type": "Scaffold.App.ProgramTask bad a -> Scaffold.App.ProgramInput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "runWithWork",
+        "comment": " This is the workhorse of Scaffold.App. Given an ProgramInput and some starting ProgramTask,\nrun the Program program described by the input to give an ProgramOutput. ",
+        "type": "Scaffold.App.ProgramInput a b c bad -> Scaffold.App.ProgramTask bad a -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "sink",
+        "comment": " The sink is the final stop for ProgramOutput. This should be attached at a port to get your\ntasks running. ",
+        "type": "Scaffold.App.ProgramOutput a b c bad -> Signal.Signal (Task.Task z ())"
+      },
+      {
+        "name": "thisAddress",
+        "comment": " Route the resulting actions from your TaskDispatchments to some action list address. ",
+        "type": "Signal.Address (List a) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "thisAddressAsync",
+        "comment": " Same as thisAddress, but asynchronously as described above. ",
+        "type": "Signal.Address (List a) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "thisConnector",
+        "comment": " A tap defined using an ProgramConnector and some address. The ProgramTasks that pass through this tap will be\nrouted to the given address. This is a bit lower level than is needed in most cases. ",
+        "type": "Scaffold.App.ProgramConnector bad a -> Signal.Address (List a) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "thisErrorConnector",
+        "comment": " Transform any errors in to lists of actions, then route them to the address. ",
+        "type": "Signal.Address (List a) -> (bad -> List a) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "thisForwardAddress",
+        "comment": " Same as thisAddress, but with forwarding. ",
+        "type": "Signal.Address target -> (List a -> target) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "thisForwardAddressAsync",
+        "comment": " Same as thisForwardAddress, but asynchronously as described above. ",
+        "type": "Signal.Address target -> (List a -> target) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "thisForwardConnector",
+        "comment": " Same as thisConnector but uses Address forwarding to transform action lists in to some other target type\nfor your address. ",
+        "type": "Scaffold.App.ProgramConnector bad a -> Signal.Address target -> (List a -> target) -> Scaffold.App.ProgramOutput a b c bad -> Scaffold.App.ProgramOutput a b c bad"
+      },
+      {
+        "name": "updated",
+        "comment": " Give an UpdatedModel from a model, carrying an empty TaskDispatchment. ",
+        "type": "b -> Scaffold.App.UpdatedModel a b bad"
+      },
+      {
+        "name": "viewOutputTask",
+        "comment": " Get an ProgramTask from a ViewOutput. This is DEPRECIATED. Use TaskDispatchment wherever\npossible. ",
+        "type": "Scaffold.App.ViewOutput a c bad -> Scaffold.App.ProgramTask bad a"
+      },
+      {
+        "name": "withChildren",
+        "comment": " This takes a list of UpdatedModel or ViewOutput instances, and appends each one to the\nTaskDispatchment of the current output. This is preferred when doing model composition with Machine.\nFor example:\n\n    staged { collectionModel | memberViews = memberOutputs } `withChildren` memberOutputs\n\nwhere memberOutputs is a list of machinePresent or machinePresentAs outputs in the example.\n",
+        "type": "List { anything | dispatchment : Scaffold.App.TaskDispatchment bad a } -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a } -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a }"
+      },
+      {
+        "name": "withDispatchment",
+        "comment": " This is the same as `withTasks`, but it takes an already existing TaskDispatchment. ",
+        "type": "Scaffold.App.TaskDispatchment bad a -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a } -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a }"
+      },
+      {
+        "name": "withInputs",
+        "comment": " withInputs is the oldest way in Gigan of using action inputs, from before we started using\nlists of actions. Lists of actions are much more powerful because not only can they be used to\nmake sure sequences of actions run atomically, but it also gives us an obvious and tagless way to\nrepresent noop. Here's how it looked:\n\n    defProgram myPresent myUpdate myModel0 `withInputs` [actionSignal0, actionSignal1]\n\nThis is DEPRECIATED.\n",
+        "type": "Scaffold.App.ProgramInput a b c bad -> List (Signal.Signal a) -> Scaffold.App.ProgramInput a b c bad"
+      },
+      {
+        "name": "withLazySequenceInputs",
+        "comment": " Since action lists are internally combined using lazy lists, one may want to just hand over their\nLazyList without converting it to a list. This may sometimes be appropriate, but beware of unbounded\nlaziness. Profiling is your friend here. ",
+        "type": "Scaffold.App.ProgramInput a b c bad -> List (Signal.Signal (Lazy.List.LazyList a)) -> Scaffold.App.ProgramInput a b c bad"
+      },
+      {
+        "name": "withSequenceInputs",
+        "comment": " withSequenceInputs is the preferred way of piping outside sources of actions in to an program\nprogram. You'll notice from the way this is used that ProgramInput definitions made by defProgram'\nor defProgram refrain from including any inputs right away. The reason for this is that a program\nand the _source_ of it's input are two distinctly separate concerns, though the _content_ of it's\ninput is not. In Machine, the inputs of an ProgramInput are not used. This way, ProgramInput is also\nusable for defining Machine state machines as well as Program programs.\n\n    defProgram' myPresent myStage myUpdate myModel0 `withSequenceInputs` [actionListSignal0, actionListSignal1]\n\n",
+        "type": "Scaffold.App.ProgramInput a b c bad -> List (Signal.Signal (List a)) -> Scaffold.App.ProgramInput a b c bad"
+      },
+      {
+        "name": "withTasks",
+        "comment": " Add some tasks to the output of any of the three Program functions.\n\n    updated model `withTasks` [actionTask [Jump, Run]]\n    presented viewstuff `withTasks` [errorTask [reportError \"You done goofed.\"]]\n\nThis is definitely the most elegant way to build a TaskDispatchment as well, especially in the\ncontext of declaring causality.\n",
+        "type": "List (Scaffold.App.ProgramTask bad a) -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a } -> { anything | dispatchment : Scaffold.App.TaskDispatchment bad a }"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Scaffold.Layout",
+    "comment": " A very nice ruler snapping symachine for layouts. Actual documentation underway.\n\n# Definitions\n@docs Axis, Bounds, Group, Item, Rule\n\n# Ruler Guide Manipulation\n@docs adjustedRule, horizontalRule, horizontalRuleBetween, horizontalRuleCentered, itemHorizontalRule, itemRule, itemVerticalRule, ruleBetween, ruleCenter, snapToRule, towardsRule, towardsRuleRelative, verticalRule, verticalRuleBetween, verticalRuleCentered\n\n# Grouping and Group Operations\n@docs appendGroup, group, groupAt, groupAtBefore, groupElements, groupFromArray, groupFromDict, groupSize, prependGroup, computed, butBefore, butBeforeAt, butBeforeSlice, thenDo, thenDoAt, thenDoSlice, flatten, flattenOutTo, flattenTo, flattenWithin, flattenWithinOutTo\n\n# Group Spacing and Distribution.\n@docs spacedBetween, spacedBy, regularly, vertically, horizontally\n\n# Bounds Definitions\n@docs defBounds, autoBounds, boundsHeight, boundsLower, boundsSize, boundsUpper, boundsWidth, clampedBounds, clampedInnerBounds, clampedOuterBounds\n\n# Item Grabs\n@docs grabItem, grabItemRelative, grabItemRelativeX, grabItemRelativeY, grabItemX, grabItemY\n\n# Item Metrics\n@docs itemBounds, itemWidth, itemHeight, itemSize\n\n# Item Placement\n@docs lerpOf, move, moveX, moveY, place, placeX, placeY\n\n# Create and Display Items\n@docs emptyItem, toItem, fromItem\n\n",
+    "aliases": [
+      {
+        "name": "Item",
+        "comment": " An item, which represents an Elm Element with a position and a handle. ",
+        "args": [],
+        "type": "{ elem : Graphics.Element.Element , x : Int , u : Int , y : Int , v : Int }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Axis",
+        "comment": " An axis along which to evenly distribute by spacing or handle position. ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Bounds",
+        "comment": " A bounding box, given as a minimum and a maximum. ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Group",
+        "comment": " Group is an opaque type that represents a grouped set of items with a pending set of transformations. ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Rule",
+        "comment": " A guide ruler defined as either a vertical or a horizontal axis aligned line. ",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "adjustedRule",
+        "comment": " Adjust a horizontal or vertical ruler. ",
+        "type": "(Int -> Scaffold.Layout.Rule) -> Int -> Scaffold.Layout.Rule -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "appendGroup",
+        "comment": " Append two groups, resulting a group containing the elements from `grp` first and the\nelements of `grp'` second. ",
+        "type": "Scaffold.Layout.Group -> Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "autoBounds",
+        "comment": " Automatic bounds. ",
+        "type": "Scaffold.Layout.Bounds"
+      },
+      {
+        "name": "boundsHeight",
+        "comment": " Get the width of a bounding box, defined as boundsSize >> snd ",
+        "type": "Scaffold.Layout.Bounds -> Int"
+      },
+      {
+        "name": "boundsLower",
+        "comment": " Get the minimum bound if a minimum bound is defined. ",
+        "type": "Scaffold.Layout.Bounds -> Maybe.Maybe ( Int, Int )"
+      },
+      {
+        "name": "boundsSize",
+        "comment": " Get the size of a bounding box if both maximum and minimum bounds are defined, otherwise (0, 0). ",
+        "type": "Scaffold.Layout.Bounds -> ( Int, Int )"
+      },
+      {
+        "name": "boundsUpper",
+        "comment": " Get the maximum bound if a maximum bound is defined. ",
+        "type": "Scaffold.Layout.Bounds -> Maybe.Maybe ( Int, Int )"
+      },
+      {
+        "name": "boundsWidth",
+        "comment": " Get the width of a bounding box, defined as boundsSize >> fst ",
+        "type": "Scaffold.Layout.Bounds -> Int"
+      },
+      {
+        "name": "butBefore",
+        "comment": " Apply some transformation to every item in the group before the pending transformations. ",
+        "type": "(Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "butBeforeAt",
+        "comment": " Apply some transformation to the item at a particular index in the group before the pending transformations. ",
+        "type": "Int -> (Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "butBeforeSlice",
+        "comment": " Apply some transformation to the items in a particular slice of the group before the pending transformations. ",
+        "type": "Int -> Int -> (Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "clampedBounds",
+        "comment": " Clamp a bounding box to some inner bounding box and some outer bounding box. Either the inner\nor the outer bounding box may be autoBounds, so this may also only clamp an inner or an outer limit,\nor neither. ",
+        "type": "Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds"
+      },
+      {
+        "name": "clampedInnerBounds",
+        "comment": " clampedInnerBounds myBounds = clampedBounds myBounds autoBounds ",
+        "type": "Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds"
+      },
+      {
+        "name": "clampedOuterBounds",
+        "comment": " clampedOuterBounds myBounds = clampedBounds autoBounds myBounds ",
+        "type": "Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds"
+      },
+      {
+        "name": "computed",
+        "comment": " Run any pending transformations on all group items. For the most part, this can be avoided, but it should be\ndone if you are planning to get a lot of items back from the group transformed, or else the work of applying the\npending group transforms will be done at least twice, once when you retrieve the item using groupAt and once when\nyou flatten the group to produce an item. ",
+        "type": "Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "defBounds",
+        "comment": " Define a definite bounding box. ",
+        "type": "Int -> Int -> Int -> Int -> Scaffold.Layout.Bounds"
+      },
+      {
+        "name": "emptyItem",
+        "comment": " An empty layout item. ",
+        "type": "Scaffold.Layout.Item"
+      },
+      {
+        "name": "flatten",
+        "comment": " Flatten a group using automatic bounds for the inner and outer bounds. This will produce the\ntightest bounding box possible around the target, and place the handle at (0, 0) relative to the resulting\nbounding box. This can result in the handle being placed outside of the group, but this can be desirable for\npositioning. For example, I may want to grab something at (-5, -5), so I can position it's top left\ncorner relative to some outer box with (5, 5) padding. ",
+        "type": "Scaffold.Layout.Group -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "flattenOutTo",
+        "comment": " Flatten a group using only an inner bound, which is equivalent to\n\n    flattenWithinOutTo outer autoBounds\n",
+        "type": "Scaffold.Layout.Bounds -> Scaffold.Layout.Group -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "flattenTo",
+        "comment": " Flatten a group using an exact bound. If this is specified to be autoBounds, then the following\nequivalency holds:\n\n    flattenTo autoBounds group == flatten group\n\nOtherwise, the items in the group are positioned in the resulting item relative to the top left corner of the bounds and\nthe resulting item shall have the exact size of the given bounds. ",
+        "type": "Scaffold.Layout.Bounds -> Scaffold.Layout.Group -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "flattenWithin",
+        "comment": " Flatten a group using only an outer bound, which is equivalent to\n\n    flattenWithinOutTo autoBounds outer\n",
+        "type": "Scaffold.Layout.Bounds -> Scaffold.Layout.Group -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "flattenWithinOutTo",
+        "comment": " Flatten a group using an inner and an outer bound to clamp the size of the resulting item.\n",
+        "type": "Scaffold.Layout.Bounds -> Scaffold.Layout.Bounds -> Scaffold.Layout.Group -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "fromItem",
+        "comment": " Get the Graphics Element from an Item. Note that this will get the original Element back,\nunaffected by any positioning done using placement and group operations. To produce Graphics\nElements with finished layouts, refer to the flatten functions. ",
+        "type": "Scaffold.Layout.Item -> Graphics.Element.Element"
+      },
+      {
+        "name": "grabItem",
+        "comment": " Grab an item, producing a handle. This defines a point on the item called the \"handle\" that is\nplaced exactly at item's coordinates. If I say\n\n  grabItem 0 0\n\nthen that would grab the top left corner. u and v and given as window coordinates relative to the\ntop left corner of the item. ",
+        "type": "Int -> Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "grabItemRelative",
+        "comment": " Grab an item in normalized coordinates relative to it's size. This means that (1, 1) is the\nbottom right corner, and (0, 0) is the top left corner. ",
+        "type": "Float -> Float -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "grabItemRelativeX",
+        "comment": " Grab an item by it's x coordinate relative to the item's size. ",
+        "type": "Float -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "grabItemRelativeY",
+        "comment": " Grab an item by it's y coordinate relative to the item's size. ",
+        "type": "Float -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "grabItemX",
+        "comment": " Grab an item by it's x coordinate. ",
+        "type": "Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "grabItemY",
+        "comment": " Grab an item by it's y coordinate. ",
+        "type": "Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "group",
+        "comment": " Create an item group from a list. ",
+        "type": "List Scaffold.Layout.Item -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "groupAt",
+        "comment": " Retrieve the item at a given index in the group, or Nothing if the index is out of bounds. If\nthere are waiting transformations, a copy of the item with those transformations applied will be\ngiven. ",
+        "type": "Int -> Scaffold.Layout.Group -> Maybe.Maybe Scaffold.Layout.Item"
+      },
+      {
+        "name": "groupAtBefore",
+        "comment": " Retrieve the item at a given index in the group, or Nothing if the index is out of bounds. The\nitem will be retrieved in it's original state without any pending group transformations applied. ",
+        "type": "Int -> Scaffold.Layout.Group -> Maybe.Maybe Scaffold.Layout.Item"
+      },
+      {
+        "name": "groupElements",
+        "comment": " This is a shortcut for grouping graphics elements, which is very useful for compositing graphics\nelements such as images directly for layering effects. ",
+        "type": "List Graphics.Element.Element -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "groupFromArray",
+        "comment": " Create an item group from an array. ",
+        "type": "Array.Array Scaffold.Layout.Item -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "groupFromDict",
+        "comment": " Create an item group from a dictionary. ",
+        "type": "Dict.Dict comparable Scaffold.Layout.Item -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "groupSize",
+        "comment": " Get the size of the group. ",
+        "type": "Scaffold.Layout.Group -> Int"
+      },
+      {
+        "name": "horizontalRule",
+        "comment": " Create a new horizontal ruler at the given y coordinate. ",
+        "type": "Int -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "horizontalRuleBetween",
+        "comment": " Shorthand for ruleBetween horizontalRule ",
+        "type": "Int -> Int -> Float -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "horizontalRuleCentered",
+        "comment": " Shorthand for ruleCenter horizontalRule ",
+        "type": "Int -> Int -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "horizontally",
+        "comment": " Do a distribution horizontally. ",
+        "type": "Scaffold.Layout.Axis"
+      },
+      {
+        "name": "itemBounds",
+        "comment": " Get the resultant bounding box of an item, given it's placement and handle. ",
+        "type": "Scaffold.Layout.Item -> Scaffold.Layout.Bounds"
+      },
+      {
+        "name": "itemHeight",
+        "comment": " Get the height of an item. ",
+        "type": "Scaffold.Layout.Item -> Int"
+      },
+      {
+        "name": "itemHorizontalRule",
+        "comment": " Create a horizontal ruler aligned with an item. ",
+        "type": "Scaffold.Layout.Item -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "itemRule",
+        "comment": " Create a vertical or a horizontal ruler aligned with an item. ",
+        "type": "(Int -> Scaffold.Layout.Rule) -> Scaffold.Layout.Item -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "itemSize",
+        "comment": " Get the size of an Item. ",
+        "type": "Scaffold.Layout.Item -> ( Int, Int )"
+      },
+      {
+        "name": "itemVerticalRule",
+        "comment": " Create a vertical ruler aligned with an item. ",
+        "type": "Scaffold.Layout.Item -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "itemWidth",
+        "comment": " Get the width of an item. ",
+        "type": "Scaffold.Layout.Item -> Int"
+      },
+      {
+        "name": "lerpOf",
+        "comment": " Modify any of the item manipulation primitives by linearly interpolating the handle and coordinates\nbetween the current and output values. This provides the basic building block for transitional animations.\nEasing functions could quite easily be implemented on top of this. ",
+        "type": "(Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Float -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "move",
+        "comment": " Move an item. ",
+        "type": "Int -> Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "moveX",
+        "comment": " Move an item horizontally. ",
+        "type": "Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "moveY",
+        "comment": " Move an item vertically. ",
+        "type": "Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "place",
+        "comment": " Place the handle of an item at these coordinates. ",
+        "type": "Int -> Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "placeX",
+        "comment": " Place the handle of an item at this x coordinate. ",
+        "type": "Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "placeY",
+        "comment": " Place the handle of an item at this y coordinate. ",
+        "type": "Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "prependGroup",
+        "comment": " Prepend a group before another, resulting a group containing the elements from `grp` second and\nthe elements of `grp'` first. ",
+        "type": "Scaffold.Layout.Group -> Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "regularly",
+        "comment": " Distribute the items in the group along some Axis given a starting coordinate and an ending\ncoordinate, such that the handles of the items are evenly distributed between the starting and the\nending coordinates. The height or width of this vertical or horizontal distribution is dependent on\nthe positioning of the handles on the items, and the coordinate not effected by the distribution is\nleft in place. ",
+        "type": "Scaffold.Layout.Axis -> Int -> Int -> Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "ruleBetween",
+        "comment": " Given a ruler direction (verticalRule or horizontalRule), a lower and an upper bound, and some\nfloat t between 0 and 1, linearly interpolate between the lower and upper bound by t. ",
+        "type": "(Int -> Scaffold.Layout.Rule) -> Int -> Int -> Float -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "ruleCenter",
+        "comment": " Given a ruler direction (verticalRule or horizontalRule), a lower bound, and an upper bound,\ncenter a ruler between the lower and the upper bound. The following equivalencies hold:\n\n    ruleCenter verticalRule x0 x1 == ruleBetween verticalRule x0 x1 0.5\n    ruleCenter horizontalRule y0 y1 == ruleBetween horizontalRule y0 y1 0.5\n\n",
+        "type": "(Int -> Scaffold.Layout.Rule) -> Int -> Int -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "snapToRule",
+        "comment": " Snap an item's handle to a vertical or horizontal ruler. ",
+        "type": "Scaffold.Layout.Rule -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "spacedBetween",
+        "comment": " Distribute the items in the group along some Axis given a starting coordinate and an ending\ncoordinate, such that the spaces between all of the items are even, resulting in a justified layout.\nVertical distribution is done top to bottom, horizontal distribution is done left to right.\n\nThe height or width of this vertical or horizontal distribution is\n\n    to - from\n\nand the coordinate not effected by the distribution is left in place.\n",
+        "type": "Scaffold.Layout.Axis -> Int -> Int -> Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "spacedBy",
+        "comment": " Distribute the items in the group along some Axis given a starting coordinate and spacing given\nin window coordinates, resulting in an evenly spaced horizontal or vertical distribution. Vertical\ndistribution is done top to bottom, horizontal distribution is done left to right.\n\nThe height or width of this vertical or horizontal distribution is\n\n    from + siz * (n - 1) + (sum itemHeight items)\n\nand the coordinate not effected by the distribution is left in place.\n\n",
+        "type": "Scaffold.Layout.Axis -> Int -> Int -> Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "thenDo",
+        "comment": " Apply some transformation to every item in the group after the pending transformations. ",
+        "type": "(Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "thenDoAt",
+        "comment": " Apply some transformation to the item at a particular index in the group after the pending transformations. ",
+        "type": "Int -> (Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "thenDoSlice",
+        "comment": " Apply some transformation to the items in a particular slice of the group after the pending transformations. ",
+        "type": "Int -> Int -> (Scaffold.Layout.Item -> Scaffold.Layout.Item) -> Scaffold.Layout.Group -> Scaffold.Layout.Group"
+      },
+      {
+        "name": "toItem",
+        "comment": " Convert a Graphics Element to an Item ",
+        "type": "Graphics.Element.Element -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "towardsRule",
+        "comment": " Move an item's handle toward a vertical or horizontal ruler by some constant amount. ",
+        "type": "Scaffold.Layout.Rule -> Int -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "towardsRuleRelative",
+        "comment": " Move an item's handle toward a vertical or horizontal ruler by some factor t  ",
+        "type": "Scaffold.Layout.Rule -> Float -> Scaffold.Layout.Item -> Scaffold.Layout.Item"
+      },
+      {
+        "name": "verticalRule",
+        "comment": " Create a new vertical ruler at the given x coordinate. ",
+        "type": "Int -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "verticalRuleBetween",
+        "comment": " Shorthand for ruleBetween verticalRule ",
+        "type": "Int -> Int -> Float -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "verticalRuleCentered",
+        "comment": " Shorthand for ruleCenter verticalRule ",
+        "type": "Int -> Int -> Scaffold.Layout.Rule"
+      },
+      {
+        "name": "vertically",
+        "comment": " Do a distribution vertically. ",
+        "type": "Scaffold.Layout.Axis"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

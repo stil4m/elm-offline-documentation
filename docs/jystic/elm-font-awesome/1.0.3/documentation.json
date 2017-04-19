@@ -1,1 +1,2976 @@
-[{"name":"FontAwesome","comment":"This module exposes 593 scalable vector icons as Elm HTML\ncomponents. If you need to use them as Elements, try the 'toElement'\nfunction from 'elm-html'.\n\n# Icons\n@docs adjust\n@docs adn\n@docs align_center\n@docs align_justify\n@docs align_left\n@docs align_right\n@docs ambulance\n@docs anchor\n@docs android\n@docs angellist\n@docs angle_double_down\n@docs angle_double_left\n@docs angle_double_right\n@docs angle_double_up\n@docs angle_down\n@docs angle_left\n@docs angle_right\n@docs angle_up\n@docs apple\n@docs archive\n@docs area_chart\n@docs arrow_circle_down\n@docs arrow_circle_left\n@docs arrow_circle_o_down\n@docs arrow_circle_o_left\n@docs arrow_circle_o_right\n@docs arrow_circle_o_up\n@docs arrow_circle_right\n@docs arrow_circle_up\n@docs arrow_down\n@docs arrow_left\n@docs arrow_right\n@docs arrow_up\n@docs arrows_alt\n@docs arrows_h\n@docs arrows_v\n@docs arrows\n@docs asterisk\n@docs at\n@docs automobile\n@docs backward\n@docs ban\n@docs bank\n@docs bar_chart_o\n@docs bar_chart\n@docs barcode\n@docs bars\n@docs bed\n@docs beer\n@docs behance_square\n@docs behance\n@docs bell_o\n@docs bell_slash_o\n@docs bell_slash\n@docs bell\n@docs bicycle\n@docs binoculars\n@docs birthday_cake\n@docs bitbucket_square\n@docs bitbucket\n@docs bitcoin\n@docs bold\n@docs bolt\n@docs bomb\n@docs book\n@docs bookmark_o\n@docs bookmark\n@docs briefcase\n@docs btc\n@docs bug\n@docs building_o\n@docs building\n@docs bullhorn\n@docs bullseye\n@docs bus\n@docs buysellads\n@docs cab\n@docs calculator\n@docs calendar_o\n@docs calendar\n@docs camera_retro\n@docs camera\n@docs car\n@docs caret_down\n@docs caret_left\n@docs caret_right\n@docs caret_square_o_down\n@docs caret_square_o_left\n@docs caret_square_o_right\n@docs caret_square_o_up\n@docs caret_up\n@docs cart_arrow_down\n@docs cart_plus\n@docs cc_amex\n@docs cc_discover\n@docs cc_mastercard\n@docs cc_paypal\n@docs cc_stripe\n@docs cc_visa\n@docs cc\n@docs certificate\n@docs chain_broken\n@docs chain\n@docs check_circle_o\n@docs check_circle\n@docs check_square_o\n@docs check_square\n@docs check\n@docs chevron_circle_down\n@docs chevron_circle_left\n@docs chevron_circle_right\n@docs chevron_circle_up\n@docs chevron_down\n@docs chevron_left\n@docs chevron_right\n@docs chevron_up\n@docs child\n@docs circle_o_notch\n@docs circle_o\n@docs circle_thin\n@docs circle\n@docs clipboard\n@docs clock_o\n@docs close\n@docs cloud_download\n@docs cloud_upload\n@docs cloud\n@docs cny\n@docs code_fork\n@docs code\n@docs codepen\n@docs coffee\n@docs cog\n@docs cogs\n@docs columns\n@docs comment_o\n@docs comment\n@docs comments_o\n@docs comments\n@docs compass\n@docs compress\n@docs connectdevelop\n@docs copy\n@docs copyright\n@docs credit_card\n@docs crop\n@docs crosshairs\n@docs css3\n@docs cube\n@docs cubes\n@docs cut\n@docs cutlery\n@docs dashboard\n@docs dashcube\n@docs database\n@docs dedent\n@docs delicious\n@docs desktop\n@docs deviantart\n@docs diamond\n@docs digg\n@docs dollar\n@docs dot_circle_o\n@docs download\n@docs dribbble\n@docs dropbox\n@docs drupal\n@docs edit\n@docs eject\n@docs ellipsis_h\n@docs ellipsis_v\n@docs empire\n@docs envelope_o\n@docs envelope_square\n@docs envelope\n@docs eraser\n@docs eur\n@docs euro\n@docs exchange\n@docs exclamation_circle\n@docs exclamation_triangle\n@docs exclamation\n@docs expand\n@docs external_link_square\n@docs external_link\n@docs eye_slash\n@docs eye\n@docs eyedropper\n@docs facebook_f\n@docs facebook_official\n@docs facebook_square\n@docs facebook\n@docs fast_backward\n@docs fast_forward\n@docs fax\n@docs female\n@docs fighter_jet\n@docs file_archive_o\n@docs file_audio_o\n@docs file_code_o\n@docs file_excel_o\n@docs file_image_o\n@docs file_movie_o\n@docs file_o\n@docs file_pdf_o\n@docs file_photo_o\n@docs file_picture_o\n@docs file_powerpoint_o\n@docs file_sound_o\n@docs file_text_o\n@docs file_text\n@docs file_video_o\n@docs file_word_o\n@docs file_zip_o\n@docs file\n@docs files_o\n@docs film\n@docs filter\n@docs fire_extinguisher\n@docs fire\n@docs flag_checkered\n@docs flag_o\n@docs flag\n@docs flash\n@docs flask\n@docs flickr\n@docs floppy_o\n@docs folder_o\n@docs folder_open_o\n@docs folder_open\n@docs folder\n@docs font\n@docs forumbee\n@docs forward\n@docs foursquare\n@docs frown_o\n@docs futbol_o\n@docs gamepad\n@docs gavel\n@docs gbp\n@docs ge\n@docs gear\n@docs gears\n@docs genderless\n@docs gift\n@docs git_square\n@docs git\n@docs github_alt\n@docs github_square\n@docs github\n@docs gittip\n@docs glass\n@docs globe\n@docs google_plus_square\n@docs google_plus\n@docs google_wallet\n@docs google\n@docs graduation_cap\n@docs gratipay\n@docs group\n@docs h_square\n@docs hacker_news\n@docs hand_o_down\n@docs hand_o_left\n@docs hand_o_right\n@docs hand_o_up\n@docs hdd_o\n@docs header\n@docs headphones\n@docs heart_o\n@docs heart\n@docs heartbeat\n@docs history\n@docs home\n@docs hospital_o\n@docs hotel\n@docs html5\n@docs ils\n@docs image\n@docs inbox\n@docs indent\n@docs info_circle\n@docs info\n@docs inr\n@docs instagram\n@docs institution\n@docs ioxhost\n@docs italic\n@docs joomla\n@docs jpy\n@docs jsfiddle\n@docs key\n@docs keyboard_o\n@docs krw\n@docs language\n@docs laptop\n@docs lastfm_square\n@docs lastfm\n@docs leaf\n@docs leanpub\n@docs legal\n@docs lemon_o\n@docs level_down\n@docs level_up\n@docs life_bouy\n@docs life_buoy\n@docs life_ring\n@docs life_saver\n@docs lightbulb_o\n@docs line_chart\n@docs link\n@docs linkedin_square\n@docs linkedin\n@docs linux\n@docs list_alt\n@docs list_ol\n@docs list_ul\n@docs list\n@docs location_arrow\n@docs lock\n@docs long_arrow_down\n@docs long_arrow_left\n@docs long_arrow_right\n@docs long_arrow_up\n@docs magic\n@docs magnet\n@docs mail_forward\n@docs mail_reply_all\n@docs mail_reply\n@docs male\n@docs map_marker\n@docs mars_double\n@docs mars_stroke_h\n@docs mars_stroke_v\n@docs mars_stroke\n@docs mars\n@docs maxcdn\n@docs meanpath\n@docs medium\n@docs medkit\n@docs meh_o\n@docs mercury\n@docs microphone_slash\n@docs microphone\n@docs minus_circle\n@docs minus_square_o\n@docs minus_square\n@docs minus\n@docs mobile_phone\n@docs mobile\n@docs money\n@docs moon_o\n@docs mortar_board\n@docs motorcycle\n@docs music\n@docs navicon\n@docs neuter\n@docs newspaper_o\n@docs openid\n@docs outdent\n@docs pagelines\n@docs paint_brush\n@docs paper_plane_o\n@docs paper_plane\n@docs paperclip\n@docs paragraph\n@docs paste\n@docs pause\n@docs paw\n@docs paypal\n@docs pencil_square_o\n@docs pencil_square\n@docs pencil\n@docs phone_square\n@docs phone\n@docs photo\n@docs picture_o\n@docs pie_chart\n@docs pied_piper_alt\n@docs pied_piper\n@docs pinterest_p\n@docs pinterest_square\n@docs pinterest\n@docs plane\n@docs play_circle_o\n@docs play_circle\n@docs play\n@docs plug\n@docs plus_circle\n@docs plus_square_o\n@docs plus_square\n@docs plus\n@docs power_off\n@docs print\n@docs puzzle_piece\n@docs qq\n@docs qrcode\n@docs question_circle\n@docs question\n@docs quote_left\n@docs quote_right\n@docs ra\n@docs random\n@docs rebel\n@docs recycle\n@docs reddit_square\n@docs reddit\n@docs refresh\n@docs remove\n@docs renren\n@docs reorder\n@docs repeat\n@docs reply_all\n@docs reply\n@docs retweet\n@docs rmb\n@docs road\n@docs rocket\n@docs rotate_left\n@docs rotate_right\n@docs rouble\n@docs rss_square\n@docs rss\n@docs rub\n@docs ruble\n@docs rupee\n@docs save\n@docs scissors\n@docs search_minus\n@docs search_plus\n@docs search\n@docs sellsy\n@docs send_o\n@docs send\n@docs server\n@docs share_alt_square\n@docs share_alt\n@docs share_square_o\n@docs share_square\n@docs share\n@docs shekel\n@docs sheqel\n@docs shield\n@docs ship\n@docs shirtsinbulk\n@docs shopping_cart\n@docs sign_in\n@docs sign_out\n@docs signal\n@docs simplybuilt\n@docs sitemap\n@docs skyatlas\n@docs skype\n@docs slack\n@docs sliders\n@docs slideshare\n@docs smile_o\n@docs soccer_ball_o\n@docs sort_alpha_asc\n@docs sort_alpha_desc\n@docs sort_amount_asc\n@docs sort_amount_desc\n@docs sort_asc\n@docs sort_desc\n@docs sort_down\n@docs sort_numeric_asc\n@docs sort_numeric_desc\n@docs sort_up\n@docs sort\n@docs soundcloud\n@docs space_shuttle\n@docs spinner\n@docs spoon\n@docs spotify\n@docs square_o\n@docs square\n@docs stack_exchange\n@docs stack_overflow\n@docs star_half_empty\n@docs star_half_full\n@docs star_half_o\n@docs star_half\n@docs star_o\n@docs star\n@docs steam_square\n@docs steam\n@docs step_backward\n@docs step_forward\n@docs stethoscope\n@docs stop\n@docs street_view\n@docs strikethrough\n@docs stumbleupon_circle\n@docs stumbleupon\n@docs subscript\n@docs subway\n@docs suitcase\n@docs sun_o\n@docs superscript\n@docs support\n@docs table\n@docs tablet\n@docs tachometer\n@docs tag\n@docs tags\n@docs tasks\n@docs taxi\n@docs tencent_weibo\n@docs terminal\n@docs text_height\n@docs text_width\n@docs th_large\n@docs th_list\n@docs th\n@docs thumb_tack\n@docs thumbs_down\n@docs thumbs_o_down\n@docs thumbs_o_up\n@docs thumbs_up\n@docs ticket\n@docs times_circle_o\n@docs times_circle\n@docs times\n@docs tint\n@docs toggle_down\n@docs toggle_left\n@docs toggle_off\n@docs toggle_on\n@docs toggle_right\n@docs toggle_up\n@docs train\n@docs transgender_alt\n@docs transgender\n@docs trash_o\n@docs trash\n@docs tree\n@docs trello\n@docs trophy\n@docs truck\n@docs try\n@docs tty\n@docs tumblr_square\n@docs tumblr\n@docs turkish_lira\n@docs twitch\n@docs twitter_square\n@docs twitter\n@docs umbrella\n@docs underline\n@docs undo\n@docs university\n@docs unlink\n@docs unlock_alt\n@docs unlock\n@docs unsorted\n@docs upload\n@docs usd\n@docs user_md\n@docs user_plus\n@docs user_secret\n@docs user_times\n@docs user\n@docs users\n@docs venus_double\n@docs venus_mars\n@docs venus\n@docs viacoin\n@docs video_camera\n@docs vimeo_square\n@docs vine\n@docs vk\n@docs volume_down\n@docs volume_off\n@docs volume_up\n@docs warning\n@docs wechat\n@docs weibo\n@docs weixin\n@docs whatsapp\n@docs wheelchair\n@docs wifi\n@docs windows\n@docs won\n@docs wordpress\n@docs wrench\n@docs xing_square\n@docs xing\n@docs yahoo\n@docs yelp\n@docs yen\n@docs youtube_play\n@docs youtube_square\n@docs youtube","aliases":[],"types":[],"values":[{"name":"adjust","comment":"","type":"Color -> Int -> Html"},{"name":"adn","comment":"","type":"Color -> Int -> Html"},{"name":"align_center","comment":"","type":"Color -> Int -> Html"},{"name":"align_justify","comment":"","type":"Color -> Int -> Html"},{"name":"align_left","comment":"","type":"Color -> Int -> Html"},{"name":"align_right","comment":"","type":"Color -> Int -> Html"},{"name":"ambulance","comment":"","type":"Color -> Int -> Html"},{"name":"anchor","comment":"","type":"Color -> Int -> Html"},{"name":"android","comment":"","type":"Color -> Int -> Html"},{"name":"angellist","comment":"","type":"Color -> Int -> Html"},{"name":"angle_double_down","comment":"","type":"Color -> Int -> Html"},{"name":"angle_double_left","comment":"","type":"Color -> Int -> Html"},{"name":"angle_double_right","comment":"","type":"Color -> Int -> Html"},{"name":"angle_double_up","comment":"","type":"Color -> Int -> Html"},{"name":"angle_down","comment":"","type":"Color -> Int -> Html"},{"name":"angle_left","comment":"","type":"Color -> Int -> Html"},{"name":"angle_right","comment":"","type":"Color -> Int -> Html"},{"name":"angle_up","comment":"","type":"Color -> Int -> Html"},{"name":"apple","comment":"","type":"Color -> Int -> Html"},{"name":"archive","comment":"","type":"Color -> Int -> Html"},{"name":"area_chart","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_circle_down","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_circle_left","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_circle_o_down","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_circle_o_left","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_circle_o_right","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_circle_o_up","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_circle_right","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_circle_up","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_down","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_left","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_right","comment":"","type":"Color -> Int -> Html"},{"name":"arrow_up","comment":"","type":"Color -> Int -> Html"},{"name":"arrows","comment":"","type":"Color -> Int -> Html"},{"name":"arrows_alt","comment":"","type":"Color -> Int -> Html"},{"name":"arrows_h","comment":"","type":"Color -> Int -> Html"},{"name":"arrows_v","comment":"","type":"Color -> Int -> Html"},{"name":"asterisk","comment":"","type":"Color -> Int -> Html"},{"name":"at","comment":"","type":"Color -> Int -> Html"},{"name":"automobile","comment":"","type":"Color -> Int -> Html"},{"name":"backward","comment":"","type":"Color -> Int -> Html"},{"name":"ban","comment":"","type":"Color -> Int -> Html"},{"name":"bank","comment":"","type":"Color -> Int -> Html"},{"name":"bar_chart","comment":"","type":"Color -> Int -> Html"},{"name":"bar_chart_o","comment":"","type":"Color -> Int -> Html"},{"name":"barcode","comment":"","type":"Color -> Int -> Html"},{"name":"bars","comment":"","type":"Color -> Int -> Html"},{"name":"bed","comment":"","type":"Color -> Int -> Html"},{"name":"beer","comment":"","type":"Color -> Int -> Html"},{"name":"behance","comment":"","type":"Color -> Int -> Html"},{"name":"behance_square","comment":"","type":"Color -> Int -> Html"},{"name":"bell","comment":"","type":"Color -> Int -> Html"},{"name":"bell_o","comment":"","type":"Color -> Int -> Html"},{"name":"bell_slash","comment":"","type":"Color -> Int -> Html"},{"name":"bell_slash_o","comment":"","type":"Color -> Int -> Html"},{"name":"bicycle","comment":"","type":"Color -> Int -> Html"},{"name":"binoculars","comment":"","type":"Color -> Int -> Html"},{"name":"birthday_cake","comment":"","type":"Color -> Int -> Html"},{"name":"bitbucket","comment":"","type":"Color -> Int -> Html"},{"name":"bitbucket_square","comment":"","type":"Color -> Int -> Html"},{"name":"bitcoin","comment":"","type":"Color -> Int -> Html"},{"name":"bold","comment":"","type":"Color -> Int -> Html"},{"name":"bolt","comment":"","type":"Color -> Int -> Html"},{"name":"bomb","comment":"","type":"Color -> Int -> Html"},{"name":"book","comment":"","type":"Color -> Int -> Html"},{"name":"bookmark","comment":"","type":"Color -> Int -> Html"},{"name":"bookmark_o","comment":"","type":"Color -> Int -> Html"},{"name":"briefcase","comment":"","type":"Color -> Int -> Html"},{"name":"btc","comment":"","type":"Color -> Int -> Html"},{"name":"bug","comment":"","type":"Color -> Int -> Html"},{"name":"building","comment":"","type":"Color -> Int -> Html"},{"name":"building_o","comment":"","type":"Color -> Int -> Html"},{"name":"bullhorn","comment":"","type":"Color -> Int -> Html"},{"name":"bullseye","comment":"","type":"Color -> Int -> Html"},{"name":"bus","comment":"","type":"Color -> Int -> Html"},{"name":"buysellads","comment":"","type":"Color -> Int -> Html"},{"name":"cab","comment":"","type":"Color -> Int -> Html"},{"name":"calculator","comment":"","type":"Color -> Int -> Html"},{"name":"calendar","comment":"","type":"Color -> Int -> Html"},{"name":"calendar_o","comment":"","type":"Color -> Int -> Html"},{"name":"camera","comment":"","type":"Color -> Int -> Html"},{"name":"camera_retro","comment":"","type":"Color -> Int -> Html"},{"name":"car","comment":"","type":"Color -> Int -> Html"},{"name":"caret_down","comment":"","type":"Color -> Int -> Html"},{"name":"caret_left","comment":"","type":"Color -> Int -> Html"},{"name":"caret_right","comment":"","type":"Color -> Int -> Html"},{"name":"caret_square_o_down","comment":"","type":"Color -> Int -> Html"},{"name":"caret_square_o_left","comment":"","type":"Color -> Int -> Html"},{"name":"caret_square_o_right","comment":"","type":"Color -> Int -> Html"},{"name":"caret_square_o_up","comment":"","type":"Color -> Int -> Html"},{"name":"caret_up","comment":"","type":"Color -> Int -> Html"},{"name":"cart_arrow_down","comment":"","type":"Color -> Int -> Html"},{"name":"cart_plus","comment":"","type":"Color -> Int -> Html"},{"name":"cc","comment":"","type":"Color -> Int -> Html"},{"name":"cc_amex","comment":"","type":"Color -> Int -> Html"},{"name":"cc_discover","comment":"","type":"Color -> Int -> Html"},{"name":"cc_mastercard","comment":"","type":"Color -> Int -> Html"},{"name":"cc_paypal","comment":"","type":"Color -> Int -> Html"},{"name":"cc_stripe","comment":"","type":"Color -> Int -> Html"},{"name":"cc_visa","comment":"","type":"Color -> Int -> Html"},{"name":"certificate","comment":"","type":"Color -> Int -> Html"},{"name":"chain","comment":"","type":"Color -> Int -> Html"},{"name":"chain_broken","comment":"","type":"Color -> Int -> Html"},{"name":"check","comment":"","type":"Color -> Int -> Html"},{"name":"check_circle","comment":"","type":"Color -> Int -> Html"},{"name":"check_circle_o","comment":"","type":"Color -> Int -> Html"},{"name":"check_square","comment":"","type":"Color -> Int -> Html"},{"name":"check_square_o","comment":"","type":"Color -> Int -> Html"},{"name":"chevron_circle_down","comment":"","type":"Color -> Int -> Html"},{"name":"chevron_circle_left","comment":"","type":"Color -> Int -> Html"},{"name":"chevron_circle_right","comment":"","type":"Color -> Int -> Html"},{"name":"chevron_circle_up","comment":"","type":"Color -> Int -> Html"},{"name":"chevron_down","comment":"","type":"Color -> Int -> Html"},{"name":"chevron_left","comment":"","type":"Color -> Int -> Html"},{"name":"chevron_right","comment":"","type":"Color -> Int -> Html"},{"name":"chevron_up","comment":"","type":"Color -> Int -> Html"},{"name":"child","comment":"","type":"Color -> Int -> Html"},{"name":"circle","comment":"","type":"Color -> Int -> Html"},{"name":"circle_o","comment":"","type":"Color -> Int -> Html"},{"name":"circle_o_notch","comment":"","type":"Color -> Int -> Html"},{"name":"circle_thin","comment":"","type":"Color -> Int -> Html"},{"name":"clipboard","comment":"","type":"Color -> Int -> Html"},{"name":"clock_o","comment":"","type":"Color -> Int -> Html"},{"name":"close","comment":"","type":"Color -> Int -> Html"},{"name":"cloud","comment":"","type":"Color -> Int -> Html"},{"name":"cloud_download","comment":"","type":"Color -> Int -> Html"},{"name":"cloud_upload","comment":"","type":"Color -> Int -> Html"},{"name":"cny","comment":"","type":"Color -> Int -> Html"},{"name":"code","comment":"","type":"Color -> Int -> Html"},{"name":"code_fork","comment":"","type":"Color -> Int -> Html"},{"name":"codepen","comment":"","type":"Color -> Int -> Html"},{"name":"coffee","comment":"","type":"Color -> Int -> Html"},{"name":"cog","comment":"","type":"Color -> Int -> Html"},{"name":"cogs","comment":"","type":"Color -> Int -> Html"},{"name":"columns","comment":"","type":"Color -> Int -> Html"},{"name":"comment","comment":"","type":"Color -> Int -> Html"},{"name":"comment_o","comment":"","type":"Color -> Int -> Html"},{"name":"comments","comment":"","type":"Color -> Int -> Html"},{"name":"comments_o","comment":"","type":"Color -> Int -> Html"},{"name":"compass","comment":"","type":"Color -> Int -> Html"},{"name":"compress","comment":"","type":"Color -> Int -> Html"},{"name":"connectdevelop","comment":"","type":"Color -> Int -> Html"},{"name":"copy","comment":"","type":"Color -> Int -> Html"},{"name":"copyright","comment":"","type":"Color -> Int -> Html"},{"name":"credit_card","comment":"","type":"Color -> Int -> Html"},{"name":"crop","comment":"","type":"Color -> Int -> Html"},{"name":"crosshairs","comment":"","type":"Color -> Int -> Html"},{"name":"css3","comment":"","type":"Color -> Int -> Html"},{"name":"cube","comment":"","type":"Color -> Int -> Html"},{"name":"cubes","comment":"","type":"Color -> Int -> Html"},{"name":"cut","comment":"","type":"Color -> Int -> Html"},{"name":"cutlery","comment":"","type":"Color -> Int -> Html"},{"name":"dashboard","comment":"","type":"Color -> Int -> Html"},{"name":"dashcube","comment":"","type":"Color -> Int -> Html"},{"name":"database","comment":"","type":"Color -> Int -> Html"},{"name":"dedent","comment":"","type":"Color -> Int -> Html"},{"name":"delicious","comment":"","type":"Color -> Int -> Html"},{"name":"desktop","comment":"","type":"Color -> Int -> Html"},{"name":"deviantart","comment":"","type":"Color -> Int -> Html"},{"name":"diamond","comment":"","type":"Color -> Int -> Html"},{"name":"digg","comment":"","type":"Color -> Int -> Html"},{"name":"dollar","comment":"","type":"Color -> Int -> Html"},{"name":"dot_circle_o","comment":"","type":"Color -> Int -> Html"},{"name":"download","comment":"","type":"Color -> Int -> Html"},{"name":"dribbble","comment":"","type":"Color -> Int -> Html"},{"name":"dropbox","comment":"","type":"Color -> Int -> Html"},{"name":"drupal","comment":"","type":"Color -> Int -> Html"},{"name":"edit","comment":"","type":"Color -> Int -> Html"},{"name":"eject","comment":"","type":"Color -> Int -> Html"},{"name":"ellipsis_h","comment":"","type":"Color -> Int -> Html"},{"name":"ellipsis_v","comment":"","type":"Color -> Int -> Html"},{"name":"empire","comment":"","type":"Color -> Int -> Html"},{"name":"envelope","comment":"","type":"Color -> Int -> Html"},{"name":"envelope_o","comment":"","type":"Color -> Int -> Html"},{"name":"envelope_square","comment":"","type":"Color -> Int -> Html"},{"name":"eraser","comment":"","type":"Color -> Int -> Html"},{"name":"eur","comment":"","type":"Color -> Int -> Html"},{"name":"euro","comment":"","type":"Color -> Int -> Html"},{"name":"exchange","comment":"","type":"Color -> Int -> Html"},{"name":"exclamation","comment":"","type":"Color -> Int -> Html"},{"name":"exclamation_circle","comment":"","type":"Color -> Int -> Html"},{"name":"exclamation_triangle","comment":"","type":"Color -> Int -> Html"},{"name":"expand","comment":"","type":"Color -> Int -> Html"},{"name":"external_link","comment":"","type":"Color -> Int -> Html"},{"name":"external_link_square","comment":"","type":"Color -> Int -> Html"},{"name":"eye","comment":"","type":"Color -> Int -> Html"},{"name":"eye_slash","comment":"","type":"Color -> Int -> Html"},{"name":"eyedropper","comment":"","type":"Color -> Int -> Html"},{"name":"facebook","comment":"","type":"Color -> Int -> Html"},{"name":"facebook_f","comment":"","type":"Color -> Int -> Html"},{"name":"facebook_official","comment":"","type":"Color -> Int -> Html"},{"name":"facebook_square","comment":"","type":"Color -> Int -> Html"},{"name":"fast_backward","comment":"","type":"Color -> Int -> Html"},{"name":"fast_forward","comment":"","type":"Color -> Int -> Html"},{"name":"fax","comment":"","type":"Color -> Int -> Html"},{"name":"female","comment":"","type":"Color -> Int -> Html"},{"name":"fighter_jet","comment":"","type":"Color -> Int -> Html"},{"name":"file","comment":"","type":"Color -> Int -> Html"},{"name":"file_archive_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_audio_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_code_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_excel_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_image_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_movie_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_pdf_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_photo_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_picture_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_powerpoint_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_sound_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_text","comment":"","type":"Color -> Int -> Html"},{"name":"file_text_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_video_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_word_o","comment":"","type":"Color -> Int -> Html"},{"name":"file_zip_o","comment":"","type":"Color -> Int -> Html"},{"name":"files_o","comment":"","type":"Color -> Int -> Html"},{"name":"film","comment":"","type":"Color -> Int -> Html"},{"name":"filter","comment":"","type":"Color -> Int -> Html"},{"name":"fire","comment":"","type":"Color -> Int -> Html"},{"name":"fire_extinguisher","comment":"","type":"Color -> Int -> Html"},{"name":"flag","comment":"","type":"Color -> Int -> Html"},{"name":"flag_checkered","comment":"","type":"Color -> Int -> Html"},{"name":"flag_o","comment":"","type":"Color -> Int -> Html"},{"name":"flash","comment":"","type":"Color -> Int -> Html"},{"name":"flask","comment":"","type":"Color -> Int -> Html"},{"name":"flickr","comment":"","type":"Color -> Int -> Html"},{"name":"floppy_o","comment":"","type":"Color -> Int -> Html"},{"name":"folder","comment":"","type":"Color -> Int -> Html"},{"name":"folder_o","comment":"","type":"Color -> Int -> Html"},{"name":"folder_open","comment":"","type":"Color -> Int -> Html"},{"name":"folder_open_o","comment":"","type":"Color -> Int -> Html"},{"name":"font","comment":"","type":"Color -> Int -> Html"},{"name":"forumbee","comment":"","type":"Color -> Int -> Html"},{"name":"forward","comment":"","type":"Color -> Int -> Html"},{"name":"foursquare","comment":"","type":"Color -> Int -> Html"},{"name":"frown_o","comment":"","type":"Color -> Int -> Html"},{"name":"futbol_o","comment":"","type":"Color -> Int -> Html"},{"name":"gamepad","comment":"","type":"Color -> Int -> Html"},{"name":"gavel","comment":"","type":"Color -> Int -> Html"},{"name":"gbp","comment":"","type":"Color -> Int -> Html"},{"name":"ge","comment":"","type":"Color -> Int -> Html"},{"name":"gear","comment":"","type":"Color -> Int -> Html"},{"name":"gears","comment":"","type":"Color -> Int -> Html"},{"name":"genderless","comment":"","type":"Color -> Int -> Html"},{"name":"gift","comment":"","type":"Color -> Int -> Html"},{"name":"git","comment":"","type":"Color -> Int -> Html"},{"name":"git_square","comment":"","type":"Color -> Int -> Html"},{"name":"github","comment":"","type":"Color -> Int -> Html"},{"name":"github_alt","comment":"","type":"Color -> Int -> Html"},{"name":"github_square","comment":"","type":"Color -> Int -> Html"},{"name":"gittip","comment":"","type":"Color -> Int -> Html"},{"name":"glass","comment":"","type":"Color -> Int -> Html"},{"name":"globe","comment":"","type":"Color -> Int -> Html"},{"name":"google","comment":"","type":"Color -> Int -> Html"},{"name":"google_plus","comment":"","type":"Color -> Int -> Html"},{"name":"google_plus_square","comment":"","type":"Color -> Int -> Html"},{"name":"google_wallet","comment":"","type":"Color -> Int -> Html"},{"name":"graduation_cap","comment":"","type":"Color -> Int -> Html"},{"name":"gratipay","comment":"","type":"Color -> Int -> Html"},{"name":"group","comment":"","type":"Color -> Int -> Html"},{"name":"h_square","comment":"","type":"Color -> Int -> Html"},{"name":"hacker_news","comment":"","type":"Color -> Int -> Html"},{"name":"hand_o_down","comment":"","type":"Color -> Int -> Html"},{"name":"hand_o_left","comment":"","type":"Color -> Int -> Html"},{"name":"hand_o_right","comment":"","type":"Color -> Int -> Html"},{"name":"hand_o_up","comment":"","type":"Color -> Int -> Html"},{"name":"hdd_o","comment":"","type":"Color -> Int -> Html"},{"name":"header","comment":"","type":"Color -> Int -> Html"},{"name":"headphones","comment":"","type":"Color -> Int -> Html"},{"name":"heart","comment":"","type":"Color -> Int -> Html"},{"name":"heart_o","comment":"","type":"Color -> Int -> Html"},{"name":"heartbeat","comment":"","type":"Color -> Int -> Html"},{"name":"history","comment":"","type":"Color -> Int -> Html"},{"name":"home","comment":"","type":"Color -> Int -> Html"},{"name":"hospital_o","comment":"","type":"Color -> Int -> Html"},{"name":"hotel","comment":"","type":"Color -> Int -> Html"},{"name":"html5","comment":"","type":"Color -> Int -> Html"},{"name":"ils","comment":"","type":"Color -> Int -> Html"},{"name":"image","comment":"","type":"Color -> Int -> Html"},{"name":"inbox","comment":"","type":"Color -> Int -> Html"},{"name":"indent","comment":"","type":"Color -> Int -> Html"},{"name":"info","comment":"","type":"Color -> Int -> Html"},{"name":"info_circle","comment":"","type":"Color -> Int -> Html"},{"name":"inr","comment":"","type":"Color -> Int -> Html"},{"name":"instagram","comment":"","type":"Color -> Int -> Html"},{"name":"institution","comment":"","type":"Color -> Int -> Html"},{"name":"ioxhost","comment":"","type":"Color -> Int -> Html"},{"name":"italic","comment":"","type":"Color -> Int -> Html"},{"name":"joomla","comment":"","type":"Color -> Int -> Html"},{"name":"jpy","comment":"","type":"Color -> Int -> Html"},{"name":"jsfiddle","comment":"","type":"Color -> Int -> Html"},{"name":"key","comment":"","type":"Color -> Int -> Html"},{"name":"keyboard_o","comment":"","type":"Color -> Int -> Html"},{"name":"krw","comment":"","type":"Color -> Int -> Html"},{"name":"language","comment":"","type":"Color -> Int -> Html"},{"name":"laptop","comment":"","type":"Color -> Int -> Html"},{"name":"lastfm","comment":"","type":"Color -> Int -> Html"},{"name":"lastfm_square","comment":"","type":"Color -> Int -> Html"},{"name":"leaf","comment":"","type":"Color -> Int -> Html"},{"name":"leanpub","comment":"","type":"Color -> Int -> Html"},{"name":"legal","comment":"","type":"Color -> Int -> Html"},{"name":"lemon_o","comment":"","type":"Color -> Int -> Html"},{"name":"level_down","comment":"","type":"Color -> Int -> Html"},{"name":"level_up","comment":"","type":"Color -> Int -> Html"},{"name":"life_bouy","comment":"","type":"Color -> Int -> Html"},{"name":"life_buoy","comment":"","type":"Color -> Int -> Html"},{"name":"life_ring","comment":"","type":"Color -> Int -> Html"},{"name":"life_saver","comment":"","type":"Color -> Int -> Html"},{"name":"lightbulb_o","comment":"","type":"Color -> Int -> Html"},{"name":"line_chart","comment":"","type":"Color -> Int -> Html"},{"name":"link","comment":"","type":"Color -> Int -> Html"},{"name":"linkedin","comment":"","type":"Color -> Int -> Html"},{"name":"linkedin_square","comment":"","type":"Color -> Int -> Html"},{"name":"linux","comment":"","type":"Color -> Int -> Html"},{"name":"list","comment":"","type":"Color -> Int -> Html"},{"name":"list_alt","comment":"","type":"Color -> Int -> Html"},{"name":"list_ol","comment":"","type":"Color -> Int -> Html"},{"name":"list_ul","comment":"","type":"Color -> Int -> Html"},{"name":"location_arrow","comment":"","type":"Color -> Int -> Html"},{"name":"lock","comment":"","type":"Color -> Int -> Html"},{"name":"long_arrow_down","comment":"","type":"Color -> Int -> Html"},{"name":"long_arrow_left","comment":"","type":"Color -> Int -> Html"},{"name":"long_arrow_right","comment":"","type":"Color -> Int -> Html"},{"name":"long_arrow_up","comment":"","type":"Color -> Int -> Html"},{"name":"magic","comment":"","type":"Color -> Int -> Html"},{"name":"magnet","comment":"","type":"Color -> Int -> Html"},{"name":"mail_forward","comment":"","type":"Color -> Int -> Html"},{"name":"mail_reply","comment":"","type":"Color -> Int -> Html"},{"name":"mail_reply_all","comment":"","type":"Color -> Int -> Html"},{"name":"male","comment":"","type":"Color -> Int -> Html"},{"name":"map_marker","comment":"","type":"Color -> Int -> Html"},{"name":"mars","comment":"","type":"Color -> Int -> Html"},{"name":"mars_double","comment":"","type":"Color -> Int -> Html"},{"name":"mars_stroke","comment":"","type":"Color -> Int -> Html"},{"name":"mars_stroke_h","comment":"","type":"Color -> Int -> Html"},{"name":"mars_stroke_v","comment":"","type":"Color -> Int -> Html"},{"name":"maxcdn","comment":"","type":"Color -> Int -> Html"},{"name":"meanpath","comment":"","type":"Color -> Int -> Html"},{"name":"medium","comment":"","type":"Color -> Int -> Html"},{"name":"medkit","comment":"","type":"Color -> Int -> Html"},{"name":"meh_o","comment":"","type":"Color -> Int -> Html"},{"name":"mercury","comment":"","type":"Color -> Int -> Html"},{"name":"microphone","comment":"","type":"Color -> Int -> Html"},{"name":"microphone_slash","comment":"","type":"Color -> Int -> Html"},{"name":"minus","comment":"","type":"Color -> Int -> Html"},{"name":"minus_circle","comment":"","type":"Color -> Int -> Html"},{"name":"minus_square","comment":"","type":"Color -> Int -> Html"},{"name":"minus_square_o","comment":"","type":"Color -> Int -> Html"},{"name":"mobile","comment":"","type":"Color -> Int -> Html"},{"name":"mobile_phone","comment":"","type":"Color -> Int -> Html"},{"name":"money","comment":"","type":"Color -> Int -> Html"},{"name":"moon_o","comment":"","type":"Color -> Int -> Html"},{"name":"mortar_board","comment":"","type":"Color -> Int -> Html"},{"name":"motorcycle","comment":"","type":"Color -> Int -> Html"},{"name":"music","comment":"","type":"Color -> Int -> Html"},{"name":"navicon","comment":"","type":"Color -> Int -> Html"},{"name":"neuter","comment":"","type":"Color -> Int -> Html"},{"name":"newspaper_o","comment":"","type":"Color -> Int -> Html"},{"name":"openid","comment":"","type":"Color -> Int -> Html"},{"name":"outdent","comment":"","type":"Color -> Int -> Html"},{"name":"pagelines","comment":"","type":"Color -> Int -> Html"},{"name":"paint_brush","comment":"","type":"Color -> Int -> Html"},{"name":"paper_plane","comment":"","type":"Color -> Int -> Html"},{"name":"paper_plane_o","comment":"","type":"Color -> Int -> Html"},{"name":"paperclip","comment":"","type":"Color -> Int -> Html"},{"name":"paragraph","comment":"","type":"Color -> Int -> Html"},{"name":"paste","comment":"","type":"Color -> Int -> Html"},{"name":"pause","comment":"","type":"Color -> Int -> Html"},{"name":"paw","comment":"","type":"Color -> Int -> Html"},{"name":"paypal","comment":"","type":"Color -> Int -> Html"},{"name":"pencil","comment":"","type":"Color -> Int -> Html"},{"name":"pencil_square","comment":"","type":"Color -> Int -> Html"},{"name":"pencil_square_o","comment":"","type":"Color -> Int -> Html"},{"name":"phone","comment":"","type":"Color -> Int -> Html"},{"name":"phone_square","comment":"","type":"Color -> Int -> Html"},{"name":"photo","comment":"","type":"Color -> Int -> Html"},{"name":"picture_o","comment":"","type":"Color -> Int -> Html"},{"name":"pie_chart","comment":"","type":"Color -> Int -> Html"},{"name":"pied_piper","comment":"","type":"Color -> Int -> Html"},{"name":"pied_piper_alt","comment":"","type":"Color -> Int -> Html"},{"name":"pinterest","comment":"","type":"Color -> Int -> Html"},{"name":"pinterest_p","comment":"","type":"Color -> Int -> Html"},{"name":"pinterest_square","comment":"","type":"Color -> Int -> Html"},{"name":"plane","comment":"","type":"Color -> Int -> Html"},{"name":"play","comment":"","type":"Color -> Int -> Html"},{"name":"play_circle","comment":"","type":"Color -> Int -> Html"},{"name":"play_circle_o","comment":"","type":"Color -> Int -> Html"},{"name":"plug","comment":"","type":"Color -> Int -> Html"},{"name":"plus","comment":"","type":"Color -> Int -> Html"},{"name":"plus_circle","comment":"","type":"Color -> Int -> Html"},{"name":"plus_square","comment":"","type":"Color -> Int -> Html"},{"name":"plus_square_o","comment":"","type":"Color -> Int -> Html"},{"name":"power_off","comment":"","type":"Color -> Int -> Html"},{"name":"print","comment":"","type":"Color -> Int -> Html"},{"name":"puzzle_piece","comment":"","type":"Color -> Int -> Html"},{"name":"qq","comment":"","type":"Color -> Int -> Html"},{"name":"qrcode","comment":"","type":"Color -> Int -> Html"},{"name":"question","comment":"","type":"Color -> Int -> Html"},{"name":"question_circle","comment":"","type":"Color -> Int -> Html"},{"name":"quote_left","comment":"","type":"Color -> Int -> Html"},{"name":"quote_right","comment":"","type":"Color -> Int -> Html"},{"name":"ra","comment":"","type":"Color -> Int -> Html"},{"name":"random","comment":"","type":"Color -> Int -> Html"},{"name":"rebel","comment":"","type":"Color -> Int -> Html"},{"name":"recycle","comment":"","type":"Color -> Int -> Html"},{"name":"reddit","comment":"","type":"Color -> Int -> Html"},{"name":"reddit_square","comment":"","type":"Color -> Int -> Html"},{"name":"refresh","comment":"","type":"Color -> Int -> Html"},{"name":"remove","comment":"","type":"Color -> Int -> Html"},{"name":"renren","comment":"","type":"Color -> Int -> Html"},{"name":"reorder","comment":"","type":"Color -> Int -> Html"},{"name":"repeat","comment":"","type":"Color -> Int -> Html"},{"name":"reply","comment":"","type":"Color -> Int -> Html"},{"name":"reply_all","comment":"","type":"Color -> Int -> Html"},{"name":"retweet","comment":"","type":"Color -> Int -> Html"},{"name":"rmb","comment":"","type":"Color -> Int -> Html"},{"name":"road","comment":"","type":"Color -> Int -> Html"},{"name":"rocket","comment":"","type":"Color -> Int -> Html"},{"name":"rotate_left","comment":"","type":"Color -> Int -> Html"},{"name":"rotate_right","comment":"","type":"Color -> Int -> Html"},{"name":"rouble","comment":"","type":"Color -> Int -> Html"},{"name":"rss","comment":"","type":"Color -> Int -> Html"},{"name":"rss_square","comment":"","type":"Color -> Int -> Html"},{"name":"rub","comment":"","type":"Color -> Int -> Html"},{"name":"ruble","comment":"","type":"Color -> Int -> Html"},{"name":"rupee","comment":"","type":"Color -> Int -> Html"},{"name":"save","comment":"","type":"Color -> Int -> Html"},{"name":"scissors","comment":"","type":"Color -> Int -> Html"},{"name":"search","comment":"","type":"Color -> Int -> Html"},{"name":"search_minus","comment":"","type":"Color -> Int -> Html"},{"name":"search_plus","comment":"","type":"Color -> Int -> Html"},{"name":"sellsy","comment":"","type":"Color -> Int -> Html"},{"name":"send","comment":"","type":"Color -> Int -> Html"},{"name":"send_o","comment":"","type":"Color -> Int -> Html"},{"name":"server","comment":"","type":"Color -> Int -> Html"},{"name":"share","comment":"","type":"Color -> Int -> Html"},{"name":"share_alt","comment":"","type":"Color -> Int -> Html"},{"name":"share_alt_square","comment":"","type":"Color -> Int -> Html"},{"name":"share_square","comment":"","type":"Color -> Int -> Html"},{"name":"share_square_o","comment":"","type":"Color -> Int -> Html"},{"name":"shekel","comment":"","type":"Color -> Int -> Html"},{"name":"sheqel","comment":"","type":"Color -> Int -> Html"},{"name":"shield","comment":"","type":"Color -> Int -> Html"},{"name":"ship","comment":"","type":"Color -> Int -> Html"},{"name":"shirtsinbulk","comment":"","type":"Color -> Int -> Html"},{"name":"shopping_cart","comment":"","type":"Color -> Int -> Html"},{"name":"sign_in","comment":"","type":"Color -> Int -> Html"},{"name":"sign_out","comment":"","type":"Color -> Int -> Html"},{"name":"signal","comment":"","type":"Color -> Int -> Html"},{"name":"simplybuilt","comment":"","type":"Color -> Int -> Html"},{"name":"sitemap","comment":"","type":"Color -> Int -> Html"},{"name":"skyatlas","comment":"","type":"Color -> Int -> Html"},{"name":"skype","comment":"","type":"Color -> Int -> Html"},{"name":"slack","comment":"","type":"Color -> Int -> Html"},{"name":"sliders","comment":"","type":"Color -> Int -> Html"},{"name":"slideshare","comment":"","type":"Color -> Int -> Html"},{"name":"smile_o","comment":"","type":"Color -> Int -> Html"},{"name":"soccer_ball_o","comment":"","type":"Color -> Int -> Html"},{"name":"sort","comment":"","type":"Color -> Int -> Html"},{"name":"sort_alpha_asc","comment":"","type":"Color -> Int -> Html"},{"name":"sort_alpha_desc","comment":"","type":"Color -> Int -> Html"},{"name":"sort_amount_asc","comment":"","type":"Color -> Int -> Html"},{"name":"sort_amount_desc","comment":"","type":"Color -> Int -> Html"},{"name":"sort_asc","comment":"","type":"Color -> Int -> Html"},{"name":"sort_desc","comment":"","type":"Color -> Int -> Html"},{"name":"sort_down","comment":"","type":"Color -> Int -> Html"},{"name":"sort_numeric_asc","comment":"","type":"Color -> Int -> Html"},{"name":"sort_numeric_desc","comment":"","type":"Color -> Int -> Html"},{"name":"sort_up","comment":"","type":"Color -> Int -> Html"},{"name":"soundcloud","comment":"","type":"Color -> Int -> Html"},{"name":"space_shuttle","comment":"","type":"Color -> Int -> Html"},{"name":"spinner","comment":"","type":"Color -> Int -> Html"},{"name":"spoon","comment":"","type":"Color -> Int -> Html"},{"name":"spotify","comment":"","type":"Color -> Int -> Html"},{"name":"square","comment":"","type":"Color -> Int -> Html"},{"name":"square_o","comment":"","type":"Color -> Int -> Html"},{"name":"stack_exchange","comment":"","type":"Color -> Int -> Html"},{"name":"stack_overflow","comment":"","type":"Color -> Int -> Html"},{"name":"star","comment":"","type":"Color -> Int -> Html"},{"name":"star_half","comment":"","type":"Color -> Int -> Html"},{"name":"star_half_empty","comment":"","type":"Color -> Int -> Html"},{"name":"star_half_full","comment":"","type":"Color -> Int -> Html"},{"name":"star_half_o","comment":"","type":"Color -> Int -> Html"},{"name":"star_o","comment":"","type":"Color -> Int -> Html"},{"name":"steam","comment":"","type":"Color -> Int -> Html"},{"name":"steam_square","comment":"","type":"Color -> Int -> Html"},{"name":"step_backward","comment":"","type":"Color -> Int -> Html"},{"name":"step_forward","comment":"","type":"Color -> Int -> Html"},{"name":"stethoscope","comment":"","type":"Color -> Int -> Html"},{"name":"stop","comment":"","type":"Color -> Int -> Html"},{"name":"street_view","comment":"","type":"Color -> Int -> Html"},{"name":"strikethrough","comment":"","type":"Color -> Int -> Html"},{"name":"stumbleupon","comment":"","type":"Color -> Int -> Html"},{"name":"stumbleupon_circle","comment":"","type":"Color -> Int -> Html"},{"name":"subscript","comment":"","type":"Color -> Int -> Html"},{"name":"subway","comment":"","type":"Color -> Int -> Html"},{"name":"suitcase","comment":"","type":"Color -> Int -> Html"},{"name":"sun_o","comment":"","type":"Color -> Int -> Html"},{"name":"superscript","comment":"","type":"Color -> Int -> Html"},{"name":"support","comment":"","type":"Color -> Int -> Html"},{"name":"table","comment":"","type":"Color -> Int -> Html"},{"name":"tablet","comment":"","type":"Color -> Int -> Html"},{"name":"tachometer","comment":"","type":"Color -> Int -> Html"},{"name":"tag","comment":"","type":"Color -> Int -> Html"},{"name":"tags","comment":"","type":"Color -> Int -> Html"},{"name":"tasks","comment":"","type":"Color -> Int -> Html"},{"name":"taxi","comment":"","type":"Color -> Int -> Html"},{"name":"tencent_weibo","comment":"","type":"Color -> Int -> Html"},{"name":"terminal","comment":"","type":"Color -> Int -> Html"},{"name":"text_height","comment":"","type":"Color -> Int -> Html"},{"name":"text_width","comment":"","type":"Color -> Int -> Html"},{"name":"th","comment":"","type":"Color -> Int -> Html"},{"name":"th_large","comment":"","type":"Color -> Int -> Html"},{"name":"th_list","comment":"","type":"Color -> Int -> Html"},{"name":"thumb_tack","comment":"","type":"Color -> Int -> Html"},{"name":"thumbs_down","comment":"","type":"Color -> Int -> Html"},{"name":"thumbs_o_down","comment":"","type":"Color -> Int -> Html"},{"name":"thumbs_o_up","comment":"","type":"Color -> Int -> Html"},{"name":"thumbs_up","comment":"","type":"Color -> Int -> Html"},{"name":"ticket","comment":"","type":"Color -> Int -> Html"},{"name":"times","comment":"","type":"Color -> Int -> Html"},{"name":"times_circle","comment":"","type":"Color -> Int -> Html"},{"name":"times_circle_o","comment":"","type":"Color -> Int -> Html"},{"name":"tint","comment":"","type":"Color -> Int -> Html"},{"name":"toggle_down","comment":"","type":"Color -> Int -> Html"},{"name":"toggle_left","comment":"","type":"Color -> Int -> Html"},{"name":"toggle_off","comment":"","type":"Color -> Int -> Html"},{"name":"toggle_on","comment":"","type":"Color -> Int -> Html"},{"name":"toggle_right","comment":"","type":"Color -> Int -> Html"},{"name":"toggle_up","comment":"","type":"Color -> Int -> Html"},{"name":"train","comment":"","type":"Color -> Int -> Html"},{"name":"transgender","comment":"","type":"Color -> Int -> Html"},{"name":"transgender_alt","comment":"","type":"Color -> Int -> Html"},{"name":"trash","comment":"","type":"Color -> Int -> Html"},{"name":"trash_o","comment":"","type":"Color -> Int -> Html"},{"name":"tree","comment":"","type":"Color -> Int -> Html"},{"name":"trello","comment":"","type":"Color -> Int -> Html"},{"name":"trophy","comment":"","type":"Color -> Int -> Html"},{"name":"truck","comment":"","type":"Color -> Int -> Html"},{"name":"try","comment":"","type":"Color -> Int -> Html"},{"name":"tty","comment":"","type":"Color -> Int -> Html"},{"name":"tumblr","comment":"","type":"Color -> Int -> Html"},{"name":"tumblr_square","comment":"","type":"Color -> Int -> Html"},{"name":"turkish_lira","comment":"","type":"Color -> Int -> Html"},{"name":"twitch","comment":"","type":"Color -> Int -> Html"},{"name":"twitter","comment":"","type":"Color -> Int -> Html"},{"name":"twitter_square","comment":"","type":"Color -> Int -> Html"},{"name":"umbrella","comment":"","type":"Color -> Int -> Html"},{"name":"underline","comment":"","type":"Color -> Int -> Html"},{"name":"undo","comment":"","type":"Color -> Int -> Html"},{"name":"university","comment":"","type":"Color -> Int -> Html"},{"name":"unlink","comment":"","type":"Color -> Int -> Html"},{"name":"unlock","comment":"","type":"Color -> Int -> Html"},{"name":"unlock_alt","comment":"","type":"Color -> Int -> Html"},{"name":"unsorted","comment":"","type":"Color -> Int -> Html"},{"name":"upload","comment":"","type":"Color -> Int -> Html"},{"name":"usd","comment":"","type":"Color -> Int -> Html"},{"name":"user","comment":"","type":"Color -> Int -> Html"},{"name":"user_md","comment":"","type":"Color -> Int -> Html"},{"name":"user_plus","comment":"","type":"Color -> Int -> Html"},{"name":"user_secret","comment":"","type":"Color -> Int -> Html"},{"name":"user_times","comment":"","type":"Color -> Int -> Html"},{"name":"users","comment":"","type":"Color -> Int -> Html"},{"name":"venus","comment":"","type":"Color -> Int -> Html"},{"name":"venus_double","comment":"","type":"Color -> Int -> Html"},{"name":"venus_mars","comment":"","type":"Color -> Int -> Html"},{"name":"viacoin","comment":"","type":"Color -> Int -> Html"},{"name":"video_camera","comment":"","type":"Color -> Int -> Html"},{"name":"vimeo_square","comment":"","type":"Color -> Int -> Html"},{"name":"vine","comment":"","type":"Color -> Int -> Html"},{"name":"vk","comment":"","type":"Color -> Int -> Html"},{"name":"volume_down","comment":"","type":"Color -> Int -> Html"},{"name":"volume_off","comment":"","type":"Color -> Int -> Html"},{"name":"volume_up","comment":"","type":"Color -> Int -> Html"},{"name":"warning","comment":"","type":"Color -> Int -> Html"},{"name":"wechat","comment":"","type":"Color -> Int -> Html"},{"name":"weibo","comment":"","type":"Color -> Int -> Html"},{"name":"weixin","comment":"","type":"Color -> Int -> Html"},{"name":"whatsapp","comment":"","type":"Color -> Int -> Html"},{"name":"wheelchair","comment":"","type":"Color -> Int -> Html"},{"name":"wifi","comment":"","type":"Color -> Int -> Html"},{"name":"windows","comment":"","type":"Color -> Int -> Html"},{"name":"won","comment":"","type":"Color -> Int -> Html"},{"name":"wordpress","comment":"","type":"Color -> Int -> Html"},{"name":"wrench","comment":"","type":"Color -> Int -> Html"},{"name":"xing","comment":"","type":"Color -> Int -> Html"},{"name":"xing_square","comment":"","type":"Color -> Int -> Html"},{"name":"yahoo","comment":"","type":"Color -> Int -> Html"},{"name":"yelp","comment":"","type":"Color -> Int -> Html"},{"name":"yen","comment":"","type":"Color -> Int -> Html"},{"name":"youtube","comment":"","type":"Color -> Int -> Html"},{"name":"youtube_play","comment":"","type":"Color -> Int -> Html"},{"name":"youtube_square","comment":"","type":"Color -> Int -> Html"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "FontAwesome",
+    "comment": "This module exposes 593 scalable vector icons as Elm HTML\ncomponents. If you need to use them as Elements, try the 'toElement'\nfunction from 'elm-html'.\n\n# Icons\n@docs adjust\n@docs adn\n@docs align_center\n@docs align_justify\n@docs align_left\n@docs align_right\n@docs ambulance\n@docs anchor\n@docs android\n@docs angellist\n@docs angle_double_down\n@docs angle_double_left\n@docs angle_double_right\n@docs angle_double_up\n@docs angle_down\n@docs angle_left\n@docs angle_right\n@docs angle_up\n@docs apple\n@docs archive\n@docs area_chart\n@docs arrow_circle_down\n@docs arrow_circle_left\n@docs arrow_circle_o_down\n@docs arrow_circle_o_left\n@docs arrow_circle_o_right\n@docs arrow_circle_o_up\n@docs arrow_circle_right\n@docs arrow_circle_up\n@docs arrow_down\n@docs arrow_left\n@docs arrow_right\n@docs arrow_up\n@docs arrows_alt\n@docs arrows_h\n@docs arrows_v\n@docs arrows\n@docs asterisk\n@docs at\n@docs automobile\n@docs backward\n@docs ban\n@docs bank\n@docs bar_chart_o\n@docs bar_chart\n@docs barcode\n@docs bars\n@docs bed\n@docs beer\n@docs behance_square\n@docs behance\n@docs bell_o\n@docs bell_slash_o\n@docs bell_slash\n@docs bell\n@docs bicycle\n@docs binoculars\n@docs birthday_cake\n@docs bitbucket_square\n@docs bitbucket\n@docs bitcoin\n@docs bold\n@docs bolt\n@docs bomb\n@docs book\n@docs bookmark_o\n@docs bookmark\n@docs briefcase\n@docs btc\n@docs bug\n@docs building_o\n@docs building\n@docs bullhorn\n@docs bullseye\n@docs bus\n@docs buysellads\n@docs cab\n@docs calculator\n@docs calendar_o\n@docs calendar\n@docs camera_retro\n@docs camera\n@docs car\n@docs caret_down\n@docs caret_left\n@docs caret_right\n@docs caret_square_o_down\n@docs caret_square_o_left\n@docs caret_square_o_right\n@docs caret_square_o_up\n@docs caret_up\n@docs cart_arrow_down\n@docs cart_plus\n@docs cc_amex\n@docs cc_discover\n@docs cc_mastercard\n@docs cc_paypal\n@docs cc_stripe\n@docs cc_visa\n@docs cc\n@docs certificate\n@docs chain_broken\n@docs chain\n@docs check_circle_o\n@docs check_circle\n@docs check_square_o\n@docs check_square\n@docs check\n@docs chevron_circle_down\n@docs chevron_circle_left\n@docs chevron_circle_right\n@docs chevron_circle_up\n@docs chevron_down\n@docs chevron_left\n@docs chevron_right\n@docs chevron_up\n@docs child\n@docs circle_o_notch\n@docs circle_o\n@docs circle_thin\n@docs circle\n@docs clipboard\n@docs clock_o\n@docs close\n@docs cloud_download\n@docs cloud_upload\n@docs cloud\n@docs cny\n@docs code_fork\n@docs code\n@docs codepen\n@docs coffee\n@docs cog\n@docs cogs\n@docs columns\n@docs comment_o\n@docs comment\n@docs comments_o\n@docs comments\n@docs compass\n@docs compress\n@docs connectdevelop\n@docs copy\n@docs copyright\n@docs credit_card\n@docs crop\n@docs crosshairs\n@docs css3\n@docs cube\n@docs cubes\n@docs cut\n@docs cutlery\n@docs dashboard\n@docs dashcube\n@docs database\n@docs dedent\n@docs delicious\n@docs desktop\n@docs deviantart\n@docs diamond\n@docs digg\n@docs dollar\n@docs dot_circle_o\n@docs download\n@docs dribbble\n@docs dropbox\n@docs drupal\n@docs edit\n@docs eject\n@docs ellipsis_h\n@docs ellipsis_v\n@docs empire\n@docs envelope_o\n@docs envelope_square\n@docs envelope\n@docs eraser\n@docs eur\n@docs euro\n@docs exchange\n@docs exclamation_circle\n@docs exclamation_triangle\n@docs exclamation\n@docs expand\n@docs external_link_square\n@docs external_link\n@docs eye_slash\n@docs eye\n@docs eyedropper\n@docs facebook_f\n@docs facebook_official\n@docs facebook_square\n@docs facebook\n@docs fast_backward\n@docs fast_forward\n@docs fax\n@docs female\n@docs fighter_jet\n@docs file_archive_o\n@docs file_audio_o\n@docs file_code_o\n@docs file_excel_o\n@docs file_image_o\n@docs file_movie_o\n@docs file_o\n@docs file_pdf_o\n@docs file_photo_o\n@docs file_picture_o\n@docs file_powerpoint_o\n@docs file_sound_o\n@docs file_text_o\n@docs file_text\n@docs file_video_o\n@docs file_word_o\n@docs file_zip_o\n@docs file\n@docs files_o\n@docs film\n@docs filter\n@docs fire_extinguisher\n@docs fire\n@docs flag_checkered\n@docs flag_o\n@docs flag\n@docs flash\n@docs flask\n@docs flickr\n@docs floppy_o\n@docs folder_o\n@docs folder_open_o\n@docs folder_open\n@docs folder\n@docs font\n@docs forumbee\n@docs forward\n@docs foursquare\n@docs frown_o\n@docs futbol_o\n@docs gamepad\n@docs gavel\n@docs gbp\n@docs ge\n@docs gear\n@docs gears\n@docs genderless\n@docs gift\n@docs git_square\n@docs git\n@docs github_alt\n@docs github_square\n@docs github\n@docs gittip\n@docs glass\n@docs globe\n@docs google_plus_square\n@docs google_plus\n@docs google_wallet\n@docs google\n@docs graduation_cap\n@docs gratipay\n@docs group\n@docs h_square\n@docs hacker_news\n@docs hand_o_down\n@docs hand_o_left\n@docs hand_o_right\n@docs hand_o_up\n@docs hdd_o\n@docs header\n@docs headphones\n@docs heart_o\n@docs heart\n@docs heartbeat\n@docs history\n@docs home\n@docs hospital_o\n@docs hotel\n@docs html5\n@docs ils\n@docs image\n@docs inbox\n@docs indent\n@docs info_circle\n@docs info\n@docs inr\n@docs instagram\n@docs institution\n@docs ioxhost\n@docs italic\n@docs joomla\n@docs jpy\n@docs jsfiddle\n@docs key\n@docs keyboard_o\n@docs krw\n@docs language\n@docs laptop\n@docs lastfm_square\n@docs lastfm\n@docs leaf\n@docs leanpub\n@docs legal\n@docs lemon_o\n@docs level_down\n@docs level_up\n@docs life_bouy\n@docs life_buoy\n@docs life_ring\n@docs life_saver\n@docs lightbulb_o\n@docs line_chart\n@docs link\n@docs linkedin_square\n@docs linkedin\n@docs linux\n@docs list_alt\n@docs list_ol\n@docs list_ul\n@docs list\n@docs location_arrow\n@docs lock\n@docs long_arrow_down\n@docs long_arrow_left\n@docs long_arrow_right\n@docs long_arrow_up\n@docs magic\n@docs magnet\n@docs mail_forward\n@docs mail_reply_all\n@docs mail_reply\n@docs male\n@docs map_marker\n@docs mars_double\n@docs mars_stroke_h\n@docs mars_stroke_v\n@docs mars_stroke\n@docs mars\n@docs maxcdn\n@docs meanpath\n@docs medium\n@docs medkit\n@docs meh_o\n@docs mercury\n@docs microphone_slash\n@docs microphone\n@docs minus_circle\n@docs minus_square_o\n@docs minus_square\n@docs minus\n@docs mobile_phone\n@docs mobile\n@docs money\n@docs moon_o\n@docs mortar_board\n@docs motorcycle\n@docs music\n@docs navicon\n@docs neuter\n@docs newspaper_o\n@docs openid\n@docs outdent\n@docs pagelines\n@docs paint_brush\n@docs paper_plane_o\n@docs paper_plane\n@docs paperclip\n@docs paragraph\n@docs paste\n@docs pause\n@docs paw\n@docs paypal\n@docs pencil_square_o\n@docs pencil_square\n@docs pencil\n@docs phone_square\n@docs phone\n@docs photo\n@docs picture_o\n@docs pie_chart\n@docs pied_piper_alt\n@docs pied_piper\n@docs pinterest_p\n@docs pinterest_square\n@docs pinterest\n@docs plane\n@docs play_circle_o\n@docs play_circle\n@docs play\n@docs plug\n@docs plus_circle\n@docs plus_square_o\n@docs plus_square\n@docs plus\n@docs power_off\n@docs print\n@docs puzzle_piece\n@docs qq\n@docs qrcode\n@docs question_circle\n@docs question\n@docs quote_left\n@docs quote_right\n@docs ra\n@docs random\n@docs rebel\n@docs recycle\n@docs reddit_square\n@docs reddit\n@docs refresh\n@docs remove\n@docs renren\n@docs reorder\n@docs repeat\n@docs reply_all\n@docs reply\n@docs retweet\n@docs rmb\n@docs road\n@docs rocket\n@docs rotate_left\n@docs rotate_right\n@docs rouble\n@docs rss_square\n@docs rss\n@docs rub\n@docs ruble\n@docs rupee\n@docs save\n@docs scissors\n@docs search_minus\n@docs search_plus\n@docs search\n@docs sellsy\n@docs send_o\n@docs send\n@docs server\n@docs share_alt_square\n@docs share_alt\n@docs share_square_o\n@docs share_square\n@docs share\n@docs shekel\n@docs sheqel\n@docs shield\n@docs ship\n@docs shirtsinbulk\n@docs shopping_cart\n@docs sign_in\n@docs sign_out\n@docs signal\n@docs simplybuilt\n@docs sitemap\n@docs skyatlas\n@docs skype\n@docs slack\n@docs sliders\n@docs slideshare\n@docs smile_o\n@docs soccer_ball_o\n@docs sort_alpha_asc\n@docs sort_alpha_desc\n@docs sort_amount_asc\n@docs sort_amount_desc\n@docs sort_asc\n@docs sort_desc\n@docs sort_down\n@docs sort_numeric_asc\n@docs sort_numeric_desc\n@docs sort_up\n@docs sort\n@docs soundcloud\n@docs space_shuttle\n@docs spinner\n@docs spoon\n@docs spotify\n@docs square_o\n@docs square\n@docs stack_exchange\n@docs stack_overflow\n@docs star_half_empty\n@docs star_half_full\n@docs star_half_o\n@docs star_half\n@docs star_o\n@docs star\n@docs steam_square\n@docs steam\n@docs step_backward\n@docs step_forward\n@docs stethoscope\n@docs stop\n@docs street_view\n@docs strikethrough\n@docs stumbleupon_circle\n@docs stumbleupon\n@docs subscript\n@docs subway\n@docs suitcase\n@docs sun_o\n@docs superscript\n@docs support\n@docs table\n@docs tablet\n@docs tachometer\n@docs tag\n@docs tags\n@docs tasks\n@docs taxi\n@docs tencent_weibo\n@docs terminal\n@docs text_height\n@docs text_width\n@docs th_large\n@docs th_list\n@docs th\n@docs thumb_tack\n@docs thumbs_down\n@docs thumbs_o_down\n@docs thumbs_o_up\n@docs thumbs_up\n@docs ticket\n@docs times_circle_o\n@docs times_circle\n@docs times\n@docs tint\n@docs toggle_down\n@docs toggle_left\n@docs toggle_off\n@docs toggle_on\n@docs toggle_right\n@docs toggle_up\n@docs train\n@docs transgender_alt\n@docs transgender\n@docs trash_o\n@docs trash\n@docs tree\n@docs trello\n@docs trophy\n@docs truck\n@docs try\n@docs tty\n@docs tumblr_square\n@docs tumblr\n@docs turkish_lira\n@docs twitch\n@docs twitter_square\n@docs twitter\n@docs umbrella\n@docs underline\n@docs undo\n@docs university\n@docs unlink\n@docs unlock_alt\n@docs unlock\n@docs unsorted\n@docs upload\n@docs usd\n@docs user_md\n@docs user_plus\n@docs user_secret\n@docs user_times\n@docs user\n@docs users\n@docs venus_double\n@docs venus_mars\n@docs venus\n@docs viacoin\n@docs video_camera\n@docs vimeo_square\n@docs vine\n@docs vk\n@docs volume_down\n@docs volume_off\n@docs volume_up\n@docs warning\n@docs wechat\n@docs weibo\n@docs weixin\n@docs whatsapp\n@docs wheelchair\n@docs wifi\n@docs windows\n@docs won\n@docs wordpress\n@docs wrench\n@docs xing_square\n@docs xing\n@docs yahoo\n@docs yelp\n@docs yen\n@docs youtube_play\n@docs youtube_square\n@docs youtube",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "adjust",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "adn",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "align_center",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "align_justify",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "align_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "align_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "ambulance",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "anchor",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "android",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "angellist",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "angle_double_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "angle_double_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "angle_double_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "angle_double_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "angle_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "angle_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "angle_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "angle_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "apple",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "archive",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "area_chart",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_circle_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_circle_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_circle_o_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_circle_o_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_circle_o_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_circle_o_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_circle_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_circle_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrow_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrows",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrows_alt",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrows_h",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "arrows_v",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "asterisk",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "at",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "automobile",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "backward",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "ban",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bank",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bar_chart",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bar_chart_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "barcode",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bars",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bed",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "beer",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "behance",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "behance_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bell",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bell_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bell_slash",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bell_slash_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bicycle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "binoculars",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "birthday_cake",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bitbucket",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bitbucket_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bitcoin",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bold",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bolt",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bomb",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "book",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bookmark",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bookmark_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "briefcase",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "btc",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bug",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "building",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "building_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bullhorn",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bullseye",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "bus",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "buysellads",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cab",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "calculator",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "calendar",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "calendar_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "camera",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "camera_retro",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "car",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "caret_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "caret_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "caret_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "caret_square_o_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "caret_square_o_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "caret_square_o_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "caret_square_o_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "caret_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cart_arrow_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cart_plus",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cc",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cc_amex",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cc_discover",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cc_mastercard",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cc_paypal",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cc_stripe",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cc_visa",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "certificate",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "chain",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "chain_broken",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "check",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "check_circle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "check_circle_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "check_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "check_square_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "chevron_circle_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "chevron_circle_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "chevron_circle_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "chevron_circle_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "chevron_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "chevron_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "chevron_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "chevron_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "child",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "circle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "circle_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "circle_o_notch",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "circle_thin",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "clipboard",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "clock_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "close",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cloud",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cloud_download",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cloud_upload",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cny",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "code",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "code_fork",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "codepen",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "coffee",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cog",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cogs",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "columns",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "comment",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "comment_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "comments",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "comments_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "compass",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "compress",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "connectdevelop",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "copy",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "copyright",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "credit_card",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "crop",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "crosshairs",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "css3",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cube",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cubes",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cut",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "cutlery",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "dashboard",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "dashcube",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "database",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "dedent",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "delicious",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "desktop",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "deviantart",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "diamond",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "digg",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "dollar",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "dot_circle_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "download",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "dribbble",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "dropbox",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "drupal",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "edit",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "eject",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "ellipsis_h",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "ellipsis_v",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "empire",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "envelope",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "envelope_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "envelope_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "eraser",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "eur",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "euro",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "exchange",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "exclamation",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "exclamation_circle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "exclamation_triangle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "expand",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "external_link",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "external_link_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "eye",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "eye_slash",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "eyedropper",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "facebook",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "facebook_f",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "facebook_official",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "facebook_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "fast_backward",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "fast_forward",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "fax",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "female",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "fighter_jet",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_archive_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_audio_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_code_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_excel_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_image_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_movie_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_pdf_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_photo_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_picture_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_powerpoint_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_sound_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_text",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_text_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_video_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_word_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "file_zip_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "files_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "film",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "filter",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "fire",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "fire_extinguisher",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "flag",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "flag_checkered",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "flag_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "flash",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "flask",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "flickr",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "floppy_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "folder",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "folder_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "folder_open",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "folder_open_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "font",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "forumbee",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "forward",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "foursquare",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "frown_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "futbol_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "gamepad",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "gavel",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "gbp",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "ge",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "gear",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "gears",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "genderless",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "gift",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "git",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "git_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "github",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "github_alt",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "github_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "gittip",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "glass",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "globe",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "google",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "google_plus",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "google_plus_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "google_wallet",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "graduation_cap",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "gratipay",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "group",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "h_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "hacker_news",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "hand_o_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "hand_o_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "hand_o_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "hand_o_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "hdd_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "header",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "headphones",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "heart",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "heart_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "heartbeat",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "history",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "home",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "hospital_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "hotel",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "html5",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "ils",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "image",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "inbox",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "indent",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "info",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "info_circle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "inr",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "instagram",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "institution",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "ioxhost",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "italic",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "joomla",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "jpy",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "jsfiddle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "key",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "keyboard_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "krw",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "language",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "laptop",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "lastfm",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "lastfm_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "leaf",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "leanpub",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "legal",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "lemon_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "level_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "level_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "life_bouy",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "life_buoy",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "life_ring",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "life_saver",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "lightbulb_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "line_chart",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "link",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "linkedin",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "linkedin_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "linux",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "list",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "list_alt",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "list_ol",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "list_ul",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "location_arrow",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "lock",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "long_arrow_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "long_arrow_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "long_arrow_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "long_arrow_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "magic",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "magnet",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mail_forward",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mail_reply",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mail_reply_all",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "male",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "map_marker",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mars",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mars_double",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mars_stroke",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mars_stroke_h",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mars_stroke_v",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "maxcdn",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "meanpath",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "medium",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "medkit",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "meh_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mercury",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "microphone",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "microphone_slash",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "minus",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "minus_circle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "minus_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "minus_square_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mobile",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mobile_phone",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "money",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "moon_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "mortar_board",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "motorcycle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "music",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "navicon",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "neuter",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "newspaper_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "openid",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "outdent",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "pagelines",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "paint_brush",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "paper_plane",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "paper_plane_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "paperclip",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "paragraph",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "paste",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "pause",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "paw",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "paypal",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "pencil",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "pencil_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "pencil_square_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "phone",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "phone_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "photo",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "picture_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "pie_chart",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "pied_piper",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "pied_piper_alt",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "pinterest",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "pinterest_p",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "pinterest_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "plane",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "play",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "play_circle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "play_circle_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "plug",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "plus",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "plus_circle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "plus_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "plus_square_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "power_off",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "print",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "puzzle_piece",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "qq",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "qrcode",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "question",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "question_circle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "quote_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "quote_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "ra",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "random",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "rebel",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "recycle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "reddit",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "reddit_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "refresh",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "remove",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "renren",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "reorder",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "repeat",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "reply",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "reply_all",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "retweet",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "rmb",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "road",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "rocket",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "rotate_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "rotate_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "rouble",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "rss",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "rss_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "rub",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "ruble",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "rupee",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "save",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "scissors",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "search",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "search_minus",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "search_plus",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sellsy",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "send",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "send_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "server",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "share",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "share_alt",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "share_alt_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "share_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "share_square_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "shekel",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sheqel",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "shield",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "ship",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "shirtsinbulk",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "shopping_cart",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sign_in",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sign_out",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "signal",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "simplybuilt",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sitemap",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "skyatlas",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "skype",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "slack",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sliders",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "slideshare",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "smile_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "soccer_ball_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sort",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sort_alpha_asc",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sort_alpha_desc",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sort_amount_asc",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sort_amount_desc",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sort_asc",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sort_desc",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sort_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sort_numeric_asc",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sort_numeric_desc",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sort_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "soundcloud",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "space_shuttle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "spinner",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "spoon",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "spotify",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "square_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "stack_exchange",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "stack_overflow",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "star",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "star_half",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "star_half_empty",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "star_half_full",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "star_half_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "star_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "steam",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "steam_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "step_backward",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "step_forward",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "stethoscope",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "stop",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "street_view",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "strikethrough",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "stumbleupon",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "stumbleupon_circle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "subscript",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "subway",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "suitcase",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "sun_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "superscript",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "support",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "table",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "tablet",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "tachometer",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "tag",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "tags",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "tasks",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "taxi",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "tencent_weibo",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "terminal",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "text_height",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "text_width",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "th",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "th_large",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "th_list",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "thumb_tack",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "thumbs_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "thumbs_o_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "thumbs_o_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "thumbs_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "ticket",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "times",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "times_circle",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "times_circle_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "tint",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "toggle_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "toggle_left",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "toggle_off",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "toggle_on",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "toggle_right",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "toggle_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "train",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "transgender",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "transgender_alt",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "trash",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "trash_o",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "tree",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "trello",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "trophy",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "truck",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "try",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "tty",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "tumblr",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "tumblr_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "turkish_lira",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "twitch",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "twitter",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "twitter_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "umbrella",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "underline",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "undo",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "university",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "unlink",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "unlock",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "unlock_alt",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "unsorted",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "upload",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "usd",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "user",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "user_md",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "user_plus",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "user_secret",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "user_times",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "users",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "venus",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "venus_double",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "venus_mars",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "viacoin",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "video_camera",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "vimeo_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "vine",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "vk",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "volume_down",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "volume_off",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "volume_up",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "warning",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "wechat",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "weibo",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "weixin",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "whatsapp",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "wheelchair",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "wifi",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "windows",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "won",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "wordpress",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "wrench",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "xing",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "xing_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "yahoo",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "yelp",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "yen",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "youtube",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "youtube_play",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      },
+      {
+        "name": "youtube_square",
+        "comment": "",
+        "type": "Color -> Int -> Html"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

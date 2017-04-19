@@ -1,1 +1,348 @@
-[{"name":"Keyboard.Keys","comment":"Standard keyboard constants.\n\n# Data types\n@docs Key\n\n## Equality\n@docs equals\n\n# Functions\n@docs directionKeys, isKeyDown\n\n# Constants\n## Function keys\nNote: undefined function keys have a conflict with the default keybindings of a well known browser.\n\n@docs f2, f4, f8, f9, f10\n\n## Modifiers\n@docs ctrl, shift, super, meta, windows, commandLeft, commandRight\n\n## Movement\n@docs arrowRight, arrowLeft, arrowUp, arrowDown, end, home, pageUp, pageDown\n\n## Editing keys\n@docs tab, space, backspace, delete, insert, enter\n\n## Special keys\n@docs escape\n\n## Numbers\n@docs one, two, three, four, five, six, seven, eight, nine, zero\n\n## Letters\n@docs a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z","aliases":[{"name":"Key","comment":"Type alias to make it clearer what integers are supposed to represent.","args":[],"type":"{ keyCode : Keyboard.KeyCode, name : String }"}],"types":[],"values":[{"name":"a","comment":"","type":"Key"},{"name":"arrowDown","comment":"","type":"Key"},{"name":"arrowLeft","comment":"","type":"Key"},{"name":"arrowRight","comment":"","type":"Key"},{"name":"arrowUp","comment":"","type":"Key"},{"name":"b","comment":"","type":"Key"},{"name":"backspace","comment":"","type":"Key"},{"name":"c","comment":"","type":"Key"},{"name":"commandLeft","comment":"A key on mac keyboards. The same keycode as the windows/super/meta keys","type":"Key"},{"name":"commandRight","comment":"A key on mac keyboards.","type":"Key"},{"name":"ctrl","comment":"","type":"Key"},{"name":"d","comment":"","type":"Key"},{"name":"delete","comment":"","type":"Key"},{"name":"directionKeys","comment":"","type":"Key -> Key -> Key -> Key -> Signal { x : Int, y : Int }"},{"name":"e","comment":"","type":"Key"},{"name":"eight","comment":"","type":"Key"},{"name":"end","comment":"","type":"Key"},{"name":"enter","comment":"","type":"Key"},{"name":"equals","comment":"Two Keys are equal if their keyCodes are equal","type":"Key -> Key -> Bool"},{"name":"escape","comment":"","type":"Key"},{"name":"f","comment":"","type":"Key"},{"name":"f10","comment":"","type":"Key"},{"name":"f2","comment":"","type":"Key"},{"name":"f4","comment":"","type":"Key"},{"name":"f8","comment":"","type":"Key"},{"name":"f9","comment":"","type":"Key"},{"name":"five","comment":"","type":"Key"},{"name":"four","comment":"","type":"Key"},{"name":"g","comment":"","type":"Key"},{"name":"h","comment":"","type":"Key"},{"name":"home","comment":"","type":"Key"},{"name":"i","comment":"","type":"Key"},{"name":"insert","comment":"","type":"Key"},{"name":"isKeyDown","comment":"","type":"Key -> Signal Bool"},{"name":"j","comment":"","type":"Key"},{"name":"k","comment":"","type":"Key"},{"name":"l","comment":"","type":"Key"},{"name":"m","comment":"","type":"Key"},{"name":"meta","comment":"super,meta,windows are all the same","type":"Key"},{"name":"n","comment":"","type":"Key"},{"name":"nine","comment":"","type":"Key"},{"name":"o","comment":"","type":"Key"},{"name":"one","comment":"","type":"Key"},{"name":"p","comment":"","type":"Key"},{"name":"pageDown","comment":"","type":"Key"},{"name":"pageUp","comment":"","type":"Key"},{"name":"q","comment":"","type":"Key"},{"name":"r","comment":"","type":"Key"},{"name":"s","comment":"","type":"Key"},{"name":"seven","comment":"","type":"Key"},{"name":"shift","comment":"","type":"Key"},{"name":"six","comment":"","type":"Key"},{"name":"space","comment":"","type":"Key"},{"name":"super","comment":"super,meta,windows are all the same","type":"Key"},{"name":"t","comment":"","type":"Key"},{"name":"tab","comment":"","type":"Key"},{"name":"three","comment":"","type":"Key"},{"name":"two","comment":"","type":"Key"},{"name":"u","comment":"","type":"Key"},{"name":"v","comment":"","type":"Key"},{"name":"w","comment":"","type":"Key"},{"name":"windows","comment":"super,meta,windows are all the same","type":"Key"},{"name":"x","comment":"","type":"Key"},{"name":"y","comment":"","type":"Key"},{"name":"z","comment":"","type":"Key"},{"name":"zero","comment":"","type":"Key"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Keyboard.Keys",
+    "comment": "Standard keyboard constants.\n\n# Data types\n@docs Key\n\n## Equality\n@docs equals\n\n# Functions\n@docs directionKeys, isKeyDown\n\n# Constants\n## Function keys\nNote: undefined function keys have a conflict with the default keybindings of a well known browser.\n\n@docs f2, f4, f8, f9, f10\n\n## Modifiers\n@docs ctrl, shift, super, meta, windows, commandLeft, commandRight\n\n## Movement\n@docs arrowRight, arrowLeft, arrowUp, arrowDown, end, home, pageUp, pageDown\n\n## Editing keys\n@docs tab, space, backspace, delete, insert, enter\n\n## Special keys\n@docs escape\n\n## Numbers\n@docs one, two, three, four, five, six, seven, eight, nine, zero\n\n## Letters\n@docs a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z",
+    "aliases": [
+      {
+        "name": "Key",
+        "comment": "Type alias to make it clearer what integers are supposed to represent.",
+        "args": [],
+        "type": "{ keyCode : Keyboard.KeyCode, name : String }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "a",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "arrowDown",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "arrowLeft",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "arrowRight",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "arrowUp",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "b",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "backspace",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "c",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "commandLeft",
+        "comment": "A key on mac keyboards. The same keycode as the windows/super/meta keys",
+        "type": "Key"
+      },
+      {
+        "name": "commandRight",
+        "comment": "A key on mac keyboards.",
+        "type": "Key"
+      },
+      {
+        "name": "ctrl",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "d",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "delete",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "directionKeys",
+        "comment": "",
+        "type": "Key -> Key -> Key -> Key -> Signal { x : Int, y : Int }"
+      },
+      {
+        "name": "e",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "eight",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "end",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "enter",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "equals",
+        "comment": "Two Keys are equal if their keyCodes are equal",
+        "type": "Key -> Key -> Bool"
+      },
+      {
+        "name": "escape",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "f",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "f10",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "f2",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "f4",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "f8",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "f9",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "five",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "four",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "g",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "h",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "home",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "i",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "insert",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "isKeyDown",
+        "comment": "",
+        "type": "Key -> Signal Bool"
+      },
+      {
+        "name": "j",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "k",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "l",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "m",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "meta",
+        "comment": "super,meta,windows are all the same",
+        "type": "Key"
+      },
+      {
+        "name": "n",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "nine",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "o",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "one",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "p",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "pageDown",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "pageUp",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "q",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "r",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "s",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "seven",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "shift",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "six",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "space",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "super",
+        "comment": "super,meta,windows are all the same",
+        "type": "Key"
+      },
+      {
+        "name": "t",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "tab",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "three",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "two",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "u",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "v",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "w",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "windows",
+        "comment": "super,meta,windows are all the same",
+        "type": "Key"
+      },
+      {
+        "name": "x",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "y",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "z",
+        "comment": "",
+        "type": "Key"
+      },
+      {
+        "name": "zero",
+        "comment": "",
+        "type": "Key"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

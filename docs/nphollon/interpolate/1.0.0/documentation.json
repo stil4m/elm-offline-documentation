@@ -1,1 +1,50 @@
-[{"name":"Interpolate.Cubic","comment":"This library interpolates cubic splines for one-dimensional sets of data.\n\nIt computes \"natural splines\", which means the second derivative at the endpoints\nis set to zero.\n\nFor more information on the mathematics used, check out\n[this paper.](http://web.archive.org/web/20090408054627/http://online.redwoods.cc.ca.us/instruct/darnold/laproj/Fall98/SkyMeg/Proj.PDF)\n\n# Creating splines\n@docs withRange, Spline\n\n# Interpolating\n@docs valueAt, slopeAt, concavityAt, curveAt, LocalCurve","aliases":[{"name":"LocalCurve","comment":"","args":[],"type":"{ value : Float, slope : Float, concavity : Float }"}],"types":[{"name":"Spline","comment":"","args":[],"cases":[]}],"values":[{"name":"concavityAt","comment":"Return the second derivative of the curve at the given point","type":"Float -> Interpolate.Cubic.Spline -> Float"},{"name":"curveAt","comment":"Return a record containing the value, slope, and concavity of the curve\nat the given point","type":"Float -> Interpolate.Cubic.Spline -> Interpolate.Cubic.LocalCurve"},{"name":"slopeAt","comment":"Return the first derivative of the curve at the given point","type":"Float -> Interpolate.Cubic.Spline -> Float"},{"name":"valueAt","comment":"Given `x1` and a spline `f(x)`, return `f(x1)`","type":"Float -> Interpolate.Cubic.Spline -> Float"},{"name":"withRange","comment":"Compute a spline, given the minimum and maximum values of `x` and a\nlist of data for `f(x)`. The data should be evenly spaced and in order of\nincreasing `x`.\n\nFor example, if we have the data\n\n    f(2) = 1\n    f(3) = 5.2\n    f(4) = 3.2\n    f(5) = 0.8\n\nThen we would generate a spline by calling\n\n    fSpline = withRange 2 6 [ 1, 5.2, 3.2, 0.8 ]\n\nReturns `Nothing` if the list of data has less than two items.","type":"Float -> Float -> List Float -> Maybe.Maybe Interpolate.Cubic.Spline"}],"generated-with-elm-version":"0.15.1"}]
+[
+  {
+    "name": "Interpolate.Cubic",
+    "comment": "This library interpolates cubic splines for one-dimensional sets of data.\n\nIt computes \"natural splines\", which means the second derivative at the endpoints\nis set to zero.\n\nFor more information on the mathematics used, check out\n[this paper.](http://web.archive.org/web/20090408054627/http://online.redwoods.cc.ca.us/instruct/darnold/laproj/Fall98/SkyMeg/Proj.PDF)\n\n# Creating splines\n@docs withRange, Spline\n\n# Interpolating\n@docs valueAt, slopeAt, concavityAt, curveAt, LocalCurve",
+    "aliases": [
+      {
+        "name": "LocalCurve",
+        "comment": "",
+        "args": [],
+        "type": "{ value : Float, slope : Float, concavity : Float }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Spline",
+        "comment": "",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "concavityAt",
+        "comment": "Return the second derivative of the curve at the given point",
+        "type": "Float -> Interpolate.Cubic.Spline -> Float"
+      },
+      {
+        "name": "curveAt",
+        "comment": "Return a record containing the value, slope, and concavity of the curve\nat the given point",
+        "type": "Float -> Interpolate.Cubic.Spline -> Interpolate.Cubic.LocalCurve"
+      },
+      {
+        "name": "slopeAt",
+        "comment": "Return the first derivative of the curve at the given point",
+        "type": "Float -> Interpolate.Cubic.Spline -> Float"
+      },
+      {
+        "name": "valueAt",
+        "comment": "Given `x1` and a spline `f(x)`, return `f(x1)`",
+        "type": "Float -> Interpolate.Cubic.Spline -> Float"
+      },
+      {
+        "name": "withRange",
+        "comment": "Compute a spline, given the minimum and maximum values of `x` and a\nlist of data for `f(x)`. The data should be evenly spaced and in order of\nincreasing `x`.\n\nFor example, if we have the data\n\n    f(2) = 1\n    f(3) = 5.2\n    f(4) = 3.2\n    f(5) = 0.8\n\nThen we would generate a spline by calling\n\n    fSpline = withRange 2 6 [ 1, 5.2, 3.2, 0.8 ]\n\nReturns `Nothing` if the list of data has less than two items.",
+        "type": "Float -> Float -> List Float -> Maybe.Maybe Interpolate.Cubic.Spline"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

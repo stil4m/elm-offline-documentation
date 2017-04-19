@@ -1,1 +1,39 @@
-[{"name":"TimeEvolution","comment":"Evolve a system continuously through time. This module does not know any\nphysics. You provide it the physical laws, and it updates your state for you.\n\n`evolve` uses the [Runge-Kutta method](https://en.wikipedia.org/wiki/Runge-Kutta_methods),\nwhich is much more accurate than the simpler\n[Euler method](https://en.wikipedia.org/wiki/Euler_method).\n\n@docs Laws, Externals, limit, evolve","aliases":[{"name":"Externals","comment":"Externals contains signals for time deltas and environment updates.\n\n    externals =\n      { deltas = Time.fps 60\n      , env = Signal.constant { force = 1, mass = 5 }\n      }","args":["environment"],"type":"{ deltas : Signal.Signal Time.Time, env : Signal.Signal environment }"},{"name":"Laws","comment":"Laws describes the behavior of the system.\n\nThe model contains all of the data that needs to be updated. The values will\nchange continuously over time, so this should be a collection of `Float`s.\nFor example, the model might include things like position and velocity. \n\nThe environment contains information that is not controlled by `evolve`.\nIt might include constants (such as gravitational strength) or data\ncontrolled by the user (such as acceleration).\n\n* add: Add the corresponding elements of one model to another\n* scale: Multiply all the elements of a model by a factor\n* force: Given an environment and a model, return the time derivative of the \nmodel\n\nNote that `force` is not the same as the update function you normally pass to\n`Signal.foldp`. It does not return an updated model, it returns a derivative.\n\n    type alias State = { position : Float, momentum : Float }\n    type alias Env = { force : Float, mass : Float }\n\n    laws =\n      { add a b = \n          { position = a.position + b.position\n          , momentum = a.momentum + b.momentum\n          }\n      , scale f state =\n          { position = f * state.position\n          , momentum = f * state.momentum\n          }\n      , force env state =\n          { position = state.momentum / env.mass -- Change in position\n          , momentum = state.force -- Change in momentum\n          }","args":["model","environment"],"type":"{ add : model -> model -> model , scale : Float -> model -> model , force : environment -> model -> model }"}],"types":[],"values":[{"name":"evolve","comment":"Given a set of laws and an initial state, send a state update every time\nexternals are updated. (Compare to `Signal.foldp`)\n\n    state = evolve laws { position = 0, momentum = 1 } externals","type":"TimeEvolution.Laws a b -> a -> TimeEvolution.Externals b -> Signal.Signal a"},{"name":"limit","comment":"Ignore time deltas larger than a maximum value. Changing focus to another\ntab or window can cause large time deltas, which break the simulation.\n\n    -- Drop deltas greater than a quarter-second\n    timeLimited = limit (0.25 * Time.second) externals","type":"Time.Time -> TimeEvolution.Externals a -> TimeEvolution.Externals a"}],"generated-with-elm-version":"0.15.1"}]
+[
+  {
+    "name": "TimeEvolution",
+    "comment": "Evolve a system continuously through time. This module does not know any\nphysics. You provide it the physical laws, and it updates your state for you.\n\n`evolve` uses the [Runge-Kutta method](https://en.wikipedia.org/wiki/Runge-Kutta_methods),\nwhich is much more accurate than the simpler\n[Euler method](https://en.wikipedia.org/wiki/Euler_method).\n\n@docs Laws, Externals, limit, evolve",
+    "aliases": [
+      {
+        "name": "Externals",
+        "comment": "Externals contains signals for time deltas and environment updates.\n\n    externals =\n      { deltas = Time.fps 60\n      , env = Signal.constant { force = 1, mass = 5 }\n      }",
+        "args": [
+          "environment"
+        ],
+        "type": "{ deltas : Signal.Signal Time.Time, env : Signal.Signal environment }"
+      },
+      {
+        "name": "Laws",
+        "comment": "Laws describes the behavior of the system.\n\nThe model contains all of the data that needs to be updated. The values will\nchange continuously over time, so this should be a collection of `Float`s.\nFor example, the model might include things like position and velocity. \n\nThe environment contains information that is not controlled by `evolve`.\nIt might include constants (such as gravitational strength) or data\ncontrolled by the user (such as acceleration).\n\n* add: Add the corresponding elements of one model to another\n* scale: Multiply all the elements of a model by a factor\n* force: Given an environment and a model, return the time derivative of the \nmodel\n\nNote that `force` is not the same as the update function you normally pass to\n`Signal.foldp`. It does not return an updated model, it returns a derivative.\n\n    type alias State = { position : Float, momentum : Float }\n    type alias Env = { force : Float, mass : Float }\n\n    laws =\n      { add a b = \n          { position = a.position + b.position\n          , momentum = a.momentum + b.momentum\n          }\n      , scale f state =\n          { position = f * state.position\n          , momentum = f * state.momentum\n          }\n      , force env state =\n          { position = state.momentum / env.mass -- Change in position\n          , momentum = state.force -- Change in momentum\n          }",
+        "args": [
+          "model",
+          "environment"
+        ],
+        "type": "{ add : model -> model -> model , scale : Float -> model -> model , force : environment -> model -> model }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "evolve",
+        "comment": "Given a set of laws and an initial state, send a state update every time\nexternals are updated. (Compare to `Signal.foldp`)\n\n    state = evolve laws { position = 0, momentum = 1 } externals",
+        "type": "TimeEvolution.Laws a b -> a -> TimeEvolution.Externals b -> Signal.Signal a"
+      },
+      {
+        "name": "limit",
+        "comment": "Ignore time deltas larger than a maximum value. Changing focus to another\ntab or window can cause large time deltas, which break the simulation.\n\n    -- Drop deltas greater than a quarter-second\n    timeLimited = limit (0.25 * Time.second) externals",
+        "type": "Time.Time -> TimeEvolution.Externals a -> TimeEvolution.Externals a"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

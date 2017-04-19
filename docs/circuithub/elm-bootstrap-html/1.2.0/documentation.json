@@ -1,1 +1,1106 @@
-[{"name":"Bootstrap.Html","comment":"Shorthand for Bootstrap Html.\n\n# Conventions\nThis package follows similar conventions to those used in [Html.Shorthand](http://package.elm-lang.org/packages/circuithub/elm-html-shorthand/latest).\nOne difference is that canonical elements such as `panelDefault'` may be composites consisting of multiple elements.\n\n# CSS\n\n## Overview\n* Containers\n@docs container',containerFluid'\n\n## Grid system\n* Media queries\n* Grid options\n* Ex: Stacked-to-horizontal\n* Ex: Fluid container\n* Ex: Mobile and desktop\n* Ex: Mobile, tablet, desktop\n* Ex: Column wrapping\n* Responsive column resets\n* Offsetting columns\n* Nesting columns\n* Column ordering\n* Less mixins and variables\n@docs row',colXs',colSm',colMd',colLg'\n\n## Typography\n* Headings\n* Body copy\n* Inline text elements\n* Alignment classes\n* Transformation classes\n* Abbreviations\n* Addresses\n* Blockquotes\n* Lists\n\n## Code\n* Inline\n* User input\n* Basic block\n* Variables\n* Sample output\n\n## Tables\n* Basic example\n* Striped rows\n* Bordered table\n* Hover rows\n* Condensed table\n* Contextual classes\n* Responsive tables\n\n## Forms\n* Basic example\n* Inline form\n* Horizontal form\n* Supported controls\n* Static control\n* Focus state\n* Disabled state\n* Readonly state\n* Validation states\n* Control sizing\n* Help text\n\n## Buttons\n* Options\n* Sizes\n* Active state\n* Disabled state\n* Button tags\n\n## Images\n* Responsive images\n* Image shapes\n\n## Helper classes\n* Contextual colors\n* Contextual backgrounds\n* Close icon\n* Carets\n* Quick floats\n* Center content blocks\n* Clearfix\n* Showing and hiding content\n* Screen reader and keyboard navigation content\n* Image replacement\n@docs skipNavigation'\n\n## Responsive utilities\n* Available classes\n* Print classes\n* Test cases\n\n# Components\n\n## Glyphicons\nGlyphicons Halflings are normally not available for free, but their creator has made them available for [Bootstrap](http://getbootstrap.com/components/#glyphicons) free of cost. As a thank you, please include a link back to [Glyphicons](http://glyphicons.com/) whenever possible.\n\n@docs glyphiconPlusSign',glyphiconAsterisk',glyphiconPlus',glyphiconEuro',glyphiconMinus'\n@docs glyphiconCloud',glyphiconEnvelope',glyphiconPencil',glyphiconGlass',glyphiconMusic'\n@docs glyphiconSearch',glyphiconHeart',glyphiconStar',glyphiconStarEmpty',glyphiconUser'\n@docs glyphiconFilm',glyphiconThLarge',glyphiconTh',glyphiconThList',glyphiconOk',glyphiconRemove'\n@docs glyphiconZoomIn',glyphiconZoomOut',glyphiconOff',glyphiconSignal',glyphiconCog'\n@docs glyphiconTrash',glyphiconHome',glyphiconFile',glyphiconTime',glyphiconRoad'\n@docs glyphiconDownloadAlt',glyphiconDownload',glyphiconUpload',glyphiconInbox'\n@docs glyphiconPlayCircle',glyphiconRepeat',glyphiconRefresh',glyphiconListAlt',glyphiconLock'\n@docs glyphiconFlag',glyphiconHeadphones',glyphiconVolumeOff',glyphiconVolumeDown'\n@docs glyphiconVolumeUp',glyphiconQrcode',glyphiconBarcode',glyphiconTag',glyphiconTags'\n@docs glyphiconBook',glyphiconBookmark',glyphiconPrint',glyphiconCamera',glyphiconFont'\n@docs glyphiconBold',glyphiconItalic',glyphiconTextHeight',glyphiconTextWidth',glyphiconAlignLeft'\n@docs glyphiconAlignCenter',glyphiconAlignRight',glyphiconAlignJustify',glyphiconList'\n@docs glyphiconIndentLeft',glyphiconIndentRight',glyphiconFacetimeVideo',glyphiconPicture'\n@docs glyphiconMapMarker',glyphiconAdjust',glyphiconTint',glyphiconEdit',glyphiconShare'\n@docs glyphiconCheck',glyphiconMove',glyphiconStepBackward',glyphiconFastBackward'\n@docs glyphiconBackward',glyphiconPlay',glyphiconPause',glyphiconStop',glyphiconForward'\n@docs glyphiconFastForward',glyphiconStepForward',glyphiconEject',glyphiconChevronLeft'\n@docs glyphiconChevronRight',glyphiconPlusSign',glyphiconMinusSign',glyphiconRemoveSign'\n@docs glyphiconOkSign',glyphiconQuestionSign',glyphiconInfoSign',glyphiconScreenshot'\n@docs glyphiconRemoveCircle',glyphiconOkCircle',glyphiconBanCircle',glyphiconArrowLeft'\n@docs glyphiconArrowRight',glyphiconArrowUp',glyphiconArrowDown',glyphiconShareAlt'\n@docs glyphiconResizeFull',glyphiconResizeSmall',glyphiconExclamationSign',glyphiconGift'\n@docs glyphiconLeaf',glyphiconFire',glyphiconEyeOpen',glyphiconEyeClose',glyphiconWarningSign'\n@docs glyphiconPlane',glyphiconCalendar',glyphiconRandom',glyphiconComment',glyphiconMagnet'\n@docs glyphiconChevronUp',glyphiconChevronDown',glyphiconRetweet',glyphiconShoppingCart'\n@docs glyphiconFolderClose',glyphiconFolderOpen',glyphiconResizeVertical'\n@docs glyphiconResizeHorizontal',glyphiconHdd',glyphiconBullhorn',glyphiconBell'\n@docs glyphiconCertificate',glyphiconThumbsUp',glyphiconThumbsDown',glyphiconHandRight'\n@docs glyphiconHandLeft',glyphiconHandUp',glyphiconHandDown',glyphiconCircleArrowRight'\n@docs glyphiconCircleArrowLeft',glyphiconCircleArrowUp',glyphiconCircleArrowDown',glyphiconGlobe'\n@docs glyphiconWrench',glyphiconTasks',glyphiconFilter',glyphiconBriefcase',glyphiconFullscreen'\n@docs glyphiconDashboard',glyphiconPaperclip',glyphiconHeartEmpty',glyphiconLink',glyphiconPhone'\n@docs glyphiconPushpin',glyphiconUsd',glyphiconGbp',glyphiconSort',glyphiconSortByAlphabet'\n@docs glyphiconSortByAlphabetAlt',glyphiconSortByOrder',glyphiconSortByOrderAlt'\n@docs glyphiconSortByAttributes',glyphiconSortByAttributesAlt',glyphiconUnchecked',glyphiconExpand'\n@docs glyphiconCollapseDown',glyphiconCollapseUp',glyphiconLogIn',glyphiconFlash',glyphiconLogOut'\n@docs glyphiconNewWindow',glyphiconRecord',glyphiconSave',glyphiconOpen',glyphiconSaved'\n@docs glyphiconImport',glyphiconExport',glyphiconSend',glyphiconFloppyDisk',glyphiconFloppySaved'\n@docs glyphiconFloppyRemove',glyphiconFloppySave',glyphiconFloppyOpen',glyphiconCreditCard'\n@docs glyphiconTransfer',glyphiconCutlery',glyphiconHeader',glyphiconCompressed',glyphiconEarphone'\n@docs glyphiconPhoneAlt',glyphiconTower',glyphiconStats',glyphiconSdVideo',glyphiconHdVideo'\n@docs glyphiconSubtitles',glyphiconSoundStereo',glyphiconSoundDolby',glyphiconSound51'\n@docs glyphiconSound61',glyphiconSound71',glyphiconCopyrightMark',glyphiconRegistrationMark'\n@docs glyphiconCloudDownload',glyphiconCloudUpload',glyphiconTreeConifer',glyphiconTreeDeciduous'\n\n## Dropdowns\n@docs\n* Alignment\n* Headers\n* Divider\n* Disabled menu items\n\n\n## Button groups\n@docs\n* Button toolbar\n* Sizing\n* Nesting\n* Vertical variation\n* Justified button groups\n\n\n## Button dropdowns\n@docs\n* Single button dropdowns\n* Split button dropdowns\n* Sizing\n* Dropup variation\n\n\n## Input groups\n@docs\n* Basic example\n* Sizing\n* Checkbox and radios addons\n* Button addons\n* Buttons with dropdowns\n* Segmented buttons\n\n## Navs\n@docs\n* Tabs\n* Pills\n* Justified\n* Disabled links\n* Using dropdowns\n\n\n## Navbar\n@docs\n* Default navbar\n* Brand image\n* Forms\n* Buttons\n* Text\n* Non-nav links\n* Component alignment\n* Fixed to top\n* Fixed to bottom\n* Static top\n* Inverted navbar\n\n## Breadcrumbs\n@docs\n\n## Pagination\n@docs\n* Default pagination\n* Pager\n\n## Labels\n@docs\n\n## Badges\n@docs\n\n## Jumbotron\n@docs\n\n## Page header\n@docs\n\n## Thumbnails\n@docs\n* Default example\n* Custom content\n\n## Alerts\n@docs\n* Examples\n* Dismissible alerts\n* Links in alerts\n\n## Progress bars\n@docs\n* Basic example\n* With label\n* Low percentages\n* Contextual alternatives\n* Striped\n* Animated\n* Stacked\n\n## Media object\n@docs\n* Default media\n* Media list\n\n## List group\n@docs\n* Basic example\n* Badges\n* Linked items\n* Disabled items\n* Contextual classes\n* Custom content\n\n## Panels\n@docs panelDefault_,panelHeading_,panelBody_\n@docs panelTitle', panelDefault'\n\n* Basic example\n* Panel with heading\n* Contextual alternatives\n* With tables\n* With list groups\n\n## Responsive embed\n@docs\n\n## Wells\n@docs","aliases":[],"types":[],"values":[{"name":"btnXsSuccess'","comment":"","type":"( Maybe Html, TextString ) -> Html"},{"name":"btnXsSuccessc","comment":"","type":"ClassString -> ( Maybe Html, TextString ) -> Html"},{"name":"colLg'","comment":"","type":"Int -> Int -> Int -> Int -> List Html -> Html"},{"name":"colMd'","comment":"","type":"Int -> Int -> Int -> List Html -> Html"},{"name":"colSm'","comment":"","type":"Int -> Int -> List Html -> Html"},{"name":"colXs'","comment":"","type":"Int -> List Html -> Html"},{"name":"container'","comment":"","type":"List Html -> Html"},{"name":"containerFluid'","comment":"","type":"List Html -> Html"},{"name":"formGroup_","comment":"","type":"List Html -> Html"},{"name":"glyphiconAdjust'","comment":"","type":"Html"},{"name":"glyphiconAlignCenter'","comment":"","type":"Html"},{"name":"glyphiconAlignJustify'","comment":"","type":"Html"},{"name":"glyphiconAlignLeft'","comment":"","type":"Html"},{"name":"glyphiconAlignRight'","comment":"","type":"Html"},{"name":"glyphiconArrowDown'","comment":"","type":"Html"},{"name":"glyphiconArrowLeft'","comment":"","type":"Html"},{"name":"glyphiconArrowRight'","comment":"","type":"Html"},{"name":"glyphiconArrowUp'","comment":"","type":"Html"},{"name":"glyphiconAsterisk'","comment":"","type":"Html"},{"name":"glyphiconBackward'","comment":"","type":"Html"},{"name":"glyphiconBanCircle'","comment":"","type":"Html"},{"name":"glyphiconBarcode'","comment":"","type":"Html"},{"name":"glyphiconBell'","comment":"","type":"Html"},{"name":"glyphiconBold'","comment":"","type":"Html"},{"name":"glyphiconBook'","comment":"","type":"Html"},{"name":"glyphiconBookmark'","comment":"","type":"Html"},{"name":"glyphiconBriefcase'","comment":"","type":"Html"},{"name":"glyphiconBullhorn'","comment":"","type":"Html"},{"name":"glyphiconCalendar'","comment":"","type":"Html"},{"name":"glyphiconCamera'","comment":"","type":"Html"},{"name":"glyphiconCertificate'","comment":"","type":"Html"},{"name":"glyphiconCheck'","comment":"","type":"Html"},{"name":"glyphiconChevronDown'","comment":"","type":"Html"},{"name":"glyphiconChevronLeft'","comment":"","type":"Html"},{"name":"glyphiconChevronRight'","comment":"","type":"Html"},{"name":"glyphiconChevronUp'","comment":"","type":"Html"},{"name":"glyphiconCircleArrowDown'","comment":"","type":"Html"},{"name":"glyphiconCircleArrowLeft'","comment":"","type":"Html"},{"name":"glyphiconCircleArrowRight'","comment":"","type":"Html"},{"name":"glyphiconCircleArrowUp'","comment":"","type":"Html"},{"name":"glyphiconCloud'","comment":"","type":"Html"},{"name":"glyphiconCloudDownload'","comment":"","type":"Html"},{"name":"glyphiconCloudUpload'","comment":"","type":"Html"},{"name":"glyphiconCog'","comment":"","type":"Html"},{"name":"glyphiconCollapseDown'","comment":"","type":"Html"},{"name":"glyphiconCollapseUp'","comment":"","type":"Html"},{"name":"glyphiconComment'","comment":"","type":"Html"},{"name":"glyphiconCompressed'","comment":"","type":"Html"},{"name":"glyphiconCopyrightMark'","comment":"","type":"Html"},{"name":"glyphiconCreditCard'","comment":"","type":"Html"},{"name":"glyphiconCutlery'","comment":"","type":"Html"},{"name":"glyphiconDashboard'","comment":"","type":"Html"},{"name":"glyphiconDownload'","comment":"","type":"Html"},{"name":"glyphiconDownloadAlt'","comment":"","type":"Html"},{"name":"glyphiconEarphone'","comment":"","type":"Html"},{"name":"glyphiconEdit'","comment":"","type":"Html"},{"name":"glyphiconEject'","comment":"","type":"Html"},{"name":"glyphiconEnvelope'","comment":"","type":"Html"},{"name":"glyphiconEuro'","comment":"","type":"Html"},{"name":"glyphiconExclamationSign'","comment":"","type":"Html"},{"name":"glyphiconExpand'","comment":"","type":"Html"},{"name":"glyphiconExport'","comment":"","type":"Html"},{"name":"glyphiconEyeClose'","comment":"","type":"Html"},{"name":"glyphiconEyeOpen'","comment":"","type":"Html"},{"name":"glyphiconFacetimeVideo'","comment":"","type":"Html"},{"name":"glyphiconFastBackward'","comment":"","type":"Html"},{"name":"glyphiconFastForward'","comment":"","type":"Html"},{"name":"glyphiconFile'","comment":"","type":"Html"},{"name":"glyphiconFilm'","comment":"","type":"Html"},{"name":"glyphiconFilter'","comment":"","type":"Html"},{"name":"glyphiconFire'","comment":"","type":"Html"},{"name":"glyphiconFlag'","comment":"","type":"Html"},{"name":"glyphiconFlash'","comment":"","type":"Html"},{"name":"glyphiconFloppyDisk'","comment":"","type":"Html"},{"name":"glyphiconFloppyOpen'","comment":"","type":"Html"},{"name":"glyphiconFloppyRemove'","comment":"","type":"Html"},{"name":"glyphiconFloppySave'","comment":"","type":"Html"},{"name":"glyphiconFloppySaved'","comment":"","type":"Html"},{"name":"glyphiconFolderClose'","comment":"","type":"Html"},{"name":"glyphiconFolderOpen'","comment":"","type":"Html"},{"name":"glyphiconFont'","comment":"","type":"Html"},{"name":"glyphiconForward'","comment":"","type":"Html"},{"name":"glyphiconFullscreen'","comment":"","type":"Html"},{"name":"glyphiconGbp'","comment":"","type":"Html"},{"name":"glyphiconGift'","comment":"","type":"Html"},{"name":"glyphiconGlass'","comment":"","type":"Html"},{"name":"glyphiconGlobe'","comment":"","type":"Html"},{"name":"glyphiconHandDown'","comment":"","type":"Html"},{"name":"glyphiconHandLeft'","comment":"","type":"Html"},{"name":"glyphiconHandRight'","comment":"","type":"Html"},{"name":"glyphiconHandUp'","comment":"","type":"Html"},{"name":"glyphiconHdVideo'","comment":"","type":"Html"},{"name":"glyphiconHdd'","comment":"","type":"Html"},{"name":"glyphiconHeader'","comment":"","type":"Html"},{"name":"glyphiconHeadphones'","comment":"","type":"Html"},{"name":"glyphiconHeart'","comment":"","type":"Html"},{"name":"glyphiconHeartEmpty'","comment":"","type":"Html"},{"name":"glyphiconHome'","comment":"","type":"Html"},{"name":"glyphiconImport'","comment":"","type":"Html"},{"name":"glyphiconInbox'","comment":"","type":"Html"},{"name":"glyphiconIndentLeft'","comment":"","type":"Html"},{"name":"glyphiconIndentRight'","comment":"","type":"Html"},{"name":"glyphiconInfoSign'","comment":"","type":"Html"},{"name":"glyphiconItalic'","comment":"","type":"Html"},{"name":"glyphiconLeaf'","comment":"","type":"Html"},{"name":"glyphiconLink'","comment":"","type":"Html"},{"name":"glyphiconList'","comment":"","type":"Html"},{"name":"glyphiconListAlt'","comment":"","type":"Html"},{"name":"glyphiconLock'","comment":"","type":"Html"},{"name":"glyphiconLogIn'","comment":"","type":"Html"},{"name":"glyphiconLogOut'","comment":"","type":"Html"},{"name":"glyphiconMagnet'","comment":"","type":"Html"},{"name":"glyphiconMapMarker'","comment":"","type":"Html"},{"name":"glyphiconMinus'","comment":"","type":"Html"},{"name":"glyphiconMinusSign'","comment":"","type":"Html"},{"name":"glyphiconMove'","comment":"","type":"Html"},{"name":"glyphiconMusic'","comment":"","type":"Html"},{"name":"glyphiconNewWindow'","comment":"","type":"Html"},{"name":"glyphiconOff'","comment":"","type":"Html"},{"name":"glyphiconOk'","comment":"","type":"Html"},{"name":"glyphiconOkCircle'","comment":"","type":"Html"},{"name":"glyphiconOkSign'","comment":"","type":"Html"},{"name":"glyphiconOpen'","comment":"","type":"Html"},{"name":"glyphiconPaperclip'","comment":"","type":"Html"},{"name":"glyphiconPause'","comment":"","type":"Html"},{"name":"glyphiconPencil'","comment":"","type":"Html"},{"name":"glyphiconPhone'","comment":"","type":"Html"},{"name":"glyphiconPhoneAlt'","comment":"","type":"Html"},{"name":"glyphiconPicture'","comment":"","type":"Html"},{"name":"glyphiconPlane'","comment":"","type":"Html"},{"name":"glyphiconPlay'","comment":"","type":"Html"},{"name":"glyphiconPlayCircle'","comment":"","type":"Html"},{"name":"glyphiconPlus'","comment":"","type":"Html"},{"name":"glyphiconPlusSign'","comment":"","type":"Html"},{"name":"glyphiconPrint'","comment":"","type":"Html"},{"name":"glyphiconPushpin'","comment":"","type":"Html"},{"name":"glyphiconQrcode'","comment":"","type":"Html"},{"name":"glyphiconQuestionSign'","comment":"","type":"Html"},{"name":"glyphiconRandom'","comment":"","type":"Html"},{"name":"glyphiconRecord'","comment":"","type":"Html"},{"name":"glyphiconRefresh'","comment":"","type":"Html"},{"name":"glyphiconRegistrationMark'","comment":"","type":"Html"},{"name":"glyphiconRemove'","comment":"","type":"Html"},{"name":"glyphiconRemoveCircle'","comment":"","type":"Html"},{"name":"glyphiconRemoveSign'","comment":"","type":"Html"},{"name":"glyphiconRepeat'","comment":"","type":"Html"},{"name":"glyphiconResizeFull'","comment":"","type":"Html"},{"name":"glyphiconResizeHorizontal'","comment":"","type":"Html"},{"name":"glyphiconResizeSmall'","comment":"","type":"Html"},{"name":"glyphiconResizeVertical'","comment":"","type":"Html"},{"name":"glyphiconRetweet'","comment":"","type":"Html"},{"name":"glyphiconRoad'","comment":"","type":"Html"},{"name":"glyphiconSave'","comment":"","type":"Html"},{"name":"glyphiconSaved'","comment":"","type":"Html"},{"name":"glyphiconScreenshot'","comment":"","type":"Html"},{"name":"glyphiconSdVideo'","comment":"","type":"Html"},{"name":"glyphiconSearch'","comment":"","type":"Html"},{"name":"glyphiconSend'","comment":"","type":"Html"},{"name":"glyphiconShare'","comment":"","type":"Html"},{"name":"glyphiconShareAlt'","comment":"","type":"Html"},{"name":"glyphiconShoppingCart'","comment":"","type":"Html"},{"name":"glyphiconSignal'","comment":"","type":"Html"},{"name":"glyphiconSort'","comment":"","type":"Html"},{"name":"glyphiconSortByAlphabet'","comment":"","type":"Html"},{"name":"glyphiconSortByAlphabetAlt'","comment":"","type":"Html"},{"name":"glyphiconSortByAttributes'","comment":"","type":"Html"},{"name":"glyphiconSortByAttributesAlt'","comment":"","type":"Html"},{"name":"glyphiconSortByOrder'","comment":"","type":"Html"},{"name":"glyphiconSortByOrderAlt'","comment":"","type":"Html"},{"name":"glyphiconSound51'","comment":"","type":"Html"},{"name":"glyphiconSound61'","comment":"","type":"Html"},{"name":"glyphiconSound71'","comment":"","type":"Html"},{"name":"glyphiconSoundDolby'","comment":"","type":"Html"},{"name":"glyphiconSoundStereo'","comment":"","type":"Html"},{"name":"glyphiconStar'","comment":"","type":"Html"},{"name":"glyphiconStarEmpty'","comment":"","type":"Html"},{"name":"glyphiconStats'","comment":"","type":"Html"},{"name":"glyphiconStepBackward'","comment":"","type":"Html"},{"name":"glyphiconStepForward'","comment":"","type":"Html"},{"name":"glyphiconStop'","comment":"","type":"Html"},{"name":"glyphiconSubtitles'","comment":"","type":"Html"},{"name":"glyphiconTag'","comment":"","type":"Html"},{"name":"glyphiconTags'","comment":"","type":"Html"},{"name":"glyphiconTasks'","comment":"","type":"Html"},{"name":"glyphiconTextHeight'","comment":"","type":"Html"},{"name":"glyphiconTextWidth'","comment":"","type":"Html"},{"name":"glyphiconTh'","comment":"","type":"Html"},{"name":"glyphiconThLarge'","comment":"","type":"Html"},{"name":"glyphiconThList'","comment":"","type":"Html"},{"name":"glyphiconThumbsDown'","comment":"","type":"Html"},{"name":"glyphiconThumbsUp'","comment":"","type":"Html"},{"name":"glyphiconTime'","comment":"","type":"Html"},{"name":"glyphiconTint'","comment":"","type":"Html"},{"name":"glyphiconTower'","comment":"","type":"Html"},{"name":"glyphiconTransfer'","comment":"","type":"Html"},{"name":"glyphiconTrash'","comment":"","type":"Html"},{"name":"glyphiconTreeConifer'","comment":"","type":"Html"},{"name":"glyphiconTreeDeciduous'","comment":"","type":"Html"},{"name":"glyphiconUnchecked'","comment":"","type":"Html"},{"name":"glyphiconUpload'","comment":"","type":"Html"},{"name":"glyphiconUsd'","comment":"","type":"Html"},{"name":"glyphiconUser'","comment":"","type":"Html"},{"name":"glyphiconVolumeDown'","comment":"","type":"Html"},{"name":"glyphiconVolumeOff'","comment":"","type":"Html"},{"name":"glyphiconVolumeUp'","comment":"","type":"Html"},{"name":"glyphiconWarningSign'","comment":"","type":"Html"},{"name":"glyphiconWrench'","comment":"","type":"Html"},{"name":"glyphiconZoomIn'","comment":"","type":"Html"},{"name":"glyphiconZoomOut'","comment":"","type":"Html"},{"name":"navbarDefaultc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"navbarHeader_","comment":"","type":"List Html -> Html"},{"name":"navbarc","comment":"","type":"ClassString -> List Html -> Html"},{"name":"panelBody_","comment":"","type":"List Html -> Html"},{"name":"panelDefault'","comment":"","type":"TextString -> List ( Maybe Html, TextString ) -> List Html -> Html"},{"name":"panelDefault_","comment":"","type":"List Html -> Html"},{"name":"panelHeading_","comment":"","type":"List Html -> Html"},{"name":"panelTitle'","comment":"","type":"TextString -> Html"},{"name":"row'","comment":"","type":"List Html -> Html"},{"name":"skipNavigation'","comment":"Accessibility - Skip navigation\n\n    body_\n    [ skipNavigation' \"Skip to main content\"\n    , -- ...\n    , sectionc \"container\" \"content\"\n      [ -- ...\n      ]\n    ]","type":"TextString -> Html"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "Bootstrap.Html",
+    "comment": "Shorthand for Bootstrap Html.\n\n# Conventions\nThis package follows similar conventions to those used in [Html.Shorthand](http://package.elm-lang.org/packages/circuithub/elm-html-shorthand/latest).\nOne difference is that canonical elements such as `panelDefault'` may be composites consisting of multiple elements.\n\n# CSS\n\n## Overview\n* Containers\n@docs container',containerFluid'\n\n## Grid system\n* Media queries\n* Grid options\n* Ex: Stacked-to-horizontal\n* Ex: Fluid container\n* Ex: Mobile and desktop\n* Ex: Mobile, tablet, desktop\n* Ex: Column wrapping\n* Responsive column resets\n* Offsetting columns\n* Nesting columns\n* Column ordering\n* Less mixins and variables\n@docs row',colXs',colSm',colMd',colLg'\n\n## Typography\n* Headings\n* Body copy\n* Inline text elements\n* Alignment classes\n* Transformation classes\n* Abbreviations\n* Addresses\n* Blockquotes\n* Lists\n\n## Code\n* Inline\n* User input\n* Basic block\n* Variables\n* Sample output\n\n## Tables\n* Basic example\n* Striped rows\n* Bordered table\n* Hover rows\n* Condensed table\n* Contextual classes\n* Responsive tables\n\n## Forms\n* Basic example\n* Inline form\n* Horizontal form\n* Supported controls\n* Static control\n* Focus state\n* Disabled state\n* Readonly state\n* Validation states\n* Control sizing\n* Help text\n\n## Buttons\n* Options\n* Sizes\n* Active state\n* Disabled state\n* Button tags\n\n## Images\n* Responsive images\n* Image shapes\n\n## Helper classes\n* Contextual colors\n* Contextual backgrounds\n* Close icon\n* Carets\n* Quick floats\n* Center content blocks\n* Clearfix\n* Showing and hiding content\n* Screen reader and keyboard navigation content\n* Image replacement\n@docs skipNavigation'\n\n## Responsive utilities\n* Available classes\n* Print classes\n* Test cases\n\n# Components\n\n## Glyphicons\nGlyphicons Halflings are normally not available for free, but their creator has made them available for [Bootstrap](http://getbootstrap.com/components/#glyphicons) free of cost. As a thank you, please include a link back to [Glyphicons](http://glyphicons.com/) whenever possible.\n\n@docs glyphiconPlusSign',glyphiconAsterisk',glyphiconPlus',glyphiconEuro',glyphiconMinus'\n@docs glyphiconCloud',glyphiconEnvelope',glyphiconPencil',glyphiconGlass',glyphiconMusic'\n@docs glyphiconSearch',glyphiconHeart',glyphiconStar',glyphiconStarEmpty',glyphiconUser'\n@docs glyphiconFilm',glyphiconThLarge',glyphiconTh',glyphiconThList',glyphiconOk',glyphiconRemove'\n@docs glyphiconZoomIn',glyphiconZoomOut',glyphiconOff',glyphiconSignal',glyphiconCog'\n@docs glyphiconTrash',glyphiconHome',glyphiconFile',glyphiconTime',glyphiconRoad'\n@docs glyphiconDownloadAlt',glyphiconDownload',glyphiconUpload',glyphiconInbox'\n@docs glyphiconPlayCircle',glyphiconRepeat',glyphiconRefresh',glyphiconListAlt',glyphiconLock'\n@docs glyphiconFlag',glyphiconHeadphones',glyphiconVolumeOff',glyphiconVolumeDown'\n@docs glyphiconVolumeUp',glyphiconQrcode',glyphiconBarcode',glyphiconTag',glyphiconTags'\n@docs glyphiconBook',glyphiconBookmark',glyphiconPrint',glyphiconCamera',glyphiconFont'\n@docs glyphiconBold',glyphiconItalic',glyphiconTextHeight',glyphiconTextWidth',glyphiconAlignLeft'\n@docs glyphiconAlignCenter',glyphiconAlignRight',glyphiconAlignJustify',glyphiconList'\n@docs glyphiconIndentLeft',glyphiconIndentRight',glyphiconFacetimeVideo',glyphiconPicture'\n@docs glyphiconMapMarker',glyphiconAdjust',glyphiconTint',glyphiconEdit',glyphiconShare'\n@docs glyphiconCheck',glyphiconMove',glyphiconStepBackward',glyphiconFastBackward'\n@docs glyphiconBackward',glyphiconPlay',glyphiconPause',glyphiconStop',glyphiconForward'\n@docs glyphiconFastForward',glyphiconStepForward',glyphiconEject',glyphiconChevronLeft'\n@docs glyphiconChevronRight',glyphiconPlusSign',glyphiconMinusSign',glyphiconRemoveSign'\n@docs glyphiconOkSign',glyphiconQuestionSign',glyphiconInfoSign',glyphiconScreenshot'\n@docs glyphiconRemoveCircle',glyphiconOkCircle',glyphiconBanCircle',glyphiconArrowLeft'\n@docs glyphiconArrowRight',glyphiconArrowUp',glyphiconArrowDown',glyphiconShareAlt'\n@docs glyphiconResizeFull',glyphiconResizeSmall',glyphiconExclamationSign',glyphiconGift'\n@docs glyphiconLeaf',glyphiconFire',glyphiconEyeOpen',glyphiconEyeClose',glyphiconWarningSign'\n@docs glyphiconPlane',glyphiconCalendar',glyphiconRandom',glyphiconComment',glyphiconMagnet'\n@docs glyphiconChevronUp',glyphiconChevronDown',glyphiconRetweet',glyphiconShoppingCart'\n@docs glyphiconFolderClose',glyphiconFolderOpen',glyphiconResizeVertical'\n@docs glyphiconResizeHorizontal',glyphiconHdd',glyphiconBullhorn',glyphiconBell'\n@docs glyphiconCertificate',glyphiconThumbsUp',glyphiconThumbsDown',glyphiconHandRight'\n@docs glyphiconHandLeft',glyphiconHandUp',glyphiconHandDown',glyphiconCircleArrowRight'\n@docs glyphiconCircleArrowLeft',glyphiconCircleArrowUp',glyphiconCircleArrowDown',glyphiconGlobe'\n@docs glyphiconWrench',glyphiconTasks',glyphiconFilter',glyphiconBriefcase',glyphiconFullscreen'\n@docs glyphiconDashboard',glyphiconPaperclip',glyphiconHeartEmpty',glyphiconLink',glyphiconPhone'\n@docs glyphiconPushpin',glyphiconUsd',glyphiconGbp',glyphiconSort',glyphiconSortByAlphabet'\n@docs glyphiconSortByAlphabetAlt',glyphiconSortByOrder',glyphiconSortByOrderAlt'\n@docs glyphiconSortByAttributes',glyphiconSortByAttributesAlt',glyphiconUnchecked',glyphiconExpand'\n@docs glyphiconCollapseDown',glyphiconCollapseUp',glyphiconLogIn',glyphiconFlash',glyphiconLogOut'\n@docs glyphiconNewWindow',glyphiconRecord',glyphiconSave',glyphiconOpen',glyphiconSaved'\n@docs glyphiconImport',glyphiconExport',glyphiconSend',glyphiconFloppyDisk',glyphiconFloppySaved'\n@docs glyphiconFloppyRemove',glyphiconFloppySave',glyphiconFloppyOpen',glyphiconCreditCard'\n@docs glyphiconTransfer',glyphiconCutlery',glyphiconHeader',glyphiconCompressed',glyphiconEarphone'\n@docs glyphiconPhoneAlt',glyphiconTower',glyphiconStats',glyphiconSdVideo',glyphiconHdVideo'\n@docs glyphiconSubtitles',glyphiconSoundStereo',glyphiconSoundDolby',glyphiconSound51'\n@docs glyphiconSound61',glyphiconSound71',glyphiconCopyrightMark',glyphiconRegistrationMark'\n@docs glyphiconCloudDownload',glyphiconCloudUpload',glyphiconTreeConifer',glyphiconTreeDeciduous'\n\n## Dropdowns\n@docs\n* Alignment\n* Headers\n* Divider\n* Disabled menu items\n\n\n## Button groups\n@docs\n* Button toolbar\n* Sizing\n* Nesting\n* Vertical variation\n* Justified button groups\n\n\n## Button dropdowns\n@docs\n* Single button dropdowns\n* Split button dropdowns\n* Sizing\n* Dropup variation\n\n\n## Input groups\n@docs\n* Basic example\n* Sizing\n* Checkbox and radios addons\n* Button addons\n* Buttons with dropdowns\n* Segmented buttons\n\n## Navs\n@docs\n* Tabs\n* Pills\n* Justified\n* Disabled links\n* Using dropdowns\n\n\n## Navbar\n@docs\n* Default navbar\n* Brand image\n* Forms\n* Buttons\n* Text\n* Non-nav links\n* Component alignment\n* Fixed to top\n* Fixed to bottom\n* Static top\n* Inverted navbar\n\n## Breadcrumbs\n@docs\n\n## Pagination\n@docs\n* Default pagination\n* Pager\n\n## Labels\n@docs\n\n## Badges\n@docs\n\n## Jumbotron\n@docs\n\n## Page header\n@docs\n\n## Thumbnails\n@docs\n* Default example\n* Custom content\n\n## Alerts\n@docs\n* Examples\n* Dismissible alerts\n* Links in alerts\n\n## Progress bars\n@docs\n* Basic example\n* With label\n* Low percentages\n* Contextual alternatives\n* Striped\n* Animated\n* Stacked\n\n## Media object\n@docs\n* Default media\n* Media list\n\n## List group\n@docs\n* Basic example\n* Badges\n* Linked items\n* Disabled items\n* Contextual classes\n* Custom content\n\n## Panels\n@docs panelDefault_,panelHeading_,panelBody_\n@docs panelTitle', panelDefault'\n\n* Basic example\n* Panel with heading\n* Contextual alternatives\n* With tables\n* With list groups\n\n## Responsive embed\n@docs\n\n## Wells\n@docs",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "btnXsSuccess'",
+        "comment": "",
+        "type": "( Maybe Html, TextString ) -> Html"
+      },
+      {
+        "name": "btnXsSuccessc",
+        "comment": "",
+        "type": "ClassString -> ( Maybe Html, TextString ) -> Html"
+      },
+      {
+        "name": "colLg'",
+        "comment": "",
+        "type": "Int -> Int -> Int -> Int -> List Html -> Html"
+      },
+      {
+        "name": "colMd'",
+        "comment": "",
+        "type": "Int -> Int -> Int -> List Html -> Html"
+      },
+      {
+        "name": "colSm'",
+        "comment": "",
+        "type": "Int -> Int -> List Html -> Html"
+      },
+      {
+        "name": "colXs'",
+        "comment": "",
+        "type": "Int -> List Html -> Html"
+      },
+      {
+        "name": "container'",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "containerFluid'",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "formGroup_",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "glyphiconAdjust'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconAlignCenter'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconAlignJustify'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconAlignLeft'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconAlignRight'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconArrowDown'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconArrowLeft'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconArrowRight'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconArrowUp'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconAsterisk'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconBackward'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconBanCircle'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconBarcode'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconBell'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconBold'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconBook'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconBookmark'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconBriefcase'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconBullhorn'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCalendar'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCamera'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCertificate'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCheck'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconChevronDown'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconChevronLeft'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconChevronRight'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconChevronUp'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCircleArrowDown'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCircleArrowLeft'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCircleArrowRight'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCircleArrowUp'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCloud'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCloudDownload'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCloudUpload'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCog'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCollapseDown'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCollapseUp'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconComment'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCompressed'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCopyrightMark'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCreditCard'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconCutlery'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconDashboard'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconDownload'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconDownloadAlt'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconEarphone'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconEdit'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconEject'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconEnvelope'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconEuro'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconExclamationSign'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconExpand'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconExport'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconEyeClose'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconEyeOpen'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFacetimeVideo'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFastBackward'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFastForward'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFile'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFilm'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFilter'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFire'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFlag'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFlash'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFloppyDisk'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFloppyOpen'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFloppyRemove'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFloppySave'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFloppySaved'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFolderClose'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFolderOpen'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFont'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconForward'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconFullscreen'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconGbp'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconGift'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconGlass'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconGlobe'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconHandDown'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconHandLeft'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconHandRight'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconHandUp'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconHdVideo'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconHdd'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconHeader'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconHeadphones'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconHeart'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconHeartEmpty'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconHome'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconImport'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconInbox'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconIndentLeft'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconIndentRight'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconInfoSign'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconItalic'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconLeaf'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconLink'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconList'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconListAlt'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconLock'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconLogIn'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconLogOut'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconMagnet'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconMapMarker'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconMinus'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconMinusSign'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconMove'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconMusic'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconNewWindow'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconOff'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconOk'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconOkCircle'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconOkSign'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconOpen'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPaperclip'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPause'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPencil'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPhone'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPhoneAlt'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPicture'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPlane'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPlay'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPlayCircle'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPlus'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPlusSign'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPrint'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconPushpin'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconQrcode'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconQuestionSign'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconRandom'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconRecord'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconRefresh'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconRegistrationMark'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconRemove'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconRemoveCircle'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconRemoveSign'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconRepeat'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconResizeFull'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconResizeHorizontal'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconResizeSmall'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconResizeVertical'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconRetweet'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconRoad'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSave'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSaved'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconScreenshot'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSdVideo'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSearch'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSend'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconShare'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconShareAlt'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconShoppingCart'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSignal'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSort'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSortByAlphabet'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSortByAlphabetAlt'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSortByAttributes'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSortByAttributesAlt'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSortByOrder'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSortByOrderAlt'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSound51'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSound61'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSound71'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSoundDolby'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSoundStereo'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconStar'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconStarEmpty'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconStats'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconStepBackward'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconStepForward'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconStop'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconSubtitles'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTag'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTags'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTasks'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTextHeight'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTextWidth'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTh'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconThLarge'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconThList'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconThumbsDown'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconThumbsUp'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTime'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTint'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTower'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTransfer'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTrash'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTreeConifer'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconTreeDeciduous'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconUnchecked'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconUpload'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconUsd'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconUser'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconVolumeDown'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconVolumeOff'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconVolumeUp'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconWarningSign'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconWrench'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconZoomIn'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "glyphiconZoomOut'",
+        "comment": "",
+        "type": "Html"
+      },
+      {
+        "name": "navbarDefaultc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "navbarHeader_",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "navbarc",
+        "comment": "",
+        "type": "ClassString -> List Html -> Html"
+      },
+      {
+        "name": "panelBody_",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "panelDefault'",
+        "comment": "",
+        "type": "TextString -> List ( Maybe Html, TextString ) -> List Html -> Html"
+      },
+      {
+        "name": "panelDefault_",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "panelHeading_",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "panelTitle'",
+        "comment": "",
+        "type": "TextString -> Html"
+      },
+      {
+        "name": "row'",
+        "comment": "",
+        "type": "List Html -> Html"
+      },
+      {
+        "name": "skipNavigation'",
+        "comment": "Accessibility - Skip navigation\n\n    body_\n    [ skipNavigation' \"Skip to main content\"\n    , -- ...\n    , sectionc \"container\" \"content\"\n      [ -- ...\n      ]\n    ]",
+        "type": "TextString -> Html"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

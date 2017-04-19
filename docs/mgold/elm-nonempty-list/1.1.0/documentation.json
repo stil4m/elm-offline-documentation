@@ -1,1 +1,88 @@
-[{"name":"List.Nonempty","comment":"A list that cannot be empty. The head and tail can be accessed without Maybes.\n\n# Definition\n@docs Nonempty\n\n# Create\n@docs fromElement, fromList\n\n# Retrieve values\n@docs head, tail, toList\n\n# Inspect\nNonempty lists support equality with the usual `(==)` operator.\n@docs isSingleton, length\n\n# Convert\n@docs cons, pop, replaceHead, dropTail, map","aliases":[],"types":[{"name":"Nonempty","comment":"The Nonempty type. Unless you have both a head and tail, you'll normally use the provided interface.","args":["a"],"cases":[["Nonempty",["a","List a"]]]}],"values":[{"name":"cons","comment":"Add another element as the head of the list. Also available infix as\n`(:::)`; be sure to add `exposing ((:::))` to your import.","type":"a -> Nonempty a -> Nonempty a"},{"name":"dropTail","comment":"Replace the tail with the empty list while leaving the head alone.","type":"Nonempty a -> Nonempty a"},{"name":"fromElement","comment":"Create a singleton list with the given element.","type":"a -> Nonempty a"},{"name":"fromList","comment":"Create a nonempty list from an ordinary list, failing on the empty list.","type":"List a -> Maybe (Nonempty a)"},{"name":"head","comment":"Return the head of the list.","type":"Nonempty a -> a"},{"name":"isSingleton","comment":"Determine if the nonempty list has exactly one element.","type":"Nonempty a -> Bool"},{"name":"length","comment":"Find the length of the nonempty list.","type":"Nonempty a -> Int"},{"name":"map","comment":"Map a function over the nonempty list.","type":"(a -> b) -> Nonempty a -> Nonempty b"},{"name":"pop","comment":"Pop and discard the head, or do nothing for a singleton list. Useful if you\nwant to exhaust a list but hang on to the last item indefinitely.","type":"Nonempty a -> Nonempty a"},{"name":"replaceHead","comment":"Exchange the head element while leaving the tail alone.","type":"a -> Nonempty a -> Nonempty a"},{"name":"tail","comment":"Return the tail of the list.","type":"Nonempty a -> List a"},{"name":"toList","comment":"Convert to an ordinary list.","type":"Nonempty a -> List a"}],"generated-with-elm-version":"old"}]
+[
+  {
+    "name": "List.Nonempty",
+    "comment": "A list that cannot be empty. The head and tail can be accessed without Maybes.\n\n# Definition\n@docs Nonempty\n\n# Create\n@docs fromElement, fromList\n\n# Retrieve values\n@docs head, tail, toList\n\n# Inspect\nNonempty lists support equality with the usual `(==)` operator.\n@docs isSingleton, length\n\n# Convert\n@docs cons, pop, replaceHead, dropTail, map",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Nonempty",
+        "comment": "The Nonempty type. Unless you have both a head and tail, you'll normally use the provided interface.",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Nonempty",
+            [
+              "a",
+              "List a"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "cons",
+        "comment": "Add another element as the head of the list. Also available infix as\n`(:::)`; be sure to add `exposing ((:::))` to your import.",
+        "type": "a -> Nonempty a -> Nonempty a"
+      },
+      {
+        "name": "dropTail",
+        "comment": "Replace the tail with the empty list while leaving the head alone.",
+        "type": "Nonempty a -> Nonempty a"
+      },
+      {
+        "name": "fromElement",
+        "comment": "Create a singleton list with the given element.",
+        "type": "a -> Nonempty a"
+      },
+      {
+        "name": "fromList",
+        "comment": "Create a nonempty list from an ordinary list, failing on the empty list.",
+        "type": "List a -> Maybe (Nonempty a)"
+      },
+      {
+        "name": "head",
+        "comment": "Return the head of the list.",
+        "type": "Nonempty a -> a"
+      },
+      {
+        "name": "isSingleton",
+        "comment": "Determine if the nonempty list has exactly one element.",
+        "type": "Nonempty a -> Bool"
+      },
+      {
+        "name": "length",
+        "comment": "Find the length of the nonempty list.",
+        "type": "Nonempty a -> Int"
+      },
+      {
+        "name": "map",
+        "comment": "Map a function over the nonempty list.",
+        "type": "(a -> b) -> Nonempty a -> Nonempty b"
+      },
+      {
+        "name": "pop",
+        "comment": "Pop and discard the head, or do nothing for a singleton list. Useful if you\nwant to exhaust a list but hang on to the last item indefinitely.",
+        "type": "Nonempty a -> Nonempty a"
+      },
+      {
+        "name": "replaceHead",
+        "comment": "Exchange the head element while leaving the tail alone.",
+        "type": "a -> Nonempty a -> Nonempty a"
+      },
+      {
+        "name": "tail",
+        "comment": "Return the tail of the list.",
+        "type": "Nonempty a -> List a"
+      },
+      {
+        "name": "toList",
+        "comment": "Convert to an ordinary list.",
+        "type": "Nonempty a -> List a"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

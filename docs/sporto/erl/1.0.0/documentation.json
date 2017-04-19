@@ -1,1 +1,53 @@
-[{"name":"Erl","comment":"Library for parsing and constructing URLs\n\n# Definition\n@docs Url\n\n# Common Helpers\n@docs extractFragment, extractHost, extractPath, extractProtocol, extractPort, extractQuery, parse","aliases":[{"name":"Url","comment":"Url record that holds url attributes","args":[],"type":"{ host : Erl.Host , fragment : List String , password : String , path : List String , port' : Int , protocol : String , query : Dict.Dict String String , username : String }"}],"types":[],"values":[{"name":"extractFragment","comment":"Extract the fragment (hash) from the url","type":"String -> String"},{"name":"extractHost","comment":"Extract the host from the url","type":"String -> String"},{"name":"extractPath","comment":"Extract the path from the url","type":"String -> String"},{"name":"extractPort","comment":"Extract the port from the url","type":"String -> Int"},{"name":"extractProtocol","comment":"Extract the protocol from the url","type":"String -> String"},{"name":"extractQuery","comment":"Extract the query string from the url","type":"String -> String"},{"name":"parse","comment":"Parse a Url an return a Erl.Url record\n\n    parse \"http://api.example.com/users/1#x/1?a=1\" == Erl.Url{...}","type":"String -> Erl.Url"}],"generated-with-elm-version":"0.15.1"}]
+[
+  {
+    "name": "Erl",
+    "comment": "Library for parsing and constructing URLs\n\n# Definition\n@docs Url\n\n# Common Helpers\n@docs extractFragment, extractHost, extractPath, extractProtocol, extractPort, extractQuery, parse",
+    "aliases": [
+      {
+        "name": "Url",
+        "comment": "Url record that holds url attributes",
+        "args": [],
+        "type": "{ host : Erl.Host , fragment : List String , password : String , path : List String , port' : Int , protocol : String , query : Dict.Dict String String , username : String }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "extractFragment",
+        "comment": "Extract the fragment (hash) from the url",
+        "type": "String -> String"
+      },
+      {
+        "name": "extractHost",
+        "comment": "Extract the host from the url",
+        "type": "String -> String"
+      },
+      {
+        "name": "extractPath",
+        "comment": "Extract the path from the url",
+        "type": "String -> String"
+      },
+      {
+        "name": "extractPort",
+        "comment": "Extract the port from the url",
+        "type": "String -> Int"
+      },
+      {
+        "name": "extractProtocol",
+        "comment": "Extract the protocol from the url",
+        "type": "String -> String"
+      },
+      {
+        "name": "extractQuery",
+        "comment": "Extract the query string from the url",
+        "type": "String -> String"
+      },
+      {
+        "name": "parse",
+        "comment": "Parse a Url an return a Erl.Url record\n\n    parse \"http://api.example.com/users/1#x/1?a=1\" == Erl.Url{...}",
+        "type": "String -> Erl.Url"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]
