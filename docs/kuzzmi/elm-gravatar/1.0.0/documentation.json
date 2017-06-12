@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Gravatar",
+    "comment": " Returns URL or img DOM element for a given `email`,\nuses `options` as query parameters with URL.\nMore about query parameters read at [Gravatar](https://en.gravatar.com/site/implement/images/)\nwebsite.\n\n@docs gravatarImg\n@docs getGravatarUrl\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "getGravatarUrl",
+        "comment": " Returns URL which points to Gravatar for a given `email`\nand using options as query parameters with URL\n\n    getGravatarUrl \"kuzzmi@example.com\" \"?s=200\"\n    -- returns url to 200px x 200px image\n    -- for \"kuzzmi@example.com\" email.\n\n",
+        "type": "String -> String -> String"
+      },
+      {
+        "name": "gravatarImg",
+        "comment": " Returns img DOM element which points to Gravatar for a given `email`\nand using options as query parameters with URL\n\n    gravatarImg \"kuzzmi@example.com\" \"?s=200\"\n    -- returns image node with 200px x 200px image\n    -- for \"kuzzmi@example.com\" email.\n\n",
+        "type": "String -> String -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
