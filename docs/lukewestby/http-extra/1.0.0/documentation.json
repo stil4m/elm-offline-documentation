@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Http.Extra",
+    "comment": " Convenience functions for working with Http\n\n\n# Expects\n\n@docs expectJsonResponse, expectValue, expectNothing\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "expectJsonResponse",
+        "comment": " Decode a response body as JSON, but keep the rest of the response. Unlike\nHttp.expecJson, you can decode using a Decoder but still get access to response\nheaders, status code, etc.\n",
+        "type": "Json.Decode.Decoder a -> Http.Expect (Http.Response a)"
+      },
+      {
+        "name": "expectNothing",
+        "comment": " Complete a request with a `()` value. Skips JSON decoding to always complete\nwith `()`, regardless of what the server returns.\n",
+        "type": "Http.Expect ()"
+      },
+      {
+        "name": "expectValue",
+        "comment": " Complete a request with a predetermined value. Using `Json.Decode.succeed`\nfails when the the server doesn't send back valid JSON, as `expectJson` always\nattempts to parse the response body as JSON. `expectValue` skips decoding\nentirely.\n",
+        "type": "a -> Http.Expect a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
