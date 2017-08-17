@@ -1,0 +1,60 @@
+[
+  {
+    "name": "Dropdown",
+    "comment": " This library provides a dropdown that can deal with items of any type `t`.\nItems are not part of this component's internal model, meaning that there is a\nsingle source of truth: your own `Model`.\nIt sets the selected item by value, rather than by index, which can be useful\nwhen the set of items is dynamic. User selection is communicated by returning\nan Event that contains the selected item.\n\n\n# Types\n\n@docs Dropdown, Event, Msg\n\n\n# Functions\n\n@docs init, update, view\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Dropdown",
+        "comment": " @docs The Dropdown (opaque) model.\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Event",
+        "comment": " @docs Events that are used to communicate changes in state relevant to\nusers of this component.\n",
+        "args": [
+          "t"
+        ],
+        "cases": [
+          [
+            "Unchanged",
+            []
+          ],
+          [
+            "ItemSelected",
+            [
+              "t"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Msg",
+        "comment": " @docs Opaque type representing messages used to change internal state.\n",
+        "args": [
+          "t"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " @docs Initialize a Dropdown.\n",
+        "type": "Dropdown.Dropdown"
+      },
+      {
+        "name": "update",
+        "comment": " @docs Update a Dropdown. Returns the updated Dropdown and an Event\nthat communicates changes that are relevant to the outside world, if\nany (e.g. item selection).\n",
+        "type": "Dropdown.Dropdown -> Dropdown.Msg t -> ( Dropdown.Dropdown, Dropdown.Event t )"
+      },
+      {
+        "name": "view",
+        "comment": " @docs Render a Dropdown using provided items, optional selected item, and\nfunction that returns a string representation of an item.\n",
+        "type": "Dropdown.Dropdown -> List t -> Maybe.Maybe t -> (t -> String) -> Html.Html (Dropdown.Msg t)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
