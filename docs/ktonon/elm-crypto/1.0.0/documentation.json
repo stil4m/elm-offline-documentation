@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Crypto.Hash",
+    "comment": " Secure Hash Algorithms.\n\n@docs sha224, sha256, sha384, sha512\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "sha224",
+        "comment": " Secure Hash Algorithm using 32-bit words and 64 rounds (truncated).\n\n    Crypto.Hash.sha224 \"\"\n    --> \"d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f\"\n\n    Crypto.Hash.sha224 \"The quick brown fox jumps over the lazy dog\"\n    --> \"730e109bd7a8a32b1cb9d9a09aa2325d2430587ddbc0c38bad911525\"\n\n",
+        "type": "String -> String"
+      },
+      {
+        "name": "sha256",
+        "comment": " Secure Hash Algorithm using 32-bit words and 64 rounds.\n\n    Crypto.Hash.sha256 \"\"\n    --> \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"\n\n",
+        "type": "String -> String"
+      },
+      {
+        "name": "sha384",
+        "comment": " Secure Hash Algorithm using 64-bit words and 80 rounds (truncated).\n\n    Crypto.Hash.sha384 \"\"\n    --> \"38b060a751ac96384cd9327eb1b1e36a21fdb71114be07434c0cc7bf63f6e1da274edebfe76f65fbd51ad2f14898b95b\"\n\n",
+        "type": "String -> String"
+      },
+      {
+        "name": "sha512",
+        "comment": " Secure Hash Algorithm using 64-bit words and 80 rounds.\n\n    Crypto.Hash.sha512 \"\"\n    --> \"cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e\"\n\n",
+        "type": "String -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Crypto.HMAC",
+    "comment": " Compute HMAC SHA message digests.\n\n@docs digest, Key, Message\n\n\n## Hash Algorithms\n\n@docs Hash, sha224, sha256, sha384, sha512\n\n",
+    "aliases": [
+      {
+        "name": "Key",
+        "comment": " Secret key\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "Message",
+        "comment": " Message to be hashed\n",
+        "args": [],
+        "type": "String"
+      }
+    ],
+    "types": [
+      {
+        "name": "Hash",
+        "comment": " Type of hash algorithm.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "digest",
+        "comment": " HMAC SHA256 digest.\n\n    Crypto.HMAC.digest sha256 \"key\" \"The quick brown fox jumps over the lazy dog\"\n    --> \"f7bc83f430538424b13298e6aa6fb143ef4d59a14946175997479dbc2d1a3cd8\"\n\n    Crypto.HMAC.digest sha512 \"key\" \"I ❤ cheese\"\n    --> \"a885c96140f95cb0b326306edfba49afbb5d38d3a7ed6ccfd67153429cbd3c56d0c514fcaa53b710bb7ba6cc0dfedfdb4d53795acbeb48eb23aa93e5ce9760dd\"\n\n",
+        "type": "Crypto.HMAC.Hash -> Crypto.HMAC.Key -> Crypto.HMAC.Message -> String"
+      },
+      {
+        "name": "sha224",
+        "comment": " Use SHA224 as the hash algorithm.\n",
+        "type": "Crypto.HMAC.Hash"
+      },
+      {
+        "name": "sha256",
+        "comment": " Use SHA256 as the hash algorithm.\n",
+        "type": "Crypto.HMAC.Hash"
+      },
+      {
+        "name": "sha384",
+        "comment": " Use SHA224 as the hash algorithm.\n",
+        "type": "Crypto.HMAC.Hash"
+      },
+      {
+        "name": "sha512",
+        "comment": " Use SHA256 as the hash algorithm.\n",
+        "type": "Crypto.HMAC.Hash"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
