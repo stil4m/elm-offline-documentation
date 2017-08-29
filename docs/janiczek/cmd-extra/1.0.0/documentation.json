@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Cmd.Extra",
+    "comment": " A library providing pipeline-friendly Cmd operators.\n\n\n# Cmds\n\n@docs withNoCmd, withCmd, addCmd\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "addCmd",
+        "comment": " Adds a new `Cmd` to an existing model-Cmd tuple.\n",
+        "type": "Platform.Cmd.Cmd msg -> ( model, Platform.Cmd.Cmd msg ) -> ( model, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "withCmd",
+        "comment": " Wraps the model with given `Cmd`.\n",
+        "type": "Platform.Cmd.Cmd msg -> model -> ( model, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "withNoCmd",
+        "comment": " Wraps the model with `Cmd.none`.\n",
+        "type": "model -> ( model, Platform.Cmd.Cmd msg )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
