@@ -1,0 +1,71 @@
+[
+  {
+    "name": "Key",
+    "comment": " This library handles the modern event.key event in Elm. See [https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key)\n\n# Definition\n@docs Key\n\n# Events\n@docs onKey, onKeyWithOptions\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Key",
+        "comment": " Keys that can be passed from an event.\n",
+        "args": [],
+        "cases": [
+          [
+            "Key",
+            [
+              "String"
+            ]
+          ],
+          [
+            "Shift",
+            []
+          ],
+          [
+            "Meta",
+            []
+          ],
+          [
+            "Control",
+            []
+          ],
+          [
+            "Alt",
+            []
+          ],
+          [
+            "CapsLock",
+            []
+          ],
+          [
+            "Tab",
+            []
+          ],
+          [
+            "Enter",
+            []
+          ],
+          [
+            "Backspace",
+            []
+          ],
+          [
+            "Esc",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "onKey",
+        "comment": " Capture events for things like text fields or text areas.\nIt grabs the **key** value at `event.key`\n",
+        "type": "(Key.Key -> msg) -> Html.Attribute msg"
+      },
+      {
+        "name": "onKeyWithOptions",
+        "comment": " Capture events for things like text fields or text areas.\nIt grabs the **key** value at `event.key`. Accepts options.\n",
+        "type": "Html.Events.Options -> (Key.Key -> msg) -> Html.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
