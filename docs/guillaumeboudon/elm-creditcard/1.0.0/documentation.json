@@ -1,0 +1,86 @@
+[
+  {
+    "name": "CreditCard",
+    "comment": "\n\n@docs CreditCard\n@docs Valid(..)\n@docs Msg(..)\n@docs initialCreditCard\n@docs updateCreditCard\n@docs displayCardNumber\n\n",
+    "aliases": [
+      {
+        "name": "CreditCard",
+        "comment": " The main model for this package.\n",
+        "args": [],
+        "type": "{ cardHolderNameField : CreditCard.StringFieldWithoutOptions , cardNumberField : CreditCard.StringFieldWithoutOptions , cvcField : CreditCard.StringFieldWithoutOptions , expirationField : CreditCard.Expiration , provider : Maybe.Maybe CreditCard.Provider }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " Updating messages.\n",
+        "args": [],
+        "cases": [
+          [
+            "UpdateCardHolderName",
+            [
+              "String"
+            ]
+          ],
+          [
+            "UpdateCardNumber",
+            [
+              "String"
+            ]
+          ],
+          [
+            "UpdateExpiration",
+            [
+              "String"
+            ]
+          ],
+          [
+            "UpdateCvc",
+            [
+              "String"
+            ]
+          ],
+          [
+            "ValidateCreditCard",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Valid",
+        "comment": " Usually set to NotTested. When testing a field it's set to Tested True or Tested False, depending on the result of the test.\n",
+        "args": [],
+        "cases": [
+          [
+            "NotTested",
+            []
+          ],
+          [
+            "Tested",
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "displayCardNumber",
+        "comment": " The function to display the card number with a space every 4 numbers.\n",
+        "type": "String -> String"
+      },
+      {
+        "name": "initialCreditCard",
+        "comment": " The function to initialize a new credit card model.\n",
+        "type": "CreditCard.CreditCard"
+      },
+      {
+        "name": "updateCreditCard",
+        "comment": " The updating function for this package.\n",
+        "type": "CreditCard.Msg -> CreditCard.CreditCard -> CreditCard.CreditCard"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
