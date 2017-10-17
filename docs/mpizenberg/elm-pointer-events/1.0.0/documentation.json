@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Pointer",
+    "comment": " Handling pointer events.\n\n@docs Event\n\n@docs onDown, onMove, onUp, onWithOptions\n\n@docs eventDecoder\n\n",
+    "aliases": [
+      {
+        "name": "Event",
+        "comment": " Type that get returned by a pointer event.\n",
+        "args": [],
+        "type": "{ isPrimary : Bool, pointerId : Int, pointer : Mouse.Event }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "eventDecoder",
+        "comment": " An Event decoder for pointer events.\n",
+        "type": "Json.Decode.Decoder Pointer.Event"
+      },
+      {
+        "name": "onDown",
+        "comment": " Listen to `pointerdown` events.\n",
+        "type": "(Pointer.Event -> msg) -> Html.Attribute msg"
+      },
+      {
+        "name": "onMove",
+        "comment": " Listen to `pointermove` events.\n",
+        "type": "(Pointer.Event -> msg) -> Html.Attribute msg"
+      },
+      {
+        "name": "onUp",
+        "comment": " Listen to `pointerup` events.\n",
+        "type": "(Pointer.Event -> msg) -> Html.Attribute msg"
+      },
+      {
+        "name": "onWithOptions",
+        "comment": " Choose the mouse event to listen to, and specify the event options.\n",
+        "type": "String -> Html.Events.Options -> (Pointer.Event -> msg) -> Html.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
